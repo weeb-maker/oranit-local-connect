@@ -1,3 +1,5 @@
+import { useTranslation } from "react-i18next";
+import { useParams } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -44,17 +46,21 @@ const deals = [
 ];
 
 const LocalDeals = () => {
+  const { t } = useTranslation();
+  const { lang } = useParams<{ lang: string }>();
+  const currentLang = lang || 'he';
+
   return (
     <section className="py-16 lg:py-24 bg-secondary/30">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12 animate-fade-in">
           <div className="inline-flex items-center gap-2 bg-accent/20 px-4 py-2 rounded-full mb-4">
             <Tag className="h-4 w-4 text-accent" />
-            <span className="text-sm font-medium text-accent-foreground">Local Specials</span>
+            <span className="text-sm font-medium text-accent-foreground">{t("deals.title")}</span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Exclusive Community Offers</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("deals.subtitle")}</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Support local and save! Check out these special deals from your favorite Oranit businesses
+            {t("deals.viewAll")}
           </p>
         </div>
 

@@ -1,0 +1,168 @@
+{
+  "nav": {
+    "home": "Home",
+    "businesses": "Businesses & Services",
+    "whatsOn": "What's On",
+    "residents": "For Residents",
+    "marketplace": "Marketplace",
+    "forBusinesses": "For Businesses",
+    "signIn": "Sign In",
+    "addBusiness": "Add My Business",
+    "shops": "Shops & Retail",
+    "food": "Food & Drink",
+    "professional": "Professional Services",
+    "home": "Home & Repairs",
+    "wellness": "Wellness & Personal Care",
+    "mobility": "Mobility & Transport",
+    "youth": "Youth & Informal Services",
+    "other": "Other / Specialties"
+  },
+  "hero": {
+    "headline": "Find the best local businesses in Oranit",
+    "subtext": "Search, compare, and support your community first",
+    "searchPlaceholder": "What are you looking for?",
+    "categoryPlaceholder": "All Categories",
+    "searchButton": "Search",
+    "exploreButton": "Explore Businesses",
+    "addBusinessButton": "Add Your Business"
+  },
+  "categories": {
+    "title": "Explore Categories",
+    "subtitle": "Discover local businesses and services in your community",
+    "shops": {
+      "title": "Shops & Retail",
+      "description": "Grocery, bakery, gifts, electronics and more"
+    },
+    "food": {
+      "title": "Food & Drink",
+      "description": "Restaurants, cafés, catering and local eateries"
+    },
+    "professional": {
+      "title": "Professional Services",
+      "description": "Lawyers, accountants, consultants and IT services"
+    },
+    "home": {
+      "title": "Home & Repairs",
+      "description": "Handymen, electricians, plumbers and cleaners"
+    },
+    "wellness": {
+      "title": "Wellness & Care",
+      "description": "Hairdressers, beauty, gyms and medical services"
+    },
+    "mobility": {
+      "title": "Mobility & Transport",
+      "description": "Taxis, car repair and ride sharing"
+    },
+    "youth": {
+      "title": "Youth Services",
+      "description": "Babysitting, dog walking and tutoring"
+    },
+    "other": {
+      "title": "Other Services",
+      "description": "Artists, events and specialty services"
+    }
+  },
+  "deals": {
+    "title": "Local Specials & Deals",
+    "subtitle": "Exclusive offers from your neighborhood businesses",
+    "viewAll": "View All Specials",
+    "deal1": {
+      "title": "Pizza Night Special",
+      "business": "Luigi's Pizzeria",
+      "discount": "20% off family size pizzas"
+    },
+    "deal2": {
+      "title": "Fresh Morning Deal",
+      "business": "Corner Bakery",
+      "discount": "Free coffee with pastry purchase"
+    },
+    "deal3": {
+      "title": "Wellness Package",
+      "business": "Harmony Spa",
+      "discount": "15% off spa treatments"
+    }
+  },
+  "events": {
+    "title": "Upcoming Events",
+    "subtitle": "Stay connected with what's happening in Oranit",
+    "viewCalendar": "View Community Calendar",
+    "event1": {
+      "title": "Community Market Day",
+      "date": "May 15, 2025",
+      "location": "Town Square"
+    },
+    "event2": {
+      "title": "Yoga in the Park",
+      "date": "May 18, 2025",
+      "location": "Central Park"
+    },
+    "event3": {
+      "title": "Business Networking Evening",
+      "date": "May 22, 2025",
+      "location": "Community Center"
+    }
+  },
+  "socialProof": {
+    "title": "Trusted by Your Neighbors",
+    "subtitle": "See what your community recommends",
+    "createProfile": "Create Your Profile",
+    "favorites": "favorites"
+  },
+  "howItWorks": {
+    "title": "How It Works",
+    "subtitle": "Three simple steps to discover and support local",
+    "step1": {
+      "title": "Discover",
+      "description": "Browse local businesses and services in your area"
+    },
+    "step2": {
+      "title": "Save & Share",
+      "description": "Create your favorites list and share with neighbors"
+    },
+    "step3": {
+      "title": "Enjoy Benefits",
+      "description": "Get exclusive discounts and trusted recommendations"
+    }
+  },
+  "packages": {
+    "title": "Grow Your Business with Oranit.biz",
+    "subtitle": "Choose the perfect package for your needs",
+    "getStarted": "Get Started",
+    "starter": {
+      "name": "Starter",
+      "price": "Free",
+      "feature1": "Basic listing",
+      "feature2": "Contact information",
+      "feature3": "Category placement",
+      "feature4": "Business hours"
+    },
+    "base": {
+      "name": "Base",
+      "price": "₹99/month",
+      "feature1": "Everything in Starter",
+      "feature2": "Photo gallery",
+      "feature3": "Customer reviews",
+      "feature4": "Special offers",
+      "feature5": "Priority placement"
+    },
+    "extended": {
+      "name": "Extended",
+      "price": "₹199/month",
+      "feature1": "Everything in Base",
+      "feature2": "Featured listing",
+      "feature3": "Social media integration",
+      "feature4": "Analytics dashboard",
+      "feature5": "Event promotion",
+      "feature6": "Premium support"
+    }
+  },
+  "footer": {
+    "tagline": "Supporting Local, Strengthening Oranit",
+    "directory": "Directory",
+    "events": "Events",
+    "marketplace": "Marketplace",
+    "contact": "Contact",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
+  }
+}
