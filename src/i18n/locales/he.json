@@ -158,11 +158,22 @@
   },
   "footer": {
     "tagline": "תומכים במקומי, מחזקים את אורנית",
-    "directory": "מדריך",
-    "events": "אירועים",
+    "brandDescription": "מחברים עסקים מקומיים עם קהילת אורנית. תמכו במקומי, התחזקו ביחד.",
+    "quickLinks": "קישורים מהירים",
+    "directory": "מדריך עסקים",
+    "events": "יומן אירועים",
     "marketplace": "לוח מודעות",
+    "about": "אודותינו",
+    "forBusinesses": "לבעלי עסקים",
+    "addBusiness": "הוספת עסק",
+    "pricing": "מחירים ותוכניות",
+    "successStories": "סיפורי הצלחה",
+    "resources": "משאבים",
+    "support": "תמיכה",
+    "helpCenter": "מרכז עזרה",
     "contact": "צור קשר",
     "privacy": "מדיניות פרטיות",
-    "terms": "תנאי שימוש"
+    "terms": "תנאי שימוש",
+    "copyright": "Oranit.biz. כל הזכויות שמורות."
   }
 }

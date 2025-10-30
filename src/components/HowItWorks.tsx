@@ -1,40 +1,38 @@
+import { useTranslation } from "react-i18next";
 import { Search, Heart, Gift } from "lucide-react";
 
-const steps = [
-  {
-    icon: Search,
-    title: "Discover Local Services",
-    description: "Browse our comprehensive directory of verified Oranit businesses and services. Filter by category, read reviews, and compare options.",
-    color: "from-blue-500/20 to-blue-600/20",
-  },
-  {
-    icon: Heart,
-    title: "Save and Share Favorites",
-    description: "Create your personal list of favorite businesses. Share recommendations with your neighbors and see what others love.",
-    color: "from-pink-500/20 to-pink-600/20",
-  },
-  {
-    icon: Gift,
-    title: "Enjoy Community Benefits",
-    description: "Access exclusive local discounts, special offers, and community events. Support local and get rewarded for it.",
-    color: "from-green-500/20 to-green-600/20",
-  },
-];
-
 const HowItWorks = () => {
+  const { t } = useTranslation();
+
+  const steps = [
+    {
+      icon: Search,
+      color: "from-blue-500/20 to-blue-600/20",
+    },
+    {
+      icon: Heart,
+      color: "from-pink-500/20 to-pink-600/20",
+    },
+    {
+      icon: Gift,
+      color: "from-green-500/20 to-green-600/20",
+    },
+  ];
+
   return (
     <section className="py-16 lg:py-24 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">How Oranit.biz Works</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("howItWorks.title")}</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Three simple steps to connect with your local community and support neighborhood businesses
+            {t("howItWorks.subtitle")}
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-5xl mx-auto">
           {steps.map((step, index) => {
             const Icon = step.icon;
+            const stepKey = `step${index + 1}`;
             return (
               <div 
                 key={index} 
@@ -49,10 +47,10 @@ const HowItWorks = () => {
                   <div className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-primary text-primary-foreground font-bold mb-3">
                     {index + 1}
                   </div>
-                  <h3 className="text-xl font-bold mb-3">{step.title}</h3>
+                  <h3 className="text-xl font-bold mb-3">{t(`howItWorks.${stepKey}.title`)}</h3>
                 </div>
                 
-                <p className="text-muted-foreground">{step.description}</p>
+                <p className="text-muted-foreground">{t(`howItWorks.${stepKey}.description`)}</p>
               </div>
             );
           })}
@@ -61,9 +59,9 @@ const HowItWorks = () => {
         <div className="mt-16 text-center">
           <div className="inline-block bg-secondary/50 rounded-xl p-8 max-w-2xl">
             <p className="text-lg font-medium mb-4">
-              "Since using Oranit.biz, I've discovered so many great local businesses I never knew existed. It's made supporting our community so much easier!"
+              {t("socialProof.subtitle")}
             </p>
-            <p className="text-sm text-muted-foreground">— Local Resident</p>
+            <p className="text-sm text-muted-foreground">— {t("socialProof.title")}</p>
           </div>
         </div>
       </div>

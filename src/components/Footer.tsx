@@ -1,19 +1,24 @@
-import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { useParams } from "react-router-dom";
 import { Store, Facebook, Instagram, Mail } from "lucide-react";
 
 const Footer = () => {
+  const { t } = useTranslation();
+  const { lang } = useParams<{ lang: string }>();
+  const currentLang = lang || 'he';
+
   return (
     <footer className="bg-card border-t border-border py-12 lg:py-16">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {/* Brand */}
           <div>
-            <Link to="/" className="flex items-center gap-2 font-bold text-xl text-primary mb-4">
+            <a href={`/${currentLang}`} className="flex items-center gap-2 font-bold text-xl text-primary mb-4">
               <Store className="h-6 w-6" />
               Oranit.biz
-            </Link>
+            </a>
             <p className="text-sm text-muted-foreground mb-4">
-              Connecting local businesses with the Oranit community. Support local, strengthen together.
+              {t("footer.brandDescription")}
             </p>
             <div className="flex gap-3">
               <a
@@ -43,81 +48,81 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-semibold mb-4">Quick Links</h3>
+            <h3 className="font-semibold mb-4">{t("footer.quickLinks")}</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/directory" className="text-sm text-muted-foreground hover:text-primary transition-smooth">
-                  Business Directory
-                </Link>
+                <a href={`/${currentLang}/directory`} className="text-sm text-muted-foreground hover:text-primary transition-smooth">
+                  {t("footer.directory")}
+                </a>
               </li>
               <li>
-                <Link to="/events" className="text-sm text-muted-foreground hover:text-primary transition-smooth">
-                  Events Calendar
-                </Link>
+                <a href={`/${currentLang}/events`} className="text-sm text-muted-foreground hover:text-primary transition-smooth">
+                  {t("footer.events")}
+                </a>
               </li>
               <li>
-                <Link to="/marketplace" className="text-sm text-muted-foreground hover:text-primary transition-smooth">
-                  Marketplace
-                </Link>
+                <a href={`/${currentLang}/marketplace`} className="text-sm text-muted-foreground hover:text-primary transition-smooth">
+                  {t("footer.marketplace")}
+                </a>
               </li>
               <li>
-                <Link to="/about" className="text-sm text-muted-foreground hover:text-primary transition-smooth">
-                  About Us
-                </Link>
+                <a href={`/${currentLang}/about`} className="text-sm text-muted-foreground hover:text-primary transition-smooth">
+                  {t("footer.about")}
+                </a>
               </li>
             </ul>
           </div>
 
           {/* For Businesses */}
           <div>
-            <h3 className="font-semibold mb-4">For Businesses</h3>
+            <h3 className="font-semibold mb-4">{t("footer.forBusinesses")}</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/add-business" className="text-sm text-muted-foreground hover:text-primary transition-smooth">
-                  Add Your Business
-                </Link>
+                <a href={`/${currentLang}/add-business`} className="text-sm text-muted-foreground hover:text-primary transition-smooth">
+                  {t("footer.addBusiness")}
+                </a>
               </li>
               <li>
-                <Link to="/for-businesses" className="text-sm text-muted-foreground hover:text-primary transition-smooth">
-                  Pricing & Plans
-                </Link>
+                <a href={`/${currentLang}/for-businesses`} className="text-sm text-muted-foreground hover:text-primary transition-smooth">
+                  {t("footer.pricing")}
+                </a>
               </li>
               <li>
-                <Link to="/success-stories" className="text-sm text-muted-foreground hover:text-primary transition-smooth">
-                  Success Stories
-                </Link>
+                <a href={`/${currentLang}/success-stories`} className="text-sm text-muted-foreground hover:text-primary transition-smooth">
+                  {t("footer.successStories")}
+                </a>
               </li>
               <li>
-                <Link to="/business-resources" className="text-sm text-muted-foreground hover:text-primary transition-smooth">
-                  Resources
-                </Link>
+                <a href={`/${currentLang}/business-resources`} className="text-sm text-muted-foreground hover:text-primary transition-smooth">
+                  {t("footer.resources")}
+                </a>
               </li>
             </ul>
           </div>
 
           {/* Support */}
           <div>
-            <h3 className="font-semibold mb-4">Support</h3>
+            <h3 className="font-semibold mb-4">{t("footer.support")}</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/help" className="text-sm text-muted-foreground hover:text-primary transition-smooth">
-                  Help Center
-                </Link>
+                <a href={`/${currentLang}/help`} className="text-sm text-muted-foreground hover:text-primary transition-smooth">
+                  {t("footer.helpCenter")}
+                </a>
               </li>
               <li>
-                <Link to="/contact" className="text-sm text-muted-foreground hover:text-primary transition-smooth">
-                  Contact Us
-                </Link>
+                <a href={`/${currentLang}/contact`} className="text-sm text-muted-foreground hover:text-primary transition-smooth">
+                  {t("footer.contact")}
+                </a>
               </li>
               <li>
-                <Link to="/privacy" className="text-sm text-muted-foreground hover:text-primary transition-smooth">
-                  Privacy Policy
-                </Link>
+                <a href={`/${currentLang}/privacy`} className="text-sm text-muted-foreground hover:text-primary transition-smooth">
+                  {t("footer.privacy")}
+                </a>
               </li>
               <li>
-                <Link to="/terms" className="text-sm text-muted-foreground hover:text-primary transition-smooth">
-                  Terms of Service
-                </Link>
+                <a href={`/${currentLang}/terms`} className="text-sm text-muted-foreground hover:text-primary transition-smooth">
+                  {t("footer.terms")}
+                </a>
               </li>
             </ul>
           </div>
@@ -126,10 +131,10 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-border text-center">
           <p className="text-sm text-muted-foreground mb-2">
-            © {new Date().getFullYear()} Oranit.biz. All rights reserved.
+            © {new Date().getFullYear()} {t("footer.copyright")}
           </p>
           <p className="text-sm font-medium text-primary">
-            Supporting Local, Strengthening Oranit 🌱
+            {t("footer.tagline")} 🌱
           </p>
         </div>
       </div>

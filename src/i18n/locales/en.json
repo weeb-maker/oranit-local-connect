@@ -158,11 +158,22 @@
   },
   "footer": {
     "tagline": "Supporting Local, Strengthening Oranit",
-    "directory": "Directory",
-    "events": "Events",
+    "brandDescription": "Connecting local businesses with the Oranit community. Support local, strengthen together.",
+    "quickLinks": "Quick Links",
+    "directory": "Business Directory",
+    "events": "Events Calendar",
     "marketplace": "Marketplace",
-    "contact": "Contact",
+    "about": "About Us",
+    "forBusinesses": "For Businesses",
+    "addBusiness": "Add Your Business",
+    "pricing": "Pricing & Plans",
+    "successStories": "Success Stories",
+    "resources": "Resources",
+    "support": "Support",
+    "helpCenter": "Help Center",
+    "contact": "Contact Us",
     "privacy": "Privacy Policy",
-    "terms": "Terms of Service"
+    "terms": "Terms of Service",
+    "copyright": "Oranit.biz. All rights reserved."
   }
 }
