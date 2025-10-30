@@ -5,41 +5,41 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Calendar, MapPin, Users } from "lucide-react";
 
-const events = [
+const getEvents = (t: any) => [
   {
-    title: "Community Farmer's Market",
-    date: "Every Sunday",
-    time: "8:00 AM - 12:00 PM",
-    venue: "Town Square",
-    category: "Market",
-    attendees: "50+",
+    titleKey: "events.event1.title",
+    dateKey: "events.event1.date",
+    timeKey: "events.event1.time",
+    venueKey: "events.event1.venue",
+    categoryKey: "events.event1.category",
+    attendeesKey: "events.event1.attendees",
     color: "from-green-500/10 to-green-600/10",
   },
   {
-    title: "Youth Art Workshop",
-    date: "Dec 15, 2024",
-    time: "3:00 PM - 5:00 PM",
-    venue: "Community Center",
-    category: "Workshop",
-    attendees: "20",
+    titleKey: "events.event2.title",
+    dateKey: "events.event2.date",
+    timeKey: "events.event2.time",
+    venueKey: "events.event2.venue",
+    categoryKey: "events.event2.category",
+    attendeesKey: "events.event2.attendees",
     color: "from-purple-500/10 to-purple-600/10",
   },
   {
-    title: "Local Business Networking",
-    date: "Dec 20, 2024",
-    time: "6:00 PM - 8:00 PM",
-    venue: "Café Central",
-    category: "Networking",
-    attendees: "35",
+    titleKey: "events.event3.title",
+    dateKey: "events.event3.date",
+    timeKey: "events.event3.time",
+    venueKey: "events.event3.venue",
+    categoryKey: "events.event3.category",
+    attendeesKey: "events.event3.attendees",
     color: "from-blue-500/10 to-blue-600/10",
   },
   {
-    title: "Holiday Celebration",
-    date: "Dec 25, 2024",
-    time: "5:00 PM - 9:00 PM",
-    venue: "Town Square",
-    category: "Festival",
-    attendees: "200+",
+    titleKey: "events.event4.title",
+    dateKey: "events.event4.date",
+    timeKey: "events.event4.time",
+    venueKey: "events.event4.venue",
+    categoryKey: "events.event4.category",
+    attendeesKey: "events.event4.attendees",
     color: "from-orange-500/10 to-orange-600/10",
   },
 ];
@@ -48,6 +48,7 @@ const UpcomingEvents = () => {
   const { t } = useTranslation();
   const { lang } = useParams<{ lang: string }>();
   const currentLang = lang || 'he';
+  const events = getEvents(t);
 
   return (
     <section className="py-16 lg:py-24 bg-background">
@@ -59,7 +60,7 @@ const UpcomingEvents = () => {
           </div>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("events.subtitle")}</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            {t("events.viewCalendar")}
+            {t("events.description")}
           </p>
         </div>
 
@@ -71,28 +72,28 @@ const UpcomingEvents = () => {
             >
               <CardContent className="p-6">
                 <div className="flex items-start justify-between mb-4">
-                  <Badge variant="secondary">{event.category}</Badge>
+                  <Badge variant="secondary">{t(event.categoryKey)}</Badge>
                   <div className="flex items-center gap-1 text-sm text-muted-foreground">
                     <Users className="h-4 w-4" />
-                    <span>{event.attendees}</span>
+                    <span>{t(event.attendeesKey)}</span>
                   </div>
                 </div>
 
-                <h3 className="text-xl font-bold mb-3">{event.title}</h3>
+                <h3 className="text-xl font-bold mb-3">{t(event.titleKey)}</h3>
 
                 <div className="space-y-2 mb-4">
                   <div className="flex items-center gap-2 text-sm text-muted-foreground">
                     <Calendar className="h-4 w-4" />
-                    <span>{event.date} • {event.time}</span>
+                    <span>{t(event.dateKey)} • {t(event.timeKey)}</span>
                   </div>
                   <div className="flex items-center gap-2 text-sm text-muted-foreground">
                     <MapPin className="h-4 w-4" />
-                    <span>{event.venue}</span>
+                    <span>{t(event.venueKey)}</span>
                   </div>
                 </div>
 
                 <Button variant="outline" className="w-full">
-                  Learn More
+                  {t("events.learnMore")}
                 </Button>
               </CardContent>
             </Card>
@@ -101,7 +102,7 @@ const UpcomingEvents = () => {
 
         <div className="text-center mt-8">
           <Button variant="default" size="lg" asChild>
-            <a href="/events">View Community Calendar</a>
+            <a href={`/${currentLang}/events`}>{t("events.viewCalendar")}</a>
           </Button>
         </div>
       </div>

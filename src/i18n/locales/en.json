@@ -85,21 +85,40 @@
   "events": {
     "title": "Upcoming Events",
     "subtitle": "Stay connected with what's happening in Oranit",
+    "description": "Join your neighbors at upcoming community events",
     "viewCalendar": "View Community Calendar",
+    "learnMore": "Learn More",
     "event1": {
-      "title": "Community Market Day",
-      "date": "May 15, 2025",
-      "location": "Town Square"
+      "title": "Community Farmer's Market",
+      "date": "Every Sunday",
+      "time": "8:00 AM - 12:00 PM",
+      "venue": "Town Square",
+      "category": "Market",
+      "attendees": "50+"
     },
     "event2": {
-      "title": "Yoga in the Park",
-      "date": "May 18, 2025",
-      "location": "Central Park"
+      "title": "Youth Art Workshop",
+      "date": "Dec 15, 2024",
+      "time": "3:00 PM - 5:00 PM",
+      "venue": "Community Center",
+      "category": "Workshop",
+      "attendees": "20"
     },
     "event3": {
-      "title": "Business Networking Evening",
-      "date": "May 22, 2025",
-      "location": "Community Center"
+      "title": "Local Business Networking",
+      "date": "Dec 20, 2024",
+      "time": "6:00 PM - 8:00 PM",
+      "venue": "Café Central",
+      "category": "Networking",
+      "attendees": "35"
+    },
+    "event4": {
+      "title": "Holiday Celebration",
+      "date": "Dec 25, 2024",
+      "time": "5:00 PM - 9:00 PM",
+      "venue": "Town Square",
+      "category": "Festival",
+      "attendees": "200+"
     }
   },
   "socialProof": {
