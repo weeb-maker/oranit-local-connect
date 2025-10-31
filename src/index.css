@@ -32,20 +32,43 @@ html[dir="rtl"] textarea {
   direction: rtl !important;
 }
 
-/* RTL dropdown menu positioning */
+/* RTL dropdown menu positioning and alignment */
 html[dir="rtl"] .dropdown-menu,
 html[dir="rtl"] [data-radix-select-content],
 html[dir="rtl"] [data-radix-dropdown-menu-content],
 html[dir="rtl"] [data-radix-context-menu-content],
 html[dir="rtl"] [data-radix-popover-content] {
   text-align: right !important;
+  direction: rtl !important;
   right: 0 !important;
   left: auto !important;
+}
+
+/* RTL select viewport */
+html[dir="rtl"] [data-radix-select-viewport] {
+  text-align: right !important;
+  direction: rtl !important;
+}
+
+/* RTL select items - FORCE right alignment */
+html[dir="rtl"] [data-radix-select-item] {
+  text-align: right !important;
+  direction: rtl !important;
+  padding-right: 2rem !important;
+  padding-left: 0.5rem !important;
+}
+
+/* RTL select item text */
+html[dir="rtl"] [data-radix-select-item-text] {
+  text-align: right !important;
+  direction: rtl !important;
+  width: 100%;
 }
 
 /* RTL popper content wrapper */
 html[dir="rtl"] [data-radix-popper-content-wrapper] {
   text-align: right !important;
+  direction: rtl !important;
 }
 
 /* RTL dropdown arrow icon flip */
@@ -65,12 +88,6 @@ html[dir="rtl"] .search-input-padding {
   padding-right: 2.5rem !important;
 }
 
-/* RTL select item padding mirror */
-html[dir="rtl"] [data-radix-select-item] {
-  padding-right: 2rem !important;
-  padding-left: 0.5rem !important;
-}
-
 /* RTL checkmark/indicator positioning */
 html[dir="rtl"] [data-radix-select-item-indicator] {
   right: 0.5rem !important;
@@ -87,7 +104,10 @@ html[dir="rtl"] button span + svg {
 /* Ensure LTR is enforced for English */
 html[dir="ltr"] select,
 html[dir="ltr"] [role="combobox"],
-html[dir="ltr"] input {
+html[dir="ltr"] input,
+html[dir="ltr"] [data-radix-select-content],
+html[dir="ltr"] [data-radix-select-item],
+html[dir="ltr"] [data-radix-select-item-text] {
   text-align: left !important;
   direction: ltr !important;
 }
