@@ -6,6 +6,7 @@ import { FilterBar } from "@/components/shared/FilterBar";
 import { BusinessCard } from "@/components/shared/BusinessCard";
 import { Button } from "@/components/ui/button";
 import { getCategoryConfig, getSubcategoryConfig } from "@/lib/categoryConfig";
+import { toEnSlug, toHeSlug } from "@/lib/slugMap";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -39,12 +40,20 @@ const mockBusinesses = [
 ];
 
 const SubcategoryPage = () => {
-  const { t } = useTranslation(['common', 'categories']);
+  const { t, i18n } = useTranslation(['common', 'categories']);
   const { slug, subslug, lang } = useParams<{ slug: string; subslug: string; lang: string }>();
 
+  // Normalize slugs to English for config lookup
+  const normalizedSlug = i18n.language === 'he' && slug 
+    ? toEnSlug('categories', slug) 
+    : slug || "other-services";
+  const normalizedSubslug = i18n.language === 'he' && subslug
+    ? toEnSlug('subcategories', subslug)
+    : subslug || "";
+
   // Get category and subcategory config
-  const categoryConfig = getCategoryConfig(slug || "other-services");
-  const subcategoryConfig = getSubcategoryConfig(slug || "other-services", subslug || "");
+  const categoryConfig = getCategoryConfig(normalizedSlug);
+  const subcategoryConfig = getSubcategoryConfig(normalizedSlug, normalizedSubslug);
   
   const CategoryIcon = categoryConfig.icon;
   const SubcategoryIcon = subcategoryConfig?.icon;
@@ -72,7 +81,7 @@ const SubcategoryPage = () => {
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
-                  <BreadcrumbLink href={`/${lang}/category/${slug}`}>
+                  <BreadcrumbLink href={`/${lang}/category/${i18n.language === 'he' ? toHeSlug('categories', normalizedSlug) : normalizedSlug}`}>
                     {categoryTitle}
                   </BreadcrumbLink>
                 </BreadcrumbItem>
@@ -121,7 +130,7 @@ const SubcategoryPage = () => {
                 {mockBusinesses.length} {t("common:business.businessesFound")}
               </h2>
             </div>
-            <Link to={`/${lang}/category/${slug}`}>
+            <Link to={`/${lang}/category/${i18n.language === 'he' ? toHeSlug('categories', normalizedSlug) : normalizedSlug}`}>
               <Button variant="outline">
                 {lang === 'he' ? '→' : '←'} {categoryTitle}
               </Button>

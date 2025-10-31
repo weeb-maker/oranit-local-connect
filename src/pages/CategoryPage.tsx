@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { getCategoryConfig } from "@/lib/categoryConfig";
 import { loadBusinessFixtures, slugToCamelCase } from "@/lib/businessFixtures";
-import { slugMap } from "@/lib/slugMap";
+import { toEnSlug, toHeSlug } from "@/lib/slugMap";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -24,29 +24,29 @@ const CategoryPage = () => {
   const { slug, lang } = useParams<{ slug: string; lang: string }>();
   const [businesses, setBusinesses] = useState<any[]>([]);
 
-  // Normalize slug to English if it's Hebrew
-  const normalizedSlug = lang === 'he' 
-    ? Object.entries(slugMap.categories).find(([en, he]) => he === slug)?.[0] || slug
-    : slug;
+  // Normalize slug to English if it's Hebrew for config lookup
+  const normalizedSlug = i18n.language === 'he' && slug
+    ? toEnSlug('categories', slug)
+    : slug || "other-services";
   
   // Get category config and convert slug to camelCase key
-  const categoryConfig = getCategoryConfig(normalizedSlug || "other-services");
+  const categoryConfig = getCategoryConfig(normalizedSlug);
   const CategoryIcon = categoryConfig.icon;
-  const categoryKey = slugToCamelCase(normalizedSlug || "other-services");
+  const categoryKey = slugToCamelCase(normalizedSlug);
   
   // Use the top-level category keys for title/description
   const categoryTitle = t(`categories:top.${categoryKey}.title`);
   const categoryDescription = t(`categories:top.${categoryKey}.description`);
 
-  // Load localized business fixtures
+  // Load localized business fixtures using normalized slug
   useEffect(() => {
     const loadData = async () => {
       const locale = i18n.language || lang || "en";
-      const fixtureBusinesses = await loadBusinessFixtures(slug || "other-services", locale);
+      const fixtureBusinesses = await loadBusinessFixtures(normalizedSlug, locale);
       setBusinesses(fixtureBusinesses);
     };
     loadData();
-  }, [slug, lang, i18n.language]);
+  }, [normalizedSlug, lang, i18n.language]);
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -106,10 +106,14 @@ const CategoryPage = () => {
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 {categoryConfig.subcategories.map((subcategory) => {
                   const SubIcon = subcategory.icon;
+                  // Get localized slugs for the link
+                  const localizedCategorySlug = i18n.language === 'he' ? toHeSlug('categories', normalizedSlug) : normalizedSlug;
+                  const localizedSubcategorySlug = i18n.language === 'he' ? toHeSlug('subcategories', subcategory.slug) : subcategory.slug;
+                  
                   return (
                     <Link
                       key={subcategory.slug}
-                      to={`/${lang}/category/${slug}/${subcategory.slug}`}
+                      to={`/${lang}/category/${localizedCategorySlug}/${localizedSubcategorySlug}`}
                     >
                       <Card className="h-full hover:shadow-lg transition-shadow cursor-pointer">
                         <CardContent className="p-6 flex flex-col items-center text-center gap-3">
