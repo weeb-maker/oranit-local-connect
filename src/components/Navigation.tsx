@@ -137,13 +137,24 @@ const Navigation = () => {
           </Button>
         </div>
 
-        {/* Mobile Menu Button */}
-        <button
-          className="lg:hidden p-2 rounded-md hover:bg-accent transition-smooth"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        >
-          {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </button>
+        {/* Mobile Language Switcher & Menu Button */}
+        <div className="lg:hidden flex items-center gap-2">
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={toggleLanguage}
+            className="transition-smooth"
+            title={currentLang === 'en' ? 'עברית' : 'English'}
+          >
+            <Languages className="h-5 w-5" />
+          </Button>
+          <button
+            className="p-2 rounded-md hover:bg-accent transition-smooth"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
+        </div>
       </nav>
 
       {/* Mobile Menu */}
