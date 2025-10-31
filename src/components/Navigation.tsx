@@ -29,14 +29,14 @@ const Navigation = () => {
   };
 
   const categories = [
-    { key: "shops-retail", title: t("nav.shopsRetail"), desc: t("categories.shopsRetail.description") },
-    { key: "food-drink", title: t("nav.foodDrink"), desc: t("categories.foodDrink.description") },
-    { key: "professional-services", title: t("nav.professionalServices"), desc: t("categories.professionalServices.description") },
-    { key: "home-repairs", title: t("nav.homeRepairs"), desc: t("categories.homeRepairs.description") },
-    { key: "wellness-care", title: t("nav.wellnessCare"), desc: t("categories.wellnessCare.description") },
-    { key: "mobility-transport", title: t("nav.mobilityTransport"), desc: t("categories.mobilityTransport.description") },
-    { key: "youth-services", title: t("nav.youthServices"), desc: t("categories.youthServices.description") },
-    { key: "other-services", title: t("nav.otherServices"), desc: t("categories.otherServices.description") },
+    { key: "shops-retail", title: t("top.shopsRetail.title", { ns: "categories" }), desc: t("top.shopsRetail.description", { ns: "categories" }) },
+    { key: "food-drink", title: t("top.foodDrink.title", { ns: "categories" }), desc: t("top.foodDrink.description", { ns: "categories" }) },
+    { key: "professional-services", title: t("top.professionalServices.title", { ns: "categories" }), desc: t("top.professionalServices.description", { ns: "categories" }) },
+    { key: "home-repairs", title: t("top.homeRepairs.title", { ns: "categories" }), desc: t("top.homeRepairs.description", { ns: "categories" }) },
+    { key: "wellness-care", title: t("top.wellnessCare.title", { ns: "categories" }), desc: t("top.wellnessCare.description", { ns: "categories" }) },
+    { key: "mobility-transport", title: t("top.mobilityTransport.title", { ns: "categories" }), desc: t("top.mobilityTransport.description", { ns: "categories" }) },
+    { key: "youth-services", title: t("top.youthServices.title", { ns: "categories" }), desc: t("top.youthServices.description", { ns: "categories" }) },
+    { key: "other-services", title: t("top.otherServices.title", { ns: "categories" }), desc: t("top.otherServices.description", { ns: "categories" }) },
   ];
 
   return (
