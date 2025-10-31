@@ -23,10 +23,10 @@ export const FilterBar = ({
     <div className="bg-card border rounded-lg p-4 space-y-4">
       <div className="flex flex-col md:flex-row gap-3">
         <div className="flex-1 relative">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+          <Search className="absolute top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground ltr:left-3 rtl:right-3 search-icon-left" />
           <Input
             placeholder={t("hero.searchPlaceholder")}
-            className="pl-10"
+            className="ltr:pl-10 rtl:pr-10 search-input-padding"
             onChange={(e) => onSearch?.(e.target.value)}
           />
         </div>

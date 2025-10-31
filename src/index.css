@@ -16,6 +16,36 @@
   --tw-space-x-reverse: 1;
 }
 
+/* RTL Dropdown & Select Fixes */
+[dir="rtl"] select,
+[dir="rtl"] [role="combobox"],
+[dir="rtl"] input[type="search"],
+[dir="rtl"] input[type="text"] {
+  text-align: right;
+}
+
+/* RTL Icon positioning in selects */
+[dir="rtl"] [data-radix-select-trigger] svg {
+  transform: scaleX(-1);
+}
+
+/* RTL Dropdown content alignment */
+[dir="rtl"] [data-radix-select-content],
+[dir="rtl"] [data-radix-popper-content-wrapper] {
+  text-align: right;
+}
+
+/* RTL Search icon positioning */
+[dir="rtl"] .search-icon-left {
+  left: auto;
+  right: 0.75rem;
+}
+
+[dir="rtl"] .search-input-padding {
+  padding-left: 0.75rem;
+  padding-right: 2.5rem;
+}
+
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
 All colors MUST be HSL.
 */
