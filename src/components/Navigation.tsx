@@ -61,7 +61,9 @@ const Navigation = () => {
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuTrigger>{t("nav.businesses")}</NavigationMenuTrigger>
+                <Link to={`/${currentLang}/explore`}>
+                  <NavigationMenuTrigger>{t("nav.businesses")}</NavigationMenuTrigger>
+                </Link>
                 <NavigationMenuContent>
                   <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] bg-popover">
                     {categories.map((item) => (
