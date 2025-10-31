@@ -20,41 +20,49 @@ const FeaturedCategories = () => {
   const categories = [
     {
       key: "shops",
+      slug: "shops-retail",
       icon: ShoppingBag,
       color: "from-green-500/20 to-green-600/20",
     },
     {
       key: "food",
+      slug: "food-drink",
       icon: Coffee,
       color: "from-orange-500/20 to-orange-600/20",
     },
     {
       key: "professional",
+      slug: "professional-services",
       icon: Briefcase,
       color: "from-blue-500/20 to-blue-600/20",
     },
     {
       key: "home",
+      slug: "home-repairs",
       icon: Wrench,
       color: "from-yellow-500/20 to-yellow-600/20",
     },
     {
       key: "wellness",
+      slug: "wellness-care",
       icon: Heart,
       color: "from-pink-500/20 to-pink-600/20",
     },
     {
       key: "mobility",
+      slug: "mobility-transport",
       icon: Car,
       color: "from-purple-500/20 to-purple-600/20",
     },
     {
       key: "youth",
+      slug: "youth-services",
       icon: Users,
       color: "from-cyan-500/20 to-cyan-600/20",
     },
     {
       key: "other",
+      slug: "other-services",
       icon: Sparkles,
       color: "from-indigo-500/20 to-indigo-600/20",
     },
@@ -76,7 +84,7 @@ const FeaturedCategories = () => {
             return (
               <a
                 key={category.key}
-                href={`/${currentLang}/category/${category.key}`}
+                href={`/${currentLang}/category/${category.slug}`}
                 className="group animate-slide-up"
                 style={{ animationDelay: `${index * 50}ms` }}
               >

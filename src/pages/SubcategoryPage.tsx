@@ -62,12 +62,12 @@ const SubcategoryPage = () => {
             <Breadcrumb>
               <BreadcrumbList>
                 <BreadcrumbItem>
-                  <BreadcrumbLink href={`/${lang}`}>{t("nav.home")}</BreadcrumbLink>
+                  <BreadcrumbLink href={`/${lang}`}>{t("common:nav.home")}</BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
                   <BreadcrumbLink href={`/${lang}/explore`}>
-                    {t("nav.businesses")}
+                    {t("common:nav.businesses")}
                   </BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
@@ -118,7 +118,7 @@ const SubcategoryPage = () => {
           <div className="mb-6 flex items-center justify-between">
             <div>
               <h2 className="text-2xl font-semibold mb-2">
-                {mockBusinesses.length} {t("business.businessesFound")}
+                {mockBusinesses.length} {t("common:business.businessesFound")}
               </h2>
             </div>
             <Link to={`/${lang}/category/${slug}`}>
