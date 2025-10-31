@@ -12,6 +12,7 @@ import ExplorePage from "./pages/ExplorePage";
 import AddBusinessPage from "./pages/AddBusinessPage";
 import CategoryPage from "./pages/CategoryPage";
 import BusinessProfilePage from "./pages/BusinessProfilePage";
+import StyleGuidePage from "./pages/StyleGuidePage";
 import "./i18n/config";
 
 const queryClient = new QueryClient();
@@ -41,6 +42,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Navigate to="/he" replace />} />
           <Route path="/:lang" element={<LanguageWrapper><Index /></LanguageWrapper>} />
+          <Route path="/:lang/style-guide" element={<StyleGuidePage />} />
           <Route path="/:lang/search" element={<LanguageWrapper><SearchPage /></LanguageWrapper>} />
           <Route path="/:lang/explore" element={<LanguageWrapper><ExplorePage /></LanguageWrapper>} />
           <Route path="/:lang/add-business" element={<LanguageWrapper><AddBusinessPage /></LanguageWrapper>} />

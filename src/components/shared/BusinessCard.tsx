@@ -28,7 +28,7 @@ export const BusinessCard = ({
   const { lang } = useParams<{ lang: string }>();
 
   return (
-    <Card className="group hover:shadow-smooth-lg transition-smooth h-full">
+    <Card className="group hover-lift h-full">
       <CardHeader className="space-y-3">
         <div className="flex items-start justify-between gap-3">
           <div className="flex items-center gap-3 flex-1">
@@ -41,7 +41,7 @@ export const BusinessCard = ({
               <div className="flex items-center gap-2 mb-1">
                 <CardTitle className="text-lg truncate">{name}</CardTitle>
                 {verified && (
-                  <CheckCircle2 className="w-4 h-4 text-accent flex-shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0" />
                 )}
               </div>
               <Badge variant="secondary" className="text-xs">
@@ -68,7 +68,7 @@ export const BusinessCard = ({
           )}
         </div>
         <Link to={`/${lang}/business/${id}`}>
-          <Button variant="outline" className="w-full group-hover:bg-primary group-hover:text-primary-foreground">
+          <Button variant="outline" className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-base">
             View Profile
           </Button>
         </Link>
