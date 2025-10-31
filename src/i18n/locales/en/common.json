@@ -134,6 +134,59 @@
     "ctaSubtitle": "Join hundreds of local businesses already listed",
     "ctaButton": "Add Your Business"
   },
+  "residents": {
+    "title": "For Residents of Oranit",
+    "subtitle": "Your local hub for updates, services, and community life.",
+    "addPost": "Post on the Notice Board",
+    "findServices": "Find Local Services",
+    "noticeBoard": {
+      "title": "Community Notice Board",
+      "subtitle": "Share and discover neighbourhood updates",
+      "searchPlaceholder": "Search posts...",
+      "categoryPlaceholder": "All categories",
+      "readMore": "Read more",
+      "categories": {
+        "all": "All Posts",
+        "lostFound": "Lost & Found",
+        "services": "Services",
+        "community": "Community",
+        "events": "Events"
+      }
+    },
+    "services": {
+      "title": "Resident Services",
+      "municipality": "Municipality",
+      "emergency": "Emergency",
+      "schools": "Schools",
+      "waste": "Waste Schedule",
+      "transport": "Transportation",
+      "facilities": "Public Facilities"
+    },
+    "clubs": {
+      "title": "Local Clubs & Associations",
+      "subtitle": "Connect with community groups and activities",
+      "joinButton": "Join a Club",
+      "sports": "Oranit Sports Club",
+      "sportsDesc": "Join our active sports community",
+      "arts": "Arts & Culture Society",
+      "artsDesc": "Creative workshops and exhibitions",
+      "youth": "Youth Movement",
+      "youthDesc": "Activities for teens and young adults",
+      "volunteer": "Community Volunteers",
+      "volunteerDesc": "Make a difference in Oranit"
+    },
+    "volunteer": {
+      "title": "Volunteer & Give Back",
+      "description": "Be part of something bigger. Help strengthen our community through volunteering.",
+      "viewButton": "View Opportunities",
+      "startButton": "Start an Initiative"
+    },
+    "footerCta": {
+      "title": "Together we make Oranit stronger",
+      "description": "Join thousands of neighbours building a vibrant, connected community.",
+      "button": "Join the Community Board"
+    }
+  },
   "addBusiness": {
     "title": "Join the Oranit Community",
     "subtitle": "Add your business and connect with local customers",
