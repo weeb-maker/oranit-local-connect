@@ -153,6 +153,20 @@
         "events": "Events"
       }
     },
+    "notices": {
+      "sample1": {
+        "title": "Lost Cat - Fluffy",
+        "desc": "White Persian cat, last seen near the park"
+      },
+      "sample2": {
+        "title": "Babysitting Services Available",
+        "desc": "Experienced babysitter, flexible hours"
+      },
+      "sample3": {
+        "title": "Neighborhood Watch Update",
+        "desc": "New security measures in place"
+      }
+    },
     "services": {
       "title": "Resident Services",
       "municipality": "Municipality",

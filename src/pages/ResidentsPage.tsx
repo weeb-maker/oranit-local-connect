@@ -169,8 +169,8 @@ const ResidentsPage = () => {
                   <div className="flex justify-between items-start mb-2">
                     <Badge variant="secondary">{post.category}</Badge>
                   </div>
-                  <CardTitle className="text-xl">{post.title}</CardTitle>
-                  <CardDescription>{post.description}</CardDescription>
+                  <CardTitle className="text-xl">{t(post.titleKey)}</CardTitle>
+                  <CardDescription>{t(post.descKey)}</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <Button variant="outline" className="w-full">
@@ -193,7 +193,7 @@ const ResidentsPage = () => {
               >
                 <CardContent className="pt-6 pb-6">
                   <service.icon className="h-12 w-12 mx-auto mb-3 text-primary" />
-                  <p className="font-semibold text-sm">{service.label}</p>
+                  <p className="font-semibold text-sm">{t(service.labelKey)}</p>
                 </CardContent>
               </Card>
             ))}
@@ -214,8 +214,8 @@ const ResidentsPage = () => {
                   <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4">
                     <club.icon className="h-8 w-8 text-primary" />
                   </div>
-                  <CardTitle className="text-xl">{club.name}</CardTitle>
-                  <CardDescription>{club.description}</CardDescription>
+                  <CardTitle className="text-xl">{t(club.nameKey)}</CardTitle>
+                  <CardDescription>{t(club.descKey)}</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <Badge>{club.category}</Badge>
