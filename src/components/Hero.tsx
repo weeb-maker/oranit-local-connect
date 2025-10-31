@@ -33,7 +33,7 @@ const Hero = () => {
           </p>
 
           {/* Search Bar */}
-          <div className="bg-white rounded-xl shadow-smooth-lg p-4 mb-8 animate-slide-up">
+          <div className="bg-white rounded-xl shadow-card p-4 mb-8 animate-slide-up">
             <div className="flex flex-col md:flex-row gap-3">
               <Select defaultValue="all">
                 <SelectTrigger className="w-full md:w-[200px] bg-background">
@@ -41,13 +41,13 @@ const Hero = () => {
                 </SelectTrigger>
                 <SelectContent className="bg-popover">
                   <SelectItem value="all">{t("hero.categoryPlaceholder")}</SelectItem>
-                  <SelectItem value="shops">{t("nav.shops")}</SelectItem>
-                  <SelectItem value="food">{t("nav.food")}</SelectItem>
-                  <SelectItem value="professional">{t("nav.professional")}</SelectItem>
-                  <SelectItem value="home">{t("nav.home")}</SelectItem>
-                  <SelectItem value="wellness">{t("nav.wellness")}</SelectItem>
-                  <SelectItem value="transport">{t("nav.mobility")}</SelectItem>
-                  <SelectItem value="youth">{t("nav.youth")}</SelectItem>
+                  <SelectItem value="shops">{t("categories.shops.title")}</SelectItem>
+                  <SelectItem value="food">{t("categories.food.title")}</SelectItem>
+                  <SelectItem value="professional">{t("categories.professional.title")}</SelectItem>
+                  <SelectItem value="home">{t("categories.home.title")}</SelectItem>
+                  <SelectItem value="wellness">{t("categories.wellness.title")}</SelectItem>
+                  <SelectItem value="mobility">{t("categories.mobility.title")}</SelectItem>
+                  <SelectItem value="youth">{t("categories.youth.title")}</SelectItem>
                 </SelectContent>
               </Select>
               
@@ -59,15 +59,15 @@ const Hero = () => {
                 />
               </div>
               
-              <Button size="lg" className="md:w-auto">
-                {t("hero.searchButton")}
+              <Button size="lg" className="md:w-auto" asChild>
+                <a href={`/${currentLang}/search`}>{t("hero.searchButton")}</a>
               </Button>
             </div>
           </div>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-scale-in">
-            <Button variant="hero" size="lg" asChild>
+            <Button variant="default" size="lg" asChild>
               <a href={`/${currentLang}/explore`}>{t("hero.exploreButton")}</a>
             </Button>
             <Button variant="outline" size="lg" asChild>

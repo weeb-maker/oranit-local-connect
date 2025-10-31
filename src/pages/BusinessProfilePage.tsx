@@ -111,10 +111,10 @@ const BusinessProfilePage = () => {
         </section>
 
         {/* Hero Section */}
-        <section className="bg-gradient-hero py-12">
+        <section className="bg-primary py-12">
           <div className="container mx-auto px-4">
             <div className="flex flex-col md:flex-row gap-6 items-start">
-              <div className="w-32 h-32 rounded-2xl overflow-hidden bg-white shadow-smooth-lg flex-shrink-0">
+              <div className="w-32 h-32 rounded-2xl overflow-hidden bg-white shadow-hover flex-shrink-0">
                 <img
                   src={mockBusiness.logo}
                   alt={mockBusiness.name}

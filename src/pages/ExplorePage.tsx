@@ -69,7 +69,7 @@ const ExplorePage = () => {
       <Navigation />
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="bg-gradient-hero py-16">
+        <section className="bg-primary py-16">
           <div className="container mx-auto px-4 text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
               {t("explore.title")}
@@ -110,7 +110,7 @@ const ExplorePage = () => {
 
         {/* CTA Section */}
         <section className="container mx-auto px-4 py-16">
-          <div className="bg-gradient-hero rounded-2xl p-12 text-center text-white">
+          <div className="bg-primary rounded-2xl p-12 text-center text-white">
             <h2 className="text-3xl font-bold mb-4">{t("explore.ctaTitle")}</h2>
             <p className="text-xl mb-8 opacity-90">{t("explore.ctaSubtitle")}</p>
             <Link to={`/${lang}/add-business`}>

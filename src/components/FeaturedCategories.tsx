@@ -76,7 +76,7 @@ const FeaturedCategories = () => {
             return (
               <a
                 key={category.key}
-                href={`/${currentLang}/directory/${category.key}`}
+                href={`/${currentLang}/category/${category.key}`}
                 className="group animate-slide-up"
                 style={{ animationDelay: `${index * 50}ms` }}
               >

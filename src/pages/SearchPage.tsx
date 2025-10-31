@@ -50,8 +50,8 @@ const SearchPage = () => {
     <div className="min-h-screen flex flex-col">
       <Navigation />
       <main className="flex-1">
-        {/* Header */}
-        <section className="bg-gradient-hero py-12">
+        {/* Hero Section */}
+        <section className="bg-primary py-12">
           <div className="container mx-auto px-4">
             <h1 className="text-3xl md:text-4xl font-bold text-white mb-2">
               {t("search.title")}

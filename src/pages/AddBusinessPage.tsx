@@ -25,7 +25,7 @@ const AddBusinessPage = () => {
       <Navigation />
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="bg-gradient-hero py-12">
+        <section className="bg-primary py-12">
           <div className="container mx-auto px-4">
             <h1 className="text-3xl md:text-4xl font-bold text-white mb-2">
               {t("addBusiness.title")}
