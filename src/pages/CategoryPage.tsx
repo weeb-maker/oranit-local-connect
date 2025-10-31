@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { getCategoryConfig } from "@/lib/categoryConfig";
 import { loadBusinessFixtures, slugToCamelCase } from "@/lib/businessFixtures";
+import { slugMap } from "@/lib/slugMap";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -23,10 +24,15 @@ const CategoryPage = () => {
   const { slug, lang } = useParams<{ slug: string; lang: string }>();
   const [businesses, setBusinesses] = useState<any[]>([]);
 
+  // Normalize slug to English if it's Hebrew
+  const normalizedSlug = lang === 'he' 
+    ? Object.entries(slugMap.categories).find(([en, he]) => he === slug)?.[0] || slug
+    : slug;
+  
   // Get category config and convert slug to camelCase key
-  const categoryConfig = getCategoryConfig(slug || "other-services");
+  const categoryConfig = getCategoryConfig(normalizedSlug || "other-services");
   const CategoryIcon = categoryConfig.icon;
-  const categoryKey = slugToCamelCase(slug || "other-services");
+  const categoryKey = slugToCamelCase(normalizedSlug || "other-services");
   
   // Use the top-level category keys for title/description
   const categoryTitle = t(`categories:top.${categoryKey}.title`);
