@@ -120,7 +120,12 @@ const CategoryPage = () => {
                           <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
                             <SubIcon className="w-6 h-6 text-primary" />
                           </div>
-                          <h3 className="font-semibold">{t(subcategory.titleKey, { ns: 'categories' })}</h3>
+                          <div>
+                            <h3 className="font-semibold mb-1">{t(subcategory.titleKey, { ns: 'categories' })}</h3>
+                            <p className="text-sm text-muted-foreground">
+                              0 {t("common:labels.businesses")}
+                            </p>
+                          </div>
                         </CardContent>
                       </Card>
                     </Link>
