@@ -5,27 +5,15 @@ import { CategoryTile } from "@/components/shared/CategoryTile";
 import { BusinessCard } from "@/components/shared/BusinessCard";
 import { Button } from "@/components/ui/button";
 import { Link, useParams } from "react-router-dom";
-import {
-  ShoppingBag,
-  Utensils,
-  Briefcase,
-  Home,
-  Heart,
-  Car,
-  Users,
-  MoreHorizontal,
-} from "lucide-react";
+import { categoryConfig } from "@/lib/categoryConfig";
 
-const categories = [
-  { slug: "shops", titleKey: "categories.shops.title", icon: ShoppingBag, count: 24 },
-  { slug: "food", titleKey: "categories.food.title", icon: Utensils, count: 18 },
-  { slug: "professional", titleKey: "categories.professional.title", icon: Briefcase, count: 32 },
-  { slug: "home", titleKey: "categories.home.title", icon: Home, count: 15 },
-  { slug: "wellness", titleKey: "categories.wellness.title", icon: Heart, count: 12 },
-  { slug: "mobility", titleKey: "categories.mobility.title", icon: Car, count: 8 },
-  { slug: "youth", titleKey: "categories.youth.title", icon: Users, count: 10 },
-  { slug: "other", titleKey: "categories.other.title", icon: MoreHorizontal, count: 6 },
-];
+// Map categoryConfig to the format expected by CategoryTile
+const categories = Object.values(categoryConfig).map((cat) => ({
+  slug: cat.slug,
+  titleKey: cat.titleKey,
+  icon: cat.icon,
+  count: 0, // This would come from actual business counts
+}));
 
 const featuredBusinesses = [
   {
@@ -61,7 +49,7 @@ const featuredBusinesses = [
 ];
 
 const ExplorePage = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation(['common', 'categories']);
   const { lang } = useParams<{ lang: string }>();
 
   return (
@@ -82,13 +70,13 @@ const ExplorePage = () => {
 
         {/* Categories Grid */}
         <section className="container mx-auto px-4 py-16">
-          <h2 className="text-3xl font-bold mb-8">{t("explore.categoriesTitle")}</h2>
+          <h2 className="text-3xl font-bold mb-8">{t("labels.browseByCategory")}</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {categories.map((category) => (
               <CategoryTile
                 key={category.slug}
                 slug={category.slug}
-                title={t(category.titleKey)}
+                title={t(category.titleKey, { ns: 'categories' })}
                 icon={category.icon}
                 count={category.count}
               />

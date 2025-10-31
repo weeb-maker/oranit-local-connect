@@ -1,0 +1,222 @@
+{
+  "nav": {
+    "home": "בית",
+    "businesses": "עסקים ושירותים",
+    "whatsOn": "מה קורה",
+    "residents": "לתושבים",
+    "marketplace": "לוח מודעות",
+    "forBusinesses": "לבעלי עסקים",
+    "signIn": "התחברות",
+    "addBusiness": "הוספת עסק"
+  },
+  "hero": {
+    "headline": "מצאו את העסקים המקומיים הטובים ביותר באורנית",
+    "subtext": "חפשו, השוו ותמכו בקהילה שלכם קודם כל",
+    "searchPlaceholder": "מה אתם מחפשים?",
+    "categoryPlaceholder": "כל הקטגוריות",
+    "searchButton": "חיפוש",
+    "exploreButton": "גלו עסקים",
+    "addBusinessButton": "הוספת עסק שלי"
+  },
+  "buttons": {
+    "addBusiness": "הוסף עסק",
+    "viewAll": "הצג הכל",
+    "back": "חזרה",
+    "viewDetails": "צפה בפרטים",
+    "getStarted": "התחילו",
+    "learnMore": "מידע נוסף"
+  },
+  "labels": {
+    "browseByCategory": "עיון לפי קטגוריה",
+    "subcategories": "עיון בתתי-קטגוריות"
+  },
+  "breadcrumbs": {
+    "home": "בית"
+  },
+  "howItWorks": {
+    "title": "איך זה עובד",
+    "subtitle": "שלושה שלבים פשוטים לגילוי ותמיכה מקומית",
+    "step1": {
+      "title": "גלו",
+      "description": "עיינו בעסקים ושירותים מקומיים באזור שלכם"
+    },
+    "step2": {
+      "title": "שמרו ושתפו",
+      "description": "צרו רשימת מועדפים ושתפו עם השכנים"
+    },
+    "step3": {
+      "title": "ליהנות מהטבות",
+      "description": "קבלו הנחות בלעדיות והמלצות מהימנות"
+    }
+  },
+  "socialProof": {
+    "title": "נבחר על ידי השכנים שלכם",
+    "subtitle": "ראו מה הקהילה ממליצה",
+    "createProfile": "צרו פרופיל",
+    "favorites": "מועדפים"
+  },
+  "packages": {
+    "title": "הגדילו את העסק שלכם עם Oranit.biz",
+    "subtitle": "בחרו את החבילה המושלמת לצרכים שלכם",
+    "getStarted": "התחילו",
+    "starter": {
+      "name": "בסיסי",
+      "price": "חינם",
+      "feature1": "רישום בסיסי",
+      "feature2": "פרטי יצירת קשר",
+      "feature3": "מיקום בקטגוריה",
+      "feature4": "שעות פעילות"
+    },
+    "base": {
+      "name": "בינוני",
+      "price": "₪99/חודש",
+      "feature1": "כל מה שיש בבסיסי",
+      "feature2": "גלריית תמונות",
+      "feature3": "ביקורות לקוחות",
+      "feature4": "הצעות מיוחדות",
+      "feature5": "מיקום בראש הדף"
+    },
+    "extended": {
+      "name": "מורחב",
+      "price": "₪199/חודש",
+      "feature1": "כל מה שיש בבינוני",
+      "feature2": "רישום מודגש",
+      "feature3": "אינטגרציה עם רשתות חברתיות",
+      "feature4": "לוח בקרה אנליטי",
+      "feature5": "קידום אירועים",
+      "feature6": "תמיכה פרמיום"
+    }
+  },
+  "footer": {
+    "tagline": "תומכים במקומי, מחזקים את אורנית",
+    "brandDescription": "מחברים עסקים מקומיים עם קהילת אורנית. תמכו במקומי, התחזקו ביחד.",
+    "quickLinks": "קישורים מהירים",
+    "directory": "מדריך עסקים",
+    "events": "יומן אירועים",
+    "marketplace": "לוח מודעות",
+    "about": "אודותינו",
+    "forBusinesses": "לבעלי עסקים",
+    "addBusiness": "הוספת עסק",
+    "pricing": "מחירים ותוכניות",
+    "successStories": "סיפורי הצלחה",
+    "resources": "משאבים",
+    "support": "תמיכה",
+    "helpCenter": "מרכז עזרה",
+    "contact": "צור קשר",
+    "privacy": "מדיניות פרטיות",
+    "terms": "תנאי שימוש",
+    "copyright": "Oranit.biz. כל הזכויות שמורות."
+  },
+  "search": {
+    "title": "תוצאות חיפוש",
+    "subtitle": "מצא את העסק המקומי המושלם לצרכים שלך",
+    "filterByCategory": "סינון לפי קטגוריה",
+    "allCategories": "כל הקטגוריות",
+    "sortBy": "מיון לפי",
+    "mostRelevant": "הכי רלוונטי",
+    "highestRated": "דירוג גבוה",
+    "alphabetical": "א-ת",
+    "nearest": "הכי קרוב",
+    "resultsFound": "תוצאות נמצאו",
+    "resultsDescription": "מציג עסקים התואמים את החיפוש שלך",
+    "noResults": "לא נמצאו תוצאות",
+    "noResultsDescription": "נסה לשנות את החיפוש או הסינונים. לא מוצא את העסק שלך?",
+    "addYourBusiness": "הוסף את העסק שלך"
+  },
+  "explore": {
+    "title": "גלה עסקים מקומיים",
+    "subtitle": "חקור את כל העסקים והשירותים באורנית",
+    "categoriesTitle": "עיין לפי קטגוריה",
+    "featuredTitle": "עסקים מומלצים",
+    "ctaTitle": "לא רואה את העסק שלך?",
+    "ctaSubtitle": "הצטרף למאות עסקים מקומיים שכבר נרשמו",
+    "ctaButton": "הוסף את העסק שלך"
+  },
+  "addBusiness": {
+    "title": "הצטרף לקהילת אורנית",
+    "subtitle": "הוסף את העסק שלך והתחבר ללקוחות מקומיים",
+    "whyListTitle": "למה לרשום את העסק שלך?",
+    "whyListDescription": "הצטרף לקהילה הגדלה שלנו של עסקים מקומיים",
+    "benefit1": "הגע לאלפי לקוחות מקומיים המחפשים באופן פעיל את השירותים שלך",
+    "benefit2": "בנה אמון עם תגי אימות ומשוב לקוחות",
+    "benefit3": "היוודע באמצעות החיפוש והקטגוריות החזקות שלנו",
+    "benefit4": "עדכן את המידע שלך בכל עת ונהל את הפרופיל שלך בקלות",
+    "formTitle": "פרטי העסק",
+    "formDescription": "מלא את הטופס למטה כדי להוסיף את העסק שלך. כל השדות המסומנים ב-* הם שדות חובה.",
+    "businessName": "שם העסק",
+    "businessNamePlaceholder": "הזן את שם העסק",
+    "category": "קטגוריה",
+    "selectCategory": "בחר קטגוריה",
+    "address": "כתובת",
+    "addressPlaceholder": "כתובת רחוב, אורנית",
+    "contactPerson": "איש קשר",
+    "contactPersonPlaceholder": "שמך",
+    "phone": "מספר טלפון",
+    "email": "כתובת אימייל",
+    "website": "אתר אינטרנט",
+    "description": "תיאור העסק",
+    "descriptionPlaceholder": "ספר לנו על העסק שלך, השירותים ומה שמייחד אותך...",
+    "logo": "לוגו העסק",
+    "uploadLogo": "לחץ להעלאה או גרור ושחרר",
+    "uploadLogoHelp": "PNG, JPG או SVG (מקס' 2MB)",
+    "consent": "אני מסכים/ה לרשום את פרטי העסק שלי באופן פומבי באורנית.ביזנס ומאשר/ת שיש לי את הסמכות לרשום עסק זה.",
+    "submit": "שלח עסק"
+  },
+  "business": {
+    "call": "התקשר",
+    "website": "בקר באתר",
+    "directions": "קבל הוראות הגעה",
+    "share": "שתף",
+    "about": "אודות",
+    "gallery": "גלריה",
+    "reviews": "ביקורות",
+    "reviewsComingSoon": "ביקורות בקרוב",
+    "contact": "פרטי קשר",
+    "address": "כתובת",
+    "phone": "טלפון",
+    "email": "אימייל",
+    "hours": "שעות פתיחה",
+    "claimBusiness": "תבע עסק זה",
+    "relatedBusinesses": "עסקים נוספים בקרבת מקום",
+    "businessesFound": "עסקים נמצאו"
+  },
+  "events": {
+    "title": "אירועים קרובים",
+    "subtitle": "הישארו מחוברים למה שקורה באורנית",
+    "description": "הצטרפו לשכנים שלכם באירועי קהילה קרובים",
+    "viewCalendar": "צפו ביומן הקהילה",
+    "learnMore": "מידע נוסף",
+    "event1": {
+      "title": "שוק איכרים קהילתי",
+      "date": "כל יום ראשון",
+      "time": "08:00 - 12:00",
+      "venue": "כיכר העיר",
+      "category": "שוק",
+      "attendees": "50+"
+    },
+    "event2": {
+      "title": "סדנת אמנות לנוער",
+      "date": "15 בדצמבר, 2024",
+      "time": "15:00 - 17:00",
+      "venue": "מרכז קהילתי",
+      "category": "סדנה",
+      "attendees": "20"
+    },
+    "event3": {
+      "title": "נטוורקינג עסקי מקומי",
+      "date": "20 בדצמבר, 2024",
+      "time": "18:00 - 20:00",
+      "venue": "קפה סנטרל",
+      "category": "נטוורקינג",
+      "attendees": "35"
+    },
+    "event4": {
+      "title": "חגיגת חג",
+      "date": "25 בדצמבר, 2024",
+      "time": "17:00 - 21:00",
+      "venue": "כיכר העיר",
+      "category": "פסטיבל",
+      "attendees": "200+"
+    }
+  }
+}

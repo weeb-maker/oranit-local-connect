@@ -1,0 +1,306 @@
+{
+  "top": {
+    "shopsRetail": {
+      "title": "חנויות וקמעונאות",
+      "desc": "חנויות, בוטיקים ועוד"
+    },
+    "foodDrink": {
+      "title": "אוכל ושתייה",
+      "desc": "מסעדות, בתי קפה, מכולות"
+    },
+    "professionalServices": {
+      "title": "שירותים מקצועיים",
+      "desc": "משפטי, הנהלת חשבונות, IT ועוד"
+    },
+    "homeRepairs": {
+      "title": "בית ותיקונים",
+      "desc": "בעלי מקצוע, תחזוקה ושירותי בית"
+    },
+    "wellnessCare": {
+      "title": "בריאות ורווחה",
+      "desc": "מרפאות, כושר, יופי וטיפול"
+    },
+    "mobilityTransport": {
+      "title": "ניידות ותחבורה",
+      "desc": "תחבורה, השכרות, מוסכים"
+    },
+    "youthServices": {
+      "title": "שירותי נוער",
+      "desc": "פעילויות, חוגים, חונכות"
+    },
+    "otherServices": {
+      "title": "שירותים נוספים",
+      "desc": "אירועים, חיות מחמד, תיירות ועוד"
+    }
+  },
+  "shopsRetail": {
+    "title": "חנויות וקמעונאות",
+    "description": "מכולת, מאפייה, מתנות, אלקטרוניקה ועוד",
+    "subcategories": {
+      "clothingFashion": {
+        "title": "אופנה וביגוד",
+        "description": "חנויות אופנה ובוטיקים"
+      },
+      "homeGoodsFurniture": {
+        "title": "רהיטים ומוצרי בית",
+        "description": "רהיטים ועיצוב הבית"
+      },
+      "electronicsAppliances": {
+        "title": "אלקטרוניקה ומכשירים",
+        "description": "טכנולוגיה ומכשירי חשמל"
+      },
+      "booksStationeryGifts": {
+        "title": "ספרים, כלי כתיבה ומתנות",
+        "description": "ספרים וחנויות מתנות"
+      },
+      "beautyCosmetics": {
+        "title": "יופי וקוסמטיקה",
+        "description": "מוצרי יופי"
+      },
+      "sportsOutdoorEquipment": {
+        "title": "ציוד ספורט ואאוטדור",
+        "description": "ציוד ספורט"
+      },
+      "specialtyBoutiqueStores": {
+        "title": "חנויות יוקרה ובוטיק",
+        "description": "בוטיקים ייחודיים"
+      }
+    }
+  },
+  "foodDrink": {
+    "title": "אוכל ושתייה",
+    "description": "מסעדות, בתי קפה, קייטרינג ומקומות אוכל מקומיים",
+    "subcategories": {
+      "restaurants": {
+        "title": "מסעדות",
+        "description": "שירות מלא"
+      },
+      "cafesCoffeeShops": {
+        "title": "בתי קפה",
+        "description": "בתי קפה"
+      },
+      "takeawayDelivery": {
+        "title": "טייק אווי ומשלוחים",
+        "description": "משלוחי מזון"
+      },
+      "bakeriesPatisseries": {
+        "title": "מאפיות ומזון אפוי",
+        "description": "מאפים טריים"
+      },
+      "barsPubs": {
+        "title": "ברים ומועדונים",
+        "description": "משקאות וחיי לילה"
+      },
+      "groceryStoresMarkets": {
+        "title": "חנויות מכולת ושווקים",
+        "description": "שווקי מזון"
+      },
+      "foodTrucksStreetFood": {
+        "title": "משאיות מזון ואוכל רחוב",
+        "description": "אוכל רחוב"
+      }
+    }
+  },
+  "professionalServices": {
+    "title": "שירותים מקצועיים",
+    "description": "עורכי דין, רואי חשבון, יועצים ושירותי IT",
+    "subcategories": {
+      "legalNotary": {
+        "title": "משפטי ונוטריון",
+        "description": "שירותים משפטיים"
+      },
+      "accountingTaxServices": {
+        "title": "הנהלת חשבונות ושירותי מס",
+        "description": "שירותים פיננסיים"
+      },
+      "marketingDigitalAgencies": {
+        "title": "שיווק וסוכנויות דיגיטל",
+        "description": "סוכנויות שיווק"
+      },
+      "itSoftwareServices": {
+        "title": "שירותי IT ותוכנה",
+        "description": "שירותי טכנולוגיה"
+      },
+      "consultingAdvisory": {
+        "title": "ייעוץ ושירותי ייעוץ",
+        "description": "ייעוץ עסקי"
+      },
+      "architectureEngineering": {
+        "title": "אדריכלות והנדסה",
+        "description": "עיצוב והנדסה"
+      },
+      "recruitmentHr": {
+        "title": "גיוס ומשאבי אנוש",
+        "description": "משאבי אנוש"
+      }
+    }
+  },
+  "homeRepairs": {
+    "title": "בית ותיקונים",
+    "description": "שיפוצניקים, חשמלאים, אינסטלטורים ומנקים",
+    "subcategories": {
+      "generalContractorsBuilders": {
+        "title": "קבלני כללי ובוני מבנים",
+        "description": "קבלני בנייה"
+      },
+      "plumbingHeating": {
+        "title": "אינסטלציה וחימום",
+        "description": "שירותי אינסטלציה"
+      },
+      "electricalServices": {
+        "title": "שירותים חשמליים",
+        "description": "עבודות חשמל"
+      },
+      "paintingDecorating": {
+        "title": "צביעה וקישוט פנים",
+        "description": "שירותי צביעה"
+      },
+      "homeCleaningMaintenance": {
+        "title": "ניקוי ותחזוקת בית",
+        "description": "ניקוי בית"
+      },
+      "landscapingGardenServices": {
+        "title": "שירותי גינון ונוף",
+        "description": "שירותי גן"
+      },
+      "handymanOddJobs": {
+        "title": "שירותים כלליים ושיפוצים קטנים",
+        "description": "תיקונים כלליים"
+      }
+    }
+  },
+  "wellnessCare": {
+    "title": "בריאות ורווחה",
+    "description": "מספרות, יופי, חדרי כושר ושירותים רפואיים",
+    "subcategories": {
+      "medicalClinicsSpecialists": {
+        "title": "מרפאות ומומחים",
+        "description": "שירותי בריאות"
+      },
+      "dentalServices": {
+        "title": "שירותי שיניים",
+        "description": "טיפול שיניים"
+      },
+      "physicalTherapyRehabilitation": {
+        "title": "פיזיותרפיה ושיקום",
+        "description": "שיקום"
+      },
+      "fitnessPersonalTraining": {
+        "title": "כושר ואימון אישי",
+        "description": "חדרי כושר ואימונים"
+      },
+      "beautySpa": {
+        "title": "יופי וספא",
+        "description": "שירותי ספא"
+      },
+      "childcareElderCare": {
+        "title": "טיפול בילדים וקשישים",
+        "description": "שירותי טיפול"
+      },
+      "mentalHealthCounselling": {
+        "title": "בריאות נפש וייעוץ",
+        "description": "ייעוץ"
+      }
+    }
+  },
+  "mobilityTransport": {
+    "title": "ניידות ותחבורה",
+    "description": "מוניות, תיקון רכב ושיתוף נסיעות",
+    "subcategories": {
+      "carRentalSharing": {
+        "title": "השכרת רכב ושיתופיות",
+        "description": "השכרת רכב"
+      },
+      "taxiPrivateHire": {
+        "title": "מוניות והשכרה פרטית",
+        "description": "שירותי מונית"
+      },
+      "bikeScooterRental": {
+        "title": "השכרת אופניים וקטנועים",
+        "description": "אופניים וקטנוע"
+      },
+      "autoRepairServicing": {
+        "title": "תיקון רכב ושירותים",
+        "description": "תיקוני רכב"
+      },
+      "movingRelocationServices": {
+        "title": "שירותי הובלה והתקנה",
+        "description": "הובלה"
+      },
+      "publicTransportShuttle": {
+        "title": "תחבורה ציבורית ושאטלים",
+        "description": "שירותי שאטל"
+      }
+    }
+  },
+  "youthServices": {
+    "title": "שירותי נוער",
+    "description": "שמרטפות, הטיול כלבים ושיעורים פרטיים",
+    "subcategories": {
+      "afterSchoolActivitiesClubs": {
+        "title": "פעילויות ואגודות חוץ-לימודיות",
+        "description": "מועדונים ופעילויות"
+      },
+      "youthSportsRecreation": {
+        "title": "ספורט ופנאי לנוער",
+        "description": "תוכניות ספורט"
+      },
+      "tutorsLearningCentres": {
+        "title": "לימוד ומרכזי הדרכה",
+        "description": "שירותי חינוך"
+      },
+      "childcarePlaygroups": {
+        "title": "טיפול ילדים וקבוצות משחק",
+        "description": "שירותי משפחתון"
+      },
+      "youthCounsellingSupport": {
+        "title": "ייעוץ ותמיכה לנוער",
+        "description": "שירותי תמיכה"
+      },
+      "kidsPartiesEvents": {
+        "title": "מסיבות ואירועים לילדים",
+        "description": "שירותי מסיבות"
+      }
+    }
+  },
+  "otherServices": {
+    "title": "שירותים נוספים",
+    "description": "אמנים, אירועים ושירותים מיוחדים",
+    "subcategories": {
+      "eventPlanningCatering": {
+        "title": "תכנון אירועים וקייטרינג",
+        "description": "אירועים וקייטרינג"
+      },
+      "photographyVideography": {
+        "title": "צילום ווידאו",
+        "description": "צילום ווידאו"
+      },
+      "petServicesGrooming": {
+        "title": "שירותי חיות מחמד וטיפוח",
+        "description": "טיפול בחיות מחמד"
+      },
+      "travelTourismServices": {
+        "title": "שירותי תיירות",
+        "description": "שירותי תיירות"
+      },
+      "nonprofitCommunityOrganisations": {
+        "title": "ארגונים ללא-רווח וקהילה",
+        "description": "ארגוני קהילה"
+      },
+      "miscellaneousGeneralServices": {
+        "title": "שירותים כלליים / מגוונים",
+        "description": "שירותים אחרים"
+      }
+    }
+  },
+  "tags": {
+    "communityHelp": {
+      "title": "עזרה קהילתית ועבודות נוער",
+      "babysitting": "שמרטפות",
+      "dogWalking": "הטיול כלבים",
+      "tutoring": "שיעורים פרטיים",
+      "lawnMowing": "כיסוח דשא",
+      "errands": "שליחויות"
+    }
+  }
+}

@@ -1,0 +1,222 @@
+{
+  "nav": {
+    "home": "Home",
+    "businesses": "Businesses & Services",
+    "whatsOn": "What's On",
+    "residents": "For Residents",
+    "marketplace": "Marketplace",
+    "forBusinesses": "For Businesses",
+    "signIn": "Sign In",
+    "addBusiness": "Add My Business"
+  },
+  "hero": {
+    "headline": "Find the best local businesses in Oranit",
+    "subtext": "Search, compare, and support your community first",
+    "searchPlaceholder": "What are you looking for?",
+    "categoryPlaceholder": "All Categories",
+    "searchButton": "Search",
+    "exploreButton": "Explore Businesses",
+    "addBusinessButton": "Add Your Business"
+  },
+  "buttons": {
+    "addBusiness": "Add Your Business",
+    "viewAll": "View All",
+    "back": "Back",
+    "viewDetails": "View Details",
+    "getStarted": "Get Started",
+    "learnMore": "Learn More"
+  },
+  "labels": {
+    "browseByCategory": "Browse by Category",
+    "subcategories": "Browse Subcategories"
+  },
+  "breadcrumbs": {
+    "home": "Home"
+  },
+  "howItWorks": {
+    "title": "How It Works",
+    "subtitle": "Three simple steps to discover and support local",
+    "step1": {
+      "title": "Discover",
+      "description": "Browse local businesses and services in your area"
+    },
+    "step2": {
+      "title": "Save & Share",
+      "description": "Create your favorites list and share with neighbors"
+    },
+    "step3": {
+      "title": "Enjoy Benefits",
+      "description": "Get exclusive discounts and trusted recommendations"
+    }
+  },
+  "socialProof": {
+    "title": "Trusted by Your Neighbors",
+    "subtitle": "See what your community recommends",
+    "createProfile": "Create Your Profile",
+    "favorites": "favorites"
+  },
+  "packages": {
+    "title": "Grow Your Business with Oranit.biz",
+    "subtitle": "Choose the perfect package for your needs",
+    "getStarted": "Get Started",
+    "starter": {
+      "name": "Starter",
+      "price": "Free",
+      "feature1": "Basic listing",
+      "feature2": "Contact information",
+      "feature3": "Category placement",
+      "feature4": "Business hours"
+    },
+    "base": {
+      "name": "Base",
+      "price": "₪99/month",
+      "feature1": "Everything in Starter",
+      "feature2": "Photo gallery",
+      "feature3": "Customer reviews",
+      "feature4": "Special offers",
+      "feature5": "Priority placement"
+    },
+    "extended": {
+      "name": "Extended",
+      "price": "₪199/month",
+      "feature1": "Everything in Base",
+      "feature2": "Featured listing",
+      "feature3": "Social media integration",
+      "feature4": "Analytics dashboard",
+      "feature5": "Event promotion",
+      "feature6": "Premium support"
+    }
+  },
+  "footer": {
+    "tagline": "Supporting Local, Strengthening Oranit",
+    "brandDescription": "Connecting local businesses with the Oranit community. Support local, strengthen together.",
+    "quickLinks": "Quick Links",
+    "directory": "Business Directory",
+    "events": "Events Calendar",
+    "marketplace": "Marketplace",
+    "about": "About Us",
+    "forBusinesses": "For Businesses",
+    "addBusiness": "Add Your Business",
+    "pricing": "Pricing & Plans",
+    "successStories": "Success Stories",
+    "resources": "Resources",
+    "support": "Support",
+    "helpCenter": "Help Center",
+    "contact": "Contact Us",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "copyright": "Oranit.biz. All rights reserved."
+  },
+  "search": {
+    "title": "Search Results",
+    "subtitle": "Find the perfect local business for your needs",
+    "filterByCategory": "Filter by category",
+    "allCategories": "All categories",
+    "sortBy": "Sort by",
+    "mostRelevant": "Most Relevant",
+    "highestRated": "Highest Rated",
+    "alphabetical": "A-Z",
+    "nearest": "Nearest",
+    "resultsFound": "results found",
+    "resultsDescription": "Showing businesses that match your search",
+    "noResults": "No results found",
+    "noResultsDescription": "Try adjusting your search or filters. Can't find your business?",
+    "addYourBusiness": "Add Your Business"
+  },
+  "explore": {
+    "title": "Discover Local Businesses",
+    "subtitle": "Explore all businesses and services in Oranit",
+    "categoriesTitle": "Browse by Category",
+    "featuredTitle": "Featured Businesses",
+    "ctaTitle": "Don't see your business?",
+    "ctaSubtitle": "Join hundreds of local businesses already listed",
+    "ctaButton": "Add Your Business"
+  },
+  "addBusiness": {
+    "title": "Join the Oranit Community",
+    "subtitle": "Add your business and connect with local customers",
+    "whyListTitle": "Why List Your Business?",
+    "whyListDescription": "Join our growing community of local businesses",
+    "benefit1": "Reach thousands of local customers actively looking for your services",
+    "benefit2": "Build trust with verified business badges and customer reviews",
+    "benefit3": "Get discovered through our powerful search and category features",
+    "benefit4": "Update your information anytime and manage your profile easily",
+    "formTitle": "Business Information",
+    "formDescription": "Fill out the form below to add your business. All fields marked with * are required.",
+    "businessName": "Business Name",
+    "businessNamePlaceholder": "Enter your business name",
+    "category": "Category",
+    "selectCategory": "Select a category",
+    "address": "Address",
+    "addressPlaceholder": "Street address, Oranit",
+    "contactPerson": "Contact Person",
+    "contactPersonPlaceholder": "Your name",
+    "phone": "Phone Number",
+    "email": "Email Address",
+    "website": "Website",
+    "description": "Business Description",
+    "descriptionPlaceholder": "Tell us about your business, services, and what makes you special...",
+    "logo": "Business Logo",
+    "uploadLogo": "Click to upload or drag and drop",
+    "uploadLogoHelp": "PNG, JPG or SVG (max. 2MB)",
+    "consent": "I agree to have my business information listed publicly on Oranit.biz and confirm that I have the authority to list this business.",
+    "submit": "Submit Business"
+  },
+  "business": {
+    "call": "Call",
+    "website": "Visit Website",
+    "directions": "Get Directions",
+    "share": "Share",
+    "about": "About",
+    "gallery": "Gallery",
+    "reviews": "Reviews",
+    "reviewsComingSoon": "Reviews coming soon",
+    "contact": "Contact Information",
+    "address": "Address",
+    "phone": "Phone",
+    "email": "Email",
+    "hours": "Opening Hours",
+    "claimBusiness": "Claim This Business",
+    "relatedBusinesses": "Other Nearby Businesses",
+    "businessesFound": "businesses found"
+  },
+  "events": {
+    "title": "Upcoming Events",
+    "subtitle": "Stay connected with what's happening in Oranit",
+    "description": "Join your neighbors at upcoming community events",
+    "viewCalendar": "View Community Calendar",
+    "learnMore": "Learn More",
+    "event1": {
+      "title": "Community Farmer's Market",
+      "date": "Every Sunday",
+      "time": "8:00 AM - 12:00 PM",
+      "venue": "Town Square",
+      "category": "Market",
+      "attendees": "50+"
+    },
+    "event2": {
+      "title": "Youth Art Workshop",
+      "date": "Dec 15, 2024",
+      "time": "3:00 PM - 5:00 PM",
+      "venue": "Community Center",
+      "category": "Workshop",
+      "attendees": "20"
+    },
+    "event3": {
+      "title": "Local Business Networking",
+      "date": "Dec 20, 2024",
+      "time": "6:00 PM - 8:00 PM",
+      "venue": "Café Central",
+      "category": "Networking",
+      "attendees": "35"
+    },
+    "event4": {
+      "title": "Holiday Celebration",
+      "date": "Dec 25, 2024",
+      "time": "5:00 PM - 9:00 PM",
+      "venue": "Town Square",
+      "category": "Festival",
+      "attendees": "200+"
+    }
+  }
+}

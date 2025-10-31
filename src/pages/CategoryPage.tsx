@@ -56,14 +56,14 @@ const relatedCategories = [
 ];
 
 const CategoryPage = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation(['common', 'categories']);
   const { slug, lang } = useParams<{ slug: string; lang: string }>();
 
   // Get category config
   const categoryConfig = getCategoryConfig(slug || "other");
   const CategoryIcon = categoryConfig.icon;
-  const categoryTitle = t(categoryConfig.titleKey);
-  const categoryDescription = t(categoryConfig.descriptionKey);
+  const categoryTitle = t(categoryConfig.titleKey, { ns: 'categories' });
+  const categoryDescription = t(categoryConfig.descriptionKey, { ns: 'categories' });
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -119,7 +119,7 @@ const CategoryPage = () => {
           {/* Subcategories */}
           {categoryConfig.subcategories && categoryConfig.subcategories.length > 0 && (
             <div className="mb-12">
-              <h2 className="text-2xl font-bold mb-6">{t("category.subcategories")}</h2>
+              <h2 className="text-2xl font-bold mb-6">{t("labels.subcategories")}</h2>
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 {categoryConfig.subcategories.map((subcategory) => {
                   const SubIcon = subcategory.icon;
@@ -133,7 +133,7 @@ const CategoryPage = () => {
                           <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
                             <SubIcon className="w-6 h-6 text-primary" />
                           </div>
-                          <h3 className="font-semibold">{t(subcategory.titleKey)}</h3>
+                          <h3 className="font-semibold">{t(subcategory.titleKey, { ns: 'categories' })}</h3>
                         </CardContent>
                       </Card>
                     </Link>
@@ -146,11 +146,13 @@ const CategoryPage = () => {
           <div className="mb-6 flex items-center justify-between">
             <div>
               <h2 className="text-2xl font-semibold mb-2">
-                {mockBusinesses.length} {t("category.businessesFound")}
+                {mockBusinesses.length} {t("business.businessesFound")}
               </h2>
             </div>
             <Link to={`/${lang}/explore`}>
-              <Button variant="outline">← {t("nav.businesses")}</Button>
+              <Button variant="outline">
+                {lang === 'he' ? '→' : '←'} {t("nav.businesses")}
+              </Button>
             </Link>
           </div>
 

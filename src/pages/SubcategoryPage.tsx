@@ -39,7 +39,7 @@ const mockBusinesses = [
 ];
 
 const SubcategoryPage = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation(['common', 'categories']);
   const { slug, subslug, lang } = useParams<{ slug: string; subslug: string; lang: string }>();
 
   // Get category and subcategory config
@@ -48,9 +48,9 @@ const SubcategoryPage = () => {
   
   const CategoryIcon = categoryConfig.icon;
   const SubcategoryIcon = subcategoryConfig?.icon;
-  const categoryTitle = t(categoryConfig.titleKey);
-  const subcategoryTitle = subcategoryConfig ? t(subcategoryConfig.titleKey) : "";
-  const subcategoryDescription = subcategoryConfig ? t(subcategoryConfig.descriptionKey) : "";
+  const categoryTitle = t(categoryConfig.titleKey, { ns: 'categories' });
+  const subcategoryTitle = subcategoryConfig ? t(subcategoryConfig.titleKey, { ns: 'categories' }) : "";
+  const subcategoryDescription = subcategoryConfig ? t(subcategoryConfig.descriptionKey, { ns: 'categories' }) : "";
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -118,11 +118,13 @@ const SubcategoryPage = () => {
           <div className="mb-6 flex items-center justify-between">
             <div>
               <h2 className="text-2xl font-semibold mb-2">
-                {mockBusinesses.length} {t("category.businessesFound")}
+                {mockBusinesses.length} {t("business.businessesFound")}
               </h2>
             </div>
             <Link to={`/${lang}/category/${slug}`}>
-              <Button variant="outline">← {categoryTitle}</Button>
+              <Button variant="outline">
+                {lang === 'he' ? '→' : '←'} {categoryTitle}
+              </Button>
             </Link>
           </div>
 

@@ -1,0 +1,40 @@
+{
+  "section": {
+    "title": "Local Specials & Deals",
+    "subtitle": "Exclusive offers from your neighborhood businesses",
+    "ctaAll": "View All Specials",
+    "validUntil": "Valid until"
+  },
+  "cards": [
+    {
+      "category": "Food & Drink",
+      "businessName": "Pizzeria Napoli",
+      "offer": "10% off all pizzas",
+      "validUntil": "2025-12-31"
+    },
+    {
+      "category": "Shops & Retail",
+      "businessName": "Green Garden Center",
+      "offer": "Free coffee with any purchase over ₪50",
+      "validUntil": "2025-11-15"
+    },
+    {
+      "category": "Wellness & Care",
+      "businessName": "Oranit Fitness Club",
+      "offer": "First month 50% off",
+      "validUntil": "2025-11-30"
+    },
+    {
+      "category": "Professional Services",
+      "businessName": "Tech Repairs Oranit",
+      "offer": "Free diagnostic with any repair",
+      "validUntil": "2025-02-28"
+    },
+    {
+      "category": "Food & Drink",
+      "businessName": "Café Aroma",
+      "offer": "Buy 5 coffees, get 1 free",
+      "validUntil": "2025-12-31"
+    }
+  ]
+}
