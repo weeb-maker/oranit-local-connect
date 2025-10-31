@@ -29,6 +29,7 @@
   "labels": {
     "browseByCategory": "Browse by Category",
     "subcategories": "Subcategories",
+    "businesses": "businesses",
     "noBusinessesFound": "No businesses found in this category yet"
   },
   "breadcrumbs": {

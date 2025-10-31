@@ -29,6 +29,7 @@
   "labels": {
     "browseByCategory": "עיון לפי קטגוריה",
     "subcategories": "תתי-קטגוריות",
+    "businesses": "עסקים",
     "noBusinessesFound": "לא נמצאו עסקים בקטגוריה זו עדיין"
   },
   "breadcrumbs": {

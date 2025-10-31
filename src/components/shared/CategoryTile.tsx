@@ -1,4 +1,5 @@
 import { Link, useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { Card, CardContent } from "@/components/ui/card";
 import { LucideIcon } from "lucide-react";
 
@@ -10,6 +11,7 @@ interface CategoryTileProps {
 }
 
 export const CategoryTile = ({ slug, title, icon: Icon, count }: CategoryTileProps) => {
+  const { t } = useTranslation(['common']);
   const { lang } = useParams<{ lang: string }>();
 
   return (
@@ -23,7 +25,7 @@ export const CategoryTile = ({ slug, title, icon: Icon, count }: CategoryTilePro
             <h3 className="font-semibold text-lg mb-1">{title}</h3>
             {count !== undefined && (
               <p className="text-sm text-muted-foreground">
-                {count} businesses
+                {count} {t("common:labels.businesses")}
               </p>
             )}
           </div>
