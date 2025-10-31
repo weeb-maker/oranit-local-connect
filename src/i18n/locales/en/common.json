@@ -201,6 +201,88 @@
       "button": "Join the Community Board"
     }
   },
+  "marketplace": {
+    "title": "Marketplace — Local Buy, Sell & Give",
+    "subtitle": "Find great deals or give items a second life — all within Oranit.",
+    "postButton": "Post a Listing",
+    "freeOnly": "View Only Free Items",
+    "view": "View",
+    "empty": "No listings found. Be the first to post!",
+    "badge": {
+      "free": "Free to Collect"
+    },
+    "filters": {
+      "search": "Search marketplace...",
+      "categoryPlaceholder": "All categories",
+      "allCategories": "All Categories",
+      "sortBy": "Sort by",
+      "newest": "Newest First",
+      "priceLow": "Price: Low to High",
+      "priceHigh": "Price: High to Low",
+      "priceType": {
+        "all": "All",
+        "paid": "Paid",
+        "free": "Free"
+      }
+    },
+    "categories": {
+      "furniture": "Furniture",
+      "electronics": "Electronics",
+      "kids": "Kids & Baby",
+      "home": "Home & Garden",
+      "clothing": "Clothing",
+      "sports": "Sports",
+      "vehicles": "Vehicles",
+      "books": "Books",
+      "misc": "Miscellaneous"
+    },
+    "conditions": {
+      "new": "New",
+      "like_new": "Like New",
+      "likeNew": "Like New",
+      "good": "Good",
+      "fair": "Fair"
+    },
+    "postForm": {
+      "title": "Post a Listing",
+      "subtitle": "Share something with your neighbors",
+      "listingTitle": "Listing Title",
+      "titlePlaceholder": "e.g., IKEA Sofa - Great Condition",
+      "category": "Category",
+      "categoryPlaceholder": "Select a category",
+      "priceType": "Listing Type",
+      "price": "Price (₪)",
+      "condition": "Condition",
+      "conditionPlaceholder": "Select condition",
+      "description": "Description",
+      "descriptionPlaceholder": "Describe your item...",
+      "photos": "Photos",
+      "photosHelp": "Upload up to 8 photos (click or drag & drop)",
+      "location": "Location",
+      "locationPlaceholder": "Neighborhood (optional)",
+      "contactOptions": "Contact Options",
+      "whatsapp": "WhatsApp",
+      "call": "Phone Call",
+      "message": "In-App Messages",
+      "agreeRules": "I agree to the marketplace rules and terms",
+      "submit": "Publish Listing"
+    },
+    "detail": {
+      "backToMarketplace": "Back to Marketplace",
+      "description": "Description",
+      "contactSeller": "Contact Seller",
+      "whatsapp": "Message on WhatsApp",
+      "call": "Call",
+      "message": "Send Message",
+      "location": "Location",
+      "similarListings": "Similar Listings"
+    },
+    "rules": {
+      "title": "Marketplace Safety",
+      "link": "View Full Rules"
+    },
+    "safetyNote": "Always meet in public places and inspect items before payment. Never share personal financial information."
+  },
   "addBusiness": {
     "title": "Join the Oranit Community",
     "subtitle": "Add your business and connect with local customers",

@@ -201,6 +201,88 @@
       "button": "הצטרפו ללוח הקהילה"
     }
   },
+  "marketplace": {
+    "title": "לוח יד שנייה — קנייה, מכירה ונתינה",
+    "subtitle": "מצאו מציאות או מסרו פריטים — הכול בתוך אורנית",
+    "postButton": "פרסום מודעה",
+    "freeOnly": "הצג פריטים בחינם",
+    "view": "לפרטים",
+    "empty": "לא נמצאו מודעות. היו הראשונים לפרסם!",
+    "badge": {
+      "free": "חינם לאיסוף"
+    },
+    "filters": {
+      "search": "חיפוש בלוח...",
+      "categoryPlaceholder": "כל הקטגוריות",
+      "allCategories": "כל הקטגוריות",
+      "sortBy": "מיון לפי",
+      "newest": "החדשים ביותר",
+      "priceLow": "מחיר: נמוך לגבוה",
+      "priceHigh": "מחיר: גבוה לנמוך",
+      "priceType": {
+        "all": "הכל",
+        "paid": "בתשלום",
+        "free": "חינם"
+      }
+    },
+    "categories": {
+      "furniture": "רהיטים",
+      "electronics": "אלקטרוניקה",
+      "kids": "ילדים ותינוקות",
+      "home": "בית וגינה",
+      "clothing": "ביגוד",
+      "sports": "ספורט",
+      "vehicles": "כלי רכב",
+      "books": "ספרים",
+      "misc": "שונות"
+    },
+    "conditions": {
+      "new": "חדש",
+      "like_new": "כמעט חדש",
+      "likeNew": "כמעט חדש",
+      "good": "טוב",
+      "fair": "סביר"
+    },
+    "postForm": {
+      "title": "פרסום מודעה",
+      "subtitle": "שתפו משהו עם השכנים",
+      "listingTitle": "כותרת המודעה",
+      "titlePlaceholder": "לדוגמה: ספה איקאה - במצב מעולה",
+      "category": "קטגוריה",
+      "categoryPlaceholder": "בחר קטגוריה",
+      "priceType": "סוג המודעה",
+      "price": "מחיר (₪)",
+      "condition": "מצב",
+      "conditionPlaceholder": "בחר מצב",
+      "description": "תיאור",
+      "descriptionPlaceholder": "תאר את הפריט...",
+      "photos": "תמונות",
+      "photosHelp": "העלה עד 8 תמונות (לחץ או גרור ושחרר)",
+      "location": "מיקום",
+      "locationPlaceholder": "שכונה (אופציונלי)",
+      "contactOptions": "אפשרויות יצירת קשר",
+      "whatsapp": "וואטסאפ",
+      "call": "שיחת טלפון",
+      "message": "הודעות באפליקציה",
+      "agreeRules": "אני מסכים לכללי הלוח והתנאים",
+      "submit": "פרסם מודעה"
+    },
+    "detail": {
+      "backToMarketplace": "חזרה ללוח",
+      "description": "תיאור",
+      "contactSeller": "צור קשר עם המוכר",
+      "whatsapp": "הודעה בוואטסאפ",
+      "call": "התקשר",
+      "message": "שלח הודעה",
+      "location": "מיקום",
+      "similarListings": "מודעות דומות"
+    },
+    "rules": {
+      "title": "בטיחות בלוח",
+      "link": "צפה בכללים המלאים"
+    },
+    "safetyNote": "תמיד להיפגש במקומות ציבוריים ולבדוק פריטים לפני תשלום. לעולם אל תשתפו מידע פיננסי אישי."
+  },
   "addBusiness": {
     "title": "הצטרף לקהילת אורנית",
     "subtitle": "הוסף את העסק שלך והתחבר ללקוחות מקומיים",

@@ -17,6 +17,8 @@ import StyleGuidePage from "./pages/StyleGuidePage";
 import EventsPage from "./pages/EventsPage";
 import EventDetailPage from "./pages/EventDetailPage";
 import ResidentsPage from "./pages/ResidentsPage";
+import MarketplacePage from "./pages/MarketplacePage";
+import MarketplaceDetailPage from "./pages/MarketplaceDetailPage";
 import "./i18n/config";
 
 const queryClient = new QueryClient();
@@ -56,6 +58,8 @@ const App = () => (
           <Route path="/:lang/events" element={<LanguageWrapper><EventsPage /></LanguageWrapper>} />
           <Route path="/:lang/events/:id" element={<LanguageWrapper><EventDetailPage /></LanguageWrapper>} />
           <Route path="/:lang/residents" element={<LanguageWrapper><ResidentsPage /></LanguageWrapper>} />
+          <Route path="/:lang/marketplace" element={<LanguageWrapper><MarketplacePage /></LanguageWrapper>} />
+          <Route path="/:lang/marketplace/:id" element={<LanguageWrapper><MarketplaceDetailPage /></LanguageWrapper>} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
