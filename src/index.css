@@ -16,34 +16,80 @@
   --tw-space-x-reverse: 1;
 }
 
-/* RTL Dropdown & Select Fixes */
-[dir="rtl"] select,
-[dir="rtl"] [role="combobox"],
-[dir="rtl"] input[type="search"],
-[dir="rtl"] input[type="text"] {
-  text-align: right;
+/* ========================================
+   RTL DROPDOWN & SELECT FIXES (GLOBAL)
+   Comprehensive bilingual layout support
+   ======================================== */
+
+/* Base RTL input and select alignment */
+html[dir="rtl"] select,
+html[dir="rtl"] [role="combobox"],
+html[dir="rtl"] input[type="search"],
+html[dir="rtl"] input[type="text"],
+html[dir="rtl"] .select-input,
+html[dir="rtl"] textarea {
+  text-align: right !important;
+  direction: rtl !important;
 }
 
-/* RTL Icon positioning in selects */
-[dir="rtl"] [data-radix-select-trigger] svg {
-  transform: scaleX(-1);
+/* RTL dropdown menu positioning */
+html[dir="rtl"] .dropdown-menu,
+html[dir="rtl"] [data-radix-select-content],
+html[dir="rtl"] [data-radix-dropdown-menu-content],
+html[dir="rtl"] [data-radix-context-menu-content],
+html[dir="rtl"] [data-radix-popover-content] {
+  text-align: right !important;
+  right: 0 !important;
+  left: auto !important;
 }
 
-/* RTL Dropdown content alignment */
-[dir="rtl"] [data-radix-select-content],
-[dir="rtl"] [data-radix-popper-content-wrapper] {
-  text-align: right;
+/* RTL popper content wrapper */
+html[dir="rtl"] [data-radix-popper-content-wrapper] {
+  text-align: right !important;
 }
 
-/* RTL Search icon positioning */
-[dir="rtl"] .search-icon-left {
-  left: auto;
-  right: 0.75rem;
+/* RTL dropdown arrow icon flip */
+html[dir="rtl"] [data-radix-select-trigger] svg,
+html[dir="rtl"] select + svg {
+  transform: scaleX(-1) !important;
 }
 
-[dir="rtl"] .search-input-padding {
-  padding-left: 0.75rem;
-  padding-right: 2.5rem;
+/* RTL padding adjustments for inputs with icons */
+html[dir="rtl"] .search-icon-left {
+  left: auto !important;
+  right: 0.75rem !important;
+}
+
+html[dir="rtl"] .search-input-padding {
+  padding-left: 0.75rem !important;
+  padding-right: 2.5rem !important;
+}
+
+/* RTL select item padding mirror */
+html[dir="rtl"] [data-radix-select-item] {
+  padding-right: 2rem !important;
+  padding-left: 0.5rem !important;
+}
+
+/* RTL checkmark/indicator positioning */
+html[dir="rtl"] [data-radix-select-item-indicator] {
+  right: 0.5rem !important;
+  left: auto !important;
+}
+
+/* RTL button icon spacing */
+html[dir="rtl"] button svg + span,
+html[dir="rtl"] button span + svg {
+  margin-left: 0 !important;
+  margin-right: 0.5rem !important;
+}
+
+/* Ensure LTR is enforced for English */
+html[dir="ltr"] select,
+html[dir="ltr"] [role="combobox"],
+html[dir="ltr"] input {
+  text-align: left !important;
+  direction: ltr !important;
 }
 
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
