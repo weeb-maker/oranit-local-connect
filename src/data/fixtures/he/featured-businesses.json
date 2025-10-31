@@ -1,0 +1,34 @@
+{
+  "businesses": [
+    {
+      "id": "1",
+      "name": "קפה אורנית",
+      "category": "אוכל ושתייה",
+      "description": "בית קפה שכונתי נעים המגיש מאפים טריים וקפה איכותי",
+      "logo": "https://images.unsplash.com/photo-1559305616-3f99cd43e353?w=100&h=100&fit=crop",
+      "rating": 4.8,
+      "verified": true,
+      "location": "רחוב ראשי, אורנית"
+    },
+    {
+      "id": "2",
+      "name": "גינון האגודל הירוק",
+      "category": "שירותי בית",
+      "description": "שירותי גינון מקצועיים ותחזוקת גינות",
+      "logo": "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=100&h=100&fit=crop",
+      "rating": 4.6,
+      "verified": true,
+      "location": "אורנית"
+    },
+    {
+      "id": "3",
+      "name": "מרפאת השיניים אורנית",
+      "category": "בריאות ורווחה",
+      "description": "רפואת שיניים משפחתית עם ציוד מודרני וטיפול עדין",
+      "logo": "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=100&h=100&fit=crop",
+      "rating": 4.9,
+      "verified": true,
+      "location": "מרכז רפואי, אורנית"
+    }
+  ]
+}
