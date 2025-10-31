@@ -283,6 +283,139 @@
     },
     "safetyNote": "Always meet in public places and inspect items before payment. Never share personal financial information."
   },
+  "businesses": {
+    "title": "For Local Businesses & Professionals",
+    "subtitle": "Get discovered by residents, promote offers, and grow locally.",
+    "cta": {
+      "add": "Add Your Business",
+      "contact": "Talk to Us"
+    },
+    "values": {
+      "localVisibility": "Local Visibility",
+      "localVisibilityDesc": "Reach residents actively searching for services in Oranit.",
+      "bilingual": "Bilingual Reach",
+      "bilingualDesc": "Connect with both Hebrew and English-speaking community members.",
+      "searchable": "Searchable Profiles",
+      "searchableDesc": "Customers find you by category, service, or keyword.",
+      "promotions": "Promotions & Deals",
+      "promotionsDesc": "Highlight special offers and events directly on your profile."
+    },
+    "pricing": {
+      "title": "Choose Your Plan",
+      "subtitle": "Start free or go premium for maximum visibility.",
+      "popular": "Most Popular",
+      "free": "Free",
+      "perMonth": "month",
+      "perYear": "year"
+    },
+    "billing": {
+      "monthly": "Monthly",
+      "annual": "Annual",
+      "save": "Save 17%",
+      "perMonth": "mo",
+      "perYear": "yr"
+    },
+    "tiers": {
+      "free": {
+        "name": "Starter",
+        "feature1": "Basic business profile",
+        "feature2": "Listed in 1 category",
+        "feature3": "Contact details (phone, email)"
+      },
+      "basic": {
+        "name": "Standard",
+        "feature1": "Photo gallery (up to 8 images)",
+        "feature2": "List in up to 3 categories",
+        "feature3": "Website & WhatsApp links",
+        "feature4": "Respond to reviews"
+      },
+      "premium": {
+        "name": "Premium (Featured)",
+        "feature1": "Priority placement in category",
+        "feature2": "Homepage highlight rotation",
+        "feature3": "Promo banner in category pages",
+        "feature4": "Advanced analytics",
+        "feature5": "Dedicated support"
+      }
+    },
+    "choosePlan": "Choose Plan",
+    "how": {
+      "title": "How It Works",
+      "step1": "Create your profile with photos and services",
+      "step2": "Verify your contact info",
+      "step3": "Get published and start receiving inquiries",
+      "step4": "Optional: Upgrade for featured visibility"
+    },
+    "sponsor": {
+      "badge": "Boost Visibility",
+      "title": "Sponsorship & Promotion Options",
+      "subtitle": "Stand out with premium placements across the platform.",
+      "featured": "Featured Listings",
+      "featuredDesc": "Top placement in your category with a highlighted badge.",
+      "homepage": "Homepage Banner",
+      "homepageDesc": "Rotating hero placement on the main homepage.",
+      "events": "Event Sponsorship",
+      "eventsDesc": "Sponsor community events and get brand visibility.",
+      "marketplace": "Marketplace Ads",
+      "marketplaceDesc": "Promote your products or services in the local marketplace.",
+      "cta": "Request Sponsorship Info"
+    },
+    "success": {
+      "title": "Success Stories",
+      "card1": {
+        "quote": "Within a month, we got 30+ inquiries from local residents. Oranit.biz is a game changer!",
+        "name": "David Cohen",
+        "role": "Owner, Cohen Plumbing"
+      },
+      "card2": {
+        "quote": "The bilingual platform helped us reach both English and Hebrew speakers. Highly recommend!",
+        "name": "Rachel Levy",
+        "role": "Manager, Levy Salon"
+      },
+      "card3": {
+        "quote": "Being featured on the homepage doubled our calls. Best investment for local marketing.",
+        "name": "Yossi Ben-David",
+        "role": "Director, Ben-David Electricals"
+      }
+    },
+    "resources": {
+      "title": "Resources & Guides",
+      "reviews": "Managing Reviews",
+      "reviewsDesc": "Best practices for responding to customer feedback.",
+      "events": "Hosting Local Events",
+      "eventsDesc": "How to promote your business through community events.",
+      "profileTips": "Optimizing Your Profile",
+      "profileTipsDesc": "Tips to make your listing stand out and convert.",
+      "download": "Download Guide"
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "q1": "How long does approval take?",
+      "a1": "Most profiles are reviewed and approved within 24-48 hours.",
+      "q2": "Can I switch plans later?",
+      "a2": "Yes! You can upgrade or downgrade at any time. Changes take effect on the next billing cycle.",
+      "q3": "What does 'Featured' placement mean?",
+      "a3": "Featured businesses appear at the top of category results and on the homepage rotation.",
+      "q4": "Do you offer annual invoicing?",
+      "a4": "Yes, annual plans are billed once per year and include a 17% discount."
+    },
+    "contact": {
+      "title": "Get in Touch",
+      "subtitle": "Have questions? Want to discuss sponsorship or custom plans? We're here to help.",
+      "name": "Your Name",
+      "businessName": "Business Name",
+      "email": "Email",
+      "phone": "Phone",
+      "message": "Message",
+      "submit": "Send Message",
+      "success": "Message sent!",
+      "successDesc": "We'll get back to you within 24 hours."
+    },
+    "footer": {
+      "text": "Ready to meet your next local customer?",
+      "cta": "Add Your Business Now"
+    }
+  },
   "addBusiness": {
     "title": "Join the Oranit Community",
     "subtitle": "Add your business and connect with local customers",
