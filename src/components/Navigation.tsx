@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { Link, useParams, useNavigate, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown, Store, Languages } from "lucide-react";
+import { switchLocalePath } from "@/lib/slugMap";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -17,11 +18,14 @@ const Navigation = () => {
   const { t, i18n } = useTranslation();
   const { lang } = useParams<{ lang: string }>();
   const navigate = useNavigate();
+  const location = useLocation();
   const currentLang = lang || 'he';
 
   const toggleLanguage = () => {
     const newLang = currentLang === 'en' ? 'he' : 'en';
-    navigate(`/${newLang}`);
+    const currentFullPath = `${location.pathname}${location.search}${location.hash}`;
+    const newPath = switchLocalePath(currentFullPath, currentLang, newLang);
+    navigate(newPath, { replace: false });
   };
 
   const categories = [
@@ -64,7 +68,7 @@ const Navigation = () => {
                       <li key={item.key}>
                         <NavigationMenuLink asChild>
                           <Link
-                            to={`/${currentLang}/directory/${item.key}`}
+                            to={`/${currentLang}/category/${item.key}`}
                             className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-smooth hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                           >
                             <div className="text-sm font-medium leading-none">{item.title}</div>
@@ -149,7 +153,7 @@ const Navigation = () => {
             <Link to={`/${currentLang}`} className="px-4 py-2 rounded-md hover:bg-accent transition-smooth">
               {t("nav.home")}
             </Link>
-            <Link to={`/${currentLang}/directory`} className="px-4 py-2 rounded-md hover:bg-accent transition-smooth">
+            <Link to={`/${currentLang}/explore`} className="px-4 py-2 rounded-md hover:bg-accent transition-smooth">
               {t("nav.businesses")}
             </Link>
             <Link to={`/${currentLang}/events`} className="px-4 py-2 rounded-md hover:bg-accent transition-smooth">
