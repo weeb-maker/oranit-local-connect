@@ -32,7 +32,7 @@ const Navigation = () => {
     { key: "shops", title: t("nav.shops"), desc: t("categories.shops.description") },
     { key: "food", title: t("nav.food"), desc: t("categories.food.description") },
     { key: "professional", title: t("nav.professional"), desc: t("categories.professional.description") },
-    { key: "home", title: t("nav.home"), desc: t("categories.home.description") },
+    { key: "home", title: t("nav.homeCategory"), desc: t("categories.home.description") },
     { key: "wellness", title: t("nav.wellness"), desc: t("categories.wellness.description") },
     { key: "mobility", title: t("nav.mobility"), desc: t("categories.mobility.description") },
     { key: "youth", title: t("nav.youth"), desc: t("categories.youth.description") },

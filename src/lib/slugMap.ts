@@ -8,7 +8,7 @@ export const slugMap = {
     shops: "חנויות",
     food: "מסעדות",
     professional: "שירותים-מקצועיים",
-    home: "בית",
+    home: "שירותי-בית",
     wellness: "בריאות",
     mobility: "תחבורה",
     youth: "נוער",

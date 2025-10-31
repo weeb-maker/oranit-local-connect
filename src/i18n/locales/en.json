@@ -11,7 +11,7 @@
     "shops": "Shops & Retail",
     "food": "Food & Drink",
     "professional": "Professional Services",
-    "home": "Home",
+    "homeCategory": "Home & Repairs",
     "wellness": "Wellness & Personal Care",
     "mobility": "Mobility & Transport",
     "youth": "Youth & Informal Services",
@@ -42,7 +42,7 @@
       "description": "Lawyers, accountants, consultants and IT services"
     },
     "home": {
-      "title": "Home",
+      "title": "Home & Repairs",
       "description": "Handymen, electricians, plumbers and cleaners"
     },
     "wellness": {
