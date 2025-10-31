@@ -220,5 +220,78 @@
       "category": "פסטיבל",
       "attendees": "200+"
     }
+  },
+  "events": {
+    "hero": {
+      "title": "מה קורה השבוע באורנית?",
+      "subtitle": "גלו את האירועים והפעילויות הקהילתיות המתקיימים בסביבתכם.",
+      "addButton": "הוסף אירוע"
+    },
+    "filters": {
+      "dateLabel": "מתי",
+      "categoryLabel": "קטגוריה",
+      "searchLabel": "חיפוש",
+      "searchPlaceholder": "חפש אירועים..."
+    },
+    "categories": {
+      "all": "כל האירועים",
+      "community": "קהילה",
+      "kids": "ילדים ומשפחה",
+      "sports": "ספורט",
+      "music": "מוזיקה ואמנות",
+      "education": "חינוך",
+      "municipal": "עירוני",
+      "family": "משפחתי"
+    },
+    "dateFilters": {
+      "all": "כל התאריכים",
+      "today": "היום",
+      "thisWeek": "השבוע",
+      "thisMonth": "החודש"
+    },
+    "card": {
+      "viewDetails": "צפה בפרטים",
+      "share": "שתף",
+      "addToCalendar": "הוסף ליומן"
+    },
+    "noResults": {
+      "title": "לא נמצאו אירועים",
+      "description": "היו הראשונים להוסיף אירוע לקהילה!",
+      "addButton": "הוסף אירוע"
+    },
+    "addForm": {
+      "title": "הוסף את האירוע שלך",
+      "eventName": "שם האירוע",
+      "eventNamePlaceholder": "לדוגמה: מנגל קהילתי",
+      "category": "קטגוריה",
+      "categoryPlaceholder": "בחר קטגוריה",
+      "date": "תאריך",
+      "time": "שעה",
+      "location": "מיקום",
+      "locationPlaceholder": "לדוגמה: פארק אורנית",
+      "description": "תיאור",
+      "descriptionPlaceholder": "ספר לנו על האירוע...",
+      "contact": "פרטי קשר",
+      "contactPlaceholder": "אימייל או טלפון (אופציונלי)",
+      "submitButton": "שלח אירוע"
+    },
+    "footerCta": {
+      "title": "הפכו את אורנית לחיה ותוססת",
+      "description": "שתפו את האירוע שלכם עם השכנים ועזרו לבנות קהילה תוססת",
+      "button": "הוסף את האירוע שלך"
+    },
+    "detail": {
+      "backToEvents": "חזרה לאירועים",
+      "aboutEvent": "אודות האירוע",
+      "location": "מיקום",
+      "openInMaps": "פתח במפות",
+      "eventDetails": "פרטי האירוע",
+      "date": "תאריך",
+      "time": "שעה",
+      "venue": "מקום",
+      "organizer": "מאורגן על ידי",
+      "addToCalendar": "הוסף ליומן",
+      "similarEvents": "אירועים דומים"
+    }
   }
 }

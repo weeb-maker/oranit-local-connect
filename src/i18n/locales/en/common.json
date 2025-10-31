@@ -220,5 +220,78 @@
       "category": "Festival",
       "attendees": "200+"
     }
+  },
+  "events": {
+    "hero": {
+      "title": "What's On in Oranit",
+      "subtitle": "Discover local events, activities, and community gatherings near you.",
+      "addButton": "Add Your Event"
+    },
+    "filters": {
+      "dateLabel": "When",
+      "categoryLabel": "Category",
+      "searchLabel": "Search",
+      "searchPlaceholder": "Search events..."
+    },
+    "categories": {
+      "all": "All Events",
+      "community": "Community",
+      "kids": "Kids & Family",
+      "sports": "Sports",
+      "music": "Music & Arts",
+      "education": "Education",
+      "municipal": "Municipal",
+      "family": "Family"
+    },
+    "dateFilters": {
+      "all": "All Dates",
+      "today": "Today",
+      "thisWeek": "This Week",
+      "thisMonth": "This Month"
+    },
+    "card": {
+      "viewDetails": "View Details",
+      "share": "Share",
+      "addToCalendar": "Add to Calendar"
+    },
+    "noResults": {
+      "title": "No events found",
+      "description": "Be the first to add an event to the community!",
+      "addButton": "Add Event"
+    },
+    "addForm": {
+      "title": "Add Your Event",
+      "eventName": "Event Name",
+      "eventNamePlaceholder": "e.g., Community BBQ",
+      "category": "Category",
+      "categoryPlaceholder": "Select category",
+      "date": "Date",
+      "time": "Time",
+      "location": "Location",
+      "locationPlaceholder": "e.g., Oranit Park",
+      "description": "Description",
+      "descriptionPlaceholder": "Tell us about your event...",
+      "contact": "Contact Info",
+      "contactPlaceholder": "Email or phone (optional)",
+      "submitButton": "Submit Event"
+    },
+    "footerCta": {
+      "title": "Make Oranit Come Alive",
+      "description": "Share your event with neighbors and help build a vibrant community",
+      "button": "Add Your Event"
+    },
+    "detail": {
+      "backToEvents": "Back to Events",
+      "aboutEvent": "About This Event",
+      "location": "Location",
+      "openInMaps": "Open in Maps",
+      "eventDetails": "Event Details",
+      "date": "Date",
+      "time": "Time",
+      "venue": "Venue",
+      "organizer": "Organized by",
+      "addToCalendar": "Add to Calendar",
+      "similarEvents": "Similar Events"
+    }
   }
 }
