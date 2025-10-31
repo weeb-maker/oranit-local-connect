@@ -73,9 +73,11 @@ const MarketplacePage = () => {
     const posted = new Date(date);
     const diffInHours = Math.floor((now.getTime() - posted.getTime()) / (1000 * 60 * 60));
     
-    if (diffInHours < 24) return `${diffInHours}h ago`;
+    if (diffInHours < 24) {
+      return t("marketplace.timeAgo.hoursAgo", { count: diffInHours });
+    }
     const diffInDays = Math.floor(diffInHours / 24);
-    return `${diffInDays}d ago`;
+    return t("marketplace.timeAgo.daysAgo", { count: diffInDays });
   };
 
   return (

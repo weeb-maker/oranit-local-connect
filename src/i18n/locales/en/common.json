@@ -306,7 +306,11 @@
       "title": "Marketplace Safety",
       "link": "View Full Rules"
     },
-    "safetyNote": "Always meet in public places and inspect items before payment. Never share personal financial information."
+    "safetyNote": "Always meet in public places and inspect items before payment. Never share personal financial information.",
+    "timeAgo": {
+      "hoursAgo": "{{count}}h ago",
+      "daysAgo": "{{count}}d ago"
+    }
   },
   "businesses": {
     "title": "For Local Businesses & Professionals",
