@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -90,9 +90,9 @@ const LocalDeals = () => {
 
         <div className="text-center mt-8">
           <Button variant="default" size="lg" asChild>
-            <a href={`/${currentLang}/deals`}>
+            <Link to={`/${currentLang}/deals`}>
               {t('section.ctaAll', { ns: 'specials' })}
-            </a>
+            </Link>
           </Button>
         </div>
       </div>

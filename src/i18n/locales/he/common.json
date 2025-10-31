@@ -312,6 +312,74 @@
       "daysAgo": "לפני {{count}} ימים"
     }
   },
+  "deals": {
+    "title": "מבצעים והטבות מקומיות",
+    "subtitle": "חסכו בעסקים מקומיים באורנית",
+    "submit": "פרסמו מבצע",
+    "searchPlaceholder": "חפשו מבצעים...",
+    "view": "לפרטים",
+    "viewDetails": "לפרטים",
+    "empty": "אין מבצעים כרגע — חזרו בקרוב!",
+    "filters": {
+      "all": "כל המבצעים",
+      "category": "קטגוריה",
+      "discountType": "סוג הנחה",
+      "status": "סטטוס",
+      "verified": "מאומתים בלבד"
+    },
+    "discountTypes": {
+      "all": "כל הסוגים",
+      "percent": "אחוזי הנחה",
+      "amount": "הנחה בשקלים",
+      "bogo": "קנה אחד קבל שני",
+      "freebie": "פריט חינם"
+    },
+    "status": {
+      "all": "הכל",
+      "endsSoon": "מסתיים בקרוב"
+    },
+    "badge": {
+      "percent": "{{value}}% הנחה",
+      "amount": "₪{{value}} הנחה",
+      "bogo": "BOGO",
+      "freebie": "חינם",
+      "verified": "מאומת",
+      "endsSoon": "מסתיים בקרוב",
+      "featured": "מומלץ"
+    },
+    "validity": "בתוקף מ-{{start}} עד {{end}}",
+    "validUntil": "בתוקף עד {{date}}",
+    "redemption": "הוראות מימוש",
+    "contact": "צרו קשר עם העסק",
+    "share": "שתפו מבצע",
+    "relatedDeals": "מבצעים נוספים שעשויים לעניין אתכם",
+    "form": {
+      "title": "פרסמו את המבצע שלכם",
+      "subtitle": "שתפו את ההצעה המיוחדת שלכם עם קהילת אורנית",
+      "fields": {
+        "titleEn": "כותרת המבצע (אנגלית)",
+        "titleHe": "כותרת המבצע (עברית)",
+        "category": "קטגוריה",
+        "discountType": "סוג הנחה",
+        "discountValue": "גובה ההנחה",
+        "descriptionEn": "תיאור (אנגלית)",
+        "descriptionHe": "תיאור (עברית)",
+        "startsAt": "תאריך התחלה",
+        "endsAt": "תאריך סיום",
+        "image": "תמונת המבצע"
+      },
+      "placeholders": {
+        "titleEn": "לדוגמה, 20% הנחה על כל השירותים",
+        "titleHe": "e.g., 20% off all services",
+        "descriptionEn": "תארו את המבצע ותנאים...",
+        "descriptionHe": "Describe your deal and any terms..."
+      },
+      "agree": "אני מסכים/ה לתנאים וההגבלות",
+      "submit": "פרסמו מבצע",
+      "success": "המבצע פורסם בהצלחה!",
+      "authRequired": "נא להתחבר כדי לפרסם מבצע"
+    }
+  },
   "businesses": {
     "title": "לעסקים ולבעלי מקצוע באורנית",
     "subtitle": "הופיעו מול תושבים, קידמו הצעות, וצמיחו מקומית.",

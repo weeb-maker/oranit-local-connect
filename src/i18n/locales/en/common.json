@@ -312,6 +312,74 @@
       "daysAgo": "{{count}}d ago"
     }
   },
+  "deals": {
+    "title": "Local Deals & Specials",
+    "subtitle": "Save at trusted Oranit businesses",
+    "submit": "Submit a Deal",
+    "searchPlaceholder": "Search deals...",
+    "view": "View Deal",
+    "viewDetails": "View Details",
+    "empty": "No deals right now — check back soon!",
+    "filters": {
+      "all": "All Deals",
+      "category": "Category",
+      "discountType": "Discount Type",
+      "status": "Status",
+      "verified": "Verified Only"
+    },
+    "discountTypes": {
+      "all": "All Types",
+      "percent": "Percentage Off",
+      "amount": "Amount Off",
+      "bogo": "Buy One Get One",
+      "freebie": "Free Item"
+    },
+    "status": {
+      "all": "All",
+      "endsSoon": "Ends Soon"
+    },
+    "badge": {
+      "percent": "{{value}}% OFF",
+      "amount": "₪{{value}} OFF",
+      "bogo": "BOGO",
+      "freebie": "Free",
+      "verified": "Verified",
+      "endsSoon": "Ends Soon",
+      "featured": "Featured"
+    },
+    "validity": "Valid from {{start}} to {{end}}",
+    "validUntil": "Valid until {{date}}",
+    "redemption": "Redemption Instructions",
+    "contact": "Contact Business",
+    "share": "Share Deal",
+    "relatedDeals": "More Deals You Might Like",
+    "form": {
+      "title": "Submit Your Deal",
+      "subtitle": "Share your special offer with the Oranit community",
+      "fields": {
+        "titleEn": "Deal Title (English)",
+        "titleHe": "Deal Title (Hebrew)",
+        "category": "Category",
+        "discountType": "Discount Type",
+        "discountValue": "Discount Value",
+        "descriptionEn": "Description (English)",
+        "descriptionHe": "Description (Hebrew)",
+        "startsAt": "Start Date",
+        "endsAt": "End Date",
+        "image": "Deal Image"
+      },
+      "placeholders": {
+        "titleEn": "e.g., 20% off all services",
+        "titleHe": "לדוגמה, 20% הנחה על כל השירותים",
+        "descriptionEn": "Describe your deal and any terms...",
+        "descriptionHe": "תארו את המבצע ותנאים..."
+      },
+      "agree": "I agree to the terms and conditions",
+      "submit": "Submit Deal",
+      "success": "Deal submitted successfully!",
+      "authRequired": "Please sign in to submit a deal"
+    }
+  },
   "businesses": {
     "title": "For Local Businesses & Professionals",
     "subtitle": "Get discovered by residents, promote offers, and grow locally.",
