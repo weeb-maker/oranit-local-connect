@@ -7,6 +7,11 @@ import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import SearchPage from "./pages/SearchPage";
+import ExplorePage from "./pages/ExplorePage";
+import AddBusinessPage from "./pages/AddBusinessPage";
+import CategoryPage from "./pages/CategoryPage";
+import BusinessProfilePage from "./pages/BusinessProfilePage";
 import "./i18n/config";
 
 const queryClient = new QueryClient();
@@ -36,7 +41,11 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Navigate to="/he" replace />} />
           <Route path="/:lang" element={<LanguageWrapper><Index /></LanguageWrapper>} />
-          <Route path="/:lang/*" element={<LanguageWrapper><Index /></LanguageWrapper>} />
+          <Route path="/:lang/search" element={<LanguageWrapper><SearchPage /></LanguageWrapper>} />
+          <Route path="/:lang/explore" element={<LanguageWrapper><ExplorePage /></LanguageWrapper>} />
+          <Route path="/:lang/add-business" element={<LanguageWrapper><AddBusinessPage /></LanguageWrapper>} />
+          <Route path="/:lang/category/:slug" element={<LanguageWrapper><CategoryPage /></LanguageWrapper>} />
+          <Route path="/:lang/business/:id" element={<LanguageWrapper><BusinessProfilePage /></LanguageWrapper>} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -68,10 +68,10 @@ const Hero = () => {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-scale-in">
             <Button variant="hero" size="lg" asChild>
-              <a href={`/${currentLang}/directory`}>{t("hero.exploreButton")}</a>
+              <a href={`/${currentLang}/explore`}>{t("hero.exploreButton")}</a>
             </Button>
             <Button variant="outline" size="lg" asChild>
-              <a href={`/${currentLang}/for-businesses`}>{t("hero.addBusinessButton")}</a>
+              <a href={`/${currentLang}/add-business`}>{t("hero.addBusinessButton")}</a>
             </Button>
           </div>
         </div>
