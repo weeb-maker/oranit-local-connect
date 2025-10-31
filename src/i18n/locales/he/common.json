@@ -57,6 +57,29 @@
     "createProfile": "צרו פרופיל",
     "favorites": "מועדפים"
   },
+  "categories": {
+    "shops": {
+      "title": "חנויות וקמעונאות"
+    },
+    "food": {
+      "title": "אוכל ושתייה"
+    },
+    "professional": {
+      "title": "שירותים מקצועיים"
+    },
+    "home": {
+      "title": "בית ותיקונים"
+    },
+    "wellness": {
+      "title": "בריאות ורווחה"
+    },
+    "mobility": {
+      "title": "ניידות ותחבורה"
+    },
+    "youth": {
+      "title": "שירותי נוער"
+    }
+  },
   "packages": {
     "title": "הגדילו את העסק שלכם עם Oranit.biz",
     "subtitle": "בחרו את החבילה המושלמת לצרכים שלכם",
@@ -464,7 +487,7 @@
     "relatedBusinesses": "עסקים נוספים בקרבת מקום",
     "businessesFound": "עסקים נמצאו"
   },
-  "events": {
+  "upcomingEvents": {
     "title": "אירועים קרובים",
     "subtitle": "הישארו מחוברים למה שקורה באורנית",
     "description": "הצטרפו לשכנים שלכם באירועי קהילה קרובים",

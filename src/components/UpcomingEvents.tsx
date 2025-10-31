@@ -7,39 +7,39 @@ import { Calendar, MapPin, Users } from "lucide-react";
 
 const getEvents = (t: any) => [
   {
-    titleKey: "events.event1.title",
-    dateKey: "events.event1.date",
-    timeKey: "events.event1.time",
-    venueKey: "events.event1.venue",
-    categoryKey: "events.event1.category",
-    attendeesKey: "events.event1.attendees",
+    titleKey: "upcomingEvents.event1.title",
+    dateKey: "upcomingEvents.event1.date",
+    timeKey: "upcomingEvents.event1.time",
+    venueKey: "upcomingEvents.event1.venue",
+    categoryKey: "upcomingEvents.event1.category",
+    attendeesKey: "upcomingEvents.event1.attendees",
     color: "from-green-500/10 to-green-600/10",
   },
   {
-    titleKey: "events.event2.title",
-    dateKey: "events.event2.date",
-    timeKey: "events.event2.time",
-    venueKey: "events.event2.venue",
-    categoryKey: "events.event2.category",
-    attendeesKey: "events.event2.attendees",
+    titleKey: "upcomingEvents.event2.title",
+    dateKey: "upcomingEvents.event2.date",
+    timeKey: "upcomingEvents.event2.time",
+    venueKey: "upcomingEvents.event2.venue",
+    categoryKey: "upcomingEvents.event2.category",
+    attendeesKey: "upcomingEvents.event2.attendees",
     color: "from-purple-500/10 to-purple-600/10",
   },
   {
-    titleKey: "events.event3.title",
-    dateKey: "events.event3.date",
-    timeKey: "events.event3.time",
-    venueKey: "events.event3.venue",
-    categoryKey: "events.event3.category",
-    attendeesKey: "events.event3.attendees",
+    titleKey: "upcomingEvents.event3.title",
+    dateKey: "upcomingEvents.event3.date",
+    timeKey: "upcomingEvents.event3.time",
+    venueKey: "upcomingEvents.event3.venue",
+    categoryKey: "upcomingEvents.event3.category",
+    attendeesKey: "upcomingEvents.event3.attendees",
     color: "from-blue-500/10 to-blue-600/10",
   },
   {
-    titleKey: "events.event4.title",
-    dateKey: "events.event4.date",
-    timeKey: "events.event4.time",
-    venueKey: "events.event4.venue",
-    categoryKey: "events.event4.category",
-    attendeesKey: "events.event4.attendees",
+    titleKey: "upcomingEvents.event4.title",
+    dateKey: "upcomingEvents.event4.date",
+    timeKey: "upcomingEvents.event4.time",
+    venueKey: "upcomingEvents.event4.venue",
+    categoryKey: "upcomingEvents.event4.category",
+    attendeesKey: "upcomingEvents.event4.attendees",
     color: "from-orange-500/10 to-orange-600/10",
   },
 ];
@@ -56,11 +56,11 @@ const UpcomingEvents = () => {
         <div className="text-center mb-12 animate-fade-in">
           <div className="inline-flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full mb-4">
             <Calendar className="h-4 w-4 text-primary" />
-            <span className="text-sm font-medium text-foreground">{t("events.title")}</span>
+            <span className="text-sm font-medium text-foreground">{t("upcomingEvents.title")}</span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("events.subtitle")}</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("upcomingEvents.subtitle")}</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            {t("events.description")}
+            {t("upcomingEvents.description")}
           </p>
         </div>
 
@@ -93,7 +93,7 @@ const UpcomingEvents = () => {
                 </div>
 
                 <Button variant="outline" className="w-full">
-                  {t("events.learnMore")}
+                  {t("upcomingEvents.learnMore")}
                 </Button>
               </CardContent>
             </Card>
@@ -102,7 +102,7 @@ const UpcomingEvents = () => {
 
         <div className="text-center mt-8">
           <Button variant="default" size="lg" asChild>
-            <a href={`/${currentLang}/events`}>{t("events.viewCalendar")}</a>
+            <a href={`/${currentLang}/events`}>{t("upcomingEvents.viewCalendar")}</a>
           </Button>
         </div>
       </div>

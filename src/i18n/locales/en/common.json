@@ -57,6 +57,29 @@
     "createProfile": "Create Your Profile",
     "favorites": "favorites"
   },
+  "categories": {
+    "shops": {
+      "title": "Shops & Retail"
+    },
+    "food": {
+      "title": "Food & Drink"
+    },
+    "professional": {
+      "title": "Professional Services"
+    },
+    "home": {
+      "title": "Home & Repairs"
+    },
+    "wellness": {
+      "title": "Wellness & Care"
+    },
+    "mobility": {
+      "title": "Mobility & Transport"
+    },
+    "youth": {
+      "title": "Youth Services"
+    }
+  },
   "packages": {
     "title": "Grow Your Business with Oranit.biz",
     "subtitle": "Choose the perfect package for your needs",
@@ -464,7 +487,7 @@
     "relatedBusinesses": "Other Nearby Businesses",
     "businessesFound": "businesses found"
   },
-  "events": {
+  "upcomingEvents": {
     "title": "Upcoming Events",
     "subtitle": "Stay connected with what's happening in Oranit",
     "description": "Join your neighbors at upcoming community events",
