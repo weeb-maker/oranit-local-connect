@@ -11,6 +11,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Search, Tag, Calendar, ShieldCheck, Star } from "lucide-react";
 import dealsEn from "@/data/fixtures/en/deals.json";
 import dealsHe from "@/data/fixtures/he/deals.json";
+import heroImage from "@/assets/hero-deals.jpg";
 
 interface Deal {
   id: string;
@@ -145,19 +146,25 @@ const DealsPage = () => {
       
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="bg-gradient-primary text-white py-16">
-          <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                {t("deals.title")}
-              </h1>
-              <p className="text-lg md:text-xl mb-8 text-white/90">
-                {t("deals.subtitle")}
-              </p>
-              <Button size="lg" variant="secondary">
-                {t("deals.submit")}
-              </Button>
-            </div>
+        <section className="relative h-[500px]">
+          <div className="absolute inset-0">
+            <img 
+              src={heroImage} 
+              alt={t("deals.title")}
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-foreground/80 to-foreground/40" />
+          </div>
+          <div className="relative container mx-auto px-4 h-full flex flex-col justify-center items-start text-background max-w-3xl">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+              {t("deals.title")}
+            </h1>
+            <p className="text-lg md:text-xl mb-8 text-background/90 max-w-2xl">
+              {t("deals.subtitle")}
+            </p>
+            <Button size="lg" variant="secondary" className="shadow-lg">
+              {t("deals.submit")}
+            </Button>
           </div>
         </section>
 
