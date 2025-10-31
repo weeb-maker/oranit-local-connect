@@ -11,6 +11,7 @@ import SearchPage from "./pages/SearchPage";
 import ExplorePage from "./pages/ExplorePage";
 import AddBusinessPage from "./pages/AddBusinessPage";
 import CategoryPage from "./pages/CategoryPage";
+import SubcategoryPage from "./pages/SubcategoryPage";
 import BusinessProfilePage from "./pages/BusinessProfilePage";
 import StyleGuidePage from "./pages/StyleGuidePage";
 import "./i18n/config";
@@ -46,6 +47,7 @@ const App = () => (
           <Route path="/:lang/search" element={<LanguageWrapper><SearchPage /></LanguageWrapper>} />
           <Route path="/:lang/explore" element={<LanguageWrapper><ExplorePage /></LanguageWrapper>} />
           <Route path="/:lang/add-business" element={<LanguageWrapper><AddBusinessPage /></LanguageWrapper>} />
+          <Route path="/:lang/category/:slug/:subslug" element={<LanguageWrapper><SubcategoryPage /></LanguageWrapper>} />
           <Route path="/:lang/category/:slug" element={<LanguageWrapper><CategoryPage /></LanguageWrapper>} />
           <Route path="/:lang/business/:id" element={<LanguageWrapper><BusinessProfilePage /></LanguageWrapper>} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

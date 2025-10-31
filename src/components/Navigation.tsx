@@ -29,14 +29,14 @@ const Navigation = () => {
   };
 
   const categories = [
-    { key: "shops", title: t("nav.shops"), desc: t("categories.shops.description") },
-    { key: "food", title: t("nav.food"), desc: t("categories.food.description") },
-    { key: "professional", title: t("nav.professional"), desc: t("categories.professional.description") },
-    { key: "home", title: t("nav.homeCategory"), desc: t("categories.home.description") },
-    { key: "wellness", title: t("nav.wellness"), desc: t("categories.wellness.description") },
-    { key: "mobility", title: t("nav.mobility"), desc: t("categories.mobility.description") },
-    { key: "youth", title: t("nav.youth"), desc: t("categories.youth.description") },
-    { key: "other", title: t("nav.other"), desc: t("categories.other.description") },
+    { key: "shops-retail", title: t("nav.shopsRetail"), desc: t("categories.shopsRetail.description") },
+    { key: "food-drink", title: t("nav.foodDrink"), desc: t("categories.foodDrink.description") },
+    { key: "professional-services", title: t("nav.professionalServices"), desc: t("categories.professionalServices.description") },
+    { key: "home-repairs", title: t("nav.homeRepairs"), desc: t("categories.homeRepairs.description") },
+    { key: "wellness-care", title: t("nav.wellnessCare"), desc: t("categories.wellnessCare.description") },
+    { key: "mobility-transport", title: t("nav.mobilityTransport"), desc: t("categories.mobilityTransport.description") },
+    { key: "youth-services", title: t("nav.youthServices"), desc: t("categories.youthServices.description") },
+    { key: "other-services", title: t("nav.otherServices"), desc: t("categories.otherServices.description") },
   ];
 
   return (

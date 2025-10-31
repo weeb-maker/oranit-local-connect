@@ -5,8 +5,7 @@ import Footer from "@/components/Footer";
 import { FilterBar } from "@/components/shared/FilterBar";
 import { BusinessCard } from "@/components/shared/BusinessCard";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { getCategoryConfig } from "@/lib/categoryConfig";
+import { getCategoryConfig, getSubcategoryConfig } from "@/lib/categoryConfig";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -37,33 +36,21 @@ const mockBusinesses = [
     verified: true,
     location: "Center, Oranit",
   },
-  {
-    id: "3",
-    name: "Sushi Corner",
-    category: "Food & Drink",
-    description: "Fresh sushi and Japanese cuisine",
-    logo: "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=100&h=100&fit=crop",
-    rating: 4.9,
-    verified: false,
-    location: "North Oranit",
-  },
 ];
 
-const relatedCategories = [
-  { slug: "shops-retail" },
-  { slug: "professional-services" },
-  { slug: "home-repairs" },
-];
-
-const CategoryPage = () => {
+const SubcategoryPage = () => {
   const { t } = useTranslation();
-  const { slug, lang } = useParams<{ slug: string; lang: string }>();
+  const { slug, subslug, lang } = useParams<{ slug: string; subslug: string; lang: string }>();
 
-  // Get category config
-  const categoryConfig = getCategoryConfig(slug || "other");
+  // Get category and subcategory config
+  const categoryConfig = getCategoryConfig(slug || "other-services");
+  const subcategoryConfig = getSubcategoryConfig(slug || "other-services", subslug || "");
+  
   const CategoryIcon = categoryConfig.icon;
+  const SubcategoryIcon = subcategoryConfig?.icon;
   const categoryTitle = t(categoryConfig.titleKey);
-  const categoryDescription = t(categoryConfig.descriptionKey);
+  const subcategoryTitle = subcategoryConfig ? t(subcategoryConfig.titleKey) : "";
+  const subcategoryDescription = subcategoryConfig ? t(subcategoryConfig.descriptionKey) : "";
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -85,25 +72,37 @@ const CategoryPage = () => {
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
-                  <BreadcrumbPage>{categoryTitle}</BreadcrumbPage>
+                  <BreadcrumbLink href={`/${lang}/category/${slug}`}>
+                    {categoryTitle}
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator />
+                <BreadcrumbItem>
+                  <BreadcrumbPage>{subcategoryTitle}</BreadcrumbPage>
                 </BreadcrumbItem>
               </BreadcrumbList>
             </Breadcrumb>
           </div>
         </section>
 
-        {/* Category Header */}
+        {/* Subcategory Header */}
         <section className="bg-primary py-12">
           <div className="container mx-auto px-4">
             <div className="flex items-center gap-4 mb-4">
-              <div className="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center">
-                <CategoryIcon className="w-8 h-8 text-white" />
-              </div>
+              {SubcategoryIcon && (
+                <div className="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center">
+                  <SubcategoryIcon className="w-8 h-8 text-white" />
+                </div>
+              )}
               <div>
-                <h1 className="text-3xl md:text-4xl font-bold text-white mb-2">
+                <div className="text-sm text-white/70 mb-1 flex items-center gap-2">
+                  <CategoryIcon className="w-4 h-4" />
                   {categoryTitle}
+                </div>
+                <h1 className="text-3xl md:text-4xl font-bold text-white mb-2">
+                  {subcategoryTitle}
                 </h1>
-                <p className="text-white/90">{categoryDescription}</p>
+                <p className="text-white/90">{subcategoryDescription}</p>
               </div>
             </div>
           </div>
@@ -116,41 +115,14 @@ const CategoryPage = () => {
 
         {/* Results */}
         <section className="container mx-auto px-4 py-12">
-          {/* Subcategories */}
-          {categoryConfig.subcategories && categoryConfig.subcategories.length > 0 && (
-            <div className="mb-12">
-              <h2 className="text-2xl font-bold mb-6">{t("category.subcategories")}</h2>
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                {categoryConfig.subcategories.map((subcategory) => {
-                  const SubIcon = subcategory.icon;
-                  return (
-                    <Link
-                      key={subcategory.slug}
-                      to={`/${lang}/category/${slug}/${subcategory.slug}`}
-                    >
-                      <Card className="h-full hover:shadow-lg transition-shadow cursor-pointer">
-                        <CardContent className="p-6 flex flex-col items-center text-center gap-3">
-                          <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                            <SubIcon className="w-6 h-6 text-primary" />
-                          </div>
-                          <h3 className="font-semibold">{t(subcategory.titleKey)}</h3>
-                        </CardContent>
-                      </Card>
-                    </Link>
-                  );
-                })}
-              </div>
-            </div>
-          )}
-
           <div className="mb-6 flex items-center justify-between">
             <div>
               <h2 className="text-2xl font-semibold mb-2">
                 {mockBusinesses.length} {t("category.businessesFound")}
               </h2>
             </div>
-            <Link to={`/${lang}/explore`}>
-              <Button variant="outline">← {t("nav.businesses")}</Button>
+            <Link to={`/${lang}/category/${slug}`}>
+              <Button variant="outline">← {categoryTitle}</Button>
             </Link>
           </div>
 
@@ -160,12 +132,10 @@ const CategoryPage = () => {
             ))}
           </div>
         </section>
-
-        {/* Related Categories - removed as we now show subcategories */}
       </main>
       <Footer />
     </div>
   );
 };
 
-export default CategoryPage;
+export default SubcategoryPage;

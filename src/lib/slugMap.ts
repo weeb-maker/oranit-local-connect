@@ -1,18 +1,88 @@
 /**
  * Bidirectional slug mapping for EN ↔ HE localization
- * Supports categories, businesses, and other route segments
+ * Supports categories, subcategories, businesses, and other route segments
  */
 
 export const slugMap = {
   categories: {
-    shops: "חנויות",
-    food: "מסעדות",
-    professional: "שירותים-מקצועיים",
-    home: "שירותי-בית",
-    wellness: "בריאות",
-    mobility: "תחבורה",
-    youth: "נוער",
-    other: "אחר",
+    "shops-retail": "חנויות-וקמעונאות",
+    "food-drink": "אוכל-ושתייה",
+    "professional-services": "שירותים-מקצועיים",
+    "home-repairs": "בית-ותיקונים",
+    "wellness-care": "בריאות-ורווחה",
+    "mobility-transport": "ניידות-ותחבורה",
+    "youth-services": "שירותי-נוער",
+    "other-services": "שירותים-נוספים",
+  },
+  subcategories: {
+    // Shops & Retail
+    "clothing-fashion": "אופנה-וביגוד",
+    "home-goods-furniture": "רהיטים-ומוצרי-בית",
+    "electronics-appliances": "אלקטרוניקה-והמכשירים",
+    "books-stationery-gifts": "ספרים-כלי-כתיבה-ומתנות",
+    "beauty-cosmetics": "יופי-וקוסמטיקה",
+    "sports-outdoor-equipment": "ציוד-ספורט-ואאוטדור",
+    "specialty-boutique-stores": "חנויות-יוקרה-ובוטיק",
+    
+    // Food & Drink
+    "restaurants": "מסעדות",
+    "cafes-coffee-shops": "בתי-קפה",
+    "takeaway-delivery": "טייק-אווי-ומשלוחים",
+    "bakeries-patisseries": "מאפיות-ומזון-אפוי",
+    "bars-pubs": "ברים-ומועדונים",
+    "grocery-stores-markets": "חנויות-מכולת-ושווקים",
+    "food-trucks-street-food": "משאיות-מזון-ואוכל-רחוב",
+    
+    // Professional Services
+    "legal-notary": "משפטי-ונוטריון",
+    "accounting-tax-services": "הנהלת-חשבונות-ושירותי-מס",
+    "marketing-digital-agencies": "שיווק-וסוכנויות-דיגיטל",
+    "it-software-services": "שירותי-IT-ותוכנה",
+    "consulting-advisory": "ייעוץ-ושירותי-ייעוץ",
+    "architecture-engineering": "אדריכלות-והנדסה",
+    "recruitment-hr": "גיוס-ומשאבי-אנוש",
+    
+    // Home & Repairs
+    "general-contractors-builders": "קבלני-כללי-ובוני-מבנים",
+    "plumbing-heating": "אינסטלציה-וחימום",
+    "electrical-services": "שירותים-חשמליים",
+    "painting-decorating": "צביעה-וקישוט-פנים",
+    "home-cleaning-maintenance": "ניקוי-ותחזוקת-בית",
+    "landscaping-garden-services": "שירותי-גינון-ונוף",
+    "handyman-odd-jobs": "שירותים-כלליים-ושיפוצים-קטנים",
+    
+    // Wellness & Care
+    "medical-clinics-specialists": "מרפאות-ומומחים",
+    "dental-services": "שירותי-שיניים",
+    "physical-therapy-rehabilitation": "פיזיותרפיה-ושיקום",
+    "fitness-personal-training": "כושר-ואימון-אישי",
+    "beauty-spa": "יופי-וספא",
+    "childcare-elder-care": "טיפול-בילדים-וקשישים",
+    "mental-health-counselling": "בריאות-נפש-וייעוץ",
+    
+    // Mobility & Transport
+    "car-rental-sharing": "השכרת-רכב-ושיתופיות",
+    "taxi-private-hire": "מוניות-והשכרה-פרטית",
+    "bike-scooter-rental": "השכרת-אופניים-וקטנועים",
+    "auto-repair-servicing": "תיקון-רכב-ושירותים",
+    "moving-relocation-services": "שירותי-הובלה-והתקנה",
+    "public-transport-shuttle": "תחבורה-ציבורית-ושאטלים",
+    
+    // Youth Services
+    "after-school-activities-clubs": "פעילויות-ואגודות-חוץ-לימודיות",
+    "youth-sports-recreation": "ספורט-ופנאי-לנוער",
+    "tutors-learning-centres": "לימוד-ומרכזי-הדרכה",
+    "childcare-playgroups": "טיפול-ילדים-וקבוצות-משחק",
+    "youth-counselling-support": "ייעוץ-ותמיכה-לנוער",
+    "kids-parties-events": "מסיבות-ואירועים-לילדים",
+    
+    // Other Services
+    "event-planning-catering": "תכנון-אירועים-וקייטרינג",
+    "photography-videography": "צילום-ווידאו",
+    "pet-services-grooming": "שירותי-חיות-מחמד-וטיפוח",
+    "travel-tourism-services": "שירותי-תיירות",
+    "nonprofit-community-organisations": "ארגונים-ללא-רווח-וקהילה",
+    "miscellaneous-general-services": "שירותים-כלליים-מגוונים",
   },
   businesses: {
     "spring-bakery": "מאפיית-ספירנג",
@@ -90,10 +160,20 @@ export function switchLocalePath(
 
     switch (routeType) {
       case "category":
+        // Map category slug
         if (pathSegments[2]) {
           pathSegments[2] = getSlugInLocale(
             "categories",
             pathSegments[2],
+            currentLocale,
+            targetLocale
+          );
+        }
+        // Map subcategory slug if present
+        if (pathSegments[3]) {
+          pathSegments[3] = getSlugInLocale(
+            "subcategories",
+            pathSegments[3],
             currentLocale,
             targetLocale
           );

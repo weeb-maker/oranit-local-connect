@@ -8,14 +8,14 @@
     "forBusinesses": "For Businesses",
     "signIn": "Sign In",
     "addBusiness": "Add My Business",
-    "shops": "Shops & Retail",
-    "food": "Food & Drink",
-    "professional": "Professional Services",
-    "homeCategory": "Home & Repairs",
-    "wellness": "Wellness & Personal Care",
-    "mobility": "Mobility & Transport",
-    "youth": "Youth & Informal Services",
-    "other": "Other / Specialties"
+    "shopsRetail": "Shops & Retail",
+    "foodDrink": "Food & Drink",
+    "professionalServices": "Professional Services",
+    "homeRepairs": "Home & Repairs",
+    "wellnessCare": "Wellness & Care",
+    "mobilityTransport": "Mobility & Transport",
+    "youthServices": "Youth Services",
+    "otherServices": "Other Services"
   },
   "hero": {
     "headline": "Find the best local businesses in Oranit",
@@ -252,7 +252,121 @@
   },
   "category": {
     "businessesFound": "businesses found",
+    "subcategories": "Browse Subcategories",
     "relatedCategories": "You might also like"
+  },
+  "tags": {
+    "communityHelp": {
+      "title": "Community Help & Youth Jobs",
+      "babysitting": "Babysitting",
+      "dogWalking": "Dog Walking",
+      "tutoring": "Tutoring",
+      "lawnMowing": "Lawn Mowing",
+      "errands": "Errands"
+    }
+  },
+  "categories": {
+    "shopsRetail": {
+      "title": "Shops & Retail",
+      "description": "Local stores and retail services",
+      "subcategories": {
+        "clothingFashion": { "title": "Clothing & Fashion", "description": "Fashion stores and boutiques" },
+        "homeGoodsFurniture": { "title": "Home Goods & Furniture", "description": "Furniture and home decor" },
+        "electronicsAppliances": { "title": "Electronics & Appliances", "description": "Tech and appliances" },
+        "booksStationeryGifts": { "title": "Books, Stationery & Gifts", "description": "Books and gift shops" },
+        "beautyCosmetics": { "title": "Beauty & Cosmetics", "description": "Beauty products" },
+        "sportsOutdoorEquipment": { "title": "Sports & Outdoor", "description": "Sports gear" },
+        "specialtyBoutiqueStores": { "title": "Specialty Stores", "description": "Unique boutiques" }
+      }
+    },
+    "foodDrink": {
+      "title": "Food & Drink",
+      "description": "Restaurants and food services",
+      "subcategories": {
+        "restaurants": { "title": "Restaurants", "description": "Full service dining" },
+        "cafesCoffeeShops": { "title": "Cafés & Coffee", "description": "Coffee shops" },
+        "takeawayDelivery": { "title": "Takeaway & Delivery", "description": "Food delivery" },
+        "bakeriesPatisseries": { "title": "Bakeries", "description": "Fresh baked goods" },
+        "barsPubs": { "title": "Bars & Pubs", "description": "Drinks and nightlife" },
+        "groceryStoresMarkets": { "title": "Grocery Stores", "description": "Food markets" },
+        "foodTrucksStreetFood": { "title": "Food Trucks", "description": "Street food" }
+      }
+    },
+    "professionalServices": {
+      "title": "Professional Services",
+      "description": "Business and professional services",
+      "subcategories": {
+        "legalNotary": { "title": "Legal & Notary", "description": "Legal services" },
+        "accountingTaxServices": { "title": "Accounting & Tax", "description": "Financial services" },
+        "marketingDigitalAgencies": { "title": "Marketing & Digital", "description": "Marketing agencies" },
+        "itSoftwareServices": { "title": "IT & Software", "description": "Tech services" },
+        "consultingAdvisory": { "title": "Consulting", "description": "Business consulting" },
+        "architectureEngineering": { "title": "Architecture & Engineering", "description": "Design and engineering" },
+        "recruitmentHr": { "title": "Recruitment & HR", "description": "Human resources" }
+      }
+    },
+    "homeRepairs": {
+      "title": "Home & Repairs",
+      "description": "Home maintenance and repair services",
+      "subcategories": {
+        "generalContractorsBuilders": { "title": "General Contractors", "description": "Building contractors" },
+        "plumbingHeating": { "title": "Plumbing & Heating", "description": "Plumbing services" },
+        "electricalServices": { "title": "Electrical", "description": "Electrical work" },
+        "paintingDecorating": { "title": "Painting", "description": "Painting services" },
+        "homeCleaningMaintenance": { "title": "Cleaning", "description": "Home cleaning" },
+        "landscapingGardenServices": { "title": "Landscaping", "description": "Garden services" },
+        "handymanOddJobs": { "title": "Handyman", "description": "General repairs" }
+      }
+    },
+    "wellnessCare": {
+      "title": "Wellness & Care",
+      "description": "Health and wellness services",
+      "subcategories": {
+        "medicalClinicsSpecialists": { "title": "Medical Clinics", "description": "Healthcare" },
+        "dentalServices": { "title": "Dental", "description": "Dental care" },
+        "physicalTherapyRehabilitation": { "title": "Physical Therapy", "description": "Rehabilitation" },
+        "fitnessPersonalTraining": { "title": "Fitness", "description": "Gyms and training" },
+        "beautySpa": { "title": "Beauty & Spa", "description": "Spa services" },
+        "childcareElderCare": { "title": "Childcare & Elder Care", "description": "Care services" },
+        "mentalHealthCounselling": { "title": "Mental Health", "description": "Counselling" }
+      }
+    },
+    "mobilityTransport": {
+      "title": "Mobility & Transport",
+      "description": "Transportation services",
+      "subcategories": {
+        "carRentalSharing": { "title": "Car Rental", "description": "Vehicle rental" },
+        "taxiPrivateHire": { "title": "Taxi", "description": "Taxi services" },
+        "bikeScooterRental": { "title": "Bike Rental", "description": "Bike and scooter" },
+        "autoRepairServicing": { "title": "Auto Repair", "description": "Car repairs" },
+        "movingRelocationServices": { "title": "Moving Services", "description": "Relocation" },
+        "publicTransportShuttle": { "title": "Public Transport", "description": "Shuttle services" }
+      }
+    },
+    "youthServices": {
+      "title": "Youth Services",
+      "description": "Services for children and youth",
+      "subcategories": {
+        "afterSchoolActivitiesClubs": { "title": "After-school Activities", "description": "Clubs and activities" },
+        "youthSportsRecreation": { "title": "Youth Sports", "description": "Sports programs" },
+        "tutorsLearningCentres": { "title": "Tutors & Learning", "description": "Education services" },
+        "childcarePlaygroups": { "title": "Childcare", "description": "Daycare services" },
+        "youthCounsellingSupport": { "title": "Youth Counselling", "description": "Support services" },
+        "kidsPartiesEvents": { "title": "Kids Parties", "description": "Party services" }
+      }
+    },
+    "otherServices": {
+      "title": "Other Services",
+      "description": "Specialty and miscellaneous services",
+      "subcategories": {
+        "eventPlanningCatering": { "title": "Event Planning", "description": "Events and catering" },
+        "photographyVideography": { "title": "Photography", "description": "Photo and video" },
+        "petServicesGrooming": { "title": "Pet Services", "description": "Pet care" },
+        "travelTourismServices": { "title": "Travel", "description": "Tourism services" },
+        "nonprofitCommunityOrganisations": { "title": "Non-profit", "description": "Community orgs" },
+        "miscellaneousGeneralServices": { "title": "Miscellaneous", "description": "Other services" }
+      }
+    }
   },
   "business": {
     "call": "Call",
