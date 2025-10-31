@@ -1,0 +1,37 @@
+{
+  "businesses": [
+    {
+      "id": "1",
+      "name": "Happy Paws Grooming",
+      "category": "Other Services",
+      "subcategoryKey": "petServicesGrooming",
+      "description": "Professional grooming for dogs and cats with loving care",
+      "logo": "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=100&h=100&fit=crop",
+      "rating": 4.9,
+      "verified": true,
+      "location": "Main Street, Oranit"
+    },
+    {
+      "id": "2",
+      "name": "Moments Event Planning",
+      "category": "Other Services",
+      "subcategoryKey": "eventPlanningCatering",
+      "description": "Full-service wedding and event planning for unforgettable moments",
+      "logo": "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=100&h=100&fit=crop",
+      "rating": 4.8,
+      "verified": true,
+      "location": "Center, Oranit"
+    },
+    {
+      "id": "3",
+      "name": "City Travel Desk",
+      "category": "Other Services",
+      "subcategoryKey": "travelTourismServices",
+      "description": "Local tours, flight bookings, and complete hotel packages",
+      "logo": "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=100&h=100&fit=crop",
+      "rating": 4.7,
+      "verified": false,
+      "location": "North Oranit"
+    }
+  ]
+}

@@ -28,7 +28,8 @@
   },
   "labels": {
     "browseByCategory": "עיון לפי קטגוריה",
-    "subcategories": "עיון בתתי-קטגוריות"
+    "subcategories": "תתי-קטגוריות",
+    "noBusinessesFound": "לא נמצאו עסקים בקטגוריה זו עדיין"
   },
   "breadcrumbs": {
     "home": "בית"

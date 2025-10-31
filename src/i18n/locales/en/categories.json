@@ -3,6 +3,40 @@
     "title": "Browse by Category",
     "subtitle": "Find local businesses and services quickly"
   },
+  "top": {
+    "shopsRetail": {
+      "title": "Shops & Retail",
+      "description": "Stores, boutiques, and specialty shops"
+    },
+    "foodDrink": {
+      "title": "Food & Drink",
+      "description": "Restaurants, cafés, groceries, and bakeries"
+    },
+    "professionalServices": {
+      "title": "Professional Services",
+      "description": "Legal, accounting, IT, marketing, and more"
+    },
+    "homeRepairs": {
+      "title": "Home & Repairs",
+      "description": "Trades, maintenance, and home services"
+    },
+    "wellnessCare": {
+      "title": "Wellness & Care",
+      "description": "Clinics, dental, fitness, beauty, and care"
+    },
+    "mobilityTransport": {
+      "title": "Mobility & Transport",
+      "description": "Transport, rentals, repair, moving"
+    },
+    "youthServices": {
+      "title": "Youth Services",
+      "description": "Activities, tutoring, support, events"
+    },
+    "otherServices": {
+      "title": "Other Services",
+      "description": "Events, pets, travel, and general services"
+    }
+  },
   "shops": {
     "title": "Shops & Retail",
     "description": "Stores, boutiques, and specialty shops"
@@ -17,7 +51,7 @@
   },
   "home": {
     "title": "Home & Repairs",
-    "description": "Trades, maintenance, handymen, and more"
+    "description": "Trades, maintenance, and home services"
   },
   "wellness": {
     "title": "Wellness & Care",
@@ -35,7 +69,7 @@
     "title": "Other Services",
     "description": "Events, pets, travel, and general services"
   },
-  "top": {
+  "legacy": {
     "shopsRetail": {
       "title": "Shops & Retail",
       "desc": "Local stores, boutiques and more"

@@ -1,0 +1,37 @@
+{
+  "businesses": [
+    {
+      "id": "1",
+      "name": "אינסטלציה פרו אורנית",
+      "category": "בית ותיקונים",
+      "subcategoryKey": "plumbingHeating",
+      "description": "שירותי אינסטלציה וחימום מומחים לבתים ועסקים",
+      "logo": "https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?w=100&h=100&fit=crop",
+      "rating": 4.9,
+      "verified": true,
+      "location": "מרכז אורנית"
+    },
+    {
+      "id": "2",
+      "name": "חשמל נצנוץ בהיר",
+      "category": "בית ותיקונים",
+      "subcategoryKey": "electricalServices",
+      "description": "חשמלאים מוסמכים לכל צרכי החשמל שלכם",
+      "logo": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=100&h=100&fit=crop",
+      "rating": 4.8,
+      "verified": true,
+      "location": "צפון אורנית"
+    },
+    {
+      "id": "3",
+      "name": "פתרונות שיפוצניק",
+      "category": "בית ותיקונים",
+      "subcategoryKey": "handymanOddJobs",
+      "description": "השיפוצניק האמין שלכם לתיקונים קטנים ועבודות כלליות",
+      "logo": "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=100&h=100&fit=crop",
+      "rating": 4.7,
+      "verified": false,
+      "location": "דרום אורנית"
+    }
+  ]
+}

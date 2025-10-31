@@ -28,7 +28,8 @@
   },
   "labels": {
     "browseByCategory": "Browse by Category",
-    "subcategories": "Browse Subcategories"
+    "subcategories": "Subcategories",
+    "noBusinessesFound": "No businesses found in this category yet"
   },
   "breadcrumbs": {
     "home": "Home"

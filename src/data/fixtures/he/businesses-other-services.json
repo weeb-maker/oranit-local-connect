@@ -1,0 +1,37 @@
+{
+  "businesses": [
+    {
+      "id": "1",
+      "name": "הפי פאוז טיפוח חיות",
+      "category": "שירותים נוספים",
+      "subcategoryKey": "petServicesGrooming",
+      "description": "טיפוח מקצועי לכלבים וחתולים באהבה ובמסירות",
+      "logo": "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=100&h=100&fit=crop",
+      "rating": 4.9,
+      "verified": true,
+      "location": "רחוב ראשי, אורנית"
+    },
+    {
+      "id": "2",
+      "name": "רגעים תכנון אירועים",
+      "category": "שירותים נוספים",
+      "subcategoryKey": "eventPlanningCatering",
+      "description": "תכנון והפקת חתונות ואירועים מקצה לקצה לרגעים בלתי נשכחים",
+      "logo": "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=100&h=100&fit=crop",
+      "rating": 4.8,
+      "verified": true,
+      "location": "מרכז, אורנית"
+    },
+    {
+      "id": "3",
+      "name": "דסק נסיעות העיר",
+      "category": "שירותים נוספים",
+      "subcategoryKey": "travelTourismServices",
+      "description": "סיורים מקומיים, הזמנות טיסות וחבילות מלון מלאות",
+      "logo": "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=100&h=100&fit=crop",
+      "rating": 4.7,
+      "verified": false,
+      "location": "צפון אורנית"
+    }
+  ]
+}

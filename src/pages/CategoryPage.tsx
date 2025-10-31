@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { useParams, Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { FilterBar } from "@/components/shared/FilterBar";
@@ -7,6 +8,7 @@ import { BusinessCard } from "@/components/shared/BusinessCard";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { getCategoryConfig } from "@/lib/categoryConfig";
+import { loadBusinessFixtures, slugToCamelCase } from "@/lib/businessFixtures";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -16,54 +18,29 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 
-const mockBusinesses = [
-  {
-    id: "1",
-    name: "Cafe Oranit",
-    category: "Food & Drink",
-    description: "Cozy neighborhood cafe serving fresh pastries and artisan coffee",
-    logo: "https://images.unsplash.com/photo-1559305616-3f99cd43e353?w=100&h=100&fit=crop",
-    rating: 4.8,
-    verified: true,
-    location: "Main Street, Oranit",
-  },
-  {
-    id: "2",
-    name: "Pizza Paradise",
-    category: "Food & Drink",
-    description: "Authentic Italian pizza with fresh ingredients",
-    logo: "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=100&h=100&fit=crop",
-    rating: 4.7,
-    verified: true,
-    location: "Center, Oranit",
-  },
-  {
-    id: "3",
-    name: "Sushi Corner",
-    category: "Food & Drink",
-    description: "Fresh sushi and Japanese cuisine",
-    logo: "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=100&h=100&fit=crop",
-    rating: 4.9,
-    verified: false,
-    location: "North Oranit",
-  },
-];
-
-const relatedCategories = [
-  { slug: "shops-retail" },
-  { slug: "professional-services" },
-  { slug: "home-repairs" },
-];
-
 const CategoryPage = () => {
-  const { t } = useTranslation(['common', 'categories']);
+  const { t, i18n } = useTranslation(['common', 'categories']);
   const { slug, lang } = useParams<{ slug: string; lang: string }>();
+  const [businesses, setBusinesses] = useState<any[]>([]);
 
-  // Get category config
-  const categoryConfig = getCategoryConfig(slug || "other");
+  // Get category config and convert slug to camelCase key
+  const categoryConfig = getCategoryConfig(slug || "other-services");
   const CategoryIcon = categoryConfig.icon;
-  const categoryTitle = t(categoryConfig.titleKey, { ns: 'categories' });
-  const categoryDescription = t(categoryConfig.descriptionKey, { ns: 'categories' });
+  const categoryKey = slugToCamelCase(slug || "other-services");
+  
+  // Use the top-level category keys for title/description
+  const categoryTitle = t(`categories:top.${categoryKey}.title`);
+  const categoryDescription = t(`categories:top.${categoryKey}.description`);
+
+  // Load localized business fixtures
+  useEffect(() => {
+    const loadData = async () => {
+      const locale = i18n.language || lang || "en";
+      const fixtureBusinesses = await loadBusinessFixtures(slug || "other-services", locale);
+      setBusinesses(fixtureBusinesses);
+    };
+    loadData();
+  }, [slug, lang, i18n.language]);
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -75,12 +52,12 @@ const CategoryPage = () => {
             <Breadcrumb>
               <BreadcrumbList>
                 <BreadcrumbItem>
-                  <BreadcrumbLink href={`/${lang}`}>{t("nav.home")}</BreadcrumbLink>
+                  <BreadcrumbLink href={`/${lang}`}>{t("common:nav.home")}</BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
                   <BreadcrumbLink href={`/${lang}/explore`}>
-                    {t("nav.businesses")}
+                    {t("common:nav.businesses")}
                   </BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
@@ -119,7 +96,7 @@ const CategoryPage = () => {
           {/* Subcategories */}
           {categoryConfig.subcategories && categoryConfig.subcategories.length > 0 && (
             <div className="mb-12">
-              <h2 className="text-2xl font-bold mb-6">{t("labels.subcategories")}</h2>
+              <h2 className="text-2xl font-bold mb-6">{t("common:labels.subcategories")}</h2>
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 {categoryConfig.subcategories.map((subcategory) => {
                   const SubIcon = subcategory.icon;
@@ -146,21 +123,27 @@ const CategoryPage = () => {
           <div className="mb-6 flex items-center justify-between">
             <div>
               <h2 className="text-2xl font-semibold mb-2">
-                {mockBusinesses.length} {t("business.businessesFound")}
+                {businesses.length} {t("common:business.businessesFound")}
               </h2>
             </div>
             <Link to={`/${lang}/explore`}>
               <Button variant="outline">
-                {lang === 'he' ? '→' : '←'} {t("nav.businesses")}
+                {lang === 'he' ? '→' : '←'} {t("common:nav.businesses")}
               </Button>
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {mockBusinesses.map((business) => (
-              <BusinessCard key={business.id} {...business} />
-            ))}
-          </div>
+          {businesses.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {businesses.map((business) => (
+                <BusinessCard key={business.id} {...business} />
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-12 text-muted-foreground">
+              <p>{t("common:labels.noBusinessesFound")}</p>
+            </div>
+          )}
         </section>
 
         {/* Related Categories - removed as we now show subcategories */}

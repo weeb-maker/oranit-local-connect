@@ -1,0 +1,37 @@
+{
+  "businesses": [
+    {
+      "id": "1",
+      "name": "Oranit Plumbing Pro",
+      "category": "Home & Repairs",
+      "subcategoryKey": "plumbingHeating",
+      "description": "Expert plumbing and heating services for homes and businesses",
+      "logo": "https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?w=100&h=100&fit=crop",
+      "rating": 4.9,
+      "verified": true,
+      "location": "Central Oranit"
+    },
+    {
+      "id": "2",
+      "name": "Bright Spark Electric",
+      "category": "Home & Repairs",
+      "subcategoryKey": "electricalServices",
+      "description": "Licensed electricians for all your electrical needs",
+      "logo": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=100&h=100&fit=crop",
+      "rating": 4.8,
+      "verified": true,
+      "location": "North Oranit"
+    },
+    {
+      "id": "3",
+      "name": "HandyFix Solutions",
+      "category": "Home & Repairs",
+      "subcategoryKey": "handymanOddJobs",
+      "description": "Your reliable handyman for small repairs and odd jobs",
+      "logo": "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=100&h=100&fit=crop",
+      "rating": 4.7,
+      "verified": false,
+      "location": "South Oranit"
+    }
+  ]
+}
