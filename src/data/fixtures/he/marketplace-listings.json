@@ -1,0 +1,45 @@
+{
+  "listings": [
+    {
+      "id": "1",
+      "title": "ספת איקאה - מצב מעולה",
+      "category": "ריהוט",
+      "priceType": "paid",
+      "price": 800,
+      "condition": "good",
+      "image": "/placeholder.svg",
+      "neighborhood": "מרכז",
+      "createdAt": "2024-01-15T10:00:00Z"
+    },
+    {
+      "id": "2",
+      "title": "אוסף ספרי ילדים",
+      "category": "ספרים",
+      "priceType": "free",
+      "condition": "good",
+      "image": "/placeholder.svg",
+      "neighborhood": "צפון",
+      "createdAt": "2024-01-14T15:30:00Z"
+    },
+    {
+      "id": "3",
+      "title": "עגלת תינוק",
+      "category": "ילדים",
+      "priceType": "paid",
+      "price": 350,
+      "condition": "like_new",
+      "image": "/placeholder.svg",
+      "createdAt": "2024-01-13T09:20:00Z"
+    },
+    {
+      "id": "4",
+      "title": "מארז כלי גינון",
+      "category": "בית וגינה",
+      "priceType": "free",
+      "condition": "fair",
+      "image": "/placeholder.svg",
+      "neighborhood": "דרום",
+      "createdAt": "2024-01-12T14:45:00Z"
+    }
+  ]
+}

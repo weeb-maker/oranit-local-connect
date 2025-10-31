@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -45,51 +45,22 @@ const MarketplacePage = () => {
   const [priceTypeFilter, setPriceTypeFilter] = useState<string>("all");
   const [postingPriceType, setPostingPriceType] = useState<string>("paid");
   const [isPostDialogOpen, setIsPostDialogOpen] = useState(false);
+  const [sampleListings, setSampleListings] = useState<Listing[]>([]);
 
-  // Sample listings data
-  const sampleListings: Listing[] = [
-    {
-      id: "1",
-      title: "IKEA Sofa - Great Condition",
-      category: "Furniture",
-      priceType: "paid",
-      price: 800,
-      condition: "good",
-      image: "/placeholder.svg",
-      neighborhood: "Center",
-      createdAt: "2024-01-15T10:00:00Z"
-    },
-    {
-      id: "2",
-      title: "Kids Books Collection",
-      category: "Books",
-      priceType: "free",
-      condition: "good",
-      image: "/placeholder.svg",
-      neighborhood: "North",
-      createdAt: "2024-01-14T15:30:00Z"
-    },
-    {
-      id: "3",
-      title: "Baby Stroller",
-      category: "Kids",
-      priceType: "paid",
-      price: 350,
-      condition: "like_new",
-      image: "/placeholder.svg",
-      createdAt: "2024-01-13T09:20:00Z"
-    },
-    {
-      id: "4",
-      title: "Garden Tools Set",
-      category: "Home & Garden",
-      priceType: "free",
-      condition: "fair",
-      image: "/placeholder.svg",
-      neighborhood: "South",
-      createdAt: "2024-01-12T14:45:00Z"
-    }
-  ];
+  // Load locale-specific listings
+  useEffect(() => {
+    const loadListings = async () => {
+      try {
+        const locale = i18n.language;
+        const fixtures = await import(`../data/fixtures/${locale}/marketplace-listings.json`);
+        setSampleListings(fixtures.listings || []);
+      } catch (error) {
+        console.warn(`No marketplace listings found for locale "${i18n.language}"`);
+        setSampleListings([]);
+      }
+    };
+    loadListings();
+  }, [i18n.language]);
 
   const filteredListings = sampleListings.filter(listing => {
     if (priceTypeFilter === "paid") return listing.priceType === "paid";
