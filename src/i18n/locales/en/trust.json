@@ -1,0 +1,35 @@
+{
+  "section": {
+    "title": "Trusted by Your Neighbors",
+    "subtitle": "See what your community recommends"
+  },
+  "items": [
+    {
+      "name": "Sarah Cohen",
+      "initials": "SC",
+      "favorites": ["Café Aroma", "Green Garden", "Tech Repairs"],
+      "reviews": 12
+    },
+    {
+      "name": "David Levi",
+      "initials": "DL",
+      "favorites": ["Pizzeria Napoli", "Oranit Fitness", "Home Repairs Plus"],
+      "reviews": 8
+    },
+    {
+      "name": "Rachel Mizrahi",
+      "initials": "RM",
+      "favorites": ["Beauty Studio", "Kids Tutoring", "Local Bakery"],
+      "reviews": 15
+    },
+    {
+      "name": "Michael Ben-David",
+      "initials": "MB",
+      "favorites": ["Car Service Center", "Coffee Corner", "IT Solutions"],
+      "reviews": 10
+    }
+  ],
+  "favorites": "favorites",
+  "reviews": "reviews",
+  "createProfile": "Create Your Profile"
+}

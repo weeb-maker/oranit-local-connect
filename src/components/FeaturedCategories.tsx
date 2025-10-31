@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 
 const FeaturedCategories = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation(['categories']);
   const { lang } = useParams<{ lang: string }>();
   const currentLang = lang || 'he';
 
@@ -64,9 +64,9 @@ const FeaturedCategories = () => {
     <section className="py-16 lg:py-24 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12 animate-fade-in">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("categories.title")}</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("categories:section.title")}</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            {t("categories.subtitle")}
+            {t("categories:section.subtitle")}
           </p>
         </div>
 
@@ -86,8 +86,8 @@ const FeaturedCategories = () => {
                       <Icon className="h-8 w-8 text-primary" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-lg mb-1">{t(`categories.${category.key}.title`)}</h3>
-                      <p className="text-sm text-muted-foreground">{t(`categories.${category.key}.description`)}</p>
+                      <h3 className="font-semibold text-lg mb-1">{t(`categories:${category.key}.title`)}</h3>
+                      <p className="text-sm text-muted-foreground">{t(`categories:${category.key}.description`)}</p>
                     </div>
                   </CardContent>
                 </Card>

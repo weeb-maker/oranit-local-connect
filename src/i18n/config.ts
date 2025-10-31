@@ -6,11 +6,13 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 import enCommon from './locales/en/common.json';
 import enCategories from './locales/en/categories.json';
 import enSpecials from './locales/en/specials.json';
+import enTrust from './locales/en/trust.json';
 
 // Import Hebrew translations
 import heCommon from './locales/he/common.json';
 import heCategories from './locales/he/categories.json';
 import heSpecials from './locales/he/specials.json';
+import heTrust from './locales/he/trust.json';
 
 i18n
   .use(LanguageDetector)
@@ -21,16 +23,18 @@ i18n
         common: enCommon,
         categories: enCategories,
         specials: enSpecials,
+        trust: enTrust,
       },
       he: {
         common: heCommon,
         categories: heCategories,
         specials: heSpecials,
+        trust: heTrust,
       }
     },
     fallbackLng: 'he',
     defaultNS: 'common',
-    ns: ['common', 'categories', 'specials'],
+    ns: ['common', 'categories', 'specials', 'trust'],
     interpolation: {
       escapeValue: false
     },

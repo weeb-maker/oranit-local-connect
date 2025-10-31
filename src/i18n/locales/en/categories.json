@@ -1,4 +1,40 @@
 {
+  "section": {
+    "title": "Browse by Category",
+    "subtitle": "Find local businesses and services quickly"
+  },
+  "shops": {
+    "title": "Shops & Retail",
+    "description": "Stores, boutiques, and specialty shops"
+  },
+  "food": {
+    "title": "Food & Drink",
+    "description": "Restaurants, cafés, groceries, and bakeries"
+  },
+  "professional": {
+    "title": "Professional Services",
+    "description": "Legal, accounting, IT, marketing, and more"
+  },
+  "home": {
+    "title": "Home & Repairs",
+    "description": "Trades, maintenance, handymen, and more"
+  },
+  "wellness": {
+    "title": "Wellness & Care",
+    "description": "Clinics, dental, fitness, beauty, and care"
+  },
+  "mobility": {
+    "title": "Mobility & Transport",
+    "description": "Transport, rentals, repair, moving"
+  },
+  "youth": {
+    "title": "Youth Services",
+    "description": "Activities, tutoring, support, events"
+  },
+  "other": {
+    "title": "Other Services",
+    "description": "Events, pets, travel, and general services"
+  },
   "top": {
     "shopsRetail": {
       "title": "Shops & Retail",
