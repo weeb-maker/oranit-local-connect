@@ -4,6 +4,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { CategoryTile } from "@/components/shared/CategoryTile";
 import { BusinessCard } from "@/components/shared/BusinessCard";
+import { FilterBar } from "@/components/shared/FilterBar";
 import { Button } from "@/components/ui/button";
 import { Link, useParams } from "react-router-dom";
 import { categoryConfig } from "@/lib/categoryConfig";
@@ -20,6 +21,8 @@ const ExplorePage = () => {
   const { t, i18n } = useTranslation(['common', 'categories']);
   const { lang } = useParams<{ lang: string }>();
   const [featuredBusinesses, setFeaturedBusinesses] = useState<any[]>([]);
+  const [searchQuery, setSearchQuery] = useState<string>("");
+  const [selectedCategory, setSelectedCategory] = useState<string>("");
 
   // Load localized featured businesses
   useEffect(() => {
@@ -36,6 +39,18 @@ const ExplorePage = () => {
     loadFeaturedBusinesses();
   }, [i18n.language, lang]);
 
+  // Filter businesses based on search and category
+  const filteredBusinesses = featuredBusinesses.filter((business) => {
+    const matchesSearch = !searchQuery || 
+      business.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      business.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      business.category.toLowerCase().includes(searchQuery.toLowerCase());
+    
+    const matchesCategory = !selectedCategory || business.category === selectedCategory;
+    
+    return matchesSearch && matchesCategory;
+  });
+
   return (
     <div className="min-h-screen flex flex-col">
       <Navigation />
@@ -50,6 +65,15 @@ const ExplorePage = () => {
               {t("common:explore.subtitle")}
             </p>
           </div>
+        </section>
+
+        {/* Global Search Bar */}
+        <section className="container mx-auto px-4 -mt-8 mb-6">
+          <FilterBar 
+            showFilters={true}
+            onSearch={(query) => setSearchQuery(query)}
+            onCategoryChange={(category) => setSelectedCategory(category)}
+          />
         </section>
 
         {/* Categories Grid */}
@@ -71,16 +95,46 @@ const ExplorePage = () => {
         {/* Featured Businesses */}
         <section className="bg-muted/30 py-16">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold mb-8">{t("common:explore.featuredTitle")}</h2>
-            {featuredBusinesses.length > 0 ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {featuredBusinesses.map((business) => (
-                  <BusinessCard key={business.id} {...business} />
-                ))}
-              </div>
+            <div className="flex items-center justify-between mb-8">
+              <h2 className="text-3xl font-bold">{t("common:explore.featuredTitle")}</h2>
+              {(searchQuery || selectedCategory) && (
+                <Button 
+                  variant="outline" 
+                  onClick={() => {
+                    setSearchQuery("");
+                    setSelectedCategory("");
+                  }}
+                >
+                  {t("common:labels.clearFilters", "Clear Filters")}
+                </Button>
+              )}
+            </div>
+            {filteredBusinesses.length > 0 ? (
+              <>
+                <p className="text-muted-foreground mb-6">
+                  {t("common:labels.showingResults", { count: filteredBusinesses.length })}
+                </p>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {filteredBusinesses.map((business) => (
+                    <BusinessCard key={business.id} {...business} />
+                  ))}
+                </div>
+              </>
             ) : (
               <div className="text-center py-12 text-muted-foreground">
                 <p>{t("common:labels.noBusinessesFound")}</p>
+                {(searchQuery || selectedCategory) && (
+                  <Button 
+                    variant="link" 
+                    onClick={() => {
+                      setSearchQuery("");
+                      setSelectedCategory("");
+                    }}
+                    className="mt-4"
+                  >
+                    {t("common:labels.clearFilters", "Clear Filters")}
+                  </Button>
+                )}
               </div>
             )}
           </div>

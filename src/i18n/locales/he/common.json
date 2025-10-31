@@ -30,7 +30,9 @@
     "browseByCategory": "עיון לפי קטגוריה",
     "subcategories": "תתי-קטגוריות",
     "businesses": "עסקים",
-    "noBusinessesFound": "לא נמצאו עסקים בקטגוריה זו עדיין"
+    "noBusinessesFound": "לא נמצאו עסקים בקטגוריה זו עדיין",
+    "clearFilters": "נקה מסננים",
+    "showingResults": "מציג {{count}} תוצאות"
   },
   "breadcrumbs": {
     "home": "בית"

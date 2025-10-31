@@ -30,7 +30,9 @@
     "browseByCategory": "Browse by Category",
     "subcategories": "Subcategories",
     "businesses": "businesses",
-    "noBusinessesFound": "No businesses found in this category yet"
+    "noBusinessesFound": "No businesses found in this category yet",
+    "clearFilters": "Clear Filters",
+    "showingResults": "Showing {{count}} results"
   },
   "breadcrumbs": {
     "home": "Home"
