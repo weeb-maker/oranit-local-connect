@@ -864,5 +864,162 @@
       "title": "Contact Oranit.biz",
       "description": "Get in touch with the Oranit.biz team for support, feedback, or partnership opportunities."
     }
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "lastUpdated": "Last updated: January 2025",
+    "sections": {
+      "intro": {
+        "title": "Introduction",
+        "body": "At Oranit.biz, we respect your privacy and are committed to protecting your personal information. This Privacy Policy explains how we collect, use, and safeguard your data when you use our platform."
+      },
+      "collection": {
+        "title": "Information We Collect",
+        "body": "We collect information you provide directly to us, including:",
+        "items": [
+          "Name and contact information when you register a business or contact us",
+          "Business details and photos if you list a business",
+          "Event and marketplace listing information",
+          "Communications and feedback you send to us"
+        ]
+      },
+      "usage": {
+        "title": "How We Use Your Information",
+        "body": "We use the information we collect to operate and improve Oranit.biz, display business and event listings, facilitate community connections, respond to inquiries, and send relevant updates about the platform."
+      },
+      "sharing": {
+        "title": "Information Sharing",
+        "body": "We do not sell your personal information. We share business listing information publicly on the platform as intended. We may share information with service providers who help us operate the platform, and when required by law."
+      },
+      "rights": {
+        "title": "Your Rights",
+        "body": "You have the right to:",
+        "items": [
+          "Access and review your personal information",
+          "Request corrections to your data",
+          "Request deletion of your account and data",
+          "Opt out of marketing communications"
+        ]
+      },
+      "contact": {
+        "title": "Contact Us",
+        "body": "If you have questions about this Privacy Policy or how we handle your data, please contact us at contact@oranit.biz."
+      }
+    },
+    "seo": {
+      "title": "Privacy Policy - Oranit.biz",
+      "description": "Learn how Oranit.biz collects, uses, and protects your personal information and privacy."
+    }
+  },
+  "terms": {
+    "title": "Terms of Service",
+    "lastUpdated": "Last updated: January 2025",
+    "sections": {
+      "intro": {
+        "title": "Agreement to Terms",
+        "body": "By accessing and using Oranit.biz, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use the platform."
+      },
+      "use": {
+        "title": "Acceptable Use",
+        "body": "You agree to use Oranit.biz only for lawful purposes and in accordance with community guidelines. You must not:",
+        "items": [
+          "Post false, misleading, or fraudulent information",
+          "Violate any local, national, or international laws",
+          "Harass, abuse, or harm other users or businesses"
+        ]
+      },
+      "listings": {
+        "title": "Business and Event Listings",
+        "body": "Business owners are responsible for the accuracy of their listings. Oranit.biz reserves the right to remove any listing that violates our guidelines or terms. We do not guarantee the accuracy of third-party content."
+      },
+      "content": {
+        "title": "User Content",
+        "body": "You retain ownership of content you post, but you grant Oranit.biz a license to display and distribute that content on the platform. You are responsible for ensuring you have the rights to any content you upload."
+      },
+      "liability": {
+        "title": "Limitation of Liability",
+        "body": "Oranit.biz is provided 'as is' without warranties. We are not liable for any damages arising from your use of the platform, interactions with other users, or reliance on listed businesses."
+      },
+      "changes": {
+        "title": "Changes to Terms",
+        "body": "We may update these Terms of Service from time to time. Continued use of the platform after changes constitutes acceptance of the new terms."
+      }
+    },
+    "seo": {
+      "title": "Terms of Service - Oranit.biz",
+      "description": "Read the Terms of Service for using Oranit.biz community platform."
+    }
+  },
+  "help": {
+    "title": "Help Center",
+    "subtitle": "Find answers to common questions or contact us for support",
+    "quickHelp": {
+      "contact": {
+        "title": "Contact Support",
+        "body": "Send us a message and we'll get back to you within one business day."
+      },
+      "whatsapp": {
+        "title": "WhatsApp Chat",
+        "body": "Get quick answers via WhatsApp during business hours."
+      }
+    },
+    "categories": {
+      "general": {
+        "title": "General Questions",
+        "items": [
+          {
+            "q": "What is Oranit.biz?",
+            "a": "Oranit.biz is a bilingual community platform connecting residents, local businesses, events, and marketplace in Oranit, Israel."
+          },
+          {
+            "q": "Is Oranit.biz free to use?",
+            "a": "Yes, browsing listings, events, and using the marketplace is completely free for residents. Basic business listings are also free."
+          },
+          {
+            "q": "How do I change the language?",
+            "a": "Click the language toggle icon in the top navigation to switch between English and Hebrew."
+          }
+        ]
+      },
+      "business": {
+        "title": "For Businesses",
+        "items": [
+          {
+            "q": "How do I add my business?",
+            "a": "Click 'Add My Business' in the navigation or visit the For Businesses page. Fill out the form with your business details and submit for review."
+          },
+          {
+            "q": "How long does approval take?",
+            "a": "Most business listings are reviewed and approved within 24-48 hours."
+          },
+          {
+            "q": "Can I edit my business listing later?",
+            "a": "Yes, contact us with your business name and the changes you'd like to make. We're working on a self-service dashboard for business owners."
+          }
+        ]
+      },
+      "events": {
+        "title": "Events & Community",
+        "items": [
+          {
+            "q": "How do I post a community event?",
+            "a": "Visit the What's On page and look for the 'Post Event' option, or contact us with your event details and we'll help you list it."
+          },
+          {
+            "q": "Are events free to post?",
+            "a": "Yes, community events, workshops, and local gatherings can be posted for free."
+          }
+        ]
+      }
+    },
+    "cta": {
+      "title": "Still need help?",
+      "body": "Can't find what you're looking for? Our team is here to assist you.",
+      "button": "Contact Support"
+    },
+    "seo": {
+      "title": "Help Center - Oranit.biz",
+      "description": "Get help and find answers to frequently asked questions about using Oranit.biz."
+    }
   }
 }

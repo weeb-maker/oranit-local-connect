@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { useParams, Link } from "react-router-dom";
+import { useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -23,6 +24,14 @@ const AboutPage = () => {
   const { t } = useTranslation();
   const { lang } = useParams<{ lang: string }>();
   const currentLang = lang || "he";
+
+  useEffect(() => {
+    document.title = t("about.seo.title");
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute("content", t("about.seo.description"));
+    }
+  }, [t]);
 
   const missionValues = [
     {
@@ -350,21 +359,21 @@ const AboutPage = () => {
                   to={`/${currentLang}/privacy`}
                   className="hover:text-primary underline"
                 >
-                  Privacy Policy
+                  {t("footer.links.privacy")}
                 </Link>
                 {" · "}
                 <Link
                   to={`/${currentLang}/terms`}
                   className="hover:text-primary underline"
                 >
-                  Terms of Service
+                  {t("footer.links.terms")}
                 </Link>
                 {" · "}
                 <Link
                   to={`/${currentLang}/help`}
                   className="hover:text-primary underline"
                 >
-                  Help Center
+                  {t("footer.links.helpCenter")}
                 </Link>
               </div>
             </div>

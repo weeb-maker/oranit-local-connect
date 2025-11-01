@@ -24,6 +24,9 @@ import DealsPage from "./pages/DealsPage";
 import DealDetailPage from "./pages/DealDetailPage";
 import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
+import PrivacyPage from "./pages/PrivacyPage";
+import TermsPage from "./pages/TermsPage";
+import HelpPage from "./pages/HelpPage";
 import "./i18n/config";
 
 const queryClient = new QueryClient();
@@ -70,6 +73,9 @@ const App = () => (
           <Route path="/:lang/deals/:slug" element={<LanguageWrapper><DealDetailPage /></LanguageWrapper>} />
           <Route path="/:lang/about" element={<LanguageWrapper><AboutPage /></LanguageWrapper>} />
           <Route path="/:lang/contact" element={<LanguageWrapper><ContactPage /></LanguageWrapper>} />
+          <Route path="/:lang/privacy" element={<LanguageWrapper><PrivacyPage /></LanguageWrapper>} />
+          <Route path="/:lang/terms" element={<LanguageWrapper><TermsPage /></LanguageWrapper>} />
+          <Route path="/:lang/help" element={<LanguageWrapper><HelpPage /></LanguageWrapper>} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
