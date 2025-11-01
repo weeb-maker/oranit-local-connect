@@ -27,6 +27,8 @@ import ContactPage from "./pages/ContactPage";
 import PrivacyPage from "./pages/PrivacyPage";
 import TermsPage from "./pages/TermsPage";
 import HelpPage from "./pages/HelpPage";
+import HelpIndexPage from "./pages/HelpIndexPage";
+import HelpArticlePage from "./pages/HelpArticlePage";
 import "./i18n/config";
 
 const queryClient = new QueryClient();
@@ -75,7 +77,9 @@ const App = () => (
           <Route path="/:lang/contact" element={<LanguageWrapper><ContactPage /></LanguageWrapper>} />
           <Route path="/:lang/privacy" element={<LanguageWrapper><PrivacyPage /></LanguageWrapper>} />
           <Route path="/:lang/terms" element={<LanguageWrapper><TermsPage /></LanguageWrapper>} />
-          <Route path="/:lang/help" element={<LanguageWrapper><HelpPage /></LanguageWrapper>} />
+          <Route path="/:lang/help-old" element={<LanguageWrapper><HelpPage /></LanguageWrapper>} />
+          <Route path="/:lang/help" element={<LanguageWrapper><HelpIndexPage /></LanguageWrapper>} />
+          <Route path="/:lang/help/:slug" element={<LanguageWrapper><HelpArticlePage /></LanguageWrapper>} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

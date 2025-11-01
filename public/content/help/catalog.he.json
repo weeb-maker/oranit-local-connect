@@ -1,0 +1,32 @@
+[
+  {
+    "id": "getting-started",
+    "slug": "איך-להתחיל",
+    "lang": "he",
+    "title": "איך להתחיל ב‑Oranit.biz",
+    "excerpt": "צרו פרופיל, הגדירו שפה והתחילו להשתמש במדריך המקומי.",
+    "category": "account",
+    "keywords": ["פרופיל", "שפה", "התחלה"],
+    "updatedAt": "2025-10-30"
+  },
+  {
+    "id": "claim-business",
+    "slug": "אימות-עסק",
+    "lang": "he",
+    "title": "איך לאמת את רישום העסק שלכם",
+    "excerpt": "אמתו בעלות וקבלו שליטה על פרופיל העסק שלכם ב‑Oranit.biz.",
+    "category": "business",
+    "keywords": ["עסק", "אימות", "רישום", "בעלות"],
+    "updatedAt": "2025-10-28"
+  },
+  {
+    "id": "browse-directory",
+    "slug": "דפדוף-במדריך",
+    "lang": "he",
+    "title": "איך לדפדף במדריך העסקים",
+    "excerpt": "למדו איך לחפש, לסנן ולגלות עסקים מקומיים באורנית.",
+    "category": "directory",
+    "keywords": ["חיפוש", "סינון", "דפדוף", "מדריך", "עסקים"],
+    "updatedAt": "2025-10-29"
+  }
+]

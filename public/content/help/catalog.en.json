@@ -1,0 +1,32 @@
+[
+  {
+    "id": "getting-started",
+    "slug": "getting-started",
+    "lang": "en",
+    "title": "Getting started with Oranit.biz",
+    "excerpt": "Create your profile, set your language, and start using the local directory.",
+    "category": "account",
+    "keywords": ["profile", "language", "onboarding"],
+    "updatedAt": "2025-10-30"
+  },
+  {
+    "id": "claim-business",
+    "slug": "claim-business",
+    "lang": "en",
+    "title": "How to claim your business listing",
+    "excerpt": "Verify ownership and take control of your business profile on Oranit.biz.",
+    "category": "business",
+    "keywords": ["business", "claim", "verify", "listing"],
+    "updatedAt": "2025-10-28"
+  },
+  {
+    "id": "browse-directory",
+    "slug": "browse-directory",
+    "lang": "en",
+    "title": "How to browse the business directory",
+    "excerpt": "Learn how to search, filter, and discover local businesses in Oranit.",
+    "category": "directory",
+    "keywords": ["search", "filter", "browse", "directory", "businesses"],
+    "updatedAt": "2025-10-29"
+  }
+]

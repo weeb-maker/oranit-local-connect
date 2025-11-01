@@ -962,75 +962,65 @@
     }
   },
   "help": {
-    "title": "Help Center",
-    "subtitle": "Find answers to common questions or contact us for support",
-    "quickHelp": {
-      "contact": {
-        "title": "Contact Support",
-        "body": "Send us a message and we'll get back to you within one business day."
-      },
-      "whatsapp": {
-        "title": "WhatsApp Chat",
-        "body": "Get quick answers via WhatsApp during business hours."
-      }
-    },
-    "categories": {
-      "general": {
-        "title": "General Questions",
-        "items": [
-          {
-            "q": "What is Oranit.biz?",
-            "a": "Oranit.biz is a bilingual community platform connecting residents, local businesses, events, and marketplace in Oranit, Israel."
-          },
-          {
-            "q": "Is Oranit.biz free to use?",
-            "a": "Yes, browsing listings, events, and using the marketplace is completely free for residents. Basic business listings are also free."
-          },
-          {
-            "q": "How do I change the language?",
-            "a": "Click the language toggle icon in the top navigation to switch between English and Hebrew."
-          }
-        ]
-      },
-      "business": {
-        "title": "For Businesses",
-        "items": [
-          {
-            "q": "How do I add my business?",
-            "a": "Click 'Add My Business' in the navigation or visit the For Businesses page. Fill out the form with your business details and submit for review."
-          },
-          {
-            "q": "How long does approval take?",
-            "a": "Most business listings are reviewed and approved within 24-48 hours."
-          },
-          {
-            "q": "Can I edit my business listing later?",
-            "a": "Yes, contact us with your business name and the changes you'd like to make. We're working on a self-service dashboard for business owners."
-          }
-        ]
-      },
-      "events": {
-        "title": "Events & Community",
-        "items": [
-          {
-            "q": "How do I post a community event?",
-            "a": "Visit the What's On page and look for the 'Post Event' option, or contact us with your event details and we'll help you list it."
-          },
-          {
-            "q": "Are events free to post?",
-            "a": "Yes, community events, workshops, and local gatherings can be posted for free."
-          }
-        ]
-      }
-    },
-    "cta": {
-      "title": "Still need help?",
-      "body": "Can't find what you're looking for? Our team is here to assist you.",
-      "button": "Contact Support"
-    },
     "seo": {
       "title": "Help Center - Oranit.biz",
-      "description": "Get help and find answers to frequently asked questions about using Oranit.biz."
+      "description": "Find answers, guides, and tips for using Oranit.biz"
+    },
+    "hero": {
+      "title": "How can we help?",
+      "subtitle": "Search guides or browse categories",
+      "searchPlaceholder": "Search the Help Center",
+      "popular": "Popular searches",
+      "popularSearches": ["Getting started", "Claim business", "Browse directory", "View deals"]
+    },
+    "categories": {
+      "title": "Browse by category",
+      "account": "Account & Profile",
+      "business": "Business Listings",
+      "deals": "Deals & Specials",
+      "directory": "Directory & Reviews",
+      "technical": "Technical Support",
+      "privacy": "Privacy & Security"
+    },
+    "popular": {
+      "title": "Popular articles"
+    },
+    "cta": {
+      "title": "Didn't find what you need?",
+      "button": "Contact support",
+      "whatsapp": "Quick help on WhatsApp"
+    },
+    "article": {
+      "updated": "Updated",
+      "readingTime": "min read",
+      "related": "Related articles",
+      "switchLang": "Read this in {lang}",
+      "notTranslated": "This article is not yet available in {lang}.",
+      "viewOriginal": "View original article",
+      "breadcrumbHome": "Home",
+      "breadcrumbHelp": "Help Center",
+      "tableOfContents": "Table of contents"
+    },
+    "feedback": {
+      "title": "Was this helpful?",
+      "yes": "Yes",
+      "no": "No",
+      "thanks": "Thanks for your feedback!",
+      "commentLabel": "Tell us more (optional)",
+      "commentPlaceholder": "How can we improve this article?",
+      "submit": "Send feedback",
+      "submitting": "Sending...",
+      "error": "Couldn't submit feedback. Please try again."
+    },
+    "empty": {
+      "title": "No results found",
+      "body": "Try a different keyword or browse categories.",
+      "browseCategories": "Browse all categories"
+    },
+    "search": {
+      "searching": "Searching...",
+      "results": "{count} results found",
+      "noResults": "No articles match your search"
     }
   }
 }
