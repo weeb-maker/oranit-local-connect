@@ -1022,5 +1022,65 @@
       "results": "{count} results found",
       "noResults": "No articles match your search"
     }
+  },
+  "privacy": {
+    "seo": {
+      "title": "Privacy Policy - Oranit.biz",
+      "description": "Learn how Oranit.biz protects your personal data and ensures your privacy online."
+    },
+    "title": "Privacy Policy",
+    "subtitle": "Your data, your control.",
+    "updated": "Last updated: October 2025",
+    "toc": "On this page",
+    "intro": {
+      "title": "Introduction",
+      "body": "At Oranit.biz, your privacy is important to us. This policy explains what data we collect, how we use it, and your rights under Israeli law and GDPR principles."
+    },
+    "collect": {
+      "title": "Information We Collect",
+      "body": "We collect data you provide directly (account details, business listings, reviews) and automatically (usage analytics, cookies, device information)."
+    },
+    "use": {
+      "title": "How We Use Information",
+      "body": "We use your information to operate the platform, improve services, provide personalized experiences, ensure security, and communicate important updates."
+    },
+    "share": {
+      "title": "Data Sharing & Third Parties",
+      "body": "We do not sell your personal data. We only share information with trusted service providers (hosting, analytics) under strict confidentiality agreements and when required by law."
+    },
+    "cookies": {
+      "title": "Cookies & Analytics",
+      "body": "Cookies help us understand usage patterns and improve user experience. You can manage cookie preferences in your browser settings. We use analytics to improve our services."
+    },
+    "retention": {
+      "title": "Data Retention",
+      "body": "We retain personal data only as long as necessary for the purposes described in this policy or as required by law. You can request deletion at any time."
+    },
+    "rights": {
+      "title": "Your Rights",
+      "body": "You have the right to access, correct, delete, export, and restrict processing of your data. To exercise these rights, contact us at privacy@oranit.biz."
+    },
+    "security": {
+      "title": "Security Practices",
+      "body": "We implement reasonable technical and organizational measures including encryption, access controls, and regular security audits to protect your data from unauthorized access or misuse."
+    },
+    "international": {
+      "title": "International Transfers",
+      "body": "Your data may be processed in countries outside Israel. We ensure appropriate safeguards are in place to protect your information during international transfers."
+    },
+    "children": {
+      "title": "Children's Privacy",
+      "body": "Oranit.biz is not intended for children under 13. We do not knowingly collect data from children. If you believe a child has provided information, contact us immediately."
+    },
+    "updates": {
+      "title": "Updates to this Policy",
+      "body": "We may update this policy periodically. Significant changes will be announced on this page and via email. Your continued use constitutes acceptance of updates."
+    },
+    "contact": {
+      "title": "Questions About Privacy?",
+      "body": "If you have questions about this policy or your data, please reach out to our privacy team.",
+      "email": "privacy@oranit.biz",
+      "button": "Contact us"
+    }
   }
 }
