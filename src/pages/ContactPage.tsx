@@ -39,7 +39,76 @@ const ContactPage = () => {
     if (metaDescription) {
       metaDescription.setAttribute("content", t("contact.seo.description"));
     }
-  }, [t]);
+    
+    // Add canonical and hreflang tags
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonical);
+    }
+    canonical.setAttribute('href', `https://oranit.biz/${lang}/contact`);
+    
+    // Add hreflang tags
+    const existingHreflang = document.querySelectorAll('link[rel="alternate"][hreflang]');
+    existingHreflang.forEach(tag => tag.remove());
+    
+    const hreflangEn = document.createElement('link');
+    hreflangEn.setAttribute('rel', 'alternate');
+    hreflangEn.setAttribute('hreflang', 'en');
+    hreflangEn.setAttribute('href', 'https://oranit.biz/en/contact');
+    document.head.appendChild(hreflangEn);
+    
+    const hreflangHe = document.createElement('link');
+    hreflangHe.setAttribute('rel', 'alternate');
+    hreflangHe.setAttribute('hreflang', 'he');
+    hreflangHe.setAttribute('href', 'https://oranit.biz/he/contact');
+    document.head.appendChild(hreflangHe);
+    
+    // Add FAQPage schema
+    const faqSchema = document.createElement('script');
+    faqSchema.type = 'application/ld+json';
+    faqSchema.text = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": t("contact.faq.q1"),
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": t("contact.faq.a1")
+          }
+        },
+        {
+          "@type": "Question",
+          "name": t("contact.faq.q2"),
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": t("contact.faq.a2")
+          }
+        },
+        {
+          "@type": "Question",
+          "name": t("contact.faq.q3"),
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": t("contact.faq.a3")
+          }
+        }
+      ]
+    });
+    document.head.appendChild(faqSchema);
+    
+    return () => {
+      if (document.head.contains(faqSchema)) {
+        document.head.removeChild(faqSchema);
+      }
+      existingHreflang.forEach(tag => {
+        if (document.head.contains(tag)) document.head.removeChild(tag);
+      });
+    };
+  }, [t, lang]);
 
   const {
     register,
@@ -173,14 +242,17 @@ const ContactPage = () => {
                 {/* Name */}
                 <div className="space-y-2">
                   <Label htmlFor="name">{t("contact.form.name")}</Label>
-                  <Input
-                    id="name"
-                    {...register("name")}
-                    className={errors.name ? "border-destructive" : ""}
-                    disabled={isSubmitting}
-                  />
+                    <Input
+                      id="name"
+                      {...register("name")}
+                      className={errors.name ? "border-destructive" : ""}
+                      disabled={isSubmitting}
+                      aria-invalid={errors.name ? "true" : "false"}
+                    />
                   {errors.name && (
-                    <p className="text-sm text-destructive">{t(`contact.form.errors.${errors.name.message}`)}</p>
+                    <p className="text-sm text-destructive" role="alert" aria-live="polite">
+                      {t(`contact.form.errors.${errors.name.message}`)}
+                    </p>
                   )}
                 </div>
 
@@ -194,9 +266,12 @@ const ContactPage = () => {
                       {...register("email")}
                       className={errors.email ? "border-destructive" : ""}
                       disabled={isSubmitting}
+                      aria-invalid={errors.email ? "true" : "false"}
                     />
                     {errors.email && (
-                      <p className="text-sm text-destructive">{t(`contact.form.errors.${errors.email.message}`)}</p>
+                      <p className="text-sm text-destructive" role="alert" aria-live="polite">
+                        {t(`contact.form.errors.${errors.email.message}`)}
+                      </p>
                     )}
                   </div>
 
@@ -219,7 +294,10 @@ const ContactPage = () => {
                     onValueChange={(value) => setValue("topic", value)}
                     disabled={isSubmitting}
                   >
-                    <SelectTrigger className={errors.topic ? "border-destructive" : ""}>
+                    <SelectTrigger 
+                      className={errors.topic ? "border-destructive" : ""}
+                      aria-invalid={errors.topic ? "true" : "false"}
+                    >
                       <SelectValue placeholder={t("contact.form.topicPlaceholder")} />
                     </SelectTrigger>
                     <SelectContent className="bg-background z-50">
@@ -231,9 +309,11 @@ const ContactPage = () => {
                       <SelectItem value="tech">{t("contact.form.options.tech")}</SelectItem>
                     </SelectContent>
                   </Select>
-                  {errors.topic && (
-                    <p className="text-sm text-destructive">{t(`contact.form.errors.${errors.topic.message}`)}</p>
-                  )}
+                    {errors.topic && (
+                      <p className="text-sm text-destructive" role="alert" aria-live="polite">
+                        {t(`contact.form.errors.${errors.topic.message}`)}
+                      </p>
+                    )}
                 </div>
 
                 {/* Message */}
@@ -245,9 +325,13 @@ const ContactPage = () => {
                     rows={6}
                     className={errors.message ? "border-destructive" : ""}
                     disabled={isSubmitting}
+                    placeholder={t("contact.form.messagePlaceholder")}
+                    aria-invalid={errors.message ? "true" : "false"}
                   />
                   {errors.message && (
-                    <p className="text-sm text-destructive">{t(`contact.form.errors.${errors.message.message}`)}</p>
+                    <p className="text-sm text-destructive" role="alert" aria-live="polite">
+                      {t(`contact.form.errors.${errors.message.message}`)}
+                    </p>
                   )}
                 </div>
 

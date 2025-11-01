@@ -140,7 +140,7 @@ const HelpIndexPage = () => {
             <p className="text-xl text-muted-foreground mb-8">{t("help.hero.subtitle")}</p>
             
             {/* Search Input */}
-            <div className="relative mb-6">
+            <div className="relative mb-6" role="search">
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
               <Input
                 type="search"
@@ -148,6 +148,7 @@ const HelpIndexPage = () => {
                 value={searchQuery}
                 onChange={(e) => handleSearch(e.target.value)}
                 className="pl-12 h-14 text-lg"
+                aria-label={t("help.hero.searchPlaceholder")}
               />
             </div>
 

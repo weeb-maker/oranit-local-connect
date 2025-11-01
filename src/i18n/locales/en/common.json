@@ -846,6 +846,14 @@
       "title": "Something went wrong",
       "body": "Please try again or contact us directly by email."
     },
+    "faq": {
+      "q1": "What is the best way to contact Oranit.biz?",
+      "a1": "For general inquiries, use this contact form. For urgent matters, reach out via WhatsApp. For business-related questions, email business@oranit.biz directly.",
+      "q2": "How quickly will I receive a response?",
+      "a2": "We aim to respond to all inquiries within 24-48 hours during business days. WhatsApp messages are typically answered faster during business hours.",
+      "q3": "Can I report issues or suggest features?",
+      "a3": "Absolutely! Use the 'Report Issue' or 'General Question' topic in the form above. We value all feedback and continuously improve our platform based on user suggestions."
+    },
     "location": {
       "title": "Our Location",
       "address": "Oranit, Israel"

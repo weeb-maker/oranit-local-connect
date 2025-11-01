@@ -11,12 +11,52 @@ const TermsPage = () => {
   const { t, i18n } = useTranslation();
   const currentLang = i18n.language as 'en' | 'he';
   
+  const sections = [
+    { id: "intro", key: "intro" },
+    { id: "acceptance", key: "acceptance" },
+    { id: "service", key: "service" },
+    { id: "accounts", key: "accounts" },
+    { id: "conduct", key: "conduct" },
+    { id: "listings", key: "listings" },
+    { id: "ip", key: "ip" },
+    { id: "thirdParty", key: "thirdParty" },
+    { id: "liability", key: "liability" },
+    { id: "termination", key: "termination" },
+    { id: "changes", key: "changes" },
+    { id: "law", key: "law" },
+  ];
+  
   useEffect(() => {
     document.title = t("terms.seo.title");
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute("content", t("terms.seo.description"));
     }
+    
+    // Add canonical and hreflang tags
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonical);
+    }
+    canonical.setAttribute('href', `https://oranit.biz/${currentLang}/terms`);
+    
+    // Add hreflang tags
+    const existingHreflang = document.querySelectorAll('link[rel="alternate"][hreflang]');
+    existingHreflang.forEach(tag => tag.remove());
+    
+    const hreflangEn = document.createElement('link');
+    hreflangEn.setAttribute('rel', 'alternate');
+    hreflangEn.setAttribute('hreflang', 'en');
+    hreflangEn.setAttribute('href', 'https://oranit.biz/en/terms');
+    document.head.appendChild(hreflangEn);
+    
+    const hreflangHe = document.createElement('link');
+    hreflangHe.setAttribute('rel', 'alternate');
+    hreflangHe.setAttribute('hreflang', 'he');
+    hreflangHe.setAttribute('href', 'https://oranit.biz/he/terms');
+    document.head.appendChild(hreflangHe);
     
     // Add schema.org structured data
     const script = document.createElement('script');
@@ -35,23 +75,33 @@ const TermsPage = () => {
     
     return () => {
       document.head.removeChild(script);
+      existingHreflang.forEach(tag => {
+        if (document.head.contains(tag)) document.head.removeChild(tag);
+      });
     };
   }, [t, currentLang]);
   
-  const sections = [
-    { id: "intro", key: "intro" },
-    { id: "acceptance", key: "acceptance" },
-    { id: "service", key: "service" },
-    { id: "accounts", key: "accounts" },
-    { id: "conduct", key: "conduct" },
-    { id: "listings", key: "listings" },
-    { id: "ip", key: "ip" },
-    { id: "thirdParty", key: "thirdParty" },
-    { id: "liability", key: "liability" },
-    { id: "termination", key: "termination" },
-    { id: "changes", key: "changes" },
-    { id: "law", key: "law" },
-  ];
+  // Track active section for ToC
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+            window.history.replaceState(null, '', `#${id}`);
+          }
+        });
+      },
+      { rootMargin: '-100px 0px -80% 0px' }
+    );
+
+    sections.forEach((section) => {
+      const element = document.getElementById(section.id);
+      if (element) observer.observe(element);
+    });
+
+    return () => observer.disconnect();
+  }, [sections]);
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -129,15 +179,19 @@ const TermsPage = () => {
                     <p className="font-bold mb-6 text-sm text-foreground uppercase tracking-wider">
                       {t("terms.toc")}
                     </p>
-                    {sections.map((section) => (
-                      <a
-                        key={section.id}
-                        href={`#${section.id}`}
-                        className="block py-2.5 px-4 text-sm text-muted-foreground hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 border-l-2 border-transparent hover:border-primary"
-                      >
-                        {t(`terms.${section.key}.title`)}
-                      </a>
-                    ))}
+                    {sections.map((section) => {
+                      const isActive = typeof window !== 'undefined' && window.location.hash === `#${section.id}`;
+                      return (
+                        <a
+                          key={section.id}
+                          href={`#${section.id}`}
+                          aria-current={isActive ? "location" : undefined}
+                          className="block py-2.5 px-4 text-sm text-muted-foreground hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 border-l-2 border-transparent hover:border-primary aria-[current=location]:border-primary aria-[current=location]:bg-primary/10 aria-[current=location]:text-primary aria-[current=location]:font-semibold"
+                        >
+                          {t(`terms.${section.key}.title`)}
+                        </a>
+                      );
+                    })}
                   </nav>
                 </Card>
               </div>

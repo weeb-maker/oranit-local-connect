@@ -84,6 +84,22 @@ const HelpArticlePage = () => {
     }
     canonical.setAttribute('href', `https://oranit.biz/${currentLang}/help/${article.slug}`);
 
+    // Add hreflang tags
+    const existingHreflang = document.querySelectorAll('link[rel="alternate"][hreflang]');
+    existingHreflang.forEach(tag => tag.remove());
+    
+    const hreflangEn = document.createElement('link');
+    hreflangEn.setAttribute('rel', 'alternate');
+    hreflangEn.setAttribute('hreflang', 'en');
+    hreflangEn.setAttribute('href', `https://oranit.biz/en/help/${article.slug_i18n.en}`);
+    document.head.appendChild(hreflangEn);
+    
+    const hreflangHe = document.createElement('link');
+    hreflangHe.setAttribute('rel', 'alternate');
+    hreflangHe.setAttribute('hreflang', 'he');
+    hreflangHe.setAttribute('href', `https://oranit.biz/he/help/${article.slug_i18n.he}`);
+    document.head.appendChild(hreflangHe);
+    
     // Add schema.org Article markup
     const script = document.createElement('script');
     script.type = 'application/ld+json';
