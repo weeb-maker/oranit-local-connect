@@ -353,6 +353,17 @@
     "contact": "Contact Business",
     "share": "Share Deal",
     "relatedDeals": "More Deals You Might Like",
+    "sort": {
+      "label": "Sort By",
+      "newest": "Newest First",
+      "endingSoon": "Ending Soon",
+      "discountHigh": "Highest Discount",
+      "featured": "Featured"
+    },
+    "seo": {
+      "title": "Local Deals & Specials - Oranit.biz",
+      "description": "Discover exclusive deals and special offers from trusted local businesses in Oranit. Save money while supporting your community."
+    },
     "form": {
       "title": "Submit Your Deal",
       "subtitle": "Share your special offer with the Oranit community",

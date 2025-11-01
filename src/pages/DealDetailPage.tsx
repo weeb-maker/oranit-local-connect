@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import Navigation from "@/components/Navigation";
@@ -20,6 +21,12 @@ import {
 import dealsEn from "@/data/fixtures/en/deals.json";
 import dealsHe from "@/data/fixtures/he/deals.json";
 import { toast } from "@/hooks/use-toast";
+import pizzaDeal from "@/assets/deals/pizza-deal.jpg";
+import coffeeDeal from "@/assets/deals/coffee-deal.jpg";
+import fitnessDeal from "@/assets/deals/fitness-deal.jpg";
+import techRepairDeal from "@/assets/deals/tech-repair-deal.jpg";
+import loyaltyDeal from "@/assets/deals/loyalty-deal.jpg";
+import salonDeal from "@/assets/deals/salon-deal.jpg";
 
 interface Deal {
   id: string;
@@ -44,6 +51,16 @@ interface Deal {
   whatsapp?: string;
 }
 
+// Map image paths to imports
+const imageMap: Record<string, string> = {
+  "/src/assets/deals/pizza-deal.jpg": pizzaDeal,
+  "/src/assets/deals/coffee-deal.jpg": coffeeDeal,
+  "/src/assets/deals/fitness-deal.jpg": fitnessDeal,
+  "/src/assets/deals/tech-repair-deal.jpg": techRepairDeal,
+  "/src/assets/deals/loyalty-deal.jpg": loyaltyDeal,
+  "/src/assets/deals/salon-deal.jpg": salonDeal,
+};
+
 const DealDetailPage = () => {
   const { t, i18n } = useTranslation();
   const { lang = "he", slug } = useParams();
@@ -52,6 +69,21 @@ const DealDetailPage = () => {
   
   const deals = (lang === "he" ? dealsHe : dealsEn) as Deal[];
   const deal = deals.find(d => d.slug === slug);
+
+  // SEO Meta Tags
+  useEffect(() => {
+    if (deal) {
+      const title = isRTL ? deal.titleHe : deal.titleEn;
+      const business = isRTL ? deal.businessNameHe : deal.businessName;
+      document.title = `${title} - ${business} | ${t("deals.seo.title")}`;
+      
+      const metaDescription = document.querySelector('meta[name="description"]');
+      if (metaDescription) {
+        const description = isRTL ? deal.descriptionHe : deal.descriptionEn;
+        metaDescription.setAttribute("content", description);
+      }
+    }
+  }, [deal, t, isRTL]);
 
   if (!deal) {
     return (
@@ -126,8 +158,35 @@ const DealDetailPage = () => {
     )
     .slice(0, 3);
 
+  const dealImage = imageMap[deal.image] || deal.image;
+
+  // Schema.org Offer structured data
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "Offer",
+    "name": isRTL ? deal.titleHe : deal.titleEn,
+    "description": isRTL ? deal.descriptionHe : deal.descriptionEn,
+    "image": `${window.location.origin}${dealImage}`,
+    "url": window.location.href,
+    "seller": {
+      "@type": "LocalBusiness",
+      "name": isRTL ? deal.businessNameHe : deal.businessName,
+      "telephone": deal.phone
+    },
+    "validFrom": deal.startsAt,
+    "priceValidUntil": deal.endsAt,
+    "availability": "https://schema.org/InStock",
+    "category": isRTL ? deal.categoryHe : deal.category
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-gradient-subtle" dir={isRTL ? "rtl" : "ltr"}>
+      {/* Schema.org JSON-LD */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+      />
+
       <Navigation />
       
       <main className="flex-1">
@@ -147,7 +206,7 @@ const DealDetailPage = () => {
         <section className="container mx-auto px-4 mb-8">
           <div className="relative aspect-[21/9] rounded-lg overflow-hidden shadow-card">
             <img
-              src={deal.image}
+              src={dealImage}
               alt={isRTL ? deal.titleHe : deal.titleEn}
               className="w-full h-full object-cover"
             />
@@ -192,7 +251,7 @@ const DealDetailPage = () => {
                 </h1>
                 
                 <Link 
-                  to={`/${lang}/businesses/${deal.businessId}`}
+                  to={`/${lang}/business/${deal.businessId}`}
                   className="text-lg text-primary hover:underline inline-flex items-center gap-2"
                 >
                   {isRTL ? deal.businessNameHe : deal.businessName}
@@ -275,7 +334,7 @@ const DealDetailPage = () => {
                     </Button>
                   )}
                   
-                  <Link to={`/${lang}/businesses/${deal.businessId}`}>
+                  <Link to={`/${lang}/business/${deal.businessId}`}>
                     <Button variant="outline" className="w-full justify-start gap-3">
                       <MapPin className="h-4 w-4" />
                       {isRTL ? "צפו בעמוד העסק" : "View Business"}
@@ -313,35 +372,39 @@ const DealDetailPage = () => {
             <div className="mt-12">
               <h2 className="text-2xl font-bold mb-6">{t("deals.relatedDeals")}</h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {relatedDeals.map(relatedDeal => (
-                  <Link key={relatedDeal.id} to={`/${lang}/deals/${relatedDeal.slug}`}>
-                    <Card className="h-full hover:shadow-hover transition-shadow cursor-pointer">
-                      <CardContent className="pt-6">
-                        <div className="aspect-video mb-4 rounded-lg overflow-hidden">
-                          <img
-                            src={relatedDeal.image}
-                            alt={isRTL ? relatedDeal.titleHe : relatedDeal.titleEn}
-                            className="w-full h-full object-cover"
-                          />
-                        </div>
-                        <Badge variant="secondary" className="mb-2">
-                          {relatedDeal.discountType === "percent" 
-                            ? t("deals.badge.percent", { value: relatedDeal.discountValue })
-                            : relatedDeal.discountType === "amount"
-                            ? t("deals.badge.amount", { value: relatedDeal.discountValue })
-                            : t(`deals.badge.${relatedDeal.discountType}`)
-                          }
-                        </Badge>
-                        <h3 className="font-semibold line-clamp-2 mb-2">
-                          {isRTL ? relatedDeal.titleHe : relatedDeal.titleEn}
-                        </h3>
-                        <p className="text-sm text-muted-foreground">
-                          {isRTL ? relatedDeal.businessNameHe : relatedDeal.businessName}
-                        </p>
-                      </CardContent>
-                    </Card>
-                  </Link>
-                ))}
+                {relatedDeals.map(relatedDeal => {
+                  const relatedImage = imageMap[relatedDeal.image] || relatedDeal.image;
+                  return (
+                    <Link key={relatedDeal.id} to={`/${lang}/deals/${relatedDeal.slug}`}>
+                      <Card className="h-full hover:shadow-hover transition-shadow cursor-pointer">
+                        <CardContent className="pt-6">
+                          <div className="aspect-video mb-4 rounded-lg overflow-hidden">
+                            <img
+                              src={relatedImage}
+                              alt={isRTL ? relatedDeal.titleHe : relatedDeal.titleEn}
+                              className="w-full h-full object-cover"
+                              loading="lazy"
+                            />
+                          </div>
+                          <Badge variant="secondary" className="mb-2">
+                            {relatedDeal.discountType === "percent" 
+                              ? t("deals.badge.percent", { value: relatedDeal.discountValue })
+                              : relatedDeal.discountType === "amount"
+                              ? t("deals.badge.amount", { value: relatedDeal.discountValue })
+                              : t(`deals.badge.${relatedDeal.discountType}`)
+                            }
+                          </Badge>
+                          <h3 className="font-semibold line-clamp-2 mb-2">
+                            {isRTL ? relatedDeal.titleHe : relatedDeal.titleEn}
+                          </h3>
+                          <p className="text-sm text-muted-foreground">
+                            {isRTL ? relatedDeal.businessNameHe : relatedDeal.businessName}
+                          </p>
+                        </CardContent>
+                      </Card>
+                    </Link>
+                  );
+                })}
               </div>
             </div>
           )}

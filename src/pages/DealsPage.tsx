@@ -1,6 +1,6 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { useParams, Link } from "react-router-dom";
+import { useParams, useSearchParams, Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -11,7 +11,13 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Search, Tag, Calendar, ShieldCheck, Star } from "lucide-react";
 import dealsEn from "@/data/fixtures/en/deals.json";
 import dealsHe from "@/data/fixtures/he/deals.json";
-import heroImage from "@/assets/hero-deals.jpg";
+import heroImage from "@/assets/hero-deals-new.jpg";
+import pizzaDeal from "@/assets/deals/pizza-deal.jpg";
+import coffeeDeal from "@/assets/deals/coffee-deal.jpg";
+import fitnessDeal from "@/assets/deals/fitness-deal.jpg";
+import techRepairDeal from "@/assets/deals/tech-repair-deal.jpg";
+import loyaltyDeal from "@/assets/deals/loyalty-deal.jpg";
+import salonDeal from "@/assets/deals/salon-deal.jpg";
 
 interface Deal {
   id: string;
@@ -33,18 +39,53 @@ interface Deal {
   featured: boolean;
 }
 
+// Map image paths to imports
+const imageMap: Record<string, string> = {
+  "/src/assets/deals/pizza-deal.jpg": pizzaDeal,
+  "/src/assets/deals/coffee-deal.jpg": coffeeDeal,
+  "/src/assets/deals/fitness-deal.jpg": fitnessDeal,
+  "/src/assets/deals/tech-repair-deal.jpg": techRepairDeal,
+  "/src/assets/deals/loyalty-deal.jpg": loyaltyDeal,
+  "/src/assets/deals/salon-deal.jpg": salonDeal,
+};
+
 const DealsPage = () => {
   const { t, i18n } = useTranslation();
   const { lang = "he" } = useParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const isRTL = lang === "he";
   
   const deals = (lang === "he" ? dealsHe : dealsEn) as Deal[];
   
-  const [searchQuery, setSearchQuery] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("all");
-  const [selectedDiscountType, setSelectedDiscountType] = useState("all");
-  const [selectedStatus, setSelectedStatus] = useState("all");
-  const [verifiedOnly, setVerifiedOnly] = useState(false);
+  // Initialize from URL params
+  const [searchQuery, setSearchQuery] = useState(searchParams.get("q") || "");
+  const [selectedCategory, setSelectedCategory] = useState(searchParams.get("category") || "all");
+  const [selectedDiscountType, setSelectedDiscountType] = useState(searchParams.get("type") || "all");
+  const [selectedStatus, setSelectedStatus] = useState(searchParams.get("status") || "all");
+  const [verifiedOnly, setVerifiedOnly] = useState(searchParams.get("verified") === "true");
+  const [sortBy, setSortBy] = useState(searchParams.get("sort") || "featured");
+
+  // SEO Meta Tags
+  useEffect(() => {
+    document.title = t("deals.seo.title");
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute("content", t("deals.seo.description"));
+    }
+  }, [t]);
+
+  // Update URL when filters change
+  useEffect(() => {
+    const params = new URLSearchParams();
+    if (searchQuery) params.set("q", searchQuery);
+    if (selectedCategory !== "all") params.set("category", selectedCategory);
+    if (selectedDiscountType !== "all") params.set("type", selectedDiscountType);
+    if (selectedStatus !== "all") params.set("status", selectedStatus);
+    if (verifiedOnly) params.set("verified", "true");
+    if (sortBy !== "featured") params.set("sort", sortBy);
+    
+    setSearchParams(params, { replace: true });
+  }, [searchQuery, selectedCategory, selectedDiscountType, selectedStatus, verifiedOnly, sortBy, setSearchParams]);
 
   const categories = useMemo(() => {
     const cats = new Set(deals.map(d => isRTL ? d.categoryHe : d.category));
@@ -66,7 +107,7 @@ const DealsPage = () => {
   };
 
   const filteredDeals = useMemo(() => {
-    return deals.filter(deal => {
+    let filtered = deals.filter(deal => {
       // Only show active deals
       if (!isActive(deal.startsAt, deal.endsAt)) return false;
       
@@ -106,15 +147,32 @@ const DealsPage = () => {
       if (verifiedOnly && !deal.verified) return false;
       
       return true;
-    }).sort((a, b) => {
-      // Sort: Featured first, then ending soon, then newest
-      if (a.featured !== b.featured) return b.featured ? 1 : -1;
-      const aEndsSoon = isEndingSoon(a.endsAt);
-      const bEndsSoon = isEndingSoon(b.endsAt);
-      if (aEndsSoon !== bEndsSoon) return aEndsSoon ? -1 : 1;
-      return new Date(b.startsAt).getTime() - new Date(a.startsAt).getTime();
     });
-  }, [deals, searchQuery, selectedCategory, selectedDiscountType, selectedStatus, verifiedOnly, isRTL]);
+
+    // Sorting
+    filtered.sort((a, b) => {
+      switch (sortBy) {
+        case "newest":
+          return new Date(b.startsAt).getTime() - new Date(a.startsAt).getTime();
+        case "endingSoon":
+          return new Date(a.endsAt).getTime() - new Date(b.endsAt).getTime();
+        case "discountHigh":
+          const aDiscount = a.discountType === "percent" ? (a.discountValue || 0) : 0;
+          const bDiscount = b.discountType === "percent" ? (b.discountValue || 0) : 0;
+          return bDiscount - aDiscount;
+        case "featured":
+        default:
+          // Featured first, then ending soon, then newest
+          if (a.featured !== b.featured) return b.featured ? 1 : -1;
+          const aEndsSoon = isEndingSoon(a.endsAt);
+          const bEndsSoon = isEndingSoon(b.endsAt);
+          if (aEndsSoon !== bEndsSoon) return aEndsSoon ? -1 : 1;
+          return new Date(b.startsAt).getTime() - new Date(a.startsAt).getTime();
+      }
+    });
+
+    return filtered;
+  }, [deals, searchQuery, selectedCategory, selectedDiscountType, selectedStatus, verifiedOnly, sortBy, isRTL]);
 
   const getDealBadge = (deal: Deal) => {
     switch (deal.discountType) {
@@ -140,8 +198,36 @@ const DealsPage = () => {
     }).format(date);
   };
 
+  // Schema.org ItemList structured data
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "itemListElement": filteredDeals.map((deal, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "item": {
+        "@type": "Offer",
+        "name": isRTL ? deal.titleHe : deal.titleEn,
+        "description": isRTL ? deal.descriptionHe : deal.descriptionEn,
+        "seller": {
+          "@type": "LocalBusiness",
+          "name": isRTL ? deal.businessNameHe : deal.businessName
+        },
+        "validFrom": deal.startsAt,
+        "priceValidUntil": deal.endsAt,
+        "url": `${window.location.origin}/${lang}/deals/${deal.slug}`
+      }
+    }))
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-gradient-subtle" dir={isRTL ? "rtl" : "ltr"}>
+      {/* Schema.org JSON-LD */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+      />
+
       <Navigation />
       
       <main className="flex-1">
@@ -189,7 +275,7 @@ const DealsPage = () => {
                 <SelectTrigger className="w-full lg:w-[200px]">
                   <SelectValue placeholder={t("deals.filters.category")} />
                 </SelectTrigger>
-                <SelectContent>
+                <SelectContent className="bg-background">
                   <SelectItem value="all">{t("deals.filters.all")}</SelectItem>
                   {categories.map(cat => (
                     <SelectItem key={cat} value={cat}>{cat}</SelectItem>
@@ -202,7 +288,7 @@ const DealsPage = () => {
                 <SelectTrigger className="w-full lg:w-[200px]">
                   <SelectValue placeholder={t("deals.filters.discountType")} />
                 </SelectTrigger>
-                <SelectContent>
+                <SelectContent className="bg-background">
                   <SelectItem value="all">{t("deals.discountTypes.all")}</SelectItem>
                   <SelectItem value="percent">{t("deals.discountTypes.percent")}</SelectItem>
                   <SelectItem value="amount">{t("deals.discountTypes.amount")}</SelectItem>
@@ -211,14 +297,16 @@ const DealsPage = () => {
                 </SelectContent>
               </Select>
 
-              {/* Status Filter */}
-              <Select value={selectedStatus} onValueChange={setSelectedStatus}>
+              {/* Sort Dropdown */}
+              <Select value={sortBy} onValueChange={setSortBy}>
                 <SelectTrigger className="w-full lg:w-[180px]">
-                  <SelectValue placeholder={t("deals.filters.status")} />
+                  <SelectValue placeholder={t("deals.sort.label")} />
                 </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="all">{t("deals.status.all")}</SelectItem>
-                  <SelectItem value="endsSoon">{t("deals.status.endsSoon")}</SelectItem>
+                <SelectContent className="bg-background">
+                  <SelectItem value="featured">{t("deals.sort.featured")}</SelectItem>
+                  <SelectItem value="newest">{t("deals.sort.newest")}</SelectItem>
+                  <SelectItem value="endingSoon">{t("deals.sort.endingSoon")}</SelectItem>
+                  <SelectItem value="discountHigh">{t("deals.sort.discountHigh")}</SelectItem>
                 </SelectContent>
               </Select>
 
@@ -244,66 +332,70 @@ const DealsPage = () => {
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredDeals.map(deal => (
-                <Link key={deal.id} to={`/${lang}/deals/${deal.slug}`}>
-                  <Card className="h-full hover:shadow-hover transition-shadow cursor-pointer">
-                    <CardHeader className="p-0">
-                      <div className="relative aspect-video">
-                        <img
-                          src={deal.image}
-                          alt={isRTL ? deal.titleHe : deal.titleEn}
-                          className="w-full h-full object-cover rounded-t-lg"
-                        />
-                        <div className="absolute top-3 right-3 flex flex-wrap gap-2">
-                          {deal.featured && (
-                            <Badge variant="default" className="bg-accent text-accent-foreground">
-                              <Star className="h-3 w-3 mr-1" />
-                              {t("deals.badge.featured")}
-                            </Badge>
-                          )}
-                          {isEndingSoon(deal.endsAt) && (
-                            <Badge variant="destructive">
-                              <Calendar className="h-3 w-3 mr-1" />
-                              {t("deals.badge.endsSoon")}
+              {filteredDeals.map(deal => {
+                const dealImage = imageMap[deal.image] || deal.image;
+                return (
+                  <Link key={deal.id} to={`/${lang}/deals/${deal.slug}`}>
+                    <Card className="h-full hover:shadow-hover transition-shadow cursor-pointer">
+                      <CardHeader className="p-0">
+                        <div className="relative aspect-video">
+                          <img
+                            src={dealImage}
+                            alt={isRTL ? deal.titleHe : deal.titleEn}
+                            className="w-full h-full object-cover rounded-t-lg"
+                            loading="lazy"
+                          />
+                          <div className="absolute top-3 right-3 flex flex-wrap gap-2">
+                            {deal.featured && (
+                              <Badge variant="default" className="bg-accent text-accent-foreground">
+                                <Star className="h-3 w-3 mr-1" />
+                                {t("deals.badge.featured")}
+                              </Badge>
+                            )}
+                            {isEndingSoon(deal.endsAt) && (
+                              <Badge variant="destructive">
+                                <Calendar className="h-3 w-3 mr-1" />
+                                {t("deals.badge.endsSoon")}
+                              </Badge>
+                            )}
+                          </div>
+                        </div>
+                      </CardHeader>
+                      <CardContent className="pt-6">
+                        <div className="flex items-start justify-between gap-2 mb-3">
+                          <Badge variant="secondary" className="text-lg font-bold">
+                            {getDealBadge(deal)}
+                          </Badge>
+                          {deal.verified && (
+                            <Badge variant="outline" className="gap-1">
+                              <ShieldCheck className="h-3 w-3" />
+                              {t("deals.badge.verified")}
                             </Badge>
                           )}
                         </div>
-                      </div>
-                    </CardHeader>
-                    <CardContent className="pt-6">
-                      <div className="flex items-start justify-between gap-2 mb-3">
-                        <Badge variant="secondary" className="text-lg font-bold">
-                          {getDealBadge(deal)}
-                        </Badge>
-                        {deal.verified && (
-                          <Badge variant="outline" className="gap-1">
-                            <ShieldCheck className="h-3 w-3" />
-                            {t("deals.badge.verified")}
-                          </Badge>
-                        )}
-                      </div>
-                      <CardTitle className="mb-2 line-clamp-2">
-                        {isRTL ? deal.titleHe : deal.titleEn}
-                      </CardTitle>
-                      <CardDescription className="mb-3 line-clamp-1">
-                        {isRTL ? deal.businessNameHe : deal.businessName}
-                      </CardDescription>
-                      <p className="text-sm text-muted-foreground mb-3 line-clamp-2">
-                        {isRTL ? deal.descriptionHe : deal.descriptionEn}
-                      </p>
-                      <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                        <Calendar className="h-3 w-3" />
-                        <span>{t("deals.validUntil", { date: formatDate(deal.endsAt) })}</span>
-                      </div>
-                    </CardContent>
-                    <CardFooter>
-                      <Button className="w-full" variant="outline">
-                        {t("deals.viewDetails")}
-                      </Button>
-                    </CardFooter>
-                  </Card>
-                </Link>
-              ))}
+                        <CardTitle className="mb-2 line-clamp-2">
+                          {isRTL ? deal.titleHe : deal.titleEn}
+                        </CardTitle>
+                        <CardDescription className="mb-3 line-clamp-1">
+                          {isRTL ? deal.businessNameHe : deal.businessName}
+                        </CardDescription>
+                        <p className="text-sm text-muted-foreground mb-3 line-clamp-2">
+                          {isRTL ? deal.descriptionHe : deal.descriptionEn}
+                        </p>
+                        <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                          <Calendar className="h-3 w-3" />
+                          <span>{t("deals.validUntil", { date: formatDate(deal.endsAt) })}</span>
+                        </div>
+                      </CardContent>
+                      <CardFooter>
+                        <Button className="w-full" variant="outline">
+                          {t("deals.viewDetails")}
+                        </Button>
+                      </CardFooter>
+                    </Card>
+                  </Link>
+                );
+              })}
             </div>
           )}
         </section>
