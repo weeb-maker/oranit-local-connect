@@ -400,7 +400,7 @@ const ForBusinessesPage = () => {
       </section>
 
       {/* Success Stories */}
-      <section className="py-16 lg:py-24">
+      <section id="success-stories" className="py-16 lg:py-24">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -441,7 +441,7 @@ const ForBusinessesPage = () => {
       </section>
 
       {/* Resources */}
-      <section className="py-16 lg:py-24 bg-gradient-to-br from-secondary/20 to-background">
+      <section id="resources" className="py-16 lg:py-24 bg-gradient-to-br from-secondary/20 to-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">

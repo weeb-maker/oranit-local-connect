@@ -88,12 +88,12 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href={`/${currentLang}/success-stories`} className="text-sm text-muted-foreground hover:text-primary transition-smooth">
+                <a href={`/${currentLang}/for-businesses#success-stories`} className="text-sm text-muted-foreground hover:text-primary transition-smooth">
                   {t("footer.successStories")}
                 </a>
               </li>
               <li>
-                <a href={`/${currentLang}/business-resources`} className="text-sm text-muted-foreground hover:text-primary transition-smooth">
+                <a href={`/${currentLang}/for-businesses#resources`} className="text-sm text-muted-foreground hover:text-primary transition-smooth">
                   {t("footer.resources")}
                 </a>
               </li>
