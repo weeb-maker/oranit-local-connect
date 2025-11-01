@@ -51,7 +51,7 @@ const Footer = () => {
             <h3 className="font-semibold mb-4">{t("footer.quickLinks")}</h3>
             <ul className="space-y-2">
               <li>
-                <a href={`/${currentLang}/directory`} className="text-sm text-muted-foreground hover:text-primary transition-smooth">
+                <a href={`/${currentLang}/explore`} className="text-sm text-muted-foreground hover:text-primary transition-smooth">
                   {t("footer.directory")}
                 </a>
               </li>
