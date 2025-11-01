@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useParams, Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -35,6 +35,26 @@ const ForBusinessesPage = () => {
   const currentLang = lang || 'he';
   const { toast } = useToast();
   const [billingPeriod, setBillingPeriod] = useState<"monthly" | "annual">("monthly");
+
+  // Handle anchor scrolling on mount and hash changes
+  useEffect(() => {
+    const scrollToHash = () => {
+      const hash = window.location.hash;
+      if (hash) {
+        const element = document.querySelector(hash);
+        if (element) {
+          setTimeout(() => {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 100);
+        }
+      }
+    };
+
+    scrollToHash();
+    window.addEventListener('hashchange', scrollToHash);
+    
+    return () => window.removeEventListener('hashchange', scrollToHash);
+  }, []);
 
   const handleContactSubmit = (e: React.FormEvent) => {
     e.preventDefault();
