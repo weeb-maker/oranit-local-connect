@@ -25,7 +25,8 @@ const CategoryPage = () => {
   const [businesses, setBusinesses] = useState<any[]>([]);
 
   // Normalize slug to English if it's Hebrew for config lookup
-  const normalizedSlug = i18n.language === 'he' && slug
+  // Use lang param instead of i18n.language for immediate updates on language switch
+  const normalizedSlug = lang === 'he' && slug
     ? toEnSlug('categories', slug)
     : slug || "other-services";
   
@@ -107,8 +108,8 @@ const CategoryPage = () => {
                 {categoryConfig.subcategories.map((subcategory) => {
                   const SubIcon = subcategory.icon;
                   // Get localized slugs for the link
-                  const localizedCategorySlug = i18n.language === 'he' ? toHeSlug('categories', normalizedSlug) : normalizedSlug;
-                  const localizedSubcategorySlug = i18n.language === 'he' ? toHeSlug('subcategories', subcategory.slug) : subcategory.slug;
+                  const localizedCategorySlug = lang === 'he' ? toHeSlug('categories', normalizedSlug) : normalizedSlug;
+                  const localizedSubcategorySlug = lang === 'he' ? toHeSlug('subcategories', subcategory.slug) : subcategory.slug;
                   
                   return (
                     <Link

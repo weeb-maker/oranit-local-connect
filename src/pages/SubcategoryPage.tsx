@@ -44,10 +44,11 @@ const SubcategoryPage = () => {
   const { slug, subslug, lang } = useParams<{ slug: string; subslug: string; lang: string }>();
 
   // Normalize slugs to English for config lookup
-  const normalizedSlug = i18n.language === 'he' && slug 
+  // Use lang param instead of i18n.language for immediate updates on language switch
+  const normalizedSlug = lang === 'he' && slug 
     ? toEnSlug('categories', slug) 
     : slug || "other-services";
-  const normalizedSubslug = i18n.language === 'he' && subslug
+  const normalizedSubslug = lang === 'he' && subslug
     ? toEnSlug('subcategories', subslug)
     : subslug || "";
 
@@ -81,7 +82,7 @@ const SubcategoryPage = () => {
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
-                  <BreadcrumbLink href={`/${lang}/category/${i18n.language === 'he' ? toHeSlug('categories', normalizedSlug) : normalizedSlug}`}>
+                  <BreadcrumbLink href={`/${lang}/category/${lang === 'he' ? toHeSlug('categories', normalizedSlug) : normalizedSlug}`}>
                     {categoryTitle}
                   </BreadcrumbLink>
                 </BreadcrumbItem>
@@ -130,7 +131,7 @@ const SubcategoryPage = () => {
                 {mockBusinesses.length} {t("common:business.businessesFound")}
               </h2>
             </div>
-            <Link to={`/${lang}/category/${i18n.language === 'he' ? toHeSlug('categories', normalizedSlug) : normalizedSlug}`}>
+            <Link to={`/${lang}/category/${lang === 'he' ? toHeSlug('categories', normalizedSlug) : normalizedSlug}`}>
               <Button variant="outline">
                 {lang === 'he' ? '→' : '←'} {categoryTitle}
               </Button>
