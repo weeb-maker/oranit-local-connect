@@ -781,5 +781,88 @@
       "title": "About Oranit.biz - Community Hub for Oranit Residents & Businesses",
       "description": "Learn about Oranit.biz, the bilingual community platform connecting residents, local businesses, events, and marketplace in Oranit, Israel."
     }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "We're here to help with questions, feedback, and community ideas.",
+    "channels": {
+      "email": {
+        "title": "Email"
+      },
+      "whatsapp": {
+        "title": "WhatsApp"
+      },
+      "help": {
+        "title": "Help Center"
+      }
+    },
+    "form": {
+      "title": "Send us a message",
+      "name": "Full Name",
+      "email": "Email Address",
+      "phone": "Phone (optional)",
+      "topic": "Topic",
+      "topicPlaceholder": "Select a topic",
+      "options": {
+        "general": "General Question",
+        "addBusiness": "Add or Update a Business",
+        "report": "Report a Listing or Issue",
+        "eventHelp": "Event Submission Help",
+        "sponsor": "Sponsorships / Partnerships",
+        "tech": "Technical Support"
+      },
+      "message": "Your Message",
+      "submit": "Send Message",
+      "sending": "Sending...",
+      "captcha": {
+        "label": "Verification"
+      },
+      "honeypot": "Leave this field empty",
+      "errors": {
+        "nameRequired": "Name is required",
+        "emailRequired": "Email is required",
+        "emailInvalid": "Please enter a valid email address",
+        "topicRequired": "Please select a topic",
+        "messageRequired": "Message is required",
+        "messageMin": "Message must be at least 20 characters"
+      }
+    },
+    "success": {
+      "title": "Message Sent!",
+      "body": "Thanks for reaching out — we'll get back to you soon."
+    },
+    "error": {
+      "title": "Something went wrong",
+      "body": "Please try again or contact us directly by email."
+    },
+    "location": {
+      "title": "Our Location",
+      "address": "Oranit, Israel"
+    },
+    "faq": {
+      "title": "Common Questions",
+      "seeAll": "See all FAQs",
+      "items": [
+        {
+          "q": "How can I list my business?",
+          "a": "Use the 'Add Your Business' form or contact us for assistance."
+        },
+        {
+          "q": "Is Oranit.biz free to use?",
+          "a": "Yes, core listings and events are free for residents and local businesses."
+        },
+        {
+          "q": "How long does it take to approve listings?",
+          "a": "Usually within 24–48 hours after submission."
+        }
+      ]
+    },
+    "footer": {
+      "title": "We usually reply within one business day."
+    },
+    "seo": {
+      "title": "Contact Oranit.biz",
+      "description": "Get in touch with the Oranit.biz team for support, feedback, or partnership opportunities."
+    }
   }
 }
