@@ -44,6 +44,13 @@ i18n
       caches: ['localStorage']
     },
     debug: import.meta.env.DEV, // Log missing keys in development
+    saveMissing: false,
+    missingKeyHandler: (lngs, ns, key, fallbackValue) => {
+      const msg = `[i18n missing] ${lngs?.[0]}/${ns}: ${key}`;
+      if (import.meta.env.DEV) {
+        console.error(msg);
+      }
+    },
   });
 
 export default i18n;
