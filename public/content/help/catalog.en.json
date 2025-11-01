@@ -10,6 +10,16 @@
     "updatedAt": "2025-10-30"
   },
   {
+    "id": "manage-profile",
+    "slug": "manage-profile",
+    "lang": "en",
+    "title": "Managing Your Profile",
+    "excerpt": "Update your photo, contact details, and privacy preferences in your account settings.",
+    "category": "account",
+    "keywords": ["profile", "settings", "account"],
+    "updatedAt": "2025-10-31"
+  },
+  {
     "id": "claim-business",
     "slug": "claim-business",
     "lang": "en",
@@ -20,6 +30,26 @@
     "updatedAt": "2025-10-28"
   },
   {
+    "id": "create-listing",
+    "slug": "create-listing",
+    "lang": "en",
+    "title": "Creating a New Business Listing",
+    "excerpt": "Add your shop, service, or restaurant to the Oranit.biz directory.",
+    "category": "business",
+    "keywords": ["listing", "business", "directory"],
+    "updatedAt": "2025-10-30"
+  },
+  {
+    "id": "post-deal",
+    "slug": "post-deal",
+    "lang": "en",
+    "title": "How to Post a Deal or Special",
+    "excerpt": "Create time-limited promotions to attract more local customers.",
+    "category": "deals",
+    "keywords": ["deals", "promotions", "business"],
+    "updatedAt": "2025-10-29"
+  },
+  {
     "id": "browse-directory",
     "slug": "browse-directory",
     "lang": "en",
@@ -28,5 +58,35 @@
     "category": "directory",
     "keywords": ["search", "filter", "browse", "directory", "businesses"],
     "updatedAt": "2025-10-29"
+  },
+  {
+    "id": "write-review",
+    "slug": "write-review",
+    "lang": "en",
+    "title": "Writing a Review on Oranit.biz",
+    "excerpt": "Share your experiences to help others discover trusted local services.",
+    "category": "directory",
+    "keywords": ["review", "feedback", "community"],
+    "updatedAt": "2025-10-28"
+  },
+  {
+    "id": "login-troubleshooting",
+    "slug": "login-troubleshooting",
+    "lang": "en",
+    "title": "Troubleshooting Login Issues",
+    "excerpt": "Learn what to do if you can't sign in or forgot your password.",
+    "category": "technical",
+    "keywords": ["login", "password", "technical"],
+    "updatedAt": "2025-10-27"
+  },
+  {
+    "id": "privacy-basics",
+    "slug": "privacy-basics",
+    "lang": "en",
+    "title": "Understanding Your Data Privacy",
+    "excerpt": "Learn how Oranit.biz protects your personal data and gives you control over it.",
+    "category": "privacy",
+    "keywords": ["privacy", "gdpr", "security"],
+    "updatedAt": "2025-10-27"
   }
 ]

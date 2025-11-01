@@ -10,6 +10,16 @@
     "updatedAt": "2025-10-30"
   },
   {
+    "id": "manage-profile",
+    "slug": "ניהול-פרופיל",
+    "lang": "he",
+    "title": "ניהול פרופיל משתמש",
+    "excerpt": "עדכנו תמונה, פרטים אישיים והעדפות פרטיות בהגדרות החשבון.",
+    "category": "account",
+    "keywords": ["פרופיל", "חשבון", "פרטיות"],
+    "updatedAt": "2025-10-31"
+  },
+  {
     "id": "claim-business",
     "slug": "אימות-עסק",
     "lang": "he",
@@ -20,6 +30,26 @@
     "updatedAt": "2025-10-28"
   },
   {
+    "id": "create-listing",
+    "slug": "יצירת-רישום-חדש",
+    "lang": "he",
+    "title": "יצירת רישום עסק חדש",
+    "excerpt": "הוסיפו את העסק או השירות שלכם למדריך העסקים של Oranit.biz.",
+    "category": "business",
+    "keywords": ["רישום", "עסק", "מדריך"],
+    "updatedAt": "2025-10-30"
+  },
+  {
+    "id": "post-deal",
+    "slug": "פרסום-מבצע",
+    "lang": "he",
+    "title": "איך לפרסם מבצע או הטבה",
+    "excerpt": "צרו מבצעים מוגבלים בזמן כדי למשוך לקוחות חדשים.",
+    "category": "deals",
+    "keywords": ["מבצעים", "פרסום", "לקוחות"],
+    "updatedAt": "2025-10-29"
+  },
+  {
     "id": "browse-directory",
     "slug": "דפדוף-במדריך",
     "lang": "he",
@@ -28,5 +58,35 @@
     "category": "directory",
     "keywords": ["חיפוש", "סינון", "דפדוף", "מדריך", "עסקים"],
     "updatedAt": "2025-10-29"
+  },
+  {
+    "id": "write-review",
+    "slug": "כתיבת-ביקורת",
+    "lang": "he",
+    "title": "כתיבת ביקורת ב-Oranit.biz",
+    "excerpt": "שתפו חוויות כדי לעזור לאחרים לבחור עסקים אמינים.",
+    "category": "directory",
+    "keywords": ["ביקורת", "דירוג", "קהילה"],
+    "updatedAt": "2025-10-28"
+  },
+  {
+    "id": "login-troubleshooting",
+    "slug": "בעיות-התחברות",
+    "lang": "he",
+    "title": "פתרון בעיות התחברות",
+    "excerpt": "מה לעשות אם אינכם מצליחים להתחבר או שכחתם סיסמה.",
+    "category": "technical",
+    "keywords": ["התחברות", "סיסמה", "תמיכה"],
+    "updatedAt": "2025-10-27"
+  },
+  {
+    "id": "privacy-basics",
+    "slug": "פרטיות-מידע",
+    "lang": "he",
+    "title": "פרטיות ושמירת מידע",
+    "excerpt": "למדו איך אנו מגנים על פרטיותכם ומאפשרים לכם שליטה מלאה על הנתונים.",
+    "category": "privacy",
+    "keywords": ["פרטיות", "אבטחה", "נתונים"],
+    "updatedAt": "2025-10-27"
   }
 ]
