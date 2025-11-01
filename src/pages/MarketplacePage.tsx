@@ -2,6 +2,7 @@ import { useTranslation } from "react-i18next";
 import { useState, useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import HeroBanner from "@/components/shared/HeroBanner";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -85,30 +86,21 @@ const MarketplacePage = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${heroImage})` }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-background" />
-        </div>
-        
-        <div className="relative z-10 container mx-auto px-4 text-center text-white">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            {t("marketplace.title")}
-          </h1>
-          <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto text-white/90">
-            {t("marketplace.subtitle")}
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Dialog open={isPostDialogOpen} onOpenChange={setIsPostDialogOpen}>
-              <DialogTrigger asChild>
-                <Button size="lg" className="gap-2">
-                  <Plus className="h-5 w-5" />
-                  {t("marketplace.postButton")}
-                </Button>
-              </DialogTrigger>
-              <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+      <HeroBanner
+        imageUrl={heroImage}
+        title={t("marketplace.title")}
+        subtitle={t("marketplace.subtitle")}
+        minHeight="sm"
+        align="center"
+      >
+        <Dialog open={isPostDialogOpen} onOpenChange={setIsPostDialogOpen}>
+          <DialogTrigger asChild>
+            <Button size="lg" className="shadow-lg">
+              <Plus className="h-5 w-5 mr-2" />
+              {t("marketplace.postButton")}
+            </Button>
+          </DialogTrigger>
+          <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
                 <DialogHeader>
                   <DialogTitle>{t("marketplace.postForm.title")}</DialogTitle>
                   <DialogDescription>{t("marketplace.postForm.subtitle")}</DialogDescription>
@@ -237,19 +229,9 @@ const MarketplacePage = () => {
                 </div>
               </DialogContent>
             </Dialog>
-            
-            <Button 
-              size="lg" 
-              variant="secondary"
-              onClick={() => setPriceTypeFilter("free")}
-            >
-              {t("marketplace.freeOnly")}
-            </Button>
-          </div>
-        </div>
-      </section>
+          </HeroBanner>
 
-      <div className="container mx-auto px-4 py-8">
+          <div className="container mx-auto px-4 py-8">
         {/* Filters Bar */}
         <Card className="mb-8 sticky top-4 z-10">
           <CardContent className="pt-6">

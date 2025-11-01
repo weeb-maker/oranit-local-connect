@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { useParams, useSearchParams, Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import HeroBanner from "@/components/shared/HeroBanner";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
@@ -232,27 +233,17 @@ const DealsPage = () => {
       
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative h-[500px]">
-          <div className="absolute inset-0">
-            <img 
-              src={heroImage} 
-              alt={t("deals.title")}
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-foreground/80 to-foreground/40" />
-          </div>
-          <div className="relative container mx-auto px-4 h-full flex flex-col justify-center items-start text-background max-w-3xl">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-              {t("deals.title")}
-            </h1>
-            <p className="text-lg md:text-xl mb-8 text-background/90 max-w-2xl">
-              {t("deals.subtitle")}
-            </p>
-            <Button size="lg" variant="secondary" className="shadow-lg">
-              {t("deals.submit")}
-            </Button>
-          </div>
-        </section>
+        <HeroBanner
+          imageUrl={heroImage}
+          title={t("deals.title")}
+          subtitle={t("deals.subtitle")}
+          minHeight="lg"
+          align="left"
+        >
+          <Button size="lg" variant="secondary" className="shadow-lg">
+            {t("deals.submit")}
+          </Button>
+        </HeroBanner>
 
         {/* Filters Section */}
         <section className="sticky top-16 z-10 bg-card border-b shadow-card">

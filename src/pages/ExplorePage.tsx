@@ -2,12 +2,14 @@ import { useTranslation } from "react-i18next";
 import { useState, useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import HeroBanner from "@/components/shared/HeroBanner";
 import { CategoryTile } from "@/components/shared/CategoryTile";
 import { BusinessCard } from "@/components/shared/BusinessCard";
 import { FilterBar } from "@/components/shared/FilterBar";
 import { Button } from "@/components/ui/button";
 import { Link, useParams } from "react-router-dom";
 import { categoryConfig } from "@/lib/categoryConfig";
+import heroImage from "@/assets/hero-community.jpg";
 
 // Map categoryConfig to the format expected by CategoryTile
 const categories = Object.values(categoryConfig).map((cat) => ({
@@ -56,16 +58,13 @@ const ExplorePage = () => {
       <Navigation />
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="bg-primary py-16">
-          <div className="container mx-auto px-4 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              {t("common:explore.title")}
-            </h1>
-            <p className="text-xl text-white/90 max-w-2xl mx-auto">
-              {t("common:explore.subtitle")}
-            </p>
-          </div>
-        </section>
+        <HeroBanner
+          imageUrl={heroImage}
+          title={t("common:explore.title")}
+          subtitle={t("common:explore.subtitle")}
+          minHeight="sm"
+          align="center"
+        />
 
         {/* Global Search Bar */}
         <section className="container mx-auto px-4 -mt-8 mb-6">

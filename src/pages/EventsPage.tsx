@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { useParams, Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import HeroBanner from "@/components/shared/HeroBanner";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
@@ -130,32 +131,22 @@ const EventsPage = () => {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative h-[400px] md:h-[500px] overflow-hidden">
-        <div className="absolute inset-0">
-          <img 
-            src={heroImage} 
-            alt={t("events.hero.title")}
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-foreground/80 to-foreground/40" />
-        </div>
-        <div className="relative container mx-auto px-4 h-full flex flex-col justify-center items-start text-background max-w-2xl">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-            {t("events.hero.title")}
-          </h1>
-          <p className="text-lg md:text-xl mb-8 text-background/90 max-w-xl">
-            {t("events.hero.subtitle")}
-          </p>
-          <Button 
-            size="lg" 
-            className="bg-primary hover:bg-primary-hover text-primary-foreground shadow-lg"
-            onClick={scrollToForm}
-          >
-            <Plus className="h-5 w-5 mr-2" />
-            {t("events.hero.addButton")}
-          </Button>
-        </div>
-      </section>
+      <HeroBanner
+        imageUrl={heroImage}
+        title={t("events.hero.title")}
+        subtitle={t("events.hero.subtitle")}
+        minHeight="md"
+        align="left"
+      >
+        <Button 
+          size="lg" 
+          className="bg-primary hover:bg-primary-hover text-primary-foreground shadow-lg"
+          onClick={scrollToForm}
+        >
+          <Plus className="h-5 w-5 mr-2" />
+          {t("events.hero.addButton")}
+        </Button>
+      </HeroBanner>
 
       {/* Filters Section */}
       <section className="container mx-auto px-4 -mt-10 relative z-10 mb-12">

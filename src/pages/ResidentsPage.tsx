@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import HeroBanner from "@/components/shared/HeroBanner";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -99,33 +100,22 @@ const ResidentsPage = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="relative h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${heroImage})` }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-background" />
-        </div>
-        
-        <div className="relative z-10 container mx-auto px-4 text-center text-white">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">
-            {t("residents.title")}
-          </h1>
-          <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto text-white/90">
-            {t("residents.subtitle")}
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="gap-2">
-              <MessageSquarePlus className="h-5 w-5" />
-              {t("residents.addPost")}
-            </Button>
-            <Button size="lg" variant="secondary" className="gap-2">
-              <Search className="h-5 w-5" />
-              {t("residents.findServices")}
-            </Button>
-          </div>
-        </div>
-      </section>
+      <HeroBanner
+        imageUrl={heroImage}
+        title={t("residents.title")}
+        subtitle={t("residents.subtitle")}
+        minHeight="md"
+        align="center"
+      >
+        <Button size="lg" className="gap-2 shadow-lg">
+          <MessageSquarePlus className="h-5 w-5" />
+          {t("residents.addPost")}
+        </Button>
+        <Button size="lg" variant="secondary" className="gap-2 shadow-lg">
+          <Search className="h-5 w-5" />
+          {t("residents.findServices")}
+        </Button>
+      </HeroBanner>
 
       <div className="container mx-auto px-4 py-12 space-y-16">
         {/* Community Notice Board */}
