@@ -672,5 +672,114 @@
       "addToCalendar": "Add to Calendar",
       "similarEvents": "Similar Events"
     }
+  },
+  "about": {
+    "title": "About Oranit.biz",
+    "subtitle": "A community hub connecting residents, businesses, and local life.",
+    "cta": {
+      "contact": "Contact Us",
+      "involve": "Get Involved"
+    },
+    "mission": {
+      "title": "Our Mission",
+      "body": "Oranit.biz exists to strengthen our community by making it easier for residents to discover local businesses, connect with neighbors, and participate in community life. We believe in supporting local commerce, fostering meaningful connections, and building a more vibrant, inclusive Oranit for everyone.",
+      "values": {
+        "community": "Community First",
+        "communityDesc": "Everything we do centers around making Oranit stronger and more connected.",
+        "localFirst": "Shop Local",
+        "localFirstDesc": "Support local businesses and keep resources within our community.",
+        "bilingual": "Bilingual & Inclusive",
+        "bilingualDesc": "Serving both English and Hebrew speakers to include everyone.",
+        "trust": "Safe & Trusted",
+        "trustDesc": "Moderated content and verified businesses you can rely on."
+      }
+    },
+    "story": {
+      "title": "Our Story",
+      "items": [
+        {
+          "title": "The Idea",
+          "body": "Born from a simple question: how can we make it easier for Oranit residents to support each other and local businesses?",
+          "date": "2023"
+        },
+        {
+          "title": "Building Together",
+          "body": "With input from residents and business owners, we designed a platform that serves the real needs of our community.",
+          "date": "2024"
+        },
+        {
+          "title": "Launch",
+          "body": "Oranit.biz went live, bringing together the business directory, community events, and marketplace in one place.",
+          "date": "Early 2025"
+        },
+        {
+          "title": "Growing Every Day",
+          "body": "Today, we're constantly improving based on your feedback, adding new features, and helping Oranit thrive.",
+          "date": "Today"
+        }
+      ]
+    },
+    "pillars": {
+      "title": "What We Do",
+      "directory": {
+        "title": "Business Directory",
+        "body": "Find trusted local businesses across all categories — from home repairs to wellness services."
+      },
+      "events": {
+        "title": "What's On",
+        "body": "Discover community events, workshops, and activities happening in and around Oranit."
+      },
+      "residents": {
+        "title": "For Residents",
+        "body": "A digital notice board for recommendations, lost & found, volunteer opportunities, and more."
+      },
+      "marketplace": {
+        "title": "Marketplace",
+        "body": "Buy, sell, and give away items within the community — from furniture to children's clothes."
+      }
+    },
+    "impact": {
+      "title": "Community Impact",
+      "stats": {
+        "businesses": "150+ Businesses Listed",
+        "events": "200+ Community Events",
+        "itemsRehomed": "500+ Items Rehomed",
+        "volunteerPosts": "75+ Volunteer Posts"
+      },
+      "testimonials": [
+        {
+          "quote": "Oranit.biz made it so much easier to find reliable local services. I've discovered businesses I never knew existed!",
+          "name": "Sarah M.",
+          "role": "Oranit Resident"
+        },
+        {
+          "quote": "Since joining the directory, I've connected with dozens of new customers right here in Oranit. It's been a game-changer for my business.",
+          "name": "David L.",
+          "role": "Local Business Owner"
+        }
+      ]
+    },
+    "trust": {
+      "title": "Safety & Trust",
+      "moderation": "All listings are reviewed and moderated by our team to ensure quality and safety.",
+      "privacy": "We respect your data and privacy. Your information is never shared without your permission.",
+      "guidelines": "Community guidelines keep Oranit safe, respectful, and welcoming for everyone."
+    },
+    "involve": {
+      "title": "Get Involved",
+      "addBusiness": "Add Your Business",
+      "postEvent": "Post an Event",
+      "postNotice": "Post a Notice",
+      "contact": "Contact Us",
+      "sponsor": "Interested in sponsoring a community project? Get in touch!"
+    },
+    "contact": {
+      "title": "Let's Connect",
+      "body": "Have questions, feedback, or ideas? We'd love to hear from you. Oranit.biz is a community-driven platform, and your voice matters."
+    },
+    "seo": {
+      "title": "About Oranit.biz - Community Hub for Oranit Residents & Businesses",
+      "description": "Learn about Oranit.biz, the bilingual community platform connecting residents, local businesses, events, and marketplace in Oranit, Israel."
+    }
   }
 }
