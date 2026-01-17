@@ -20,6 +20,7 @@ const Navigation = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const currentLang = lang || 'he';
+  const isRtl = currentLang === 'he';
 
   const toggleLanguage = () => {
     const newLang = currentLang === 'en' ? 'he' : 'en';
@@ -41,7 +42,7 @@ const Navigation = () => {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80" style={{ height: 'var(--header-height)' }}>
-      <nav className="container mx-auto flex items-center justify-between px-4 h-full" dir="ltr">
+      <nav className={`container mx-auto flex items-center justify-between px-4 h-full ${isRtl ? 'flex-row-reverse' : ''}`}>
         {/* Logo */}
         <Link to={`/${currentLang}`} className="flex items-center gap-2 font-bold text-xl text-primary transition-smooth hover:opacity-80">
           <Store className="h-6 w-6" />
@@ -49,9 +50,9 @@ const Navigation = () => {
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden lg:flex items-center gap-6">
+        <div className={`hidden lg:flex items-center gap-6 ${isRtl ? 'flex-row-reverse' : ''}`}>
           <NavigationMenu>
-            <NavigationMenuList>
+            <NavigationMenuList className={isRtl ? 'flex-row-reverse' : ''}>
               <NavigationMenuItem>
                 <Link to={`/${currentLang}`}>
                   <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-smooth hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50">
