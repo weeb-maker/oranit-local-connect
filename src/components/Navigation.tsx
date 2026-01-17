@@ -42,11 +42,7 @@ const Navigation = () => {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80" style={{ height: 'var(--header-height)' }}>
-      <nav
-        className={`container mx-auto flex items-center justify-between px-4 h-full ${
-          isRtl ? "flex-row-reverse" : "flex-row"
-        }`}
-      >
+      <nav className="container mx-auto flex items-center justify-between px-4 h-full" dir={isRtl ? "rtl" : "ltr"}>
         {/* Logo */}
         <Link
           to={`/${currentLang}`}
@@ -129,7 +125,8 @@ const Navigation = () => {
         </div>
 
         {/* CTA Buttons & Language Switcher */}
-        <div className={`hidden lg:flex items-center gap-3 ${isRtl ? "flex-row-reverse" : "flex-row"}`}>
+        <div className={`hidden lg:flex items-center gap-3 ${isRtl ? "" : ""}`}>
+
           <Button
             variant="ghost"
             size="icon"
@@ -148,7 +145,8 @@ const Navigation = () => {
         </div>
 
         {/* Mobile Language Switcher & Menu Button */}
-        <div className={`lg:hidden flex items-center gap-2 ${isRtl ? "flex-row-reverse" : "flex-row"}`}>
+        <div className={`lg:hidden flex items-center gap-2 ${isRtl ? "" : ""}`}>
+
           <Button
             variant="ghost"
             size="icon"
