@@ -42,17 +42,24 @@ const Navigation = () => {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80" style={{ height: 'var(--header-height)' }}>
-      <nav className={`container mx-auto flex items-center justify-between px-4 h-full ${isRtl ? 'flex-row-reverse' : ''}`}>
+      <nav
+        className={`container mx-auto flex items-center justify-between px-4 h-full ${
+          isRtl ? "flex-row-reverse" : "flex-row"
+        }`}
+      >
         {/* Logo */}
-        <Link to={`/${currentLang}`} className="flex items-center gap-2 font-bold text-xl text-primary transition-smooth hover:opacity-80">
+        <Link
+          to={`/${currentLang}`}
+          className="flex items-center gap-2 font-bold text-xl text-primary transition-smooth hover:opacity-80"
+        >
           <Store className="h-6 w-6" />
           Oranit.biz
         </Link>
 
         {/* Desktop Navigation */}
-        <div className={`hidden lg:flex items-center gap-6 ${isRtl ? 'flex-row-reverse' : ''}`}>
+        <div className="hidden lg:flex flex-1 justify-center px-6">
           <NavigationMenu>
-            <NavigationMenuList className={isRtl ? 'flex-row-reverse' : ''}>
+            <NavigationMenuList className={isRtl ? "flex-row-reverse" : "flex-row"}>
               <NavigationMenuItem>
                 <Link to={`/${currentLang}`}>
                   <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-smooth hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50">
@@ -122,13 +129,13 @@ const Navigation = () => {
         </div>
 
         {/* CTA Buttons & Language Switcher */}
-        <div className="hidden lg:flex items-center gap-3">
+        <div className={`hidden lg:flex items-center gap-3 ${isRtl ? "flex-row-reverse" : "flex-row"}`}>
           <Button
             variant="ghost"
             size="icon"
             onClick={toggleLanguage}
             className="transition-smooth"
-            title={currentLang === 'en' ? 'עברית' : 'English'}
+            title={currentLang === "en" ? "עברית" : "English"}
           >
             <Languages className="h-5 w-5" />
           </Button>
@@ -141,13 +148,13 @@ const Navigation = () => {
         </div>
 
         {/* Mobile Language Switcher & Menu Button */}
-        <div className="lg:hidden flex items-center gap-2">
+        <div className={`lg:hidden flex items-center gap-2 ${isRtl ? "flex-row-reverse" : "flex-row"}`}>
           <Button
             variant="ghost"
             size="icon"
             onClick={toggleLanguage}
             className="transition-smooth"
-            title={currentLang === 'en' ? 'עברית' : 'English'}
+            title={currentLang === "en" ? "עברית" : "English"}
           >
             <Languages className="h-5 w-5" />
           </Button>
