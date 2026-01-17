@@ -41,7 +41,7 @@ const Navigation = () => {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80" style={{ height: 'var(--header-height)' }}>
-      <nav className="container mx-auto flex items-center justify-between px-4 h-full">
+      <nav className="container mx-auto flex items-center justify-between px-4 h-full" dir="ltr">
         {/* Logo */}
         <Link to={`/${currentLang}`} className="flex items-center gap-2 font-bold text-xl text-primary transition-smooth hover:opacity-80">
           <Store className="h-6 w-6" />
@@ -187,7 +187,7 @@ const Navigation = () => {
                 onClick={toggleLanguage}
                 className="w-full"
               >
-                <Languages className="h-4 w-4 mr-2" />
+                <Languages className="h-4 w-4 me-2" />
                 {currentLang === 'en' ? 'עברית' : 'English'}
               </Button>
               <Button variant="ghost" asChild className="w-full">
