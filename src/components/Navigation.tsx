@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown, Store, Languages } from "lucide-react";
 import { switchLocalePath } from "@/lib/slugMap";
+import { useCategories } from "@/hooks/useCategories";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -15,12 +16,15 @@ import {
 
 const Navigation = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const { lang } = useParams<{ lang: string }>();
   const navigate = useNavigate();
   const location = useLocation();
   const currentLang = lang || 'he';
   const isRtl = currentLang === 'he';
+
+  // Fetch categories from database
+  const { data: categories = [], isLoading: categoriesLoading } = useCategories(currentLang);
 
   const toggleLanguage = () => {
     const newLang = currentLang === 'en' ? 'he' : 'en';
@@ -28,17 +32,6 @@ const Navigation = () => {
     const newPath = switchLocalePath(currentFullPath, currentLang, newLang);
     navigate(newPath, { replace: false });
   };
-
-  const categories = [
-    { key: "shops-retail", title: t("top.shopsRetail.title", { ns: "categories" }), desc: t("top.shopsRetail.description", { ns: "categories" }) },
-    { key: "food-drink", title: t("top.foodDrink.title", { ns: "categories" }), desc: t("top.foodDrink.description", { ns: "categories" }) },
-    { key: "professional-services", title: t("top.professionalServices.title", { ns: "categories" }), desc: t("top.professionalServices.description", { ns: "categories" }) },
-    { key: "home-repairs", title: t("top.homeRepairs.title", { ns: "categories" }), desc: t("top.homeRepairs.description", { ns: "categories" }) },
-    { key: "wellness-care", title: t("top.wellnessCare.title", { ns: "categories" }), desc: t("top.wellnessCare.description", { ns: "categories" }) },
-    { key: "mobility-transport", title: t("top.mobilityTransport.title", { ns: "categories" }), desc: t("top.mobilityTransport.description", { ns: "categories" }) },
-    { key: "youth-services", title: t("top.youthServices.title", { ns: "categories" }), desc: t("top.youthServices.description", { ns: "categories" }) },
-    { key: "other-services", title: t("top.otherServices.title", { ns: "categories" }), desc: t("top.otherServices.description", { ns: "categories" }) },
-  ];
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80" style={{ height: 'var(--header-height)' }}>
@@ -70,21 +63,29 @@ const Navigation = () => {
                 </Link>
                 <NavigationMenuContent>
                   <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] bg-popover">
-                    {categories.map((item) => (
-                      <li key={item.key}>
-                        <NavigationMenuLink asChild>
-                          <Link
-                            to={`/${currentLang}/category/${item.key}`}
-                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-smooth hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                          >
-                            <div className="text-sm font-medium leading-none">{item.title}</div>
-                            <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                              {item.desc}
-                            </p>
-                          </Link>
-                        </NavigationMenuLink>
+                    {categoriesLoading ? (
+                      <li className="col-span-2 text-center text-muted-foreground py-4">
+                        {t("common.loading", "Loading...")}
                       </li>
-                    ))}
+                    ) : (
+                      categories.map((item) => (
+                        <li key={item.id}>
+                          <NavigationMenuLink asChild>
+                            <Link
+                              to={`/${currentLang}/category/${item.slug}`}
+                              className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-smooth hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                            >
+                              <div className="text-sm font-medium leading-none">{item.name}</div>
+                              {item.description && (
+                                <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                                  {item.description}
+                                </p>
+                              )}
+                            </Link>
+                          </NavigationMenuLink>
+                        </li>
+                      ))
+                    )}
                   </ul>
                 </NavigationMenuContent>
               </NavigationMenuItem>

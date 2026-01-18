@@ -5,11 +5,15 @@ import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Search } from "lucide-react";
 import heroImage from "@/assets/hero-community.jpg";
+import { useCategories } from "@/hooks/useCategories";
 
 const Hero = () => {
   const { t } = useTranslation();
   const { lang } = useParams<{ lang: string }>();
   const currentLang = lang || 'he';
+
+  // Fetch categories from database
+  const { data: categories = [], isLoading: categoriesLoading } = useCategories(currentLang);
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-primary/10 via-accent/10 to-background py-20 lg:py-32">
@@ -41,13 +45,17 @@ const Hero = () => {
                 </SelectTrigger>
                 <SelectContent className="bg-popover">
                   <SelectItem value="all">{t("hero.categoryPlaceholder")}</SelectItem>
-                  <SelectItem value="shops">{t("categories.shops.title")}</SelectItem>
-                  <SelectItem value="food">{t("categories.food.title")}</SelectItem>
-                  <SelectItem value="professional">{t("categories.professional.title")}</SelectItem>
-                  <SelectItem value="home">{t("categories.home.title")}</SelectItem>
-                  <SelectItem value="wellness">{t("categories.wellness.title")}</SelectItem>
-                  <SelectItem value="mobility">{t("categories.mobility.title")}</SelectItem>
-                  <SelectItem value="youth">{t("categories.youth.title")}</SelectItem>
+                  {categoriesLoading ? (
+                    <SelectItem value="loading" disabled>
+                      {t("common.loading", "Loading...")}
+                    </SelectItem>
+                  ) : (
+                    categories.map((category) => (
+                      <SelectItem key={category.id} value={category.slug}>
+                        {category.name}
+                      </SelectItem>
+                    ))
+                  )}
                 </SelectContent>
               </Select>
               
