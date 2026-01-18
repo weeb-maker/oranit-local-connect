@@ -830,7 +830,7 @@ export type Database = {
         Returns: string
       }
       get_business_contact: {
-        Args: { p_business_id: string; p_is_authenticated?: boolean }
+        Args: { p_business_id: string }
         Returns: {
           can_view: boolean
           email: string
