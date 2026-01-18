@@ -7,9 +7,9 @@ import { FilterBar } from "@/components/shared/FilterBar";
 import { BusinessCard } from "@/components/shared/BusinessCard";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { getCategoryConfig } from "@/lib/categoryConfig";
-import { loadBusinessFixtures, slugToCamelCase } from "@/lib/businessFixtures";
-import { toEnSlug, toHeSlug } from "@/lib/slugMap";
+import { Skeleton } from "@/components/ui/skeleton";
+import { useCategory } from "@/hooks/useCategories";
+import { loadBusinessFixtures } from "@/lib/businessFixtures";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -20,34 +20,60 @@ import {
 } from "@/components/ui/breadcrumb";
 
 const CategoryPage = () => {
-  const { t, i18n } = useTranslation(['common', 'categories']);
+  const { t, i18n } = useTranslation(["common", "categories"]);
   const { slug, lang } = useParams<{ slug: string; lang: string }>();
+  const currentLang = lang || "en";
   const [businesses, setBusinesses] = useState<any[]>([]);
 
-  // Normalize slug to English if it's Hebrew for config lookup
-  // Use lang param instead of i18n.language for immediate updates on language switch
-  const normalizedSlug = lang === 'he' && slug
-    ? toEnSlug('categories', slug)
-    : slug || "other-services";
-  
-  // Get category config and convert slug to camelCase key
-  const categoryConfig = getCategoryConfig(normalizedSlug);
-  const CategoryIcon = categoryConfig.icon;
-  const categoryKey = slugToCamelCase(normalizedSlug);
-  
-  // Use the top-level category keys for title/description
-  const categoryTitle = t(`categories:top.${categoryKey}.title`);
-  const categoryDescription = t(`categories:top.${categoryKey}.description`);
+  // Fetch category from database
+  const { data: category, isLoading, error } = useCategory(slug || "", currentLang);
 
-  // Load localized business fixtures using normalized slug
+  // Load localized business fixtures using slug
   useEffect(() => {
     const loadData = async () => {
       const locale = i18n.language || lang || "en";
-      const fixtureBusinesses = await loadBusinessFixtures(normalizedSlug, locale);
+      const fixtureBusinesses = await loadBusinessFixtures(slug || "", locale);
       setBusinesses(fixtureBusinesses);
     };
     loadData();
-  }, [normalizedSlug, lang, i18n.language]);
+  }, [slug, lang, i18n.language]);
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen flex flex-col">
+        <Navigation />
+        <main className="flex-1">
+          <section className="bg-primary py-12">
+            <div className="container mx-auto px-4">
+              <Skeleton className="h-16 w-16 rounded-full bg-white/20" />
+              <Skeleton className="h-10 w-64 mt-4 bg-white/20" />
+              <Skeleton className="h-6 w-96 mt-2 bg-white/20" />
+            </div>
+          </section>
+        </main>
+        <Footer />
+      </div>
+    );
+  }
+
+  if (error || !category) {
+    return (
+      <div className="min-h-screen flex flex-col">
+        <Navigation />
+        <main className="flex-1 container mx-auto px-4 py-12">
+          <div className="text-center">
+            <h1 className="text-2xl font-bold mb-4">{t("common:labels.categoryNotFound")}</h1>
+            <Link to={`/${currentLang}/explore`}>
+              <Button>{t("common:nav.businesses")}</Button>
+            </Link>
+          </div>
+        </main>
+        <Footer />
+      </div>
+    );
+  }
+
+  const CategoryIcon = category.icon;
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -59,17 +85,17 @@ const CategoryPage = () => {
             <Breadcrumb>
               <BreadcrumbList>
                 <BreadcrumbItem>
-                  <BreadcrumbLink href={`/${lang}`}>{t("common:nav.home")}</BreadcrumbLink>
+                  <BreadcrumbLink href={`/${currentLang}`}>{t("common:nav.home")}</BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
-                  <BreadcrumbLink href={`/${lang}/explore`}>
+                  <BreadcrumbLink href={`/${currentLang}/explore`}>
                     {t("common:nav.businesses")}
                   </BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
-                  <BreadcrumbPage>{categoryTitle}</BreadcrumbPage>
+                  <BreadcrumbPage>{category.name}</BreadcrumbPage>
                 </BreadcrumbItem>
               </BreadcrumbList>
             </Breadcrumb>
@@ -85,9 +111,9 @@ const CategoryPage = () => {
               </div>
               <div>
                 <h1 className="text-3xl md:text-4xl font-bold text-white mb-2">
-                  {categoryTitle}
+                  {category.name}
                 </h1>
-                <p className="text-white/90">{categoryDescription}</p>
+                <p className="text-white/90">{category.description}</p>
               </div>
             </div>
           </div>
@@ -101,20 +127,16 @@ const CategoryPage = () => {
         {/* Results */}
         <section className="container mx-auto px-4 py-12">
           {/* Subcategories */}
-          {categoryConfig.subcategories && categoryConfig.subcategories.length > 0 && (
+          {category.subcategories && category.subcategories.length > 0 && (
             <div className="mb-12">
               <h2 className="text-2xl font-bold mb-6">{t("common:labels.subcategories")}</h2>
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                {categoryConfig.subcategories.map((subcategory) => {
+                {category.subcategories.map((subcategory) => {
                   const SubIcon = subcategory.icon;
-                  // Get localized slugs for the link
-                  const localizedCategorySlug = lang === 'he' ? toHeSlug('categories', normalizedSlug) : normalizedSlug;
-                  const localizedSubcategorySlug = lang === 'he' ? toHeSlug('subcategories', subcategory.slug) : subcategory.slug;
-                  
                   return (
                     <Link
-                      key={subcategory.slug}
-                      to={`/${lang}/category/${localizedCategorySlug}/${localizedSubcategorySlug}`}
+                      key={subcategory.id}
+                      to={`/${currentLang}/category/${category.slug}/${subcategory.slug}`}
                     >
                       <Card className="h-full hover:shadow-lg transition-shadow cursor-pointer">
                         <CardContent className="p-6 flex flex-col items-center text-center gap-3">
@@ -122,7 +144,7 @@ const CategoryPage = () => {
                             <SubIcon className="w-6 h-6 text-primary" />
                           </div>
                           <div>
-                            <h3 className="font-semibold mb-1">{t(subcategory.titleKey, { ns: 'categories' })}</h3>
+                            <h3 className="font-semibold mb-1">{subcategory.name}</h3>
                             <p className="text-sm text-muted-foreground">
                               0 {t("common:labels.businesses")}
                             </p>
@@ -142,9 +164,9 @@ const CategoryPage = () => {
                 {businesses.length} {t("common:business.businessesFound")}
               </h2>
             </div>
-            <Link to={`/${lang}/explore`}>
+            <Link to={`/${currentLang}/explore`}>
               <Button variant="outline">
-                {lang === 'he' ? '→' : '←'} {t("common:nav.businesses")}
+                {currentLang === "he" ? "→" : "←"} {t("common:nav.businesses")}
               </Button>
             </Link>
           </div>
@@ -161,8 +183,6 @@ const CategoryPage = () => {
             </div>
           )}
         </section>
-
-        {/* Related Categories - removed as we now show subcategories */}
       </main>
       <Footer />
     </div>

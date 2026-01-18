@@ -7,24 +7,20 @@ import { CategoryTile } from "@/components/shared/CategoryTile";
 import { BusinessCard } from "@/components/shared/BusinessCard";
 import { FilterBar } from "@/components/shared/FilterBar";
 import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
 import { Link, useParams } from "react-router-dom";
-import { categoryConfig } from "@/lib/categoryConfig";
+import { useCategories } from "@/hooks/useCategories";
 import heroImage from "@/assets/hero-community.jpg";
 
-// Map categoryConfig to the format expected by CategoryTile
-const categories = Object.values(categoryConfig).map((cat) => ({
-  slug: cat.slug,
-  titleKey: cat.titleKey,
-  icon: cat.icon,
-  count: 0, // This would come from actual business counts
-}));
-
 const ExplorePage = () => {
-  const { t, i18n } = useTranslation(['common', 'categories']);
+  const { t, i18n } = useTranslation(["common", "categories"]);
   const { lang } = useParams<{ lang: string }>();
+  const currentLang = lang || "en";
   const [featuredBusinesses, setFeaturedBusinesses] = useState<any[]>([]);
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [selectedCategory, setSelectedCategory] = useState<string>("");
+
+  const { data: categories, isLoading: categoriesLoading } = useCategories(currentLang);
 
   // Load localized featured businesses
   useEffect(() => {
@@ -43,13 +39,14 @@ const ExplorePage = () => {
 
   // Filter businesses based on search and category
   const filteredBusinesses = featuredBusinesses.filter((business) => {
-    const matchesSearch = !searchQuery || 
+    const matchesSearch =
+      !searchQuery ||
       business.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       business.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
       business.category.toLowerCase().includes(searchQuery.toLowerCase());
-    
+
     const matchesCategory = !selectedCategory || business.category === selectedCategory;
-    
+
     return matchesSearch && matchesCategory;
   });
 
@@ -68,7 +65,7 @@ const ExplorePage = () => {
 
         {/* Global Search Bar */}
         <section className="container mx-auto px-4 -mt-8 mb-6">
-          <FilterBar 
+          <FilterBar
             showFilters={true}
             onSearch={(query) => setSearchQuery(query)}
             onCategoryChange={(category) => setSelectedCategory(category)}
@@ -78,17 +75,25 @@ const ExplorePage = () => {
         {/* Categories Grid */}
         <section className="container mx-auto px-4 py-16">
           <h2 className="text-3xl font-bold mb-8">{t("common:labels.browseByCategory")}</h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {categories.map((category) => (
-              <CategoryTile
-                key={category.slug}
-                slug={category.slug}
-                title={t(category.titleKey, { ns: 'categories' })}
-                icon={category.icon}
-                count={category.count}
-              />
-            ))}
-          </div>
+          {categoriesLoading ? (
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+              {Array.from({ length: 8 }).map((_, i) => (
+                <Skeleton key={i} className="h-32 rounded-lg" />
+              ))}
+            </div>
+          ) : (
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+              {categories?.map((category) => (
+                <CategoryTile
+                  key={category.id}
+                  slug={category.slug}
+                  title={category.name}
+                  icon={category.icon}
+                  count={category.subcategories?.length || 0}
+                />
+              ))}
+            </div>
+          )}
         </section>
 
         {/* Featured Businesses */}
@@ -97,8 +102,8 @@ const ExplorePage = () => {
             <div className="flex items-center justify-between mb-8">
               <h2 className="text-3xl font-bold">{t("common:explore.featuredTitle")}</h2>
               {(searchQuery || selectedCategory) && (
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   onClick={() => {
                     setSearchQuery("");
                     setSelectedCategory("");
@@ -123,8 +128,8 @@ const ExplorePage = () => {
               <div className="text-center py-12 text-muted-foreground">
                 <p>{t("common:labels.noBusinessesFound")}</p>
                 {(searchQuery || selectedCategory) && (
-                  <Button 
-                    variant="link" 
+                  <Button
+                    variant="link"
                     onClick={() => {
                       setSearchQuery("");
                       setSelectedCategory("");
@@ -144,7 +149,7 @@ const ExplorePage = () => {
           <div className="bg-primary rounded-2xl p-12 text-center text-white">
             <h2 className="text-3xl font-bold mb-4">{t("common:explore.ctaTitle")}</h2>
             <p className="text-xl mb-8 opacity-90">{t("common:explore.ctaSubtitle")}</p>
-            <Link to={`/${lang}/add-business`}>
+            <Link to={`/${currentLang}/add-business`}>
               <Button size="lg" variant="hero">
                 {t("common:explore.ctaButton")}
               </Button>
