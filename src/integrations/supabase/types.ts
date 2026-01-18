@@ -206,6 +206,7 @@ export type Database = {
           parent_id: string | null
           slug: string
           sort_order: number
+          type: Database["public"]["Enums"]["category_type"]
         }
         Insert: {
           created_at?: string
@@ -216,6 +217,7 @@ export type Database = {
           parent_id?: string | null
           slug: string
           sort_order?: number
+          type?: Database["public"]["Enums"]["category_type"]
         }
         Update: {
           created_at?: string
@@ -226,6 +228,7 @@ export type Database = {
           parent_id?: string | null
           slug?: string
           sort_order?: number
+          type?: Database["public"]["Enums"]["category_type"]
         }
         Relationships: [
           {
@@ -855,6 +858,7 @@ export type Database = {
         | "approved"
         | "rejected"
         | "suspended"
+      category_type: "business" | "community_help" | "public_service" | "mixed"
       listing_condition: "new" | "like_new" | "good" | "fair"
       listing_status: "active" | "sold" | "expired" | "removed"
       ownership_status: "pending" | "approved" | "rejected"
@@ -1003,6 +1007,7 @@ export const Constants = {
         "rejected",
         "suspended",
       ],
+      category_type: ["business", "community_help", "public_service", "mixed"],
       listing_condition: ["new", "like_new", "good", "fair"],
       listing_status: ["active", "sold", "expired", "removed"],
       ownership_status: ["pending", "approved", "rejected"],
