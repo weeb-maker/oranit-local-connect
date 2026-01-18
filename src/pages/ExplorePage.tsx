@@ -64,7 +64,7 @@ const ExplorePage = () => {
         />
 
         {/* Global Search Bar */}
-        <section className="container mx-auto px-4 -mt-8 mb-6">
+        <section className="container mx-auto px-4 -mt-8 mb-6 relative z-20">
           <FilterBar
             showFilters={true}
             onSearch={(query) => setSearchQuery(query)}
