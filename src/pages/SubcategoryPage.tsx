@@ -2,11 +2,11 @@ import { useTranslation } from "react-i18next";
 import { useParams, Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { FilterBar } from "@/components/shared/FilterBar";
 import { BusinessCard } from "@/components/shared/BusinessCard";
+import { FilterBar } from "@/components/shared/FilterBar";
 import { Button } from "@/components/ui/button";
-import { getCategoryConfig, getSubcategoryConfig } from "@/lib/categoryConfig";
-import { toEnSlug, toHeSlug } from "@/lib/slugMap";
+import { Skeleton } from "@/components/ui/skeleton";
+import { useSubcategory } from "@/hooks/useCategories";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -16,51 +16,52 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 
-const mockBusinesses = [
-  {
-    id: "1",
-    name: "Cafe Oranit",
-    category: "Food & Drink",
-    description: "Cozy neighborhood cafe serving fresh pastries and artisan coffee",
-    logo: "https://images.unsplash.com/photo-1559305616-3f99cd43e353?w=100&h=100&fit=crop",
-    rating: 4.8,
-    verified: true,
-    location: "Main Street, Oranit",
-  },
-  {
-    id: "2",
-    name: "Pizza Paradise",
-    category: "Food & Drink",
-    description: "Authentic Italian pizza with fresh ingredients",
-    logo: "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=100&h=100&fit=crop",
-    rating: 4.7,
-    verified: true,
-    location: "Center, Oranit",
-  },
-];
-
 const SubcategoryPage = () => {
-  const { t, i18n } = useTranslation(['common', 'categories']);
+  const { t } = useTranslation(["common", "categories"]);
   const { slug, subslug, lang } = useParams<{ slug: string; subslug: string; lang: string }>();
+  const currentLang = lang || "en";
 
-  // Normalize slugs to English for config lookup
-  // Use lang param instead of i18n.language for immediate updates on language switch
-  const normalizedSlug = lang === 'he' && slug 
-    ? toEnSlug('categories', slug) 
-    : slug || "other-services";
-  const normalizedSubslug = lang === 'he' && subslug
-    ? toEnSlug('subcategories', subslug)
-    : subslug || "";
+  // Fetch subcategory from database
+  const { data, isLoading, error } = useSubcategory(slug || "", subslug || "", currentLang);
 
-  // Get category and subcategory config
-  const categoryConfig = getCategoryConfig(normalizedSlug);
-  const subcategoryConfig = getSubcategoryConfig(normalizedSlug, normalizedSubslug);
-  
-  const CategoryIcon = categoryConfig.icon;
-  const SubcategoryIcon = subcategoryConfig?.icon;
-  const categoryTitle = t(categoryConfig.titleKey, { ns: 'categories' });
-  const subcategoryTitle = subcategoryConfig ? t(subcategoryConfig.titleKey, { ns: 'categories' }) : "";
-  const subcategoryDescription = subcategoryConfig ? t(subcategoryConfig.descriptionKey, { ns: 'categories' }) : "";
+  if (isLoading) {
+    return (
+      <div className="min-h-screen flex flex-col">
+        <Navigation />
+        <main className="flex-1">
+          <section className="bg-primary py-12">
+            <div className="container mx-auto px-4">
+              <Skeleton className="h-16 w-16 rounded-full bg-white/20" />
+              <Skeleton className="h-10 w-64 mt-4 bg-white/20" />
+              <Skeleton className="h-6 w-96 mt-2 bg-white/20" />
+            </div>
+          </section>
+        </main>
+        <Footer />
+      </div>
+    );
+  }
+
+  if (error || !data) {
+    return (
+      <div className="min-h-screen flex flex-col">
+        <Navigation />
+        <main className="flex-1 container mx-auto px-4 py-12">
+          <div className="text-center">
+            <h1 className="text-2xl font-bold mb-4">{t("common:labels.categoryNotFound")}</h1>
+            <Link to={`/${currentLang}/explore`}>
+              <Button>{t("common:nav.businesses")}</Button>
+            </Link>
+          </div>
+        </main>
+        <Footer />
+      </div>
+    );
+  }
+
+  const { category, subcategory } = data;
+  const CategoryIcon = category.icon;
+  const SubcategoryIcon = subcategory.icon;
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -72,23 +73,23 @@ const SubcategoryPage = () => {
             <Breadcrumb>
               <BreadcrumbList>
                 <BreadcrumbItem>
-                  <BreadcrumbLink href={`/${lang}`}>{t("common:nav.home")}</BreadcrumbLink>
+                  <BreadcrumbLink href={`/${currentLang}`}>{t("common:nav.home")}</BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
-                  <BreadcrumbLink href={`/${lang}/explore`}>
+                  <BreadcrumbLink href={`/${currentLang}/explore`}>
                     {t("common:nav.businesses")}
                   </BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
-                  <BreadcrumbLink href={`/${lang}/category/${lang === 'he' ? toHeSlug('categories', normalizedSlug) : normalizedSlug}`}>
-                    {categoryTitle}
+                  <BreadcrumbLink href={`/${currentLang}/category/${category.slug}`}>
+                    {category.name}
                   </BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
-                  <BreadcrumbPage>{subcategoryTitle}</BreadcrumbPage>
+                  <BreadcrumbPage>{subcategory.name}</BreadcrumbPage>
                 </BreadcrumbItem>
               </BreadcrumbList>
             </Breadcrumb>
@@ -99,20 +100,18 @@ const SubcategoryPage = () => {
         <section className="bg-primary py-12">
           <div className="container mx-auto px-4">
             <div className="flex items-center gap-4 mb-4">
-              {SubcategoryIcon && (
-                <div className="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center">
-                  <SubcategoryIcon className="w-8 h-8 text-white" />
-                </div>
-              )}
+              <div className="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center">
+                <SubcategoryIcon className="w-8 h-8 text-white" />
+              </div>
               <div>
                 <div className="text-sm text-white/70 mb-1 flex items-center gap-2">
                   <CategoryIcon className="w-4 h-4" />
-                  {categoryTitle}
+                  {category.name}
                 </div>
                 <h1 className="text-3xl md:text-4xl font-bold text-white mb-2">
-                  {subcategoryTitle}
+                  {subcategory.name}
                 </h1>
-                <p className="text-white/90">{subcategoryDescription}</p>
+                <p className="text-white/90">{subcategory.description}</p>
               </div>
             </div>
           </div>
@@ -128,20 +127,18 @@ const SubcategoryPage = () => {
           <div className="mb-6 flex items-center justify-between">
             <div>
               <h2 className="text-2xl font-semibold mb-2">
-                {mockBusinesses.length} {t("common:business.businessesFound")}
+                0 {t("common:business.businessesFound")}
               </h2>
             </div>
-            <Link to={`/${lang}/category/${lang === 'he' ? toHeSlug('categories', normalizedSlug) : normalizedSlug}`}>
+            <Link to={`/${currentLang}/category/${category.slug}`}>
               <Button variant="outline">
-                {lang === 'he' ? '→' : '←'} {categoryTitle}
+                {currentLang === "he" ? "→" : "←"} {category.name}
               </Button>
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {mockBusinesses.map((business) => (
-              <BusinessCard key={business.id} {...business} />
-            ))}
+          <div className="text-center py-12 text-muted-foreground">
+            <p>{t("common:labels.noBusinessesFound")}</p>
           </div>
         </section>
       </main>
