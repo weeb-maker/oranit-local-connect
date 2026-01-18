@@ -3,6 +3,8 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Search, SlidersHorizontal } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { useParams } from "react-router-dom";
+import { useCategories } from "@/hooks/useCategories";
 
 interface FilterBarProps {
   onSearch?: (query: string) => void;
@@ -18,6 +20,11 @@ export const FilterBar = ({
   showFilters = true,
 }: FilterBarProps) => {
   const { t } = useTranslation();
+  const { lang } = useParams<{ lang: string }>();
+  const currentLang = lang || "en";
+  
+  // Fetch categories from database
+  const { data: categories = [], isLoading: categoriesLoading } = useCategories(currentLang);
 
   return (
     <div className="bg-card border rounded-lg p-4 space-y-4 shadow-lg">
@@ -36,20 +43,26 @@ export const FilterBar = ({
               <SelectTrigger className="w-full md:w-[200px]">
                 <SelectValue placeholder={t("search.filterByCategory")} />
               </SelectTrigger>
-              <SelectContent>
+              <SelectContent className="bg-popover">
                 <SelectItem value="all">{t("search.allCategories")}</SelectItem>
-                <SelectItem value="shops">{t("categories.shops.title")}</SelectItem>
-                <SelectItem value="food">{t("categories.food.title")}</SelectItem>
-                <SelectItem value="professional">{t("categories.professional.title")}</SelectItem>
-                <SelectItem value="home">{t("categories.home.title")}</SelectItem>
-                <SelectItem value="wellness">{t("categories.wellness.title")}</SelectItem>
+                {categoriesLoading ? (
+                  <SelectItem value="loading" disabled>
+                    {t("common.loading", "Loading...")}
+                  </SelectItem>
+                ) : (
+                  categories.map((category) => (
+                    <SelectItem key={category.id} value={category.slug}>
+                      {category.name}
+                    </SelectItem>
+                  ))
+                )}
               </SelectContent>
             </Select>
             <Select onValueChange={onSortChange}>
               <SelectTrigger className="w-full md:w-[180px]">
                 <SelectValue placeholder={t("search.sortBy")} />
               </SelectTrigger>
-              <SelectContent>
+              <SelectContent className="bg-popover">
                 <SelectItem value="relevant">{t("search.mostRelevant")}</SelectItem>
                 <SelectItem value="rating">{t("search.highestRated")}</SelectItem>
                 <SelectItem value="name">{t("search.alphabetical")}</SelectItem>
