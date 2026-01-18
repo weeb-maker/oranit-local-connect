@@ -14,6 +14,54 @@ export type Database = {
   }
   public: {
     Tables: {
+      business_contacts: {
+        Row: {
+          business_id: string
+          contact_visibility: string
+          created_at: string
+          id: string
+          notes: string | null
+          owner_email: string | null
+          owner_phone: string | null
+          updated_at: string
+        }
+        Insert: {
+          business_id: string
+          contact_visibility?: string
+          created_at?: string
+          id?: string
+          notes?: string | null
+          owner_email?: string | null
+          owner_phone?: string | null
+          updated_at?: string
+        }
+        Update: {
+          business_id?: string
+          contact_visibility?: string
+          created_at?: string
+          id?: string
+          notes?: string | null
+          owner_email?: string | null
+          owner_phone?: string | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "business_contacts_business_id_fkey"
+            columns: ["business_id"]
+            isOneToOne: true
+            referencedRelation: "businesses"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "business_contacts_business_id_fkey"
+            columns: ["business_id"]
+            isOneToOne: true
+            referencedRelation: "public_businesses"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       business_owners: {
         Row: {
           business_id: string
@@ -780,6 +828,15 @@ export type Database = {
           p_whatsapp?: string
         }
         Returns: string
+      }
+      get_business_contact: {
+        Args: { p_business_id: string; p_is_authenticated?: boolean }
+        Returns: {
+          can_view: boolean
+          email: string
+          phone: string
+          whatsapp: string
+        }[]
       }
       get_business_owner_count: {
         Args: { _business_id: string }
