@@ -17,6 +17,9 @@ import StyleGuidePage from "./pages/StyleGuidePage";
 import EventsPage from "./pages/EventsPage";
 import EventDetailPage from "./pages/EventDetailPage";
 import ResidentsPage from "./pages/ResidentsPage";
+import NoticeDetailPage from "./pages/NoticeDetailPage";
+import ServiceDetailPage from "./pages/ServiceDetailPage";
+import ClubDetailPage from "./pages/ClubDetailPage";
 import MarketplacePage from "./pages/MarketplacePage";
 import MarketplaceDetailPage from "./pages/MarketplaceDetailPage";
 import ForBusinessesPage from "./pages/ForBusinessesPage";
@@ -70,6 +73,9 @@ const App = () => (
           <Route path="/:lang/events" element={<LanguageWrapper><EventsPage /></LanguageWrapper>} />
           <Route path="/:lang/events/:id" element={<LanguageWrapper><EventDetailPage /></LanguageWrapper>} />
           <Route path="/:lang/residents" element={<LanguageWrapper><ResidentsPage /></LanguageWrapper>} />
+          <Route path="/:lang/residents/notices/:id" element={<LanguageWrapper><NoticeDetailPage /></LanguageWrapper>} />
+          <Route path="/:lang/residents/services/:slug" element={<LanguageWrapper><ServiceDetailPage /></LanguageWrapper>} />
+          <Route path="/:lang/residents/clubs/:slug" element={<LanguageWrapper><ClubDetailPage /></LanguageWrapper>} />
           <Route path="/:lang/marketplace" element={<LanguageWrapper><MarketplacePage /></LanguageWrapper>} />
           <Route path="/:lang/marketplace/:id" element={<LanguageWrapper><MarketplaceDetailPage /></LanguageWrapper>} />
           <Route path="/:lang/for-businesses" element={<LanguageWrapper><ForBusinessesPage /></LanguageWrapper>} />
