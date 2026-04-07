@@ -7,7 +7,8 @@
     "marketplace": "לוח מודעות",
     "forBusinesses": "לבעלי עסקים",
     "signIn": "התחברות",
-    "addBusiness": "הוספת עסק"
+    "addBusiness": "הוספת עסק",
+    "realEstate": "נדל\"ן"
   },
   "hero": {
     "headline": "מצאו את העסקים המקומיים הטובים ביותר באורנית",
@@ -683,6 +684,50 @@
       "organizer": "מאורגן על ידי",
       "addToCalendar": "הוסף ליומן",
       "similarEvents": "אירועים דומים"
+    }
+  },
+  "realEstate": {
+    "hero": {
+      "title": "נדל\"ן באורנית",
+      "subtitle": "מצאו את הבית המושלם או פרסמו נכס בקהילה.",
+      "addButton": "פרסם נכס"
+    },
+    "filters": {
+      "typeLabel": "סוג מודעה",
+      "propertyLabel": "סוג נכס",
+      "searchLabel": "חיפוש",
+      "searchPlaceholder": "חיפוש לפי שכונה, סוג...",
+      "types": {
+        "all": "כל המודעות",
+        "sale": "למכירה",
+        "rent": "להשכרה"
+      },
+      "propertyTypes": {
+        "all": "כל הנכסים",
+        "villa": "וילה",
+        "cottage": "קוטג׳",
+        "apartment": "דירה",
+        "penthouse": "פנטהאוז",
+        "land": "מגרש"
+      }
+    },
+    "badge": {
+      "sale": "למכירה",
+      "rent": "להשכרה"
+    },
+    "sqm": "מ\"ר",
+    "card": {
+      "contact": "צור קשר",
+      "viewDetails": "צפה בפרטים"
+    },
+    "noResults": {
+      "title": "לא נמצאו נכסים",
+      "description": "נסו לשנות את המסננים או בדקו שוב בקרוב לנכסים חדשים."
+    },
+    "footerCta": {
+      "title": "יש לכם נכס לפרסם?",
+      "description": "הגיעו לקונים ושוכרים מקומיים באורנית — פרסמו את הנכס שלכם היום.",
+      "button": "פרסם נכס"
     }
   },
   "about": {
