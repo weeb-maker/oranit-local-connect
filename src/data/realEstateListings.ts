@@ -1,0 +1,321 @@
+export interface RealEstateListing {
+  id: string;
+  title: string;
+  type: "sale" | "rent";
+  propertyType: string;
+  price: number;
+  rooms: number;
+  bathrooms: number;
+  size: number;
+  neighborhood: string;
+  image: string;
+  images: string[];
+  description: string;
+  features: string[];
+  floor?: number;
+  totalFloors?: number;
+  yearBuilt?: number;
+  parking?: number;
+  contactName: string;
+  contactPhone: string;
+}
+
+export const getSampleListings = (lang: string): RealEstateListing[] => {
+  if (lang === "he") {
+    return [
+      {
+        id: "1",
+        title: "וילה מרווחת עם גינה",
+        type: "sale",
+        propertyType: "villa",
+        price: 3200000,
+        rooms: 6,
+        bathrooms: 3,
+        size: 220,
+        neighborhood: "אורנית מזרח",
+        image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&h=500&fit=crop",
+        images: [
+          "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&h=800&fit=crop",
+          "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&h=800&fit=crop",
+          "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&h=800&fit=crop",
+          "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1200&h=800&fit=crop",
+        ],
+        description: "וילה מהממת עם גינה גדולה, 6 חדרים, מטבח מרווח ונוף פתוח. הנכס כולל סלון מרווח עם חלונות גדולים, מטבח מודרני משודרג, וחצר אחורית מטופחת עם דשא ועצי פרי. מיקום מצוין הקרוב לבתי ספר, גני ילדים ופארק השכונה.",
+        features: ["גינה גדולה", "חניה כפולה", "מטבח משודרג", "מרפסת שמש", "מחסן"],
+        yearBuilt: 2015,
+        parking: 2,
+        contactName: "דני כהן",
+        contactPhone: "050-1234567",
+      },
+      {
+        id: "2",
+        title: "דירת 4 חדרים להשכרה",
+        type: "rent",
+        propertyType: "apartment",
+        price: 5500,
+        rooms: 4,
+        bathrooms: 2,
+        size: 110,
+        neighborhood: "אורנית מרכז",
+        image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&h=500&fit=crop",
+        images: [
+          "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=1200&h=800&fit=crop",
+          "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1200&h=800&fit=crop",
+          "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=1200&h=800&fit=crop",
+        ],
+        description: "דירה מוארת ומרווחת במיקום מרכזי, קרובה לבתי ספר ומרכז מסחרי. הדירה כוללת סלון גדול, מרפסת מרווחת, ושני חדרי רחצה. קומה שלישית עם מעלית ונוף יפה לגינה.",
+        features: ["מעלית", "מרפסת", "מיזוג מרכזי", "מחסן"],
+        floor: 3,
+        totalFloors: 5,
+        yearBuilt: 2018,
+        parking: 1,
+        contactName: "שרה לוי",
+        contactPhone: "052-9876543",
+      },
+      {
+        id: "3",
+        title: "קוטג׳ דו-משפחתי",
+        type: "sale",
+        propertyType: "cottage",
+        price: 2600000,
+        rooms: 5,
+        bathrooms: 2,
+        size: 180,
+        neighborhood: "אורנית צפון",
+        image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&h=500&fit=crop",
+        images: [
+          "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1200&h=800&fit=crop",
+          "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1200&h=800&fit=crop",
+          "https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?w=1200&h=800&fit=crop",
+        ],
+        description: "קוטג׳ דו-משפחתי עם חניה כפולה, מרפסת שמש וגינה מטופחת. הנכס כולל יחידת הורים עם מקלחת ושירותים, מטבח מאובזר וסלון מרווח עם גישה ישירה לגינה.",
+        features: ["חניה כפולה", "מרפסת שמש", "גינה מטופחת", "יחידת הורים", "ממ\"ד"],
+        yearBuilt: 2012,
+        parking: 2,
+        contactName: "יוסי אברהם",
+        contactPhone: "054-5551234",
+      },
+      {
+        id: "4",
+        title: "פנטהאוז עם נוף",
+        type: "sale",
+        propertyType: "penthouse",
+        price: 2900000,
+        rooms: 5,
+        bathrooms: 2,
+        size: 160,
+        neighborhood: "אורנית דרום",
+        image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&h=500&fit=crop",
+        images: [
+          "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1200&h=800&fit=crop",
+          "https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=1200&h=800&fit=crop",
+          "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=1200&h=800&fit=crop",
+        ],
+        description: "פנטהאוז מפואר עם מרפסת גדולה ונוף פנורמי לנוף הפתוח. הנכס כולל סלון כפול, מטבח שף, ויחידת הורים יוקרתית עם חדר ארונות.",
+        features: ["מרפסת גג", "נוף פנורמי", "מטבח שף", "חדר ארונות", "מעלית פרטית"],
+        floor: 6,
+        totalFloors: 6,
+        yearBuilt: 2020,
+        parking: 2,
+        contactName: "מיכל רוזנברג",
+        contactPhone: "050-7778899",
+      },
+      {
+        id: "5",
+        title: "דירת גן 3 חדרים",
+        type: "rent",
+        propertyType: "apartment",
+        price: 4800,
+        rooms: 3,
+        bathrooms: 1,
+        size: 90,
+        neighborhood: "אורנית מערב",
+        image: "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=800&h=500&fit=crop",
+        images: [
+          "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=1200&h=800&fit=crop",
+          "https://images.unsplash.com/photo-1560185893-a55cbc8c57e8?w=1200&h=800&fit=crop",
+        ],
+        description: "דירת גן עם גינה פרטית, מתאימה למשפחה צעירה. הדירה כוללת סלון מרווח, שני חדרי שינה, וגינה מוקפת גדר.",
+        features: ["גינה פרטית", "מיזוג", "חניה"],
+        floor: 0,
+        totalFloors: 3,
+        yearBuilt: 2016,
+        parking: 1,
+        contactName: "אבי גולן",
+        contactPhone: "053-1112233",
+      },
+      {
+        id: "6",
+        title: "מגרש לבנייה",
+        type: "sale",
+        propertyType: "land",
+        price: 1800000,
+        rooms: 0,
+        bathrooms: 0,
+        size: 500,
+        neighborhood: "אורנית הרחבה",
+        image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&h=500&fit=crop",
+        images: [
+          "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1200&h=800&fit=crop",
+          "https://images.unsplash.com/photo-1628624747186-a941c476b7ef?w=1200&h=800&fit=crop",
+        ],
+        description: "מגרש מושלם לבנייה עצמית באזור שקט עם נוף פתוח. המגרש ממוקם בהרחבה החדשה של אורנית, עם תשתיות מוכנות ותב\"ע לבנייה.",
+        features: ["תשתיות מוכנות", "תב\"ע מאושרת", "נוף פתוח", "שכונה חדשה"],
+        contactName: "רונית שפירא",
+        contactPhone: "050-4445566",
+      },
+    ];
+  }
+
+  return [
+    {
+      id: "1",
+      title: "Spacious Villa with Garden",
+      type: "sale",
+      propertyType: "villa",
+      price: 3200000,
+      rooms: 6,
+      bathrooms: 3,
+      size: 220,
+      neighborhood: "East Oranit",
+      image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&h=500&fit=crop",
+      images: [
+        "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&h=800&fit=crop",
+        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&h=800&fit=crop",
+        "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&h=800&fit=crop",
+        "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1200&h=800&fit=crop",
+      ],
+      description: "Stunning villa with a large garden, 6 rooms, spacious kitchen and open views. The property features a spacious living room with large windows, a modern upgraded kitchen, and a well-maintained backyard with lawn and fruit trees. Excellent location near schools, kindergartens, and the neighborhood park.",
+      features: ["Large garden", "Double parking", "Upgraded kitchen", "Sun terrace", "Storage room"],
+      yearBuilt: 2015,
+      parking: 2,
+      contactName: "Danny Cohen",
+      contactPhone: "050-1234567",
+    },
+    {
+      id: "2",
+      title: "4-Room Apartment for Rent",
+      type: "rent",
+      propertyType: "apartment",
+      price: 5500,
+      rooms: 4,
+      bathrooms: 2,
+      size: 110,
+      neighborhood: "Central Oranit",
+      image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&h=500&fit=crop",
+      images: [
+        "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=1200&h=800&fit=crop",
+        "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1200&h=800&fit=crop",
+        "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=1200&h=800&fit=crop",
+      ],
+      description: "Bright and spacious apartment in a central location, close to schools and shopping. The apartment includes a large living room, spacious balcony, and two bathrooms. Third floor with elevator and lovely garden view.",
+      features: ["Elevator", "Balcony", "Central A/C", "Storage room"],
+      floor: 3,
+      totalFloors: 5,
+      yearBuilt: 2018,
+      parking: 1,
+      contactName: "Sarah Levy",
+      contactPhone: "052-9876543",
+    },
+    {
+      id: "3",
+      title: "Semi-Detached Cottage",
+      type: "sale",
+      propertyType: "cottage",
+      price: 2600000,
+      rooms: 5,
+      bathrooms: 2,
+      size: 180,
+      neighborhood: "North Oranit",
+      image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&h=500&fit=crop",
+      images: [
+        "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1200&h=800&fit=crop",
+        "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1200&h=800&fit=crop",
+        "https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?w=1200&h=800&fit=crop",
+      ],
+      description: "Semi-detached cottage with double parking, sun terrace and maintained garden. The property includes a master suite with en-suite bathroom, fully equipped kitchen and spacious living room with direct garden access.",
+      features: ["Double parking", "Sun terrace", "Maintained garden", "Master suite", "Safe room"],
+      yearBuilt: 2012,
+      parking: 2,
+      contactName: "Yossi Abraham",
+      contactPhone: "054-5551234",
+    },
+    {
+      id: "4",
+      title: "Penthouse with Views",
+      type: "sale",
+      propertyType: "penthouse",
+      price: 2900000,
+      rooms: 5,
+      bathrooms: 2,
+      size: 160,
+      neighborhood: "South Oranit",
+      image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&h=500&fit=crop",
+      images: [
+        "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1200&h=800&fit=crop",
+        "https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=1200&h=800&fit=crop",
+        "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=1200&h=800&fit=crop",
+      ],
+      description: "Luxurious penthouse with a large terrace and panoramic countryside views. The property features a double-height living room, chef's kitchen, and a premium master suite with walk-in closet.",
+      features: ["Roof terrace", "Panoramic views", "Chef's kitchen", "Walk-in closet", "Private elevator"],
+      floor: 6,
+      totalFloors: 6,
+      yearBuilt: 2020,
+      parking: 2,
+      contactName: "Michal Rosenberg",
+      contactPhone: "050-7778899",
+    },
+    {
+      id: "5",
+      title: "3-Room Garden Apartment",
+      type: "rent",
+      propertyType: "apartment",
+      price: 4800,
+      rooms: 3,
+      bathrooms: 1,
+      size: 90,
+      neighborhood: "West Oranit",
+      image: "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=800&h=500&fit=crop",
+      images: [
+        "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=1200&h=800&fit=crop",
+        "https://images.unsplash.com/photo-1560185893-a55cbc8c57e8?w=1200&h=800&fit=crop",
+      ],
+      description: "Garden apartment with private yard, ideal for a young family. The apartment includes a spacious living room, two bedrooms, and a fenced garden.",
+      features: ["Private garden", "A/C", "Parking"],
+      floor: 0,
+      totalFloors: 3,
+      yearBuilt: 2016,
+      parking: 1,
+      contactName: "Avi Golan",
+      contactPhone: "053-1112233",
+    },
+    {
+      id: "6",
+      title: "Building Plot",
+      type: "sale",
+      propertyType: "land",
+      price: 1800000,
+      rooms: 0,
+      bathrooms: 0,
+      size: 500,
+      neighborhood: "Oranit Extension",
+      image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&h=500&fit=crop",
+      images: [
+        "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1200&h=800&fit=crop",
+        "https://images.unsplash.com/photo-1628624747186-a941c476b7ef?w=1200&h=800&fit=crop",
+      ],
+      description: "Perfect plot for self-build in a quiet area with open views. The plot is located in Oranit's new extension, with ready infrastructure and approved building plans.",
+      features: ["Ready infrastructure", "Approved plans", "Open views", "New neighborhood"],
+      contactName: "Ronit Shapira",
+      contactPhone: "050-4445566",
+    },
+  ];
+};
+
+export const formatPrice = (price: number, type: string, lang: string) => {
+  const formatted = price.toLocaleString(lang === "he" ? "he-IL" : "en-IL");
+  if (type === "rent") {
+    return lang === "he" ? `₪${formatted}/חודש` : `₪${formatted}/mo`;
+  }
+  return `₪${formatted}`;
+};

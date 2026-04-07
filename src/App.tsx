@@ -30,6 +30,7 @@ import HelpPage from "./pages/HelpPage";
 import HelpIndexPage from "./pages/HelpIndexPage";
 import HelpArticlePage from "./pages/HelpArticlePage";
 import RealEstatePage from "./pages/RealEstatePage";
+import RealEstateDetailPage from "./pages/RealEstateDetailPage";
 import "./i18n/config";
 
 const queryClient = new QueryClient();
@@ -82,6 +83,7 @@ const App = () => (
           <Route path="/:lang/help" element={<LanguageWrapper><HelpIndexPage /></LanguageWrapper>} />
           <Route path="/:lang/help/:slug" element={<LanguageWrapper><HelpArticlePage /></LanguageWrapper>} />
           <Route path="/:lang/real-estate" element={<LanguageWrapper><RealEstatePage /></LanguageWrapper>} />
+          <Route path="/:lang/real-estate/:id" element={<LanguageWrapper><RealEstateDetailPage /></LanguageWrapper>} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

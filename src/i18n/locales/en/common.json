@@ -720,6 +720,26 @@
       "contact": "Contact",
       "viewDetails": "View Details"
     },
+    "detail": {
+      "backToListings": "Back to Listings",
+      "notFound": "Property not found",
+      "rooms": "Rooms",
+      "bathrooms": "Bathrooms",
+      "parking": "Parking",
+      "description": "Description",
+      "features": "Features & Amenities",
+      "location": "Location",
+      "propertyDetails": "Property Details",
+      "propertyType": "Property Type",
+      "listingType": "Listing Type",
+      "size": "Size",
+      "floor": "Floor",
+      "groundFloor": "Ground Floor",
+      "yearBuilt": "Year Built",
+      "contactSeller": "Contact Seller",
+      "share": "Share Listing",
+      "similarListings": "Similar Listings"
+    },
     "noResults": {
       "title": "No listings found",
       "description": "Try adjusting your filters or check back soon for new properties."
