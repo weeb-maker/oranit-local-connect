@@ -27,10 +27,12 @@ const ResidentsPage = () => {
         minHeight="md"
         align="center"
       >
-        <Button size="lg" className="gap-2 shadow-lg">
-          <MessageSquarePlus className="h-5 w-5" />
-          {t("residents.addPost")}
-        </Button>
+        <Link to={`/${lang}/residents/post`}>
+          <Button size="lg" className="gap-2 shadow-lg">
+            <MessageSquarePlus className="h-5 w-5" />
+            {t("residents.addPost")}
+          </Button>
+        </Link>
         <Button size="lg" variant="secondary" className="gap-2 shadow-lg">
           <Search className="h-5 w-5" />
           {t("residents.findServices")}
@@ -45,10 +47,12 @@ const ResidentsPage = () => {
               <h2 className="text-3xl font-bold mb-2">{t("residents.noticeBoard.title")}</h2>
               <p className="text-muted-foreground">{t("residents.noticeBoard.subtitle")}</p>
             </div>
-            <Button className="gap-2">
-              <MessageSquarePlus className="h-4 w-4" />
-              {t("residents.addPost")}
-            </Button>
+            <Link to={`/${lang}/residents/post`}>
+              <Button className="gap-2">
+                <MessageSquarePlus className="h-4 w-4" />
+                {t("residents.addPost")}
+              </Button>
+            </Link>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 mb-8">
@@ -145,10 +149,12 @@ const ResidentsPage = () => {
               <h2 className="text-3xl font-bold">{t("residents.volunteer.title")}</h2>
               <p className="text-lg text-muted-foreground">{t("residents.volunteer.description")}</p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="gap-2">
-                  <Users className="h-5 w-5" />
-                  {t("residents.volunteer.viewButton")}
-                </Button>
+                <Link to={`/${lang}/residents/volunteer`}>
+                  <Button size="lg" className="gap-2">
+                    <Users className="h-5 w-5" />
+                    {t("residents.volunteer.viewButton")}
+                  </Button>
+                </Link>
                 <Button size="lg" variant="outline" className="gap-2">
                   <HandHeart className="h-5 w-5" />
                   {t("residents.volunteer.startButton")}
