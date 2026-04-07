@@ -30,6 +30,7 @@ import HelpPage from "./pages/HelpPage";
 import HelpIndexPage from "./pages/HelpIndexPage";
 import HelpArticlePage from "./pages/HelpArticlePage";
 import RealEstatePage from "./pages/RealEstatePage";
+import RealEstateDetailPage from "./pages/RealEstateDetailPage";
 import "./i18n/config";
 
 const queryClient = new QueryClient();
