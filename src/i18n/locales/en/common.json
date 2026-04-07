@@ -183,16 +183,28 @@
     "notices": {
       "sample1": {
         "title": "Lost Cat - Fluffy",
-        "desc": "White Persian cat, last seen near the park"
+        "desc": "White Persian cat, last seen near the park",
+        "body": "Our beloved white Persian cat Fluffy went missing on Friday evening near the central park. She is very friendly but may be scared. If you see her, please contact us immediately. She has a pink collar with a bell.",
+        "contact": "Call Sara at 054-1234567 or message on WhatsApp"
       },
       "sample2": {
         "title": "Babysitting Services Available",
-        "desc": "Experienced babysitter, flexible hours"
+        "desc": "Experienced babysitter, flexible hours",
+        "body": "Hi! I'm a responsible and experienced babysitter available for evenings and weekends. I have experience with children ages 2-10, certified in first aid, and can provide references from families in Oranit. Happy to do trial sessions.",
+        "contact": "Contact Yael at 052-9876543"
       },
       "sample3": {
         "title": "Neighborhood Watch Update",
-        "desc": "New security measures in place"
+        "desc": "New security measures in place",
+        "body": "Following recent community discussions, new security cameras have been installed at the main entrances. Patrol hours have been extended to cover early morning shifts. Please report any suspicious activity to the security hotline.",
+        "contact": "Security hotline: 09-7654321"
       }
+    },
+    "noticeDetail": {
+      "notFound": "Notice not found",
+      "backToBoard": "Back to Notice Board",
+      "contactInfo": "Contact Information",
+      "respond": "Respond to Post"
     },
     "services": {
       "title": "Resident Services",
@@ -202,6 +214,50 @@
       "waste": "Waste Schedule",
       "transport": "Transportation",
       "facilities": "Public Facilities"
+    },
+    "serviceDetail": {
+      "notFound": "Service not found",
+      "backToServices": "Back to Resident Services",
+      "phone": "Phone",
+      "address": "Address",
+      "hours": "Hours",
+      "visitWebsite": "Visit Website",
+      "municipality": {
+        "desc": "The Oranit Local Council manages all municipal services including building permits, property taxes, urban planning, and community development. Visit us for any municipal inquiry.",
+        "phone": "09-7929500",
+        "address": "Oranit Local Council, HaEla Street 1, Oranit",
+        "hours": "Sun–Thu 08:00–16:00"
+      },
+      "emergency": {
+        "desc": "For emergencies, contact the relevant services below. The community security center operates 24/7 and can dispatch help immediately for any urgent situation within Oranit.",
+        "phone": "Police: 100 | Ambulance: 101 | Fire: 102 | Community Security: 09-7929520",
+        "address": "Security Center, Main Gate, Oranit",
+        "hours": "24/7"
+      },
+      "schools": {
+        "desc": "Oranit has excellent educational institutions serving children from kindergarten through high school. Contact the education department for enrollment, schedules, and extracurricular activities.",
+        "phone": "Education Dept: 09-7929510",
+        "address": "Various locations across Oranit",
+        "hours": "Sun–Fri 07:30–14:00 (school hours)"
+      },
+      "waste": {
+        "desc": "Household waste is collected three times a week. Recycling bins are available throughout the community for paper, plastic, glass, and electronic waste. Large item pickup can be scheduled.",
+        "phone": "09-7929530",
+        "address": "Recycling centers at main junctions",
+        "hours": "Collection: Sun, Tue, Thu – early morning"
+      },
+      "transport": {
+        "desc": "Public bus routes connect Oranit to Kfar Saba, Petah Tikva, and Tel Aviv. Shared transport services are also available for commuters. Check schedules online or at the bus stop displays.",
+        "phone": "Egged: *2800 | Kavim: *8787",
+        "address": "Main bus stop at Oranit entrance",
+        "hours": "First bus ~06:00, last bus ~22:00"
+      },
+      "facilities": {
+        "desc": "Oranit offers community centers, sports fields, swimming pool, playgrounds, and synagogues. Most facilities are open to all residents with valid membership or entry passes.",
+        "phone": "Community Center: 09-7929540",
+        "address": "Various locations – see community map",
+        "hours": "Sun–Thu 08:00–22:00, Fri 08:00–14:00"
+      }
     },
     "clubs": {
       "title": "Local Clubs & Associations",
@@ -215,6 +271,38 @@
       "youthDesc": "Activities for teens and young adults",
       "volunteer": "Community Volunteers",
       "volunteerDesc": "Make a difference in Oranit"
+    },
+    "clubDetail": {
+      "notFound": "Club not found",
+      "backToClubs": "Back to Clubs & Associations",
+      "meetingSchedule": "Meeting Schedule",
+      "contactUs": "Contact",
+      "categories": {
+        "sports": "Sports",
+        "culture": "Culture",
+        "youth": "Youth",
+        "volunteering": "Volunteering"
+      },
+      "sports": {
+        "longDesc": "The Oranit Sports Club offers a wide range of activities for all ages including football, basketball, tennis, swimming, and fitness classes. We host local tournaments, inter-community competitions, and weekly training sessions. Whether you're a beginner or an experienced athlete, there's something for everyone.",
+        "meeting": "Training sessions: Sun, Tue, Thu 17:00–20:00",
+        "contact": "sports@oranit.community | 054-1112233"
+      },
+      "arts": {
+        "longDesc": "The Arts & Culture Society brings together creative minds in Oranit through painting workshops, photography classes, music evenings, and seasonal exhibitions. We collaborate with local artists and host gallery events open to the entire community.",
+        "meeting": "Workshops: Mon & Wed 18:00–20:00",
+        "contact": "arts@oranit.community | 054-4445566"
+      },
+      "youth": {
+        "longDesc": "Our Youth Movement provides enriching activities for teenagers and young adults aged 12–18. From leadership programs and community service projects to social events and outdoor adventures, we help young residents build skills, friendships, and a sense of belonging.",
+        "meeting": "Activities: Tue & Thu 16:00–18:30, Fri mornings",
+        "contact": "youth@oranit.community | 054-7778899"
+      },
+      "volunteer": {
+        "longDesc": "Community Volunteers is a grassroots group dedicated to making Oranit a better place. We organize food drives, elderly assistance programs, neighbourhood cleanups, and holiday gift packages. Every contribution makes a difference.",
+        "meeting": "Monthly meetings: First Sunday of each month, 19:00",
+        "contact": "volunteer@oranit.community | 054-3332211"
+      }
     },
     "volunteer": {
       "title": "Volunteer & Give Back",

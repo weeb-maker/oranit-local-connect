@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import { Link, useParams } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import HeroBanner from "@/components/shared/HeroBanner";
@@ -7,99 +8,18 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
-import { 
-  Building2, 
-  Phone, 
-  GraduationCap, 
-  Trash2, 
-  Bus, 
-  Home,
-  Users,
-  Heart,
-  Trophy,
-  Palette,
-  HandHeart,
-  Search,
-  MessageSquarePlus
-} from "lucide-react";
+import { Heart, Users, HandHeart, Search, MessageSquarePlus } from "lucide-react";
 import heroImage from "@/assets/hero-community.jpg";
+import { noticePosts, services, clubs } from "@/data/residentsData";
 
 const ResidentsPage = () => {
   const { t } = useTranslation();
-
-  const services = [
-    { icon: Building2, label: "Municipality", labelKey: "residents.services.municipality" },
-    { icon: Phone, label: "Emergency", labelKey: "residents.services.emergency" },
-    { icon: GraduationCap, label: "Schools", labelKey: "residents.services.schools" },
-    { icon: Trash2, label: "Waste Schedule", labelKey: "residents.services.waste" },
-    { icon: Bus, label: "Transportation", labelKey: "residents.services.transport" },
-    { icon: Home, label: "Public Facilities", labelKey: "residents.services.facilities" }
-  ];
-
-  const clubs = [
-    {
-      icon: Trophy,
-      name: "Oranit Sports Club",
-      nameKey: "residents.clubs.sports",
-      description: "Join our active sports community",
-      descKey: "residents.clubs.sportsDesc",
-      category: "Sports"
-    },
-    {
-      icon: Palette,
-      name: "Arts & Culture Society",
-      nameKey: "residents.clubs.arts",
-      description: "Creative workshops and exhibitions",
-      descKey: "residents.clubs.artsDesc",
-      category: "Culture"
-    },
-    {
-      icon: Users,
-      name: "Youth Movement",
-      nameKey: "residents.clubs.youth",
-      description: "Activities for teens and young adults",
-      descKey: "residents.clubs.youthDesc",
-      category: "Youth"
-    },
-    {
-      icon: HandHeart,
-      name: "Community Volunteers",
-      nameKey: "residents.clubs.volunteer",
-      description: "Make a difference in Oranit",
-      descKey: "residents.clubs.volunteerDesc",
-      category: "Volunteering"
-    }
-  ];
-
-  const noticePosts = [
-    {
-      title: "Lost Cat - Fluffy",
-      titleKey: "residents.notices.sample1.title",
-      description: "White Persian cat, last seen near the park",
-      descKey: "residents.notices.sample1.desc",
-      category: "Lost & Found"
-    },
-    {
-      title: "Babysitting Services Available",
-      titleKey: "residents.notices.sample2.title",
-      description: "Experienced babysitter, flexible hours",
-      descKey: "residents.notices.sample2.desc",
-      category: "Services"
-    },
-    {
-      title: "Neighborhood Watch Update",
-      titleKey: "residents.notices.sample3.title",
-      description: "New security measures in place",
-      descKey: "residents.notices.sample3.desc",
-      category: "Community"
-    }
-  ];
+  const { lang } = useParams<{ lang: string }>();
 
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
       
-      {/* Hero Section */}
       <HeroBanner
         imageUrl={heroImage}
         title={t("residents.title")}
@@ -131,12 +51,8 @@ const ResidentsPage = () => {
             </Button>
           </div>
 
-          {/* Filter Bar */}
           <div className="flex flex-col sm:flex-row gap-4 mb-8">
-            <Input 
-              placeholder={t("residents.noticeBoard.searchPlaceholder")}
-              className="sm:max-w-xs"
-            />
+            <Input placeholder={t("residents.noticeBoard.searchPlaceholder")} className="sm:max-w-xs" />
             <Select>
               <SelectTrigger className="sm:w-[200px]">
                 <SelectValue placeholder={t("residents.noticeBoard.categoryPlaceholder")} />
@@ -151,21 +67,22 @@ const ResidentsPage = () => {
             </Select>
           </div>
 
-          {/* Notice Posts Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {noticePosts.map((post, idx) => (
-              <Card key={idx} className="hover:shadow-lg transition-shadow">
+            {noticePosts.map((post) => (
+              <Card key={post.id} className="hover:shadow-lg transition-shadow">
                 <CardHeader>
                   <div className="flex justify-between items-start mb-2">
-                    <Badge variant="secondary">{post.category}</Badge>
+                    <Badge variant="secondary">{t(post.categoryKey)}</Badge>
                   </div>
                   <CardTitle className="text-xl">{t(post.titleKey)}</CardTitle>
                   <CardDescription>{t(post.descKey)}</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <Button variant="outline" className="w-full">
-                    {t("residents.noticeBoard.readMore")}
-                  </Button>
+                  <Link to={`/${lang}/residents/notices/${post.id}`}>
+                    <Button variant="outline" className="w-full">
+                      {t("residents.noticeBoard.readMore")}
+                    </Button>
+                  </Link>
                 </CardContent>
               </Card>
             ))}
@@ -176,16 +93,15 @@ const ResidentsPage = () => {
         <section>
           <h2 className="text-3xl font-bold mb-6">{t("residents.services.title")}</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-            {services.map((service, idx) => (
-              <Card 
-                key={idx}
-                className="hover:shadow-lg hover:scale-105 transition-all cursor-pointer text-center"
-              >
-                <CardContent className="pt-6 pb-6">
-                  <service.icon className="h-12 w-12 mx-auto mb-3 text-primary" />
-                  <p className="font-semibold text-sm">{t(service.labelKey)}</p>
-                </CardContent>
-              </Card>
+            {services.map((service) => (
+              <Link key={service.slug} to={`/${lang}/residents/services/${service.slug}`}>
+                <Card className="hover:shadow-lg hover:scale-105 transition-all cursor-pointer text-center">
+                  <CardContent className="pt-6 pb-6">
+                    <service.icon className="h-12 w-12 mx-auto mb-3 text-primary" />
+                    <p className="font-semibold text-sm">{t(service.labelKey)}</p>
+                  </CardContent>
+                </Card>
+              </Link>
             ))}
           </div>
         </section>
@@ -198,26 +114,26 @@ const ResidentsPage = () => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {clubs.map((club, idx) => (
-              <Card key={idx} className="hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4">
-                    <club.icon className="h-8 w-8 text-primary" />
-                  </div>
-                  <CardTitle className="text-xl">{t(club.nameKey)}</CardTitle>
-                  <CardDescription>{t(club.descKey)}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <Badge>{club.category}</Badge>
-                </CardContent>
-              </Card>
+            {clubs.map((club) => (
+              <Link key={club.slug} to={`/${lang}/residents/clubs/${club.slug}`}>
+                <Card className="hover:shadow-lg transition-shadow h-full">
+                  <CardHeader>
+                    <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                      <club.icon className="h-8 w-8 text-primary" />
+                    </div>
+                    <CardTitle className="text-xl">{t(club.nameKey)}</CardTitle>
+                    <CardDescription>{t(club.descKey)}</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <Badge>{t(club.categoryKey)}</Badge>
+                  </CardContent>
+                </Card>
+              </Link>
             ))}
           </div>
 
           <div className="text-center mt-8">
-            <Button size="lg">
-              {t("residents.clubs.joinButton")}
-            </Button>
+            <Button size="lg">{t("residents.clubs.joinButton")}</Button>
           </div>
         </section>
 
@@ -227,9 +143,7 @@ const ResidentsPage = () => {
             <div className="space-y-6">
               <Heart className="h-16 w-16 text-primary" />
               <h2 className="text-3xl font-bold">{t("residents.volunteer.title")}</h2>
-              <p className="text-lg text-muted-foreground">
-                {t("residents.volunteer.description")}
-              </p>
+              <p className="text-lg text-muted-foreground">{t("residents.volunteer.description")}</p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button size="lg" className="gap-2">
                   <Users className="h-5 w-5" />
@@ -242,11 +156,7 @@ const ResidentsPage = () => {
               </div>
             </div>
             <div className="relative h-[300px] md:h-[400px] rounded-lg overflow-hidden">
-              <img 
-                src={heroImage}
-                alt="Volunteer"
-                className="w-full h-full object-cover"
-              />
+              <img src={heroImage} alt="Volunteer" className="w-full h-full object-cover" />
             </div>
           </div>
         </section>
@@ -254,12 +164,8 @@ const ResidentsPage = () => {
         {/* Footer CTA Banner */}
         <section className="bg-primary/10 rounded-lg p-8 md:p-12 text-center">
           <h2 className="text-3xl font-bold mb-4">{t("residents.footerCta.title")}</h2>
-          <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
-            {t("residents.footerCta.description")}
-          </p>
-          <Button size="lg">
-            {t("residents.footerCta.button")}
-          </Button>
+          <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">{t("residents.footerCta.description")}</p>
+          <Button size="lg">{t("residents.footerCta.button")}</Button>
         </section>
       </div>
 
