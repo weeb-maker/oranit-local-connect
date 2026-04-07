@@ -81,6 +81,7 @@ const App = () => (
           <Route path="/:lang/help-old" element={<LanguageWrapper><HelpPage /></LanguageWrapper>} />
           <Route path="/:lang/help" element={<LanguageWrapper><HelpIndexPage /></LanguageWrapper>} />
           <Route path="/:lang/help/:slug" element={<LanguageWrapper><HelpArticlePage /></LanguageWrapper>} />
+          <Route path="/:lang/real-estate" element={<LanguageWrapper><RealEstatePage /></LanguageWrapper>} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
