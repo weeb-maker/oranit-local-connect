@@ -720,6 +720,26 @@
       "contact": "צור קשר",
       "viewDetails": "צפה בפרטים"
     },
+    "detail": {
+      "backToListings": "חזרה לרשימה",
+      "notFound": "הנכס לא נמצא",
+      "rooms": "חדרים",
+      "bathrooms": "חדרי רחצה",
+      "parking": "חניה",
+      "description": "תיאור",
+      "features": "מאפיינים ומתקנים",
+      "location": "מיקום",
+      "propertyDetails": "פרטי הנכס",
+      "propertyType": "סוג נכס",
+      "listingType": "סוג מודעה",
+      "size": "שטח",
+      "floor": "קומה",
+      "groundFloor": "קומת קרקע",
+      "yearBuilt": "שנת בנייה",
+      "contactSeller": "יצירת קשר עם המוכר",
+      "share": "שיתוף מודעה",
+      "similarListings": "נכסים דומים"
+    },
     "noResults": {
       "title": "לא נמצאו נכסים",
       "description": "נסו לשנות את המסננים או בדקו שוב בקרוב לנכסים חדשים."
