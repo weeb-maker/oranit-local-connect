@@ -685,6 +685,50 @@
       "similarEvents": "Similar Events"
     }
   },
+  "realEstate": {
+    "hero": {
+      "title": "Real Estate in Oranit",
+      "subtitle": "Find your dream home or list your property in the community.",
+      "addButton": "List Your Property"
+    },
+    "filters": {
+      "typeLabel": "Listing Type",
+      "propertyLabel": "Property Type",
+      "searchLabel": "Search",
+      "searchPlaceholder": "Search by neighborhood, type...",
+      "types": {
+        "all": "All Listings",
+        "sale": "For Sale",
+        "rent": "For Rent"
+      },
+      "propertyTypes": {
+        "all": "All Properties",
+        "villa": "Villa",
+        "cottage": "Cottage",
+        "apartment": "Apartment",
+        "penthouse": "Penthouse",
+        "land": "Land / Plot"
+      }
+    },
+    "badge": {
+      "sale": "For Sale",
+      "rent": "For Rent"
+    },
+    "sqm": "m²",
+    "card": {
+      "contact": "Contact",
+      "viewDetails": "View Details"
+    },
+    "noResults": {
+      "title": "No listings found",
+      "description": "Try adjusting your filters or check back soon for new properties."
+    },
+    "footerCta": {
+      "title": "Have a Property to List?",
+      "description": "Reach local buyers and renters in Oranit — list your property today.",
+      "button": "List Your Property"
+    }
+  },
   "about": {
     "title": "About Oranit.biz",
     "subtitle": "A community hub connecting residents, businesses, and local life.",
