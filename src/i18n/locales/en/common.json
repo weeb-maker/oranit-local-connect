@@ -310,6 +310,72 @@
       "viewButton": "View Opportunities",
       "startButton": "Start an Initiative"
     },
+    "postNotice": {
+      "title": "Post on the Notice Board",
+      "subtitle": "Share something with your neighbours — lost items, services, events, or community updates.",
+      "backToBoard": "Back to Residents",
+      "successTitle": "Post submitted!",
+      "successDesc": "Your notice will appear on the board after a quick review.",
+      "submit": "Submit Post",
+      "fields": {
+        "title": "Post Title",
+        "titlePlaceholder": "Give your post a clear title",
+        "category": "Category",
+        "categoryPlaceholder": "Choose a category",
+        "body": "Details",
+        "bodyPlaceholder": "Describe your post in detail…",
+        "contact": "Contact Info",
+        "contactPlaceholder": "Phone, email, or WhatsApp"
+      }
+    },
+    "volunteerPage": {
+      "title": "Volunteer Opportunities",
+      "subtitle": "Find ways to give back and make a difference in Oranit",
+      "signUp": "Sign Up to Volunteer",
+      "backToResidents": "Back to Residents",
+      "currentTitle": "Current Opportunities",
+      "currentSubtitle": "Browse active volunteer programs and sign up",
+      "ctaTitle": "Have an idea for a new initiative?",
+      "ctaDesc": "We welcome new ideas! Propose your own volunteer project and we'll help you get started.",
+      "ctaButton": "Propose an Initiative",
+      "opportunities": {
+        "foodDrive": {
+          "title": "Community Food Drive",
+          "desc": "Help collect and distribute food packages to families in need before holidays.",
+          "time": "Monthly — first Thursday",
+          "location": "Community Center",
+          "badge": "Ongoing"
+        },
+        "elderly": {
+          "title": "Elderly Companionship",
+          "desc": "Visit elderly residents for companionship, help with errands, or just a friendly chat.",
+          "time": "Flexible — 2 hrs/week",
+          "location": "Various homes in Oranit",
+          "badge": "Flexible Hours"
+        },
+        "cleanup": {
+          "title": "Neighbourhood Cleanup",
+          "desc": "Join monthly cleanup events to keep our parks and streets beautiful.",
+          "time": "Last Saturday of the month",
+          "location": "Meeting point: Main Park",
+          "badge": "Monthly"
+        },
+        "holidays": {
+          "title": "Holiday Gift Packages",
+          "desc": "Prepare and deliver gift packages to soldiers, elderly, and families during holidays.",
+          "time": "Seasonal — 2 weeks before holidays",
+          "location": "Community Center",
+          "badge": "Seasonal"
+        },
+        "tutoring": {
+          "title": "After-School Tutoring",
+          "desc": "Help kids with homework and studies in a supportive after-school setting.",
+          "time": "Sun–Thu 15:00–17:00",
+          "location": "Youth Center",
+          "badge": "Weekdays"
+        }
+      }
+    },
     "footerCta": {
       "title": "Together we make Oranit stronger",
       "description": "Join thousands of neighbours building a vibrant, connected community.",
