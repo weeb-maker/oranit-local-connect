@@ -190,6 +190,9 @@ const Navigation = () => {
             <Link to={`/${currentLang}/events`} className="px-4 py-2 rounded-md hover:bg-accent transition-smooth">
               {t("nav.whatsOn")}
             </Link>
+            <Link to={`/${currentLang}/real-estate`} className="px-4 py-2 rounded-md hover:bg-accent transition-smooth">
+              {t("nav.realEstate")}
+            </Link>
             <Link to={`/${currentLang}/residents`} className="px-4 py-2 rounded-md hover:bg-accent transition-smooth">
               {t("nav.residents")}
             </Link>
