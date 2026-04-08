@@ -35,11 +35,8 @@ const HeroBanner = ({
     right: isRTL ? "items-start text-start" : "items-end text-end",
   };
 
-  const overlayClasses = {
-    light: "from-foreground/60 to-foreground/30",
-    medium: "from-foreground/80 to-foreground/40",
-    dark: "from-foreground/90 to-foreground/50",
-  };
+  // Overlay uses CSS variables so all heroes can be tuned from one place
+  const overlayMultiplier = { light: 0.8, medium: 1, dark: 1.3 };
 
   return (
     <section 
@@ -54,8 +51,13 @@ const HeroBanner = ({
           className="w-full h-full object-cover"
           loading="eager"
         />
-        {/* Top Overlay - Dark gradient on image */}
-        <div className={`absolute inset-0 bg-gradient-to-r ${overlayClasses[overlayOpacity]}`} />
+        {/* Top Overlay - Dark gradient on image, controlled by --hero-overlay-from/to */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background: `linear-gradient(to right, rgba(0,0,0,calc(var(--hero-overlay-from) * ${overlayMultiplier[overlayOpacity]})), rgba(0,0,0,calc(var(--hero-overlay-to) * ${overlayMultiplier[overlayOpacity]})))`,
+          }}
+        />
         {/* Bottom Fade - Gradient into page background */}
         <div 
           className="absolute inset-0 pointer-events-none"

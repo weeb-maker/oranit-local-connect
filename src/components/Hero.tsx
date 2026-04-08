@@ -32,7 +32,12 @@ const Hero = () => {
           className="w-full h-full object-cover"
           loading="eager"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-foreground/75 to-foreground/35" />
+        <div
+          className="absolute inset-0"
+          style={{
+            background: `linear-gradient(to right, rgba(0,0,0,var(--hero-overlay-from)), rgba(0,0,0,var(--hero-overlay-to)))`,
+          }}
+        />
         <div
           className="absolute inset-0 pointer-events-none"
           style={{ background: 'var(--hero-fade)' }}
