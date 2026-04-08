@@ -111,13 +111,13 @@ const MarketplaceDetailPage = () => {
           <Breadcrumb>
             <BreadcrumbList>
               <BreadcrumbItem>
-                <BreadcrumbLink href={`/${i18n.language}`} className="text-primary hover:text-primary/80">
+                <BreadcrumbLink href={`/${i18n.language}`}>
                   {t("common:nav.home")}
                 </BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                <BreadcrumbLink href={`/${i18n.language}/marketplace`} className="text-primary hover:text-primary/80">
+                <BreadcrumbLink href={`/${i18n.language}/marketplace`}>
                   {t("common:nav.marketplace")}
                 </BreadcrumbLink>
               </BreadcrumbItem>

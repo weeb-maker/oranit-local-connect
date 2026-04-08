@@ -76,13 +76,13 @@ const RealEstateDetailPage = () => {
           <Breadcrumb>
             <BreadcrumbList>
               <BreadcrumbItem>
-                <BreadcrumbLink href={`/${currentLang}`} className="text-primary hover:text-primary/80">
+                <BreadcrumbLink href={`/${currentLang}`}>
                   {t("common:nav.home")}
                 </BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                <BreadcrumbLink href={`/${currentLang}/real-estate`} className="text-primary hover:text-primary/80">
+                <BreadcrumbLink href={`/${currentLang}/real-estate`}>
                   {t("common:nav.realEstate")}
                 </BreadcrumbLink>
               </BreadcrumbItem>
