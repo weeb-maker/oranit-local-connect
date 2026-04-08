@@ -17,7 +17,6 @@ const LocalDeals = () => {
   const { lang } = useParams<{ lang: string }>();
   const currentLang = lang || 'he';
 
-  // Get deals from specials namespace
   const deals = t('cards', { ns: 'specials', returnObjects: true }) as Array<{
     category: string;
     businessName: string;
@@ -25,7 +24,6 @@ const LocalDeals = () => {
     validUntil: string;
   }>;
 
-  // Format date based on locale
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
     return new Intl.DateTimeFormat(currentLang === 'he' ? 'he-IL' : 'en-US', {
@@ -34,11 +32,11 @@ const LocalDeals = () => {
   };
 
   return (
-    <section className="py-16 lg:py-24 bg-secondary/30" dir={currentLang === 'he' ? 'rtl' : 'ltr'}>
+    <section className="py-16 lg:py-24 bg-muted" dir={currentLang === 'he' ? 'rtl' : 'ltr'}>
       <div className="container mx-auto px-4">
         <div className="text-center mb-12 animate-fade-in">
-          <div className="inline-flex items-center gap-2 bg-accent/20 px-4 py-2 rounded-full mb-4">
-            <Tag className="h-4 w-4 text-accent" />
+          <div className="inline-flex items-center gap-2 bg-accent/15 px-4 py-2 rounded-full mb-4">
+            <Tag className="h-4 w-4 text-accent-foreground" />
             <span className="text-sm font-medium text-accent-foreground">
               {t('section.title', { ns: 'specials' })}
             </span>
@@ -59,7 +57,7 @@ const LocalDeals = () => {
           <CarouselContent>
             {deals.map((deal, index) => (
               <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                <Card className="h-full transition-smooth hover:shadow-smooth-lg hover:-translate-y-1 cursor-pointer border-2">
+                <Card className="h-full transition-smooth hover:shadow-hover hover:-translate-y-1 cursor-pointer border">
                   <CardContent className="p-6 flex flex-col gap-4">
                     <div className="flex items-start justify-between">
                       <Badge variant="secondary">{deal.category}</Badge>
@@ -67,7 +65,7 @@ const LocalDeals = () => {
                         <Clock className="h-3 w-3" />
                       </div>
                     </div>
-                    
+
                     <div>
                       <h3 className="font-semibold text-lg mb-2">{deal.businessName}</h3>
                       <p className="text-2xl font-bold text-primary mb-2">{deal.offer}</p>

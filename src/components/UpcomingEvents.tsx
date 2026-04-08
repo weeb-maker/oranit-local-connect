@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Calendar, MapPin, Users } from "lucide-react";
 
-const getEvents = (t: any) => [
+const getEvents = () => [
   {
     titleKey: "upcomingEvents.event1.title",
     dateKey: "upcomingEvents.event1.date",
@@ -13,7 +13,6 @@ const getEvents = (t: any) => [
     venueKey: "upcomingEvents.event1.venue",
     categoryKey: "upcomingEvents.event1.category",
     attendeesKey: "upcomingEvents.event1.attendees",
-    color: "from-green-500/10 to-green-600/10",
   },
   {
     titleKey: "upcomingEvents.event2.title",
@@ -22,7 +21,6 @@ const getEvents = (t: any) => [
     venueKey: "upcomingEvents.event2.venue",
     categoryKey: "upcomingEvents.event2.category",
     attendeesKey: "upcomingEvents.event2.attendees",
-    color: "from-purple-500/10 to-purple-600/10",
   },
   {
     titleKey: "upcomingEvents.event3.title",
@@ -31,7 +29,6 @@ const getEvents = (t: any) => [
     venueKey: "upcomingEvents.event3.venue",
     categoryKey: "upcomingEvents.event3.category",
     attendeesKey: "upcomingEvents.event3.attendees",
-    color: "from-blue-500/10 to-blue-600/10",
   },
   {
     titleKey: "upcomingEvents.event4.title",
@@ -40,7 +37,6 @@ const getEvents = (t: any) => [
     venueKey: "upcomingEvents.event4.venue",
     categoryKey: "upcomingEvents.event4.category",
     attendeesKey: "upcomingEvents.event4.attendees",
-    color: "from-orange-500/10 to-orange-600/10",
   },
 ];
 
@@ -48,7 +44,7 @@ const UpcomingEvents = () => {
   const { t } = useTranslation();
   const { lang } = useParams<{ lang: string }>();
   const currentLang = lang || 'he';
-  const events = getEvents(t);
+  const events = getEvents();
 
   return (
     <section className="py-16 lg:py-24 bg-background">
@@ -66,9 +62,9 @@ const UpcomingEvents = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
           {events.map((event, index) => (
-            <Card 
-              key={index} 
-              className={`transition-smooth hover:shadow-smooth-lg hover:-translate-y-1 cursor-pointer border-2 hover:border-primary/50 bg-gradient-to-br ${event.color}`}
+            <Card
+              key={index}
+              className="transition-smooth hover:shadow-hover hover:-translate-y-1 cursor-pointer border hover:border-primary/40"
             >
               <CardContent className="p-6">
                 <div className="flex items-start justify-between mb-4">
@@ -83,11 +79,11 @@ const UpcomingEvents = () => {
 
                 <div className="space-y-2 mb-4">
                   <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <Calendar className="h-4 w-4" />
+                    <Calendar className="h-4 w-4 text-primary" />
                     <span>{t(event.dateKey)} • {t(event.timeKey)}</span>
                   </div>
                   <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <MapPin className="h-4 w-4" />
+                    <MapPin className="h-4 w-4 text-primary" />
                     <span>{t(event.venueKey)}</span>
                   </div>
                 </div>

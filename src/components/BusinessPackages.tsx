@@ -13,30 +13,30 @@ const BusinessPackages = () => {
     {
       key: "starter",
       icon: Check,
-      color: "border-muted",
+      color: "border-border",
       buttonVariant: "outline" as const,
     },
     {
       key: "base",
       icon: Star,
       popular: true,
-      color: "border-primary shadow-smooth-lg",
+      color: "border-primary",
       buttonVariant: "default" as const,
     },
     {
       key: "extended",
       icon: Rocket,
-      color: "border-accent shadow-smooth-lg",
+      color: "border-accent",
       buttonVariant: "default" as const,
     },
   ];
 
   return (
-    <section className="py-16 lg:py-24 bg-gradient-to-br from-secondary/30 to-background">
+    <section className="py-16 lg:py-24 bg-muted">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12 animate-fade-in">
-          <div className="inline-flex items-center gap-2 bg-accent/20 px-4 py-2 rounded-full mb-4">
-            <Rocket className="h-4 w-4 text-accent" />
+          <div className="inline-flex items-center gap-2 bg-accent/15 px-4 py-2 rounded-full mb-4">
+            <Rocket className="h-4 w-4 text-accent-foreground" />
             <span className="text-sm font-medium text-accent-foreground">{t("nav.forBusinesses")}</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("packages.title")}</h2>
@@ -54,34 +54,33 @@ const BusinessPackages = () => {
               t(`packages.${pkg.key}.feature3`),
               t(`packages.${pkg.key}.feature4`),
             ];
-            
+
             if (pkg.key !== "starter") {
               features.push(t(`packages.${pkg.key}.feature5`));
             }
-            
+
             if (pkg.key === "extended") {
               features.push(t(`packages.${pkg.key}.feature6`));
             }
 
             return (
-              <Card 
-                key={index} 
-                className={`relative transition-smooth hover:shadow-smooth-lg hover:-translate-y-2 border-2 ${pkg.color} ${pkg.popular ? 'lg:scale-105' : ''}`}
+              <Card
+                key={index}
+                className={`relative transition-smooth hover:shadow-hover hover:-translate-y-2 border-2 ${pkg.color} ${pkg.popular ? 'lg:scale-105 shadow-lg' : ''}`}
               >
                 {pkg.popular && (
                   <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                    <span className="bg-primary text-primary-foreground px-4 py-1 rounded-full text-sm font-medium shadow-smooth">
+                    <span className="bg-primary text-primary-foreground px-4 py-1 rounded-full text-sm font-medium shadow-card">
                       Most Popular
                     </span>
                   </div>
                 )}
-                
+
                 <CardHeader className="text-center pb-8">
-                  <div className="w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
-                    <Icon className="h-8 w-8 text-primary" />
+                  <div className="w-14 h-14 mx-auto mb-4 rounded-xl bg-primary/10 flex items-center justify-center">
+                    <Icon className="h-7 w-7 text-primary" />
                   </div>
                   <CardTitle className="text-2xl mb-2">{t(`packages.${pkg.key}.name`)}</CardTitle>
-                  <p className="text-sm text-muted-foreground mb-4">{t(`packages.${pkg.key}.name`)}</p>
                   <div className="text-4xl font-bold text-primary">{t(`packages.${pkg.key}.price`)}</div>
                 </CardHeader>
 
@@ -89,15 +88,15 @@ const BusinessPackages = () => {
                   <ul className="space-y-3 mb-6">
                     {features.map((feature, idx) => (
                       <li key={idx} className="flex items-start gap-2">
-                        <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                        <Check className="h-5 w-5 text-secondary shrink-0 mt-0.5" />
                         <span className="text-sm">{feature}</span>
                       </li>
                     ))}
                   </ul>
 
-                  <Button 
-                    variant={pkg.buttonVariant} 
-                    size="lg" 
+                  <Button
+                    variant={pkg.buttonVariant}
+                    size="lg"
                     className="w-full"
                     asChild
                   >
