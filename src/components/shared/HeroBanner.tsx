@@ -35,11 +35,8 @@ const HeroBanner = ({
     right: isRTL ? "items-start text-start" : "items-end text-end",
   };
 
-  const overlayClasses = {
-    light: "from-foreground/60 to-foreground/30",
-    medium: "from-foreground/80 to-foreground/40",
-    dark: "from-foreground/90 to-foreground/50",
-  };
+  // Overlay uses CSS variables so all heroes can be tuned from one place
+  const overlayMultiplier = { light: 0.8, medium: 1, dark: 1.3 };
 
   return (
     <section 

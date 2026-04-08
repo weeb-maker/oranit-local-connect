@@ -199,6 +199,8 @@ All colors MUST be HSL.
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     /* Hero Gradients */
+    --hero-overlay-from: 0.45;   /* tweak this to lighten/darken all heroes */
+    --hero-overlay-to: 0.18;
     --hero-fade: linear-gradient(to bottom, rgba(0,0,0,0) 55%, rgba(0,0,0,0.25) 80%, rgba(0,0,0,0.45) 100%);
     --page-bg-fade: linear-gradient(to bottom, rgba(255,255,255,0) 55%, hsl(217 25% 97%) 100%);
 
