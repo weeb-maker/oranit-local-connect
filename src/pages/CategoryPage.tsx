@@ -3,11 +3,13 @@ import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import HeroBanner from "@/components/shared/HeroBanner";
 import { FilterBar } from "@/components/shared/FilterBar";
 import { BusinessCard } from "@/components/shared/BusinessCard";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
+import heroImage from "@/assets/hero-community.jpg";
 import { useCategory } from "@/hooks/useCategories";
 import { loadBusinessFixtures } from "@/lib/businessFixtures";
 import {
@@ -102,22 +104,15 @@ const CategoryPage = () => {
           </div>
         </section>
 
-        {/* Category Header */}
-        <section className="bg-primary py-12">
-          <div className="container mx-auto px-4">
-            <div className="flex items-center gap-4 mb-4">
-              <div className="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center">
-                <CategoryIcon className="w-8 h-8 text-white" />
-              </div>
-              <div>
-                <h1 className="text-3xl md:text-4xl font-bold text-white mb-2">
-                  {category.name}
-                </h1>
-                <p className="text-white/90">{category.description}</p>
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* Category Hero */}
+        <HeroBanner
+          imageUrl={heroImage}
+          title={category.name}
+          subtitle={category.description}
+          minHeight="sm"
+          align="center"
+          overlayOpacity="medium"
+        />
 
         {/* Filter Bar */}
         <section className="container mx-auto px-4 -mt-8 mb-6">
