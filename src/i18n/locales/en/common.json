@@ -1379,5 +1379,119 @@
       "email": "legal@oranit.biz",
       "button": "Contact us"
     }
+  },
+  "giving": {
+    "hero": {
+      "title": "Community Giving",
+      "subtitle": "Volunteer, donate, and support the causes that make Oranit a better place",
+      "cta": "Get Involved"
+    },
+    "volunteers": {
+      "title": "Volunteer Opportunities",
+      "subtitle": "Browse active programs and sign up to make a difference",
+      "opportunities": {
+        "foodDrive": {
+          "title": "Community Food Drive",
+          "desc": "Help collect and distribute food packages to families in need before holidays.",
+          "time": "Monthly — first Thursday",
+          "location": "Community Center",
+          "badge": "Ongoing"
+        },
+        "elderly": {
+          "title": "Elderly Companionship",
+          "desc": "Visit elderly residents for companionship, help with errands, or just a friendly chat.",
+          "time": "Flexible — 2 hrs/week",
+          "location": "Various homes in Oranit",
+          "badge": "Flexible Hours"
+        },
+        "cleanup": {
+          "title": "Neighbourhood Cleanup",
+          "desc": "Join monthly cleanup events to keep our parks and streets beautiful.",
+          "time": "Last Saturday of the month",
+          "location": "Meeting point: Main Park",
+          "badge": "Monthly"
+        },
+        "holidays": {
+          "title": "Holiday Gift Packages",
+          "desc": "Prepare and deliver gift packages to soldiers, elderly, and families during holidays.",
+          "time": "Seasonal — 2 weeks before holidays",
+          "location": "Community Center",
+          "badge": "Seasonal"
+        },
+        "tutoring": {
+          "title": "After-School Tutoring",
+          "desc": "Help kids with homework and studies in a supportive after-school setting.",
+          "time": "Sun–Thu 15:00–17:00",
+          "location": "Youth Center",
+          "badge": "Weekdays"
+        }
+      }
+    },
+    "charities": {
+      "title": "Local Charities & NGOs",
+      "subtitle": "Organizations making a difference right here in our community",
+      "website": "Website",
+      "orgs": {
+        "hesed": {
+          "name": "Oranit Hesed Center",
+          "category": "Social Welfare",
+          "mission": "Providing food, clothing, and emergency assistance to families in need throughout the community.",
+          "phone": "09-792-1234"
+        },
+        "health": {
+          "name": "Oranit Health Foundation",
+          "category": "Healthcare",
+          "mission": "Supporting medical equipment purchases and health awareness programs for residents.",
+          "phone": "09-792-2345"
+        },
+        "education": {
+          "name": "Bright Futures Oranit",
+          "category": "Education",
+          "mission": "Scholarships and educational enrichment programs for children from all backgrounds.",
+          "phone": "09-792-3456"
+        },
+        "animals": {
+          "name": "Oranit Animal Rescue",
+          "category": "Animal Welfare",
+          "mission": "Rescuing, rehabilitating and rehoming stray and abandoned animals in the area.",
+          "phone": "09-792-4567"
+        },
+        "elderly": {
+          "name": "Golden Age Oranit",
+          "category": "Elder Care",
+          "mission": "Enrichment activities, home visits, and social programs for senior residents.",
+          "phone": "09-792-5678"
+        }
+      }
+    },
+    "campaigns": {
+      "title": "Active Campaigns",
+      "subtitle": "Current fundraising and collection drives you can contribute to",
+      "raised": "Raised",
+      "donate": "Contribute",
+      "items": {
+        "backToSchool": {
+          "title": "Back to School Supplies",
+          "desc": "Collecting school supplies for children from families who need a helping hand.",
+          "goal": "Goal: 200 supply kits"
+        },
+        "winterCoats": {
+          "title": "Winter Coat Drive",
+          "desc": "Warm coats and blankets for families preparing for the cold months ahead.",
+          "goal": "Goal: 150 coats"
+        },
+        "petShelter": {
+          "title": "Animal Shelter Renovation",
+          "desc": "Fundraising to renovate the local animal shelter and improve living conditions.",
+          "goal": "Goal: ₪25,000"
+        }
+      }
+    },
+    "cta": {
+      "title": "Ready to make a difference?",
+      "desc": "Whether you can give time, resources, or expertise — every contribution strengthens our community.",
+      "volunteer": "Volunteer Now",
+      "register": "Register Your Organization"
+    }
   }
 }
