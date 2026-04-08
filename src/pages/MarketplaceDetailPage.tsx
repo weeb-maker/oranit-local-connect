@@ -7,7 +7,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { 
-  ArrowLeft,
   MapPin,
   Clock,
   MessageCircle,
@@ -16,6 +15,14 @@ import {
   Heart,
   AlertCircle
 } from "lucide-react";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 
 const MarketplaceDetailPage = () => {
   const { t, i18n } = useTranslation();
@@ -99,15 +106,28 @@ const MarketplaceDetailPage = () => {
       <Navigation />
       
       <div className="container mx-auto px-4 py-8">
-        {/* Back Button */}
-        <Button 
-          variant="ghost" 
-          className="mb-6 gap-2"
-          onClick={() => navigate(`/${i18n.language}/marketplace`)}
-        >
-          <ArrowLeft className="h-4 w-4" />
-          {t("marketplace.detail.backToMarketplace")}
-        </Button>
+        {/* Breadcrumb */}
+        <div className="mb-6">
+          <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink href={`/${i18n.language}`}>
+                  {t("common:nav.home")}
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbLink href={`/${i18n.language}/marketplace`}>
+                  {t("common:nav.marketplace")}
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>{listing.title}</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+        </div>
 
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Main Content */}
