@@ -28,6 +28,8 @@ import {
 import { useToast } from "@/hooks/use-toast";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import HeroBanner from "@/components/shared/HeroBanner";
+import heroImage from "@/assets/hero-for-businesses.jpg";
 
 const ForBusinessesPage = () => {
   const { t } = useTranslation();
@@ -36,7 +38,6 @@ const ForBusinessesPage = () => {
   const { toast } = useToast();
   const [billingPeriod, setBillingPeriod] = useState<"monthly" | "annual">("monthly");
 
-  // Handle anchor scrolling on mount and hash changes
   useEffect(() => {
     const scrollToHash = () => {
       const hash = window.location.hash;
@@ -49,10 +50,8 @@ const ForBusinessesPage = () => {
         }
       }
     };
-
     scrollToHash();
     window.addEventListener('hashchange', scrollToHash);
-    
     return () => window.removeEventListener('hashchange', scrollToHash);
   }, []);
 
@@ -65,64 +64,29 @@ const ForBusinessesPage = () => {
   };
 
   const valueProps = [
-    {
-      icon: Eye,
-      titleKey: "businesses.values.localVisibility",
-      descKey: "businesses.values.localVisibilityDesc",
-    },
-    {
-      icon: Globe,
-      titleKey: "businesses.values.bilingual",
-      descKey: "businesses.values.bilingualDesc",
-    },
-    {
-      icon: Search,
-      titleKey: "businesses.values.searchable",
-      descKey: "businesses.values.searchableDesc",
-    },
-    {
-      icon: Megaphone,
-      titleKey: "businesses.values.promotions",
-      descKey: "businesses.values.promotionsDesc",
-    },
+    { icon: Eye, titleKey: "businesses.values.localVisibility", descKey: "businesses.values.localVisibilityDesc" },
+    { icon: Globe, titleKey: "businesses.values.bilingual", descKey: "businesses.values.bilingualDesc" },
+    { icon: Search, titleKey: "businesses.values.searchable", descKey: "businesses.values.searchableDesc" },
+    { icon: Megaphone, titleKey: "businesses.values.promotions", descKey: "businesses.values.promotionsDesc" },
   ];
 
   const tiers = [
     {
-      key: "free",
-      icon: Check,
+      key: "free", icon: Check,
       price: { monthly: 0, annual: 0 },
-      features: [
-        "businesses.tiers.free.feature1",
-        "businesses.tiers.free.feature2",
-        "businesses.tiers.free.feature3",
-      ],
+      features: ["businesses.tiers.free.feature1", "businesses.tiers.free.feature2", "businesses.tiers.free.feature3"],
       buttonVariant: "outline" as const,
     },
     {
-      key: "basic",
-      icon: Star,
-      popular: true,
+      key: "basic", icon: Star, popular: true,
       price: { monthly: 99, annual: 990 },
-      features: [
-        "businesses.tiers.basic.feature1",
-        "businesses.tiers.basic.feature2",
-        "businesses.tiers.basic.feature3",
-        "businesses.tiers.basic.feature4",
-      ],
+      features: ["businesses.tiers.basic.feature1", "businesses.tiers.basic.feature2", "businesses.tiers.basic.feature3", "businesses.tiers.basic.feature4"],
       buttonVariant: "default" as const,
     },
     {
-      key: "premium",
-      icon: Rocket,
+      key: "premium", icon: Rocket,
       price: { monthly: 249, annual: 2490 },
-      features: [
-        "businesses.tiers.premium.feature1",
-        "businesses.tiers.premium.feature2",
-        "businesses.tiers.premium.feature3",
-        "businesses.tiers.premium.feature4",
-        "businesses.tiers.premium.feature5",
-      ],
+      features: ["businesses.tiers.premium.feature1", "businesses.tiers.premium.feature2", "businesses.tiers.premium.feature3", "businesses.tiers.premium.feature4", "businesses.tiers.premium.feature5"],
       buttonVariant: "default" as const,
     },
   ];
@@ -135,77 +99,40 @@ const ForBusinessesPage = () => {
   ];
 
   const sponsorOptions = [
-    {
-      icon: Star,
-      titleKey: "businesses.sponsor.featured",
-      descKey: "businesses.sponsor.featuredDesc",
-    },
-    {
-      icon: Building,
-      titleKey: "businesses.sponsor.homepage",
-      descKey: "businesses.sponsor.homepageDesc",
-    },
-    {
-      icon: Calendar,
-      titleKey: "businesses.sponsor.events",
-      descKey: "businesses.sponsor.eventsDesc",
-    },
-    {
-      icon: ShoppingBag,
-      titleKey: "businesses.sponsor.marketplace",
-      descKey: "businesses.sponsor.marketplaceDesc",
-    },
+    { icon: Star, titleKey: "businesses.sponsor.featured", descKey: "businesses.sponsor.featuredDesc" },
+    { icon: Building, titleKey: "businesses.sponsor.homepage", descKey: "businesses.sponsor.homepageDesc" },
+    { icon: Calendar, titleKey: "businesses.sponsor.events", descKey: "businesses.sponsor.eventsDesc" },
+    { icon: ShoppingBag, titleKey: "businesses.sponsor.marketplace", descKey: "businesses.sponsor.marketplaceDesc" },
   ];
 
   const resources = [
-    {
-      icon: Award,
-      titleKey: "businesses.resources.reviews",
-      descKey: "businesses.resources.reviewsDesc",
-    },
-    {
-      icon: Calendar,
-      titleKey: "businesses.resources.events",
-      descKey: "businesses.resources.eventsDesc",
-    },
-    {
-      icon: FileText,
-      titleKey: "businesses.resources.profileTips",
-      descKey: "businesses.resources.profileTipsDesc",
-    },
+    { icon: Award, titleKey: "businesses.resources.reviews", descKey: "businesses.resources.reviewsDesc" },
+    { icon: Calendar, titleKey: "businesses.resources.events", descKey: "businesses.resources.eventsDesc" },
+    { icon: FileText, titleKey: "businesses.resources.profileTips", descKey: "businesses.resources.profileTipsDesc" },
   ];
 
   return (
-    <div className="min-h-screen bg-background" dir={currentLang === 'he' ? 'rtl' : 'ltr'}>
+    <div className="min-h-screen bg-background">
       <Navigation />
 
-      {/* Hero Section */}
-      <section className="relative py-24 lg:py-32 bg-gradient-to-br from-primary/10 via-secondary/10 to-accent/10">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center animate-fade-in">
-            <div className="inline-flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full mb-6">
-              <Building className="h-4 w-4 text-primary" />
-              <span className="text-sm font-medium">{t("nav.forBusinesses")}</span>
-            </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-              {t("businesses.title")}
-            </h1>
-            <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              {t("businesses.subtitle")}
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" asChild>
-                <Link to={`/${currentLang}/add-business`}>
-                  {t("businesses.cta.add")}
-                </Link>
-              </Button>
-              <Button size="lg" variant="outline" asChild>
-                <a href="#contact">{t("businesses.cta.contact")}</a>
-              </Button>
-            </div>
-          </div>
+      {/* Hero */}
+      <HeroBanner
+        imageUrl={heroImage}
+        title={t("businesses.title")}
+        subtitle={t("businesses.subtitle")}
+        align="center"
+        minHeight="sm"
+        overlayOpacity="medium"
+      >
+        <div className="flex flex-col sm:flex-row gap-4 justify-center w-full">
+          <Button size="lg" asChild>
+            <Link to={`/${currentLang}/add-business`}>{t("businesses.cta.add")}</Link>
+          </Button>
+          <Button size="lg" variant="hero" asChild>
+            <a href="#contact">{t("businesses.cta.contact")}</a>
+          </Button>
         </div>
-      </section>
+      </HeroBanner>
 
       {/* Value Props */}
       <section className="py-16 lg:py-24">
@@ -216,7 +143,7 @@ const ForBusinessesPage = () => {
               return (
                 <Card key={index} className="text-center hover:shadow-smooth-lg transition-smooth">
                   <CardHeader>
-                    <div className="w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
+                    <div className="w-16 h-16 mx-auto mb-4 rounded-xl bg-primary/10 flex items-center justify-center">
                       <Icon className="h-8 w-8 text-primary" />
                     </div>
                     <CardTitle className="text-lg">{t(prop.titleKey)}</CardTitle>
@@ -231,35 +158,26 @@ const ForBusinessesPage = () => {
         </div>
       </section>
 
-      {/* Pricing Tiers */}
-      <section className="py-16 lg:py-24 bg-gradient-to-br from-secondary/30 to-background">
+      {/* Pricing */}
+      <section className="py-16 lg:py-24 bg-muted/40">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              {t("businesses.pricing.title")}
-            </h2>
-            <p className="text-lg text-muted-foreground mb-8">
-              {t("businesses.pricing.subtitle")}
-            </p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("businesses.pricing.title")}</h2>
+            <p className="text-lg text-muted-foreground mb-8">{t("businesses.pricing.subtitle")}</p>
 
-            {/* Billing Toggle */}
-            <div className="inline-flex items-center gap-4 bg-card p-2 rounded-lg shadow-card">
+            <div className="inline-flex items-center gap-1 bg-card p-1 rounded-lg shadow-card">
               <button
                 onClick={() => setBillingPeriod("monthly")}
-                className={`px-6 py-2 rounded-md transition-smooth ${
-                  billingPeriod === "monthly"
-                    ? "bg-primary text-primary-foreground"
-                    : "text-muted-foreground"
+                className={`px-6 py-2 rounded-md text-sm font-medium transition-smooth ${
+                  billingPeriod === "monthly" ? "bg-primary text-primary-foreground" : "text-muted-foreground"
                 }`}
               >
                 {t("businesses.billing.monthly")}
               </button>
               <button
                 onClick={() => setBillingPeriod("annual")}
-                className={`px-6 py-2 rounded-md transition-smooth flex items-center gap-2 ${
-                  billingPeriod === "annual"
-                    ? "bg-primary text-primary-foreground"
-                    : "text-muted-foreground"
+                className={`px-6 py-2 rounded-md text-sm font-medium transition-smooth flex items-center gap-2 ${
+                  billingPeriod === "annual" ? "bg-primary text-primary-foreground" : "text-muted-foreground"
                 }`}
               >
                 {t("businesses.billing.annual")}
@@ -277,10 +195,8 @@ const ForBusinessesPage = () => {
               return (
                 <Card
                   key={tier.key}
-                  className={`relative transition-smooth hover:shadow-smooth-lg hover:-translate-y-2 border-2 ${
-                    tier.popular
-                      ? "border-primary shadow-smooth-lg lg:scale-105"
-                      : "border-muted"
+                  className={`relative transition-smooth hover:shadow-smooth-lg hover:-translate-y-1 border-2 ${
+                    tier.popular ? "border-primary shadow-smooth-lg lg:scale-105" : "border-transparent"
                   }`}
                 >
                   {tier.popular && (
@@ -290,14 +206,11 @@ const ForBusinessesPage = () => {
                       </span>
                     </div>
                   )}
-
                   <CardHeader className="text-center pb-8">
-                    <div className="w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
+                    <div className="w-16 h-16 mx-auto mb-4 rounded-xl bg-primary/10 flex items-center justify-center">
                       <Icon className="h-8 w-8 text-primary" />
                     </div>
-                    <CardTitle className="text-2xl mb-2">
-                      {t(`businesses.tiers.${tier.key}.name`)}
-                    </CardTitle>
+                    <CardTitle className="text-2xl mb-2">{t(`businesses.tiers.${tier.key}.name`)}</CardTitle>
                     <div className="text-4xl font-bold text-primary">
                       {price === 0 ? (
                         t("businesses.pricing.free")
@@ -311,7 +224,6 @@ const ForBusinessesPage = () => {
                       )}
                     </div>
                   </CardHeader>
-
                   <CardContent className="space-y-4">
                     <ul className="space-y-3 mb-6">
                       {tier.features.map((feature, idx) => (
@@ -321,16 +233,8 @@ const ForBusinessesPage = () => {
                         </li>
                       ))}
                     </ul>
-
-                    <Button
-                      variant={tier.buttonVariant}
-                      size="lg"
-                      className="w-full"
-                      asChild
-                    >
-                      <Link to={`/${currentLang}/add-business`}>
-                        {t("businesses.choosePlan")}
-                      </Link>
+                    <Button variant={tier.buttonVariant} size="lg" className="w-full" asChild>
+                      <Link to={`/${currentLang}/add-business`}>{t("businesses.choosePlan")}</Link>
                     </Button>
                   </CardContent>
                 </Card>
@@ -343,22 +247,17 @@ const ForBusinessesPage = () => {
       {/* How It Works */}
       <section className="py-16 lg:py-24">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              {t("businesses.how.title")}
-            </h2>
-          </div>
-
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">{t("businesses.how.title")}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto">
             {howItWorksSteps.map((step, index) => {
               const Icon = step.icon;
               return (
                 <div key={index} className="text-center">
                   <div className="relative mb-6">
-                    <div className="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
+                    <div className="w-20 h-20 mx-auto rounded-full bg-primary/10 flex items-center justify-center">
                       <Icon className="h-10 w-10 text-primary" />
                     </div>
-                    <div className="absolute -top-2 -right-2 w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-bold">
+                    <div className="absolute -top-2 -right-2 w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-bold text-sm">
                       {index + 1}
                     </div>
                   </div>
@@ -370,22 +269,13 @@ const ForBusinessesPage = () => {
         </div>
       </section>
 
-      {/* Sponsorship Options */}
-      <section className="py-16 lg:py-24 bg-gradient-to-br from-accent/10 to-background">
+      {/* Sponsorship */}
+      <section className="py-16 lg:py-24 bg-muted/40">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 bg-accent/20 px-4 py-2 rounded-full mb-4">
-              <TrendingUp className="h-4 w-4 text-accent" />
-              <span className="text-sm font-medium">{t("businesses.sponsor.badge")}</span>
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              {t("businesses.sponsor.title")}
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              {t("businesses.sponsor.subtitle")}
-            </p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("businesses.sponsor.title")}</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">{t("businesses.sponsor.subtitle")}</p>
           </div>
-
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-12">
             {sponsorOptions.map((option, index) => {
               const Icon = option.icon;
@@ -393,16 +283,12 @@ const ForBusinessesPage = () => {
                 <Card key={index} className="hover:shadow-smooth-lg transition-smooth">
                   <CardHeader>
                     <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-accent/20 to-primary/20 flex items-center justify-center shrink-0">
-                        <Icon className="h-6 w-6 text-accent" />
+                      <div className="w-12 h-12 rounded-lg bg-accent/15 flex items-center justify-center shrink-0">
+                        <Icon className="h-6 w-6 text-accent-foreground" />
                       </div>
                       <div>
-                        <CardTitle className="text-lg mb-2">
-                          {t(option.titleKey)}
-                        </CardTitle>
-                        <p className="text-sm text-muted-foreground">
-                          {t(option.descKey)}
-                        </p>
+                        <CardTitle className="text-lg mb-2">{t(option.titleKey)}</CardTitle>
+                        <p className="text-sm text-muted-foreground">{t(option.descKey)}</p>
                       </div>
                     </div>
                   </CardHeader>
@@ -410,7 +296,6 @@ const ForBusinessesPage = () => {
               );
             })}
           </div>
-
           <div className="text-center">
             <Button size="lg" asChild>
               <a href="#contact">{t("businesses.sponsor.cta")}</a>
@@ -422,12 +307,7 @@ const ForBusinessesPage = () => {
       {/* Success Stories */}
       <section id="success-stories" className="py-16 lg:py-24">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              {t("businesses.success.title")}
-            </h2>
-          </div>
-
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">{t("businesses.success.title")}</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {[1, 2, 3].map((num) => (
               <Card key={num} className="hover:shadow-smooth-lg transition-smooth">
@@ -437,20 +317,14 @@ const ForBusinessesPage = () => {
                       <Star key={i} className="h-4 w-4 fill-primary text-primary" />
                     ))}
                   </div>
-                  <p className="text-sm mb-4 italic">
-                    "{t(`businesses.success.card${num}.quote`)}"
-                  </p>
+                  <p className="text-sm mb-4 italic">"{t(`businesses.success.card${num}.quote`)}"</p>
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
                       <Users className="h-5 w-5 text-primary" />
                     </div>
                     <div>
-                      <p className="font-medium text-sm">
-                        {t(`businesses.success.card${num}.name`)}
-                      </p>
-                      <p className="text-xs text-muted-foreground">
-                        {t(`businesses.success.card${num}.role`)}
-                      </p>
+                      <p className="font-medium text-sm">{t(`businesses.success.card${num}.name`)}</p>
+                      <p className="text-xs text-muted-foreground">{t(`businesses.success.card${num}.role`)}</p>
                     </div>
                   </div>
                 </CardContent>
@@ -461,29 +335,22 @@ const ForBusinessesPage = () => {
       </section>
 
       {/* Resources */}
-      <section id="resources" className="py-16 lg:py-24 bg-gradient-to-br from-secondary/20 to-background">
+      <section id="resources" className="py-16 lg:py-24 bg-muted/40">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              {t("businesses.resources.title")}
-            </h2>
-          </div>
-
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">{t("businesses.resources.title")}</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {resources.map((resource, index) => {
               const Icon = resource.icon;
               return (
                 <Card key={index} className="hover:shadow-smooth-lg transition-smooth">
                   <CardHeader className="text-center">
-                    <div className="w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-br from-secondary/20 to-accent/20 flex items-center justify-center">
+                    <div className="w-16 h-16 mx-auto mb-4 rounded-xl bg-secondary/10 flex items-center justify-center">
                       <Icon className="h-8 w-8 text-secondary" />
                     </div>
                     <CardTitle className="text-lg">{t(resource.titleKey)}</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-sm text-muted-foreground text-center mb-4">
-                      {t(resource.descKey)}
-                    </p>
+                    <p className="text-sm text-muted-foreground text-center mb-4">{t(resource.descKey)}</p>
                     <Button variant="ghost" size="sm" className="w-full">
                       <Download className="h-4 w-4" />
                       {t("businesses.resources.download")}
@@ -499,21 +366,12 @@ const ForBusinessesPage = () => {
       {/* FAQ */}
       <section className="py-16 lg:py-24">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              {t("businesses.faq.title")}
-            </h2>
-          </div>
-
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">{t("businesses.faq.title")}</h2>
           <Accordion type="single" collapsible className="max-w-3xl mx-auto">
             {[1, 2, 3, 4].map((num) => (
               <AccordionItem key={num} value={`item-${num}`}>
-                <AccordionTrigger className="text-start">
-                  {t(`businesses.faq.q${num}`)}
-                </AccordionTrigger>
-                <AccordionContent>
-                  {t(`businesses.faq.a${num}`)}
-                </AccordionContent>
+                <AccordionTrigger className="text-start">{t(`businesses.faq.q${num}`)}</AccordionTrigger>
+                <AccordionContent>{t(`businesses.faq.a${num}`)}</AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>
@@ -521,58 +379,41 @@ const ForBusinessesPage = () => {
       </section>
 
       {/* Contact Form */}
-      <section id="contact" className="py-16 lg:py-24 bg-gradient-to-br from-primary/10 to-accent/10">
+      <section id="contact" className="py-16 lg:py-24 bg-muted/40">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto">
             <div className="text-center mb-8">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                {t("businesses.contact.title")}
-              </h2>
-              <p className="text-lg text-muted-foreground">
-                {t("businesses.contact.subtitle")}
-              </p>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("businesses.contact.title")}</h2>
+              <p className="text-lg text-muted-foreground">{t("businesses.contact.subtitle")}</p>
             </div>
-
             <Card>
               <CardContent className="pt-6">
                 <form onSubmit={handleContactSubmit} className="space-y-4">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label className="text-sm font-medium mb-2 block">
-                        {t("businesses.contact.name")}
-                      </label>
+                      <label className="text-sm font-medium mb-2 block">{t("businesses.contact.name")}</label>
                       <Input required />
                     </div>
                     <div>
-                      <label className="text-sm font-medium mb-2 block">
-                        {t("businesses.contact.businessName")}
-                      </label>
+                      <label className="text-sm font-medium mb-2 block">{t("businesses.contact.businessName")}</label>
                       <Input required />
                     </div>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label className="text-sm font-medium mb-2 block">
-                        {t("businesses.contact.email")}
-                      </label>
+                      <label className="text-sm font-medium mb-2 block">{t("businesses.contact.email")}</label>
                       <Input type="email" required />
                     </div>
                     <div>
-                      <label className="text-sm font-medium mb-2 block">
-                        {t("businesses.contact.phone")}
-                      </label>
+                      <label className="text-sm font-medium mb-2 block">{t("businesses.contact.phone")}</label>
                       <Input type="tel" required />
                     </div>
                   </div>
                   <div>
-                    <label className="text-sm font-medium mb-2 block">
-                      {t("businesses.contact.message")}
-                    </label>
+                    <label className="text-sm font-medium mb-2 block">{t("businesses.contact.message")}</label>
                     <Textarea rows={4} required />
                   </div>
-                  <Button type="submit" size="lg" className="w-full">
-                    {t("businesses.contact.submit")}
-                  </Button>
+                  <Button type="submit" size="lg" className="w-full">{t("businesses.contact.submit")}</Button>
                 </form>
               </CardContent>
             </Card>
@@ -581,15 +422,11 @@ const ForBusinessesPage = () => {
       </section>
 
       {/* Footer CTA */}
-      <section className="py-16 bg-gradient-to-r from-primary to-accent">
+      <section className="py-16 bg-primary">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-6">
-            {t("businesses.footer.text")}
-          </h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-6">{t("businesses.footer.text")}</h2>
           <Button size="lg" variant="secondary" asChild>
-            <Link to={`/${currentLang}/add-business`}>
-              {t("businesses.footer.cta")}
-            </Link>
+            <Link to={`/${currentLang}/add-business`}>{t("businesses.footer.cta")}</Link>
           </Button>
         </div>
       </section>
