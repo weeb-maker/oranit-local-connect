@@ -3,11 +3,13 @@ import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import HeroBanner from "@/components/shared/HeroBanner";
 import { FilterBar } from "@/components/shared/FilterBar";
 import { BusinessCard } from "@/components/shared/BusinessCard";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
+import heroImage from "@/assets/hero-community.jpg";
 import { useCategory } from "@/hooks/useCategories";
 import { loadBusinessFixtures } from "@/lib/businessFixtures";
 import {

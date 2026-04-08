@@ -2,11 +2,13 @@ import { useTranslation } from "react-i18next";
 import { useParams, Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import HeroBanner from "@/components/shared/HeroBanner";
 import { BusinessCard } from "@/components/shared/BusinessCard";
 import { FilterBar } from "@/components/shared/FilterBar";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useSubcategory } from "@/hooks/useCategories";
+import heroImage from "@/assets/hero-community.jpg";
 import {
   Breadcrumb,
   BreadcrumbItem,
