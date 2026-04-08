@@ -51,8 +51,13 @@ const HeroBanner = ({
           className="w-full h-full object-cover"
           loading="eager"
         />
-        {/* Top Overlay - Dark gradient on image */}
-        <div className={`absolute inset-0 bg-gradient-to-r ${overlayClasses[overlayOpacity]}`} />
+        {/* Top Overlay - Dark gradient on image, controlled by --hero-overlay-from/to */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background: `linear-gradient(to right, rgba(0,0,0,calc(var(--hero-overlay-from) * ${overlayMultiplier[overlayOpacity]})), rgba(0,0,0,calc(var(--hero-overlay-to) * ${overlayMultiplier[overlayOpacity]})))`,
+          }}
+        />
         {/* Bottom Fade - Gradient into page background */}
         <div 
           className="absolute inset-0 pointer-events-none"
