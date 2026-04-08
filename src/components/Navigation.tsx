@@ -156,9 +156,6 @@ const Navigation = () => {
           <Button variant="ghost" asChild>
             <Link to={`/${currentLang}/signin`}>{t("nav.signIn")}</Link>
           </Button>
-          <Button asChild>
-            <Link to={`/${currentLang}/add-business`}>{t("nav.addBusiness")}</Link>
-          </Button>
         </div>
 
         {/* Mobile Language Switcher & Menu Button */}
@@ -221,9 +218,6 @@ const Navigation = () => {
               </Button>
               <Button variant="ghost" asChild className="w-full">
                 <Link to={`/${currentLang}/signin`}>{t("nav.signIn")}</Link>
-              </Button>
-              <Button asChild className="w-full">
-                <Link to={`/${currentLang}/add-business`}>{t("nav.addBusiness")}</Link>
               </Button>
             </div>
           </div>
