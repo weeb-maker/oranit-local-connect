@@ -136,7 +136,7 @@ const EventsPage = () => {
         title={t("events.hero.title")}
         subtitle={t("events.hero.subtitle")}
         minHeight="md"
-        align="left"
+        align="center"
       >
         <Button 
           size="lg" 
