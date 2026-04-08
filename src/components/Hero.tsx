@@ -11,36 +11,44 @@ const Hero = () => {
   const { t } = useTranslation();
   const { lang } = useParams<{ lang: string }>();
   const currentLang = lang || 'he';
+  const isRTL = currentLang === 'he';
 
-  // Fetch categories from database
   const { data: categories = [], isLoading: categoriesLoading } = useCategories(currentLang);
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-primary/10 via-accent/10 to-background py-20 lg:py-32">
-      {/* Background Image with Overlay */}
-      <div 
-        className="absolute inset-0 opacity-20"
-        style={{
-          backgroundImage: `url(${heroImage})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
-      />
-      
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-4xl mx-auto text-center animate-fade-in">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-foreground">
+    <section className="relative overflow-hidden min-h-[520px] flex flex-col justify-end" dir={isRTL ? "rtl" : "ltr"}>
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <img
+          src={heroImage}
+          alt={t("hero.headline")}
+          className="w-full h-full object-cover"
+          loading="eager"
+        />
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-foreground/75 to-foreground/35" />
+        {/* Bottom fade into page background */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{ background: 'var(--hero-fade)' }}
+        />
+      </div>
+
+      {/* Content */}
+      <div className="relative z-10 w-full">
+        <div className="container mx-auto px-4 pb-12 md:pb-16 max-w-4xl flex flex-col items-start gap-6">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white drop-shadow-lg animate-fade-in">
             {t("hero.headline")}
           </h1>
-          <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-white/90 drop-shadow-md max-w-2xl animate-fade-in">
             {t("hero.subtext")}
           </p>
 
           {/* Search Bar */}
-          <div className="bg-white rounded-xl shadow-card p-4 mb-8 animate-slide-up">
+          <div className="w-full bg-card/95 backdrop-blur-md rounded-xl shadow-lg p-4 animate-slide-up">
             <div className="flex flex-col md:flex-row gap-3">
               <Select defaultValue="all">
-                <SelectTrigger className="w-full md:w-[200px] bg-background">
+                <SelectTrigger className="w-full md:w-[200px] bg-background border-border">
                   <SelectValue placeholder={t("hero.categoryPlaceholder")} />
                 </SelectTrigger>
                 <SelectContent className="bg-popover">
@@ -58,15 +66,15 @@ const Hero = () => {
                   )}
                 </SelectContent>
               </Select>
-              
+
               <div className="relative flex-1">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                 <Input
                   placeholder={t("hero.searchPlaceholder")}
-                  className="pl-10 bg-background"
+                  className="pl-10 bg-background border-border"
                 />
               </div>
-              
+
               <Button size="lg" className="md:w-auto" asChild>
                 <a href={`/${currentLang}/search`}>{t("hero.searchButton")}</a>
               </Button>
@@ -74,11 +82,11 @@ const Hero = () => {
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-scale-in">
+          <div className="flex flex-col sm:flex-row gap-4 animate-scale-in">
             <Button variant="default" size="lg" asChild>
               <a href={`/${currentLang}/explore`}>{t("hero.exploreButton")}</a>
             </Button>
-            <Button variant="outline" size="lg" asChild>
+            <Button size="lg" className="bg-white/20 backdrop-blur-sm text-white border border-white/30 hover:bg-white/30" asChild>
               <a href={`/${currentLang}/add-business`}>{t("hero.addBusinessButton")}</a>
             </Button>
           </div>
