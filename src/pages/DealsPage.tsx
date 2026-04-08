@@ -238,7 +238,7 @@ const DealsPage = () => {
           title={t("deals.title")}
           subtitle={t("deals.subtitle")}
           minHeight="lg"
-          align="left"
+          align="center"
         >
           <Button size="lg" variant="secondary" className="shadow-lg">
             {t("deals.submit")}

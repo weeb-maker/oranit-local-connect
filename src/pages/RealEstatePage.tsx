@@ -58,7 +58,7 @@ const RealEstatePage = () => {
         title={t("realEstate.hero.title")}
         subtitle={t("realEstate.hero.subtitle")}
         minHeight="md"
-        align="left"
+        align="center"
       >
         <Button
           size="lg"
