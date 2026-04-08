@@ -104,22 +104,15 @@ const CategoryPage = () => {
           </div>
         </section>
 
-        {/* Category Header */}
-        <section className="bg-primary py-12">
-          <div className="container mx-auto px-4">
-            <div className="flex items-center gap-4 mb-4">
-              <div className="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center">
-                <CategoryIcon className="w-8 h-8 text-white" />
-              </div>
-              <div>
-                <h1 className="text-3xl md:text-4xl font-bold text-white mb-2">
-                  {category.name}
-                </h1>
-                <p className="text-white/90">{category.description}</p>
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* Category Hero */}
+        <HeroBanner
+          imageUrl={heroImage}
+          title={category.name}
+          subtitle={category.description}
+          minHeight="sm"
+          align="center"
+          overlayOpacity="medium"
+        />
 
         {/* Filter Bar */}
         <section className="container mx-auto px-4 -mt-8 mb-6">
