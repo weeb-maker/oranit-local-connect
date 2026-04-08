@@ -44,10 +44,7 @@ const RealEstateDetailPage = () => {
         <main className="container mx-auto px-4 py-16 text-center">
           <h1 className="text-2xl font-bold mb-4">{t("realEstate.detail.notFound")}</h1>
           <Link to={`/${currentLang}/real-estate`}>
-            <Button>
-              <ArrowLeft className="h-4 w-4 mr-2" />
-              {t("realEstate.detail.backToListings")}
-            </Button>
+            <Button>{t("realEstate.detail.backToListings")}</Button>
           </Link>
         </main>
         <Footer />
@@ -74,14 +71,28 @@ const RealEstateDetailPage = () => {
       <Navigation />
 
       <main className="container mx-auto px-4 py-8">
-        {/* Back Button */}
-        <Link
-          to={`/${currentLang}/real-estate`}
-          className="inline-flex items-center text-primary hover:text-primary-hover mb-6 transition-smooth"
-        >
-          <ArrowLeft className="h-4 w-4 mr-2" />
-          {t("realEstate.detail.backToListings")}
-        </Link>
+        {/* Breadcrumb */}
+        <div className="mb-6">
+          <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink href={`/${currentLang}`} className="text-primary hover:text-primary/80">
+                  {t("common:nav.home")}
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbLink href={`/${currentLang}/real-estate`} className="text-primary hover:text-primary/80">
+                  {t("common:nav.realEstate")}
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>{listing.title}</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+        </div>
 
         {/* Image Gallery */}
         <div className="mb-8">
