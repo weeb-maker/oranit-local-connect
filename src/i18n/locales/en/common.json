@@ -11,13 +11,17 @@
     "realEstate": "Real Estate"
   },
   "hero": {
-    "headline": "Find the best local businesses in Oranit",
-    "subtext": "Search, compare, and support your community first",
+    "headline": "Find everything you need in Oranit",
+    "subtext": "Share, search and support your community first",
     "searchPlaceholder": "What are you looking for?",
     "categoryPlaceholder": "All Categories",
     "searchButton": "Search",
-    "exploreButton": "Explore Businesses",
-    "addBusinessButton": "Add Your Business"
+    "quickLinks": {
+      "businesses": "Businesses",
+      "marketplace": "Marketplace",
+      "deals": "Deals",
+      "residents": "Residents"
+    }
   },
   "buttons": {
     "addBusiness": "Add Your Business",
