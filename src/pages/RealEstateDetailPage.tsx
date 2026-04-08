@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import {
-  ArrowLeft,
   BedDouble,
   Bath,
   Maximize,
@@ -19,6 +18,14 @@ import {
   Building,
   CheckCircle2,
 } from "lucide-react";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 import { getSampleListings, formatPrice } from "@/data/realEstateListings";
 
 const RealEstateDetailPage = () => {
