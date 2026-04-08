@@ -22,6 +22,7 @@ import ServiceDetailPage from "./pages/ServiceDetailPage";
 import ClubDetailPage from "./pages/ClubDetailPage";
 import PostNoticePage from "./pages/PostNoticePage";
 import VolunteerPage from "./pages/VolunteerPage";
+import GivingPage from "./pages/GivingPage";
 import MarketplacePage from "./pages/MarketplacePage";
 import MarketplaceDetailPage from "./pages/MarketplaceDetailPage";
 import ForBusinessesPage from "./pages/ForBusinessesPage";
