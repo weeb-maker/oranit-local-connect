@@ -99,14 +99,6 @@ const Navigation = () => {
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <Link to={`/${currentLang}/events`}>
-                  <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-smooth hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50">
-                    {t("nav.whatsOn")}
-                  </NavigationMenuLink>
-                </Link>
-              </NavigationMenuItem>
-
-              <NavigationMenuItem>
                 <Link to={`/${currentLang}/real-estate`}>
                   <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-smooth hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50">
                     {t("nav.realEstate")}
@@ -115,9 +107,9 @@ const Navigation = () => {
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <Link to={`/${currentLang}/residents`}>
+                <Link to={`/${currentLang}/events`}>
                   <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-smooth hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50">
-                    {t("nav.residents")}
+                    {t("nav.whatsOn")}
                   </NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>
@@ -126,6 +118,14 @@ const Navigation = () => {
                 <Link to={`/${currentLang}/giving`}>
                   <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-smooth hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50">
                     {t("nav.giving")}
+                  </NavigationMenuLink>
+                </Link>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <Link to={`/${currentLang}/residents`}>
+                  <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-smooth hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50">
+                    {t("nav.residents")}
                   </NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>
@@ -195,17 +195,17 @@ const Navigation = () => {
             <Link to={`/${currentLang}/marketplace`} className="px-4 py-2 rounded-md hover:bg-accent transition-smooth">
               {t("nav.marketplace")}
             </Link>
-            <Link to={`/${currentLang}/events`} className="px-4 py-2 rounded-md hover:bg-accent transition-smooth">
-              {t("nav.whatsOn")}
-            </Link>
             <Link to={`/${currentLang}/real-estate`} className="px-4 py-2 rounded-md hover:bg-accent transition-smooth">
               {t("nav.realEstate")}
             </Link>
-            <Link to={`/${currentLang}/residents`} className="px-4 py-2 rounded-md hover:bg-accent transition-smooth">
-              {t("nav.residents")}
+            <Link to={`/${currentLang}/events`} className="px-4 py-2 rounded-md hover:bg-accent transition-smooth">
+              {t("nav.whatsOn")}
             </Link>
             <Link to={`/${currentLang}/giving`} className="px-4 py-2 rounded-md hover:bg-accent transition-smooth">
               {t("nav.giving")}
+            </Link>
+            <Link to={`/${currentLang}/residents`} className="px-4 py-2 rounded-md hover:bg-accent transition-smooth">
+              {t("nav.residents")}
             </Link>
             <Link to={`/${currentLang}/for-businesses`} className="px-4 py-2 rounded-md hover:bg-accent transition-smooth">
               {t("nav.forBusinesses")}
