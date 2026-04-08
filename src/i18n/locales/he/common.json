@@ -11,13 +11,17 @@
     "realEstate": "נדל\"ן"
   },
   "hero": {
-    "headline": "מצאו את העסקים המקומיים הטובים ביותר באורנית",
-    "subtext": "חפשו, השוו ותמכו בקהילה שלכם קודם כל",
+    "headline": "מצאו את כל מה שאתם צריכים באורנית",
+    "subtext": "שתפו, חפשו ותמכו בקהילה שלכם קודם כל",
     "searchPlaceholder": "מה אתם מחפשים?",
     "categoryPlaceholder": "כל הקטגוריות",
     "searchButton": "חיפוש",
-    "exploreButton": "גלו עסקים",
-    "addBusinessButton": "הוספת עסק שלי"
+    "quickLinks": {
+      "businesses": "עסקים",
+      "marketplace": "לוח מודעות",
+      "deals": "מבצעים",
+      "residents": "לתושבים"
+    }
   },
   "buttons": {
     "addBusiness": "הוסף עסק",
