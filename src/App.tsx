@@ -81,6 +81,7 @@ const App = () => (
           <Route path="/:lang/residents/clubs/:slug" element={<LanguageWrapper><ClubDetailPage /></LanguageWrapper>} />
           <Route path="/:lang/residents/post" element={<LanguageWrapper><PostNoticePage /></LanguageWrapper>} />
           <Route path="/:lang/residents/volunteer" element={<LanguageWrapper><VolunteerPage /></LanguageWrapper>} />
+          <Route path="/:lang/giving" element={<LanguageWrapper><GivingPage /></LanguageWrapper>} />
           <Route path="/:lang/marketplace" element={<LanguageWrapper><MarketplacePage /></LanguageWrapper>} />
           <Route path="/:lang/marketplace/:id" element={<LanguageWrapper><MarketplaceDetailPage /></LanguageWrapper>} />
           <Route path="/:lang/for-businesses" element={<LanguageWrapper><ForBusinessesPage /></LanguageWrapper>} />
