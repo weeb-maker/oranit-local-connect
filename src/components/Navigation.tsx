@@ -2,8 +2,9 @@ import { useState } from "react";
 import { Link, useParams, useNavigate, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
-import { Menu, X, ChevronDown, Store, Languages } from "lucide-react";
+import { Menu, X, ChevronDown, Languages } from "lucide-react";
 import { switchLocalePath } from "@/lib/slugMap";
+import logoIcon from "@/assets/logo-concept-3-community.png";
 import { useCategories } from "@/hooks/useCategories";
 import {
   NavigationMenu,
@@ -39,10 +40,10 @@ const Navigation = () => {
         {/* Logo */}
         <Link
           to={`/${currentLang}`}
-          className="flex items-center gap-2 font-bold text-xl text-primary transition-smooth hover:opacity-80"
+          className="flex items-center gap-2 font-bold text-lg text-foreground transition-smooth hover:opacity-80"
         >
-          <Store className="h-6 w-6" />
-          Oranit.biz
+          <img src={logoIcon} alt="Oranit Community" className="h-8 w-8" />
+          <span className="hidden sm:inline">{isRtl ? "אורנית קהילתית" : "Oranit Community"}</span>
         </Link>
 
         {/* Desktop Navigation */}
