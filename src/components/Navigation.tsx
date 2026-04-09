@@ -2,8 +2,9 @@ import { useState } from "react";
 import { Link, useParams, useNavigate, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
-import { Menu, X, ChevronDown, Store, Languages } from "lucide-react";
+import { Menu, X, ChevronDown, Languages } from "lucide-react";
 import { switchLocalePath } from "@/lib/slugMap";
+import logoIcon from "@/assets/logo-concept-3-community.png";
 import { useCategories } from "@/hooks/useCategories";
 import {
   NavigationMenu,
