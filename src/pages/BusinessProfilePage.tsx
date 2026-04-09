@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useParams, Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
@@ -5,7 +6,7 @@ import Footer from "@/components/Footer";
 import { BusinessCard } from "@/components/shared/BusinessCard";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -23,9 +24,9 @@ import {
   CheckCircle2,
   Share2,
   Clock,
-  Navigation as NavigationIcon,
+  MessageCircle,
+  Heart,
 } from "lucide-react";
-import { Separator } from "@/components/ui/separator";
 
 const mockBusiness = {
   id: "1",
@@ -42,7 +43,12 @@ const mockBusiness = {
   phone: "+972-50-123-4567",
   email: "hello@cafeoranit.com",
   website: "https://cafeoranit.com",
-  hours: "Sun-Thu: 7:00 AM - 8:00 PM, Fri: 7:00 AM - 4:00 PM, Sat: Closed",
+  whatsapp: "+972501234567",
+  hours: [
+    { day: "Sunday - Thursday", time: "7:00 AM - 8:00 PM" },
+    { day: "Friday", time: "7:00 AM - 4:00 PM" },
+    { day: "Saturday", time: "Closed" },
+  ],
   images: [
     "https://images.unsplash.com/photo-1559305616-3f99cd43e353?w=800&h=600&fit=crop",
     "https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=800&h=600&fit=crop",
@@ -76,254 +82,268 @@ const relatedBusinesses = [
 const BusinessProfilePage = () => {
   const { t } = useTranslation();
   const { lang } = useParams<{ lang: string }>();
+  const [activeImage, setActiveImage] = useState(0);
+
+  const handleShare = () => {
+    if (navigator.share) {
+      navigator.share({
+        title: mockBusiness.name,
+        text: mockBusiness.description,
+        url: window.location.href,
+      });
+    }
+  };
+
+  const handleWhatsApp = () => {
+    const message = encodeURIComponent(`Hi, I'm reaching out about ${mockBusiness.name}`);
+    window.open(`https://wa.me/${mockBusiness.whatsapp}?text=${message}`, '_blank');
+  };
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen bg-background">
       <Navigation />
-      <main className="flex-1">
-        {/* Breadcrumb */}
-        <section className="border-b">
-          <div className="container mx-auto px-4 py-4">
-            <Breadcrumb>
-              <BreadcrumbList>
-                <BreadcrumbItem>
-                  <BreadcrumbLink href={`/${lang}`}>{t("nav.home")}</BreadcrumbLink>
-                </BreadcrumbItem>
-                <BreadcrumbSeparator />
-                <BreadcrumbItem>
-                  <BreadcrumbLink href={`/${lang}/explore`}>
-                    {t("nav.businesses")}
-                  </BreadcrumbLink>
-                </BreadcrumbItem>
-                <BreadcrumbSeparator />
-                <BreadcrumbItem>
-                  <BreadcrumbLink href={`/${lang}/category/${mockBusiness.category.toLowerCase()}`}>
-                    {mockBusiness.category}
-                  </BreadcrumbLink>
-                </BreadcrumbItem>
-                <BreadcrumbSeparator />
-                <BreadcrumbItem>
-                  <BreadcrumbPage>{mockBusiness.name}</BreadcrumbPage>
-                </BreadcrumbItem>
-              </BreadcrumbList>
-            </Breadcrumb>
-          </div>
-        </section>
 
-        {/* Hero Section */}
-        <section className="bg-primary py-12">
-          <div className="container mx-auto px-4">
-            <div className="flex flex-col md:flex-row gap-6 items-start">
-              <div className="w-32 h-32 rounded-2xl overflow-hidden bg-white shadow-hover flex-shrink-0">
-                <img
-                  src={mockBusiness.logo}
-                  alt={mockBusiness.name}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="flex-1">
-                <div className="flex items-center gap-3 mb-3">
-                  <h1 className="text-3xl md:text-4xl font-bold text-white">
-                    {mockBusiness.name}
-                  </h1>
-                  {mockBusiness.verified && (
-                    <CheckCircle2 className="w-6 h-6 text-white" />
-                  )}
-                </div>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  <Badge variant="secondary" className="text-sm">
-                    {mockBusiness.category}
-                  </Badge>
-                  <Badge variant="outline" className="text-sm border-white text-white">
-                    {mockBusiness.subcategory}
-                  </Badge>
-                </div>
-                <div className="flex items-center gap-2 text-white mb-6">
-                  <div className="flex items-center gap-1">
-                    <Star className="w-5 h-5 fill-current" />
-                    <span className="font-semibold">{mockBusiness.rating}</span>
-                  </div>
-                  <span className="opacity-75">({mockBusiness.reviewCount} reviews)</span>
-                </div>
-                <div className="flex flex-wrap gap-3">
-                  <Button variant="hero" size="lg">
-                    <Phone className="w-4 h-4" />
-                    {t("business.call")}
-                  </Button>
-                  <Button variant="hero" size="lg">
-                    <Globe className="w-4 h-4" />
-                    {t("business.website")}
-                  </Button>
-                  <Button variant="hero" size="lg">
-                    <NavigationIcon className="w-4 h-4" />
-                    {t("business.directions")}
-                  </Button>
-                  <Button variant="hero" size="lg">
-                    <Share2 className="w-4 h-4" />
-                    {t("business.share")}
-                  </Button>
-                </div>
-              </div>
+      <main className="container mx-auto px-4 py-8">
+        {/* Breadcrumb */}
+        <div className="mb-6">
+          <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink href={`/${lang}`}>{t("nav.home")}</BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbLink href={`/${lang}/explore`}>
+                  {t("nav.businesses")}
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbLink href={`/${lang}/category/${mockBusiness.category.toLowerCase()}`}>
+                  {mockBusiness.category}
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>{mockBusiness.name}</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+        </div>
+
+        {/* Image Gallery — matches Real Estate pattern */}
+        <div className="mb-8">
+          <div className="relative w-full h-[400px] md:h-[500px] rounded-xl overflow-hidden mb-3">
+            <img
+              src={mockBusiness.images[activeImage]}
+              alt={mockBusiness.name}
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute top-4 right-4 flex gap-2">
+              <Button variant="secondary" size="icon" className="shadow-lg">
+                <Heart className="h-5 w-5" />
+              </Button>
+              <Button variant="secondary" size="icon" onClick={handleShare} className="shadow-lg">
+                <Share2 className="h-5 w-5" />
+              </Button>
             </div>
           </div>
-        </section>
+          {mockBusiness.images.length > 1 && (
+            <div className="flex gap-2 overflow-x-auto pb-2">
+              {mockBusiness.images.map((img, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setActiveImage(idx)}
+                  className={`flex-shrink-0 w-24 h-16 rounded-lg overflow-hidden border-2 transition-all ${
+                    idx === activeImage
+                      ? "border-primary ring-2 ring-primary/30"
+                      : "border-transparent opacity-70 hover:opacity-100"
+                  }`}
+                >
+                  <img src={img} alt="" className="w-full h-full object-cover" />
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
 
-        {/* Main Content */}
-        <section className="container mx-auto px-4 py-12">
-          <div className="grid lg:grid-cols-3 gap-8">
-            {/* Main Column */}
-            <div className="lg:col-span-2 space-y-8">
-              {/* About */}
-              <Card>
-                <CardHeader>
-                  <CardTitle>{t("business.about")}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {mockBusiness.description}
-                  </p>
-                </CardContent>
-              </Card>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {/* Main Content */}
+          <div className="lg:col-span-2 space-y-6">
+            {/* Title & Identity */}
+            <div>
+              <div className="flex items-start gap-4 mb-3">
+                <div className="w-16 h-16 rounded-xl overflow-hidden bg-muted flex-shrink-0 border">
+                  <img
+                    src={mockBusiness.logo}
+                    alt={mockBusiness.name}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2 mb-1">
+                    <h1 className="text-3xl md:text-4xl font-bold">{mockBusiness.name}</h1>
+                    {mockBusiness.verified && (
+                      <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0" />
+                    )}
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    <Badge variant="outline">{mockBusiness.category}</Badge>
+                    <Badge variant="secondary">{mockBusiness.subcategory}</Badge>
+                  </div>
+                </div>
+              </div>
+              <div className="flex items-center gap-2 text-muted-foreground mt-3">
+                <div className="flex items-center gap-1">
+                  <Star className="w-5 h-5 fill-primary text-primary" />
+                  <span className="font-semibold text-foreground">{mockBusiness.rating}</span>
+                </div>
+                <span>({mockBusiness.reviewCount} {t("business.reviews")})</span>
+                <span className="mx-2">·</span>
+                <MapPin className="h-4 w-4" />
+                <span>{mockBusiness.location}</span>
+              </div>
+            </div>
 
-              {/* Gallery */}
+            {/* Description */}
+            <Card>
+              <CardContent className="p-6">
+                <h2 className="text-xl font-semibold mb-4">{t("business.about")}</h2>
+                <p className="text-muted-foreground leading-relaxed">
+                  {mockBusiness.description}
+                </p>
+              </CardContent>
+            </Card>
+
+            {/* Opening Hours */}
+            <Card>
+              <CardContent className="p-6">
+                <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
+                  <Clock className="h-5 w-5 text-primary" />
+                  {t("business.hours")}
+                </h2>
+                <div className="space-y-2">
+                  {mockBusiness.hours.map((h, idx) => (
+                    <div key={idx} className="flex justify-between text-sm">
+                      <span className="text-muted-foreground">{h.day}</span>
+                      <span className="font-medium">{h.time}</span>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Reviews Placeholder */}
+            <Card>
+              <CardContent className="p-6">
+                <h2 className="text-xl font-semibold mb-4">{t("business.reviews")}</h2>
+                <p className="text-muted-foreground">
+                  {t("business.reviewsComingSoon")}
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Sidebar */}
+          <div className="space-y-6">
+            {/* Contact Card — matches Marketplace/Real Estate sidebar */}
+            <Card>
+              <CardContent className="p-6 space-y-4">
+                <h2 className="text-xl font-semibold">{t("business.contact")}</h2>
+
+                {mockBusiness.whatsapp && (
+                  <Button className="w-full gap-2" size="lg" onClick={handleWhatsApp}>
+                    <MessageCircle className="h-5 w-5" />
+                    WhatsApp
+                  </Button>
+                )}
+
+                {mockBusiness.phone && (
+                  <Button className="w-full gap-2" variant="outline" size="lg" asChild>
+                    <a href={`tel:${mockBusiness.phone}`}>
+                      <Phone className="h-5 w-5" />
+                      {mockBusiness.phone}
+                    </a>
+                  </Button>
+                )}
+
+                {mockBusiness.email && (
+                  <Button className="w-full gap-2" variant="outline" size="lg" asChild>
+                    <a href={`mailto:${mockBusiness.email}`}>
+                      <Mail className="h-5 w-5" />
+                      {t("business.email")}
+                    </a>
+                  </Button>
+                )}
+
+                {mockBusiness.website && (
+                  <Button className="w-full gap-2" variant="outline" size="lg" asChild>
+                    <a href={mockBusiness.website} target="_blank" rel="noopener noreferrer">
+                      <Globe className="h-5 w-5" />
+                      {t("business.website")}
+                    </a>
+                  </Button>
+                )}
+              </CardContent>
+            </Card>
+
+            {/* Location Card */}
+            <Card>
+              <CardContent className="p-6">
+                <h2 className="text-xl font-semibold mb-4">{t("business.address")}</h2>
+                <div className="aspect-video bg-muted rounded-lg flex items-center justify-center mb-3">
+                  <MapPin className="h-12 w-12 text-muted-foreground" />
+                </div>
+                <p className="text-muted-foreground text-sm">{mockBusiness.location}</p>
+              </CardContent>
+            </Card>
+
+            {/* Similar Businesses */}
+            {relatedBusinesses.length > 0 && (
               <Card>
-                <CardHeader>
-                  <CardTitle>{t("business.gallery")}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {mockBusiness.images.map((image, index) => (
-                      <div
-                        key={index}
-                        className="aspect-video rounded-lg overflow-hidden bg-muted"
+                <CardContent className="p-6">
+                  <h2 className="text-xl font-semibold mb-4">{t("business.relatedBusinesses")}</h2>
+                  <div className="space-y-4">
+                    {relatedBusinesses.map((biz) => (
+                      <Link
+                        key={biz.id}
+                        to={`/${lang}/business/${biz.id}`}
+                        className="block group"
                       >
-                        <img
-                          src={image}
-                          alt={`${mockBusiness.name} - ${index + 1}`}
-                          className="w-full h-full object-cover hover:scale-105 transition-smooth"
-                        />
-                      </div>
+                        <div className="flex gap-3 items-center">
+                          <div className="w-14 h-14 rounded-lg overflow-hidden flex-shrink-0 border">
+                            <img
+                              src={biz.logo}
+                              alt={biz.name}
+                              className="w-full h-full object-cover transition-smooth group-hover:scale-105"
+                            />
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <p className="font-medium line-clamp-1 group-hover:text-primary transition-smooth">
+                              {biz.name}
+                            </p>
+                            <p className="text-xs text-muted-foreground line-clamp-1">{biz.description}</p>
+                            <div className="flex items-center gap-1 mt-1">
+                              <Star className="h-3 w-3 fill-primary text-primary" />
+                              <span className="text-xs font-medium">{biz.rating}</span>
+                            </div>
+                          </div>
+                        </div>
+                      </Link>
                     ))}
                   </div>
                 </CardContent>
               </Card>
+            )}
 
-              {/* Reviews Placeholder */}
-              <Card>
-                <CardHeader>
-                  <CardTitle>{t("business.reviews")}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    {t("business.reviewsComingSoon")}
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
-
-            {/* Sidebar */}
-            <div className="space-y-6">
-              {/* Contact Card */}
-              <Card>
-                <CardHeader>
-                  <CardTitle>{t("business.contact")}</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <MapPin className="w-5 h-5 text-muted-foreground flex-shrink-0 mt-0.5" />
-                    <div>
-                      <p className="text-sm font-medium mb-1">{t("business.address")}</p>
-                      <p className="text-sm text-muted-foreground">
-                        {mockBusiness.location}
-                      </p>
-                    </div>
-                  </div>
-                  <Separator />
-                  <div className="flex items-center gap-3">
-                    <Phone className="w-5 h-5 text-muted-foreground" />
-                    <div>
-                      <p className="text-sm font-medium mb-1">{t("business.phone")}</p>
-                      <a
-                        href={`tel:${mockBusiness.phone}`}
-                        className="text-sm text-primary hover:underline"
-                      >
-                        {mockBusiness.phone}
-                      </a>
-                    </div>
-                  </div>
-                  <Separator />
-                  <div className="flex items-center gap-3">
-                    <Mail className="w-5 h-5 text-muted-foreground" />
-                    <div>
-                      <p className="text-sm font-medium mb-1">{t("business.email")}</p>
-                      <a
-                        href={`mailto:${mockBusiness.email}`}
-                        className="text-sm text-primary hover:underline break-all"
-                      >
-                        {mockBusiness.email}
-                      </a>
-                    </div>
-                  </div>
-                  <Separator />
-                  <div className="flex items-center gap-3">
-                    <Globe className="w-5 h-5 text-muted-foreground" />
-                    <div>
-                      <p className="text-sm font-medium mb-1">{t("business.website")}</p>
-                      <a
-                        href={mockBusiness.website}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-sm text-primary hover:underline break-all"
-                      >
-                        {mockBusiness.website}
-                      </a>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Hours */}
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <Clock className="w-5 h-5" />
-                    {t("business.hours")}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground">{mockBusiness.hours}</p>
-                </CardContent>
-              </Card>
-
-              {/* Map Placeholder */}
-              <Card>
-                <CardContent className="p-0">
-                  <div className="aspect-square bg-muted rounded-lg flex items-center justify-center">
-                    <MapPin className="w-12 h-12 text-muted-foreground" />
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Claim Business */}
-              <Button variant="outline" className="w-full">
-                {t("business.claimBusiness")}
-              </Button>
-            </div>
+            {/* Claim Business */}
+            <Button variant="outline" className="w-full">
+              {t("business.claimBusiness")}
+            </Button>
           </div>
-        </section>
-
-        {/* Related Businesses */}
-        <section className="bg-muted/30 py-16">
-          <div className="container mx-auto px-4">
-            <h2 className="text-2xl font-bold mb-8">{t("business.relatedBusinesses")}</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {relatedBusinesses.map((business) => (
-                <BusinessCard key={business.id} {...business} />
-              ))}
-            </div>
-          </div>
-        </section>
+        </div>
       </main>
+
       <Footer />
     </div>
   );
