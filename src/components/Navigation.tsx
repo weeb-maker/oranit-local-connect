@@ -40,14 +40,14 @@ const Navigation = () => {
         {/* Logo */}
         <Link
           to={`/${currentLang}`}
-          className="flex items-center gap-2 font-bold text-lg text-foreground transition-smooth hover:opacity-80"
+          className="flex items-center gap-2 font-bold text-base text-foreground transition-smooth hover:opacity-80 shrink-0 whitespace-nowrap"
         >
-          <img src={logoIcon} alt="Oranit Community" className="h-[calc(var(--header-height)-8px)] w-auto" />
+          <img src={logoIcon} alt="Oranit Community" className="h-[calc(var(--header-height)-12px)] w-auto" />
           <span className="hidden sm:inline">{isRtl ? "אורנית קהילתית" : "Oranit Community"}</span>
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden lg:flex flex-1 justify-center px-6">
+        <div className="hidden lg:flex flex-1 justify-center px-2">
           <NavigationMenu>
             <NavigationMenuList className={isRtl ? "flex-row-reverse" : "flex-row"}>
               <NavigationMenuItem>
