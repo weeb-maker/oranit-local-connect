@@ -9,7 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
 import { Heart, Users, HandHeart, Search, MessageSquarePlus } from "lucide-react";
-import heroImage from "@/assets/hero-community.jpg";
+import heroImage from "@/assets/hero-residents.jpg";
 import { noticePosts, services, clubs } from "@/data/residentsData";
 
 const ResidentsPage = () => {
