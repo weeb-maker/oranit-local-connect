@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown, Languages } from "lucide-react";
 import { switchLocalePath } from "@/lib/slugMap";
-import logoIcon from "@/assets/logo-full-3b-people.png";
+import logoIcon from "@/assets/logo-icon-people.png";
 import { useCategories } from "@/hooks/useCategories";
 import {
   NavigationMenu,
@@ -42,7 +42,7 @@ const Navigation = () => {
           to={`/${currentLang}`}
           className="flex items-center gap-2 font-bold text-lg text-foreground transition-smooth hover:opacity-80"
         >
-          <img src={logoIcon} alt="Oranit Community" className="h-[calc(var(--header-height)-16px)] w-auto" />
+          <img src={logoIcon} alt="Oranit Community" className="h-[calc(var(--header-height)-8px)] w-auto" />
           <span className="hidden sm:inline">{isRtl ? "אורנית קהילתית" : "Oranit Community"}</span>
         </Link>
 
