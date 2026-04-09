@@ -40,10 +40,10 @@ const Navigation = () => {
         {/* Logo */}
         <Link
           to={`/${currentLang}`}
-          className="flex items-center gap-2 font-bold text-xl text-primary transition-smooth hover:opacity-80"
+          className="flex items-center gap-2 font-bold text-lg text-foreground transition-smooth hover:opacity-80"
         >
-          <Store className="h-6 w-6" />
-          Oranit.biz
+          <img src={logoIcon} alt="Oranit Community" className="h-8 w-8" />
+          <span className="hidden sm:inline">{isRtl ? "אורנית קהילתית" : "Oranit Community"}</span>
         </Link>
 
         {/* Desktop Navigation */}
