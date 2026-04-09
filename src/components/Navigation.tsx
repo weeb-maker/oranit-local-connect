@@ -40,19 +40,19 @@ const Navigation = () => {
         {/* Logo */}
         <Link
           to={`/${currentLang}`}
-          className="flex items-center gap-2 font-bold text-lg text-foreground transition-smooth hover:opacity-80"
+          className="flex items-center gap-2 font-bold text-base text-foreground transition-smooth hover:opacity-80 shrink-0 whitespace-nowrap"
         >
-          <img src={logoIcon} alt="Oranit Community" className="h-[calc(var(--header-height)-8px)] w-auto" />
+          <img src={logoIcon} alt="Oranit Community" className="h-[calc(var(--header-height)-12px)] w-auto" />
           <span className="hidden sm:inline">{isRtl ? "אורנית קהילתית" : "Oranit Community"}</span>
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden lg:flex flex-1 justify-center px-6">
+        <div className="hidden lg:flex flex-1 justify-center px-2">
           <NavigationMenu>
             <NavigationMenuList className={isRtl ? "flex-row-reverse" : "flex-row"}>
               <NavigationMenuItem>
                 <Link to={`/${currentLang}`}>
-                  <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-smooth hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50">
+                  <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-3 py-2 text-sm font-medium transition-smooth hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50">
                     {t("nav.home")}
                   </NavigationMenuLink>
                 </Link>
@@ -93,7 +93,7 @@ const Navigation = () => {
 
               <NavigationMenuItem>
                 <Link to={`/${currentLang}/marketplace`}>
-                  <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-smooth hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50">
+                  <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-3 py-2 text-sm font-medium transition-smooth hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50">
                     {t("nav.marketplace")}
                   </NavigationMenuLink>
                 </Link>
@@ -101,7 +101,7 @@ const Navigation = () => {
 
               <NavigationMenuItem>
                 <Link to={`/${currentLang}/real-estate`}>
-                  <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-smooth hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50">
+                  <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-3 py-2 text-sm font-medium transition-smooth hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50">
                     {t("nav.realEstate")}
                   </NavigationMenuLink>
                 </Link>
@@ -109,7 +109,7 @@ const Navigation = () => {
 
               <NavigationMenuItem>
                 <Link to={`/${currentLang}/events`}>
-                  <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-smooth hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50">
+                  <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-3 py-2 text-sm font-medium transition-smooth hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50">
                     {t("nav.whatsOn")}
                   </NavigationMenuLink>
                 </Link>
@@ -117,7 +117,7 @@ const Navigation = () => {
 
               <NavigationMenuItem>
                 <Link to={`/${currentLang}/giving`}>
-                  <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-smooth hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50">
+                  <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-3 py-2 text-sm font-medium transition-smooth hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50">
                     {t("nav.giving")}
                   </NavigationMenuLink>
                 </Link>
@@ -125,7 +125,7 @@ const Navigation = () => {
 
               <NavigationMenuItem>
                 <Link to={`/${currentLang}/residents`}>
-                  <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-smooth hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50">
+                  <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-3 py-2 text-sm font-medium transition-smooth hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50">
                     {t("nav.residents")}
                   </NavigationMenuLink>
                 </Link>
@@ -133,7 +133,7 @@ const Navigation = () => {
 
               <NavigationMenuItem>
                 <Link to={`/${currentLang}/for-businesses`}>
-                  <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-smooth hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50">
+                  <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-3 py-2 text-sm font-medium transition-smooth hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50">
                     {t("nav.forBusinesses")}
                   </NavigationMenuLink>
                 </Link>
